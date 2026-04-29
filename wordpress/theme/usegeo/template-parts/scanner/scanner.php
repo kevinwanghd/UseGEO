@@ -149,6 +149,16 @@
                             <option value="not_sure">Not sure yet</option>
                         </select>
                     </label>
+                    <label>
+                        <span>When would you realistically act on this?</span>
+                        <select name="timeline" required>
+                            <option value="">Select one</option>
+                            <option value="just_researching">Just researching</option>
+                            <option value="next_quarter">Planning in the next quarter</option>
+                            <option value="need_help_soon">Need help soon</option>
+                            <option value="not_sure_yet">Not sure yet</option>
+                        </select>
+                    </label>
                     <button type="submit" class="usegeo-report-gate__button">Get my full assessment</button>
                     <p class="usegeo-report-gate__disclosure">
                         We use your submission to personalize the assessment and follow up if needed. If you ask for outside help or request a recommendation, we may use your details to help identify a relevant GEO specialist. See our

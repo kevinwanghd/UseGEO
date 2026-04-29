@@ -678,9 +678,11 @@ function usegeo_handle_lead_capture() {
     $company_type = isset($_POST['company_type']) ? sanitize_key(wp_unslash($_POST['company_type'])) : '';
     $help_intent = isset($_POST['help_intent']) ? sanitize_key(wp_unslash($_POST['help_intent'])) : '';
     $support_level = isset($_POST['support_level']) ? sanitize_key(wp_unslash($_POST['support_level'])) : '';
+    $timeline = isset($_POST['timeline']) ? sanitize_key(wp_unslash($_POST['timeline'])) : '';
     $scanner_query = isset($_POST['scanner_query']) ? esc_url_raw(wp_unslash($_POST['scanner_query'])) : '';
     $redirect_to = isset($_POST['redirect_to']) ? esc_url_raw(wp_unslash($_POST['redirect_to'])) : home_url('/#scanner');
     $company_type_options = usegeo_get_lead_company_type_options();
+    $timeline_labels = usegeo_get_timeline_labels();
 
     if (
         !$work_email ||
@@ -689,6 +691,8 @@ function usegeo_handle_lead_capture() {
         !isset($company_type_options[$company_type]) ||
         !$help_intent ||
         !$support_level ||
+        !$timeline ||
+        !isset($timeline_labels[$timeline]) ||
         !$scanner_query
     ) {
         wp_safe_redirect(add_query_arg('lead_status', 'invalid', $redirect_to));
@@ -710,6 +714,7 @@ function usegeo_handle_lead_capture() {
     update_post_meta($post_id, 'company_type', $company_type);
     update_post_meta($post_id, 'help_intent', $help_intent);
     update_post_meta($post_id, 'support_level', $support_level);
+    update_post_meta($post_id, 'timeline', $timeline);
     update_post_meta($post_id, 'scanner_query', $scanner_query);
     update_post_meta($post_id, 'submitted_at', current_time('mysql'));
     update_post_meta($post_id, 'source', 'full_assessment_gate');
@@ -1191,6 +1196,7 @@ function usegeo_lead_admin_columns_v2($columns) {
     $columns['company_type'] = __('Company Type', 'usegeo');
     $columns['help_intent'] = __('Help Intent', 'usegeo');
     $columns['support_level'] = __('Support Level', 'usegeo');
+    $columns['timeline'] = __('Timeline', 'usegeo');
     $columns['scanner_query'] = __('Website Input', 'usegeo');
     $columns['notification_status'] = __('Notification', 'usegeo');
     $columns['notification_recipient'] = __('Recipient', 'usegeo');
@@ -1218,6 +1224,15 @@ function usegeo_get_support_level_labels() {
         'small_project'   => __('Open to a small project', 'usegeo'),
         'ongoing_support' => __('Open to ongoing support', 'usegeo'),
         'not_sure'        => __('Not sure yet', 'usegeo'),
+    );
+}
+
+function usegeo_get_timeline_labels() {
+    return array(
+        'just_researching' => __('Just researching', 'usegeo'),
+        'next_quarter'     => __('Planning in the next quarter', 'usegeo'),
+        'need_help_soon'   => __('Need help soon', 'usegeo'),
+        'not_sure_yet'     => __('Not sure yet', 'usegeo'),
     );
 }
 
@@ -1420,6 +1435,23 @@ function usegeo_render_lead_admin_column_v3($column, $post_id) {
         return;
     }
 
+    if ($column === 'timeline') {
+        $timeline = get_post_meta($post_id, 'timeline', true);
+        $timeline_labels = usegeo_get_timeline_labels();
+        $timeline_label = isset($timeline_labels[$timeline]) ? $timeline_labels[$timeline] : $timeline;
+
+        if ($timeline === 'need_help_soon') {
+            echo usegeo_render_lead_priority_badge($timeline_label, 'success');
+        } elseif ($timeline === 'next_quarter') {
+            echo usegeo_render_lead_priority_badge($timeline_label, 'info');
+        } elseif ($timeline === 'not_sure_yet') {
+            echo usegeo_render_lead_priority_badge($timeline_label, 'warn');
+        } else {
+            echo esc_html($timeline_label ?: '-');
+        }
+        return;
+    }
+
     usegeo_render_lead_admin_column_v2($column, $post_id);
 }
 add_action('manage_usegeo_lead_posts_custom_column', 'usegeo_render_lead_admin_column_v3', 10, 2);
@@ -1441,6 +1473,7 @@ function usegeo_render_lead_meta_box_v3($post) {
     $company_type = get_post_meta($post->ID, 'company_type', true);
     $help_intent = get_post_meta($post->ID, 'help_intent', true);
     $support_level = get_post_meta($post->ID, 'support_level', true);
+    $timeline = get_post_meta($post->ID, 'timeline', true);
     $scanner_query = get_post_meta($post->ID, 'scanner_query', true);
     $submitted_at = get_post_meta($post->ID, 'submitted_at', true);
     $source = get_post_meta($post->ID, 'source', true);
@@ -1450,9 +1483,11 @@ function usegeo_render_lead_meta_box_v3($post) {
     $company_type_options = usegeo_get_lead_company_type_options();
     $help_intent_labels = usegeo_get_help_intent_labels();
     $support_level_labels = usegeo_get_support_level_labels();
+    $timeline_labels = usegeo_get_timeline_labels();
     $company_type_label = isset($company_type_options[$company_type]) ? $company_type_options[$company_type] : $company_type;
     $help_intent_label = isset($help_intent_labels[$help_intent]) ? $help_intent_labels[$help_intent] : $help_intent;
     $support_level_label = isset($support_level_labels[$support_level]) ? $support_level_labels[$support_level] : $support_level;
+    $timeline_label = isset($timeline_labels[$timeline]) ? $timeline_labels[$timeline] : $timeline;
     ?>
     <table class="form-table" role="presentation">
         <tbody>
@@ -1490,6 +1525,22 @@ function usegeo_render_lead_meta_box_v3($post) {
                         echo usegeo_render_lead_priority_badge($support_level_label, 'warn');
                     } else {
                         echo esc_html($support_level_label ?: '-');
+                    }
+                    ?>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('Timeline', 'usegeo'); ?></th>
+                <td>
+                    <?php
+                    if ($timeline === 'need_help_soon') {
+                        echo usegeo_render_lead_priority_badge($timeline_label, 'success');
+                    } elseif ($timeline === 'next_quarter') {
+                        echo usegeo_render_lead_priority_badge($timeline_label, 'info');
+                    } elseif ($timeline === 'not_sure_yet') {
+                        echo usegeo_render_lead_priority_badge($timeline_label, 'warn');
+                    } else {
+                        echo esc_html($timeline_label ?: '-');
                     }
                     ?>
                 </td>
