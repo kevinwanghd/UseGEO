@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UseGEO 社区首页设计稿</title>
+  <style>
+    :root {
+      --bg: #f5f8fc;
+      --paper: #ffffff;
+      --line: #d9e2f0;
+      --ink: #16202f;
+      --muted: #5d6878;
+      --blue: #0f62fe;
+      --blue-deep: #0c43b5;
+      --orange: #ff6b00;
+      --orange-soft: #fff1e7;
+      --blue-soft: #eef4ff;
+      --shadow: 0 18px 40px rgba(15, 98, 254, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --shell: 1180px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(15, 98, 254, 0.08), transparent 28%),
+        linear-gradient(180deg, #fbfdff 0%, var(--bg) 100%);
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .shell { width: min(calc(100% - 32px), var(--shell)); margin: 0 auto; }
+    .site-header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); background: rgba(245, 248, 252, 0.82); border-bottom: 1px solid rgba(217, 226, 240, 0.85); }
+    .site-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; }
+    .logo { font-weight: 800; letter-spacing: -0.02em; }
+    .nav { display: flex; gap: 18px; color: var(--muted); font-size: 14px; font-weight: 600; }
+    .nav a:hover { color: var(--blue); }
+    .top-cta { padding: 11px 16px; border-radius: 999px; background: var(--orange); color: #fff; font-size: 14px; font-weight: 700; box-shadow: 0 10px 24px rgba(255, 107, 0, 0.22); }
+    main { padding: 26px 0 56px; }
+    section { margin: 22px 0; }
+    .card { border: 1px solid var(--line); border-radius: var(--radius-xl); background: rgba(255,255,255,0.96); box-shadow: var(--shadow); }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr); gap: 28px; padding: 38px; background: radial-gradient(circle at top right, rgba(15,98,254,0.13), transparent 30%), linear-gradient(135deg, #ffffff 0%, #f4f8ff 100%); }
+    .eyebrow { display: inline-flex; padding: 7px 12px; border-radius: 999px; background: var(--blue-soft); color: var(--blue-deep); font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+    h1 { margin: 16px 0 14px; max-width: 11ch; font-size: clamp(2.8rem, 5vw, 4.8rem); line-height: 1.04; letter-spacing: -0.05em; }
+    .lead { margin: 0; max-width: 58ch; color: var(--muted); font-size: 18px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 18px; border-radius: 14px; font-weight: 700; }
+    .btn--primary { background: var(--blue); color: #fff; }
+    .btn--ghost { border: 1px solid rgba(15,98,254,0.15); background: #fff; color: var(--blue-deep); }
+    .hero-note { display: grid; gap: 6px; margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .hero-note strong { font-size: 15px; }
+    .hero-note span { color: var(--muted); font-size: 14px; }
+    .hero-panel { display: grid; gap: 14px; }
+    .panel-card, .mini-card { border: 1px solid rgba(15,98,254,0.12); border-radius: 20px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 26px rgba(22,32,47,0.05); }
+    .panel-card { padding: 22px; }
+    .panel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .mini-card { padding: 16px; }
+    .mini-label, .panel-label { color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+    .panel-card strong, .mini-card strong { display: block; margin-top: 8px; font-size: 2rem; line-height: 1; }
+    .panel-card p, .mini-card p { margin: 10px 0 0; color: var(--muted); font-size: 14px; }
+    .section-head { display: grid; gap: 8px; margin-bottom: 20px; }
+    .section-head--center { text-align: center; justify-items: center; }
+    .section-head h2 { margin: 0; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.15; letter-spacing: -0.03em; }
+    .section-head p { margin: 0; max-width: 68ch; color: var(--muted); }
+    .value-grid, .learning-grid, .articles-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .value-card, .learning-card, .article-card { padding: 24px; }
+    .index-badge, .step-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; height: 42px; padding: 0 12px; border-radius: 999px; background: var(--blue-soft); color: var(--blue-deep); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 18px; }
+    .value-card h3, .learning-card h3, .article-card h3 { margin: 0 0 10px; line-height: 1.25; }
+    .value-card p, .learning-card p, .article-card p { margin: 0; color: var(--muted); }
+    .article-intro { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+    .chip { display: inline-flex; align-items: center; padding: 7px 10px; border-radius: 999px; background: var(--blue-soft); color: var(--blue-deep); font-size: 12px; font-weight: 700; }
+    .article-meta { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+    .tag { display: inline-flex; padding: 7px 10px; border-radius: 999px; background: var(--blue-soft); color: var(--blue-deep); font-size: 12px; font-weight: 700; }
+    .time { color: var(--muted); font-size: 12px; font-weight: 700; }
+    .article-card h3 { min-height: 3.8em; }
+    .article-card p { min-height: 4.8em; }
+    .article-link { color: var(--blue); font-size: 14px; font-weight: 700; }
+    .tool-block { display: grid; gap: 18px; padding: 28px; }
+    .tool-top { display: grid; gap: 8px; }
+    .tool-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; }
+    .tool-row input { width: 100%; min-height: 56px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; font: inherit; }
+    .tool-row button { min-width: 150px; border: 0; border-radius: 14px; background: var(--orange); color: #fff; font-weight: 800; }
+    .tool-preview { display: grid; grid-template-columns: 260px 1fr; gap: 18px; }
+    .score-card, .insight-card { padding: 22px; border-radius: 20px; border: 1px solid var(--line); background: #fff; }
+    .score-card { background: linear-gradient(135deg, #edf4ff 0%, #ffffff 100%); }
+    .score-card strong { display: block; margin-top: 10px; font-size: 3rem; line-height: 1; }
+    .score-card small { color: var(--blue-deep); font-size: 14px; font-weight: 700; }
+    .bars { display: grid; gap: 14px; }
+    .bar { display: grid; gap: 8px; }
+    .bar span { color: var(--muted); font-size: 14px; font-weight: 700; }
+    .track { height: 10px; overflow: hidden; border-radius: 999px; background: #edf1f5; }
+    .fill { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--blue) 0%, #6da4ff 100%); }
+    .gate { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr); gap: 20px; padding: 22px; border-radius: 22px; border: 1px solid rgba(255,107,0,0.18); background: linear-gradient(135deg, var(--orange-soft) 0%, #ffffff 100%); }
+    .gate h3 { margin: 0 0 12px; font-size: 24px; line-height: 1.2; }
+    .gate ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    .gate-form { display: grid; gap: 12px; }
+    .gate-form label { display: grid; gap: 8px; color: var(--muted); font-size: 14px; font-weight: 700; }
+    .gate-form input { min-height: 50px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; font: inherit; }
+    .gate-form button { min-height: 52px; border: 0; border-radius: 14px; background: var(--orange); color: #fff; font-weight: 800; }
+    .roi-block { padding: 28px; }
+    .roi-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
+    .roi-grid label { display: grid; gap: 8px; color: var(--muted); font-size: 14px; font-weight: 700; }
+    .roi-grid input { min-height: 50px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; font: inherit; }
+    .roi-result { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 18px; }
+    .roi-metric { padding: 20px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+    .roi-metric span { color: var(--muted); font-size: 14px; }
+    .roi-metric strong { display: block; margin-top: 10px; font-size: 2.2rem; line-height: 1; }
+    .roi-cta { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 20px; padding: 20px; border: 1px solid rgba(15,98,254,0.12); border-radius: 18px; background: linear-gradient(135deg, #f6faff 0%, #ffffff 100%); }
+    .roi-cta p { margin: 0; color: var(--muted); }
+    .community-block { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr); gap: 22px; padding: 28px; background: radial-gradient(circle at top right, rgba(255,107,0,0.12), transparent 28%), linear-gradient(135deg, #fffdf9 0%, #fff7ef 100%); }
+    .community-copy h2 { margin: 0 0 12px; font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.12; }
+    .community-copy p { margin: 0; color: var(--muted); }
+    .community-copy ul { margin: 16px 0 0; padding-left: 18px; color: var(--muted); }
+    .community-side { display: grid; gap: 14px; }
+    .community-box { padding: 18px; border: 1px solid rgba(255,107,0,0.16); border-radius: 18px; background: rgba(255,255,255,0.88); }
+    .community-box strong { display: block; margin-top: 8px; font-size: 1.4rem; line-height: 1.2; }
+    .community-box p { margin: 10px 0 0; color: var(--muted); font-size: 14px; }
+    .community-box .btn { margin-top: 14px; width: 100%; }
+    footer { padding: 28px 0 44px; color: var(--muted); }
+    .footer-card { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; padding: 24px 28px; }
+    .footer-brand strong { color: var(--ink); }
+    .footer-nav { display: flex; gap: 16px; flex-wrap: wrap; font-size: 14px; font-weight: 600; }
+    @media (max-width: 980px) {
+      .hero, .tool-preview, .gate, .community-block, .value-grid, .learning-grid, .articles-grid, .roi-grid, .roi-result { grid-template-columns: 1fr; }
+      .panel-grid { grid-template-columns: 1fr; }
+      .roi-cta, .footer-card { flex-direction: column; align-items: flex-start; }
+      h1 { max-width: none; font-size: clamp(2.4rem, 9vw, 3.6rem); }
+      .hero { padding: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <div class="logo">usegeo.blog</div>
+      <nav class="nav">
+        <a href="#content">学习内容</a>
+        <a href="#scanner">品牌诊断</a>
+        <a href="#community">社区共建</a>
+      </nav>
+      <a class="top-cta" href="#scanner">获取深度报告</a>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="hero card">
+      <div>
+        <span class="eyebrow">GEO Learning Blog for B2B Teams</span>
+        <h1>AI 时代，B2B 品牌该如何做好 GEO？</h1>
+        <p class="lead">UseGEO 是一个面向 B2B 团队的 GEO 学习与实践 blog，帮助你理解 AI 推荐机制、内容信号建设和增长机会。</p>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#content">开始学习 GEO</a>
+          <a class="btn btn--ghost" href="#scanner">做一次品牌诊断</a>
+        </div>
+        <div class="hero-note">
+          <strong>学习优先，诊断其次</strong>
+          <span>你可以先系统了解 GEO，再决定是否做品牌诊断、内容优化或更深入的增长动作。</span>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <div class="panel-card">
+          <span class="panel-label">Learning Path</span>
+          <strong>3 Steps</strong>
+          <p>先理解 GEO，再看内容信号，最后决定是否做品牌诊断。</p>
+        </div>
+        <div class="panel-grid">
+          <div class="mini-card"><span class="mini-label">Step 1</span><strong>Learn</strong></div>
+          <div class="mini-card"><span class="mini-label">Step 2</span><strong>Assess</strong></div>
+          <div class="mini-card"><span class="mini-label">Step 3</span><strong>Act</strong></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card" style="padding:28px;">
+      <div class="section-head section-head--center">
+        <h2>为什么现在就该开始学 GEO？</h2>
+        <p>搜索入口正在变化，品牌是否会进入 AI 推荐结果，正在越来越直接地影响 B2B 内容增长和获客效率。</p>
+      </div>
+      <div class="value-grid">
+        <article class="value-card card"><span class="index-badge">01</span><h3>搜索入口正在变化</h3><p>客户越来越多地直接向 ChatGPT、Claude、Perplexity 和 Gemini 提问，而不是先点开十个搜索结果。</p></article>
+        <article class="value-card card"><span class="index-badge">02</span><h3>品牌可能存在，但不被推荐</h3><p>你的网站可能可以被索引，但仍然不一定会进入 AI 生成答案或推荐语境。</p></article>
+        <article class="value-card card"><span class="index-badge">03</span><h3>内容结构开始影响获客</h3><p>品牌页、解决方案页、案例页和竞品对比页，正在成为 AI 理解你的关键内容信号。</p></article>
+      </div>
+    </section>
+
+    <section class="card" style="padding:28px;">
+      <div class="section-head section-head--center">
+        <h2>从入门理解，到可执行方法，再到业务落地</h2>
+        <p>如果你刚开始接触 GEO，最有效的方法不是一下子做很多动作，而是先建立一个清晰的学习路径。</p>
+      </div>
+      <div class="learning-grid">
+        <article class="learning-card card"><span class="step-badge">Step 1</span><h3>GEO 基础认知</h3><p>理解 GEO 是什么、和 SEO 有什么不同、为什么会影响 B2B 品牌可见性。</p></article>
+        <article class="learning-card card"><span class="step-badge">Step 2</span><h3>内容结构与页面策略</h3><p>学习哪些页面最重要，为什么对比页、解决方案页和案例页会影响 AI 推荐。</p></article>
+        <article class="learning-card card"><span class="step-badge">Step 3</span><h3>案例、ROI 与执行</h3><p>用更接近业务决策的方式理解 GEO：从内容自动化到商业回报，再到实际增长动作。</p></article>
+      </div>
+    </section>
+
+    <section id="content" class="card" style="padding:28px;">
+      <div class="section-head">
+        <h2>从这些文章开始建立 GEO 认知框架</h2>
+        <p>这些内容适合作为你的第一轮 GEO 学习路径，帮助你判断品牌当前的 AI 可见性问题、内容结构机会和后续动作优先级。</p>
+      </div>
+      <div class="article-intro">
+        <span class="chip">适合 GEO 入门</span>
+        <span class="chip">适合 SEO / 内容负责人补 AI 认知</span>
+        <span class="chip">适合增长负责人评估商业价值</span>
+      </div>
+      <div class="articles-grid">
+        <article class="article-card card"><div class="article-meta"><span class="tag">GEO</span><span class="time">5 min read</span></div><h3>AI 时代，为什么你的品牌会在推荐结果中“消失”？</h3><p>很多 B2B 品牌并不是没有内容，而是没有形成足够清晰、足够结构化、可被 AI 理解的内容信号。</p><a class="article-link" href="#">阅读文章</a></article>
+        <article class="article-card card"><div class="article-meta"><span class="tag">GEO</span><span class="time">4 min read</span></div><h3>GEO 和 SEO 到底有什么不同？</h3><p>SEO 关注被找到，GEO 更关注是否会被纳入答案。两者有重叠，但不是同一件事。</p><a class="article-link" href="#">阅读文章</a></article>
+        <article class="article-card card"><div class="article-meta"><span class="tag">Case Strategy</span><span class="time">6 min read</span></div><h3>为什么竞品对比页是 GEO 的高价值内容资产</h3><p>比较型页面天然接近购买决策，也更容易成为 AI 组织推荐答案时的内容来源。</p><a class="article-link" href="#">阅读文章</a></article>
+      </div>
+    </section>
+
+    <section id="scanner" class="tool-block card">
+      <div class="tool-top">
+        <div class="section-head">
+          <h2>学完之后，先做一次快速诊断</h2>
+          <p>如果你已经理解 GEO 的基本逻辑，下一步最值得做的不是立刻重投入，而是先判断你的品牌是否具备基本 AI 可见性。</p>
+        </div>
+        <div class="tool-row">
+          <input placeholder="输入品牌名称或核心业务关键词">
+          <button>立即诊断</button>
+        </div>
+      </div>
+      <div class="tool-preview">
+        <div class="score-card"><span class="panel-label">AI Visibility Score</span><strong>72</strong><small>中等可见性</small></div>
+        <div class="insight-card">
+          <div class="bars">
+            <div class="bar"><span>内容信号完整度</span><div class="track"><i class="fill" style="width:72%"></i></div></div>
+            <div class="bar"><span>品牌提及概率</span><div class="track"><i class="fill" style="width:68%"></i></div></div>
+            <div class="bar"><span>竞品对比优势</span><div class="track"><i class="fill" style="width:61%"></i></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="gate">
+        <div>
+          <h3>获取品牌 AI 可见性深度报告</h3>
+          <ul>
+            <li>含 5 个核心竞品 AI 可见性差距</li>
+            <li>识别优先补强的内容信号缺口</li>
+            <li>获得下一步可执行优化建议</li>
+          </ul>
+        </div>
+        <form class="gate-form">
+          <label>企业邮箱<input placeholder="name@company.com"></label>
+          <label>职位<input placeholder="市场负责人 / SEO 负责人"></label>
+          <button>解锁深度报告</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="roi-block card">
+      <div class="section-head">
+        <h2>再用 ROI 视角判断这件事值不值得做</h2>
+        <p>GEO 不只是内容问题，也是资源配置问题。先看自动化内容增长是否具备足够明确的业务回报空间。</p>
+      </div>
+      <div class="roi-grid">
+        <label>每月文章数<input value="20"></label>
+        <label>单篇获客成本<input value="300"></label>
+        <label>平均客单价<input value="5000"></label>
+      </div>
+      <div class="roi-result">
+        <div class="roi-metric"><span>边际成本降低率</span><strong>40%</strong></div>
+        <div class="roi-metric"><span>预期 ROI</span><strong>233%</strong></div>
+      </div>
+      <div class="roi-cta">
+        <p>如果你已经看到内容自动化的财务空间，下一步应该验证品牌在 AI 推荐环境中的真实可见性。</p>
+        <a class="btn btn--primary" href="#scanner">下一步：做品牌 AI 诊断</a>
+      </div>
+    </section>
+
+    <section id="community" class="community-block card">
+      <div class="community-copy">
+        <h2>参与共建 GEO 案例库</h2>
+        <p>UseGEO 不只想做一个学习 blog。我们希望逐步把真实的 GEO 实践、案例和经验沉淀成一个可共享的知识协作网络。</p>
+        <ul>
+          <li>提交你的 GEO 实践案例</li>
+          <li>贡献你观察到的页面结构和优化动作</li>
+          <li>帮助更多 B2B 团队理解 AI 推荐环境里的真实机会</li>
+        </ul>
+      </div>
+      <div class="community-side">
+        <div class="community-box">
+          <span class="panel-label">Community MVP</span>
+          <strong>从案例贡献开始</strong>
+          <p>第一阶段不做论坛，先做结构化案例贡献。平台负责筛选、整理、精选，再沉淀成更高质量的 GEO 知识资产。</p>
+          <a class="btn btn--primary" href="#">提交你的 GEO 实践</a>
+        </div>
+        <div class="community-box">
+          <span class="panel-label">What You Contribute</span>
+          <strong>问题、动作、结果、经验</strong>
+          <p>你贡献的是实践原始经验，平台输出的是结构化知识、案例卡片和最佳实践内容。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-card card">
+      <div class="footer-brand">
+        <strong>usegeo.blog</strong>
+        <p>UseGEO 是一个面向 B2B 企业团队的 GEO 学习与实践项目，帮助品牌理解自己在 AI 推荐环境中的可见性、内容信号和增长机会。</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="#">About</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
