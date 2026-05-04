@@ -22,7 +22,7 @@ Before touching staging, confirm the local package includes:
 - community case submission flow
 - backend custom post types:
   - `usegeo_lead`
-  - `usegeo_case_submission`
+  - `usegeo_case`
 
 ## L3. Prepare Staging WordPress
 

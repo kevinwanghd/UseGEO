@@ -86,7 +86,7 @@ function usegeo_register_post_types() {
         'show_in_rest'        => false,
     ));
 
-    register_post_type('usegeo_case_submission', array(
+    register_post_type('usegeo_case', array(
         'labels' => array(
             'name'          => __('UseGEO Case Submissions', 'usegeo'),
             'singular_name' => __('UseGEO Case Submission', 'usegeo'),
@@ -107,102 +107,6 @@ function usegeo_register_post_types() {
     ));
 }
 add_action('init', 'usegeo_register_post_types');
-
-function usegeo_seed_local_demo_posts() {
-    $site_url = home_url('/');
-
-    if (strpos($site_url, 'usegeo-local.local') === false) {
-        return;
-    }
-
-    if (get_option('usegeo_seed_demo_posts_v1') === 'done') {
-        return;
-    }
-
-    $category = term_exists('GEO', 'category');
-    if (!$category) {
-        $category = wp_insert_term('GEO', 'category', array(
-            'slug' => 'geo',
-        ));
-    }
-
-    $category_id = 0;
-    if (is_array($category) && isset($category['term_id'])) {
-        $category_id = (int) $category['term_id'];
-    } elseif (is_array($category) && isset($category['term_taxonomy_id'])) {
-        $category_id = (int) $category['term_taxonomy_id'];
-    } elseif (is_numeric($category)) {
-        $category_id = (int) $category;
-    }
-
-    $posts = array(
-        array(
-            'title'   => 'AI 时代，为什么你的品牌会在推荐结果中“消失”？',
-            'slug'    => 'why-brands-disappear-in-ai-results',
-            'excerpt' => '很多 B2B 品牌并不是没有内容，而是没有形成足够清晰、足够结构化、足够可被 AI 理解的内容信号。',
-            'content' => '<p>过去几年，大多数品牌做内容的逻辑都很一致：围绕搜索需求布局关键词，争取搜索结果里的曝光，然后把流量导进官网、落地页和销售漏斗。</p><p>但 AI 时代改变了一件关键的事：客户不一定先看到搜索结果页，再点进你的网站；他们可能直接在 ChatGPT、Claude、Perplexity 或 Gemini 里得到一个“总结好的答案”。在这个过程中，品牌是否会被提到，取决于模型能不能从已有内容里识别出你的品牌、理解你的业务定位，并把你放进合适的比较语境里。</p><p>很多品牌会出现一个新的现象：搜索里还能找到自己，但 AI 推荐里几乎“消失”了。这个“消失”通常不是因为你完全没有内容，而是因为你的内容没有形成 AI 可消费的信号。</p><h2>常见原因</h2><ul><li>品牌介绍页太弱，只会说空泛价值，不会清晰定义你是谁、解决什么问题</li><li>解决方案页不完整，缺少明确的场景、对象和使用方式</li><li>没有对比页，导致模型在回答“谁和谁有什么区别”时找不到可引用材料</li><li>案例内容太少，无法提供可信的业务证据</li><li>内容分散在博客、落地页、PDF 和外部平台，缺少统一的结构化表达</li></ul><p>在搜索引擎时代，这些问题可能只是影响排名效率；但在 AI 推荐时代，它们会直接影响模型是否有足够把握提到你。</p><p><strong>如果你想快速判断自己的品牌是否已经具备基本的 AI 可见性，可以先回到首页，使用品牌 AI 曝光度诊断器做一次初步检查。</strong></p>',
-        ),
-        array(
-            'title'   => 'GEO 和 SEO 到底有什么不同？',
-            'slug'    => 'geo-vs-seo',
-            'excerpt' => 'SEO 关注搜索引擎抓取、索引和排名，GEO 关注品牌在生成式推荐环境中的提及、引用和表达质量。',
-            'content' => '<p>很多人在第一次听到 GEO 的时候，第一反应是：这是不是就是 SEO 换了个说法？这个理解不完全错，但也不对。</p><p>SEO 解决的是一个经典问题：如何让搜索引擎更容易发现你的内容、理解你的页面主题，并把你排在更前的位置。GEO 关注的问题更进一步：当用户直接向 AI 提问时，你会不会被提到？当模型总结某个领域时，你会不会成为候选答案？</p><h2>核心区别</h2><ul><li>SEO 更像争取被展示</li><li>GEO 更像争取被纳入答案</li><li>SEO 看重排名和点击</li><li>GEO 看重提及、引用和推荐语境</li></ul><p>两者当然有重叠，但在 B2B 场景里，GEO 会更强调：页面是否能清晰定义品牌和解决方案，是否存在可比较的竞品对比内容，内容是否形成系统性的知识网络，而不是零散文章。</p><p><strong>如果你想知道自己当前更像是“有 SEO、没 GEO”，还是已经具备初步 AI 可见性，可以直接使用首页的品牌 AI 曝光度诊断器做一次快速判断。</strong></p>',
-        ),
-        array(
-            'title'   => '为什么竞品对比页是 GEO 的高价值内容资产',
-            'slug'    => 'why-comparison-pages-matter-for-geo',
-            'excerpt' => '竞品对比页天然具备品牌实体、比较语境和决策信号，容易成为模型组织答案的材料来源。',
-            'content' => '<p>B2B 客户很少只问“这是什么”。他们更常问的是：这个产品和另一个产品有什么区别？谁更适合我们？我们应该选 A 还是 B？</p><p>在生成式推荐时代，这类问题反而变得更频繁。用户面对 AI 时，会自然地用更接近对话的方式提问，这正是竞品对比页价值被重新放大的原因。</p><h2>为什么重要</h2><ul><li>页面同时包含你的品牌和竞品品牌，模型容易识别比较关系</li><li>如果页面说明“什么团队适合谁”，更容易进入推荐答案</li><li>功能表、适用对象、价格区间、部署方式等结构化信号更容易被抽取</li><li>比较型页面天然接近购买决策，比普通博客文章更接近真实转化</li></ul><p>一个真正有 GEO 价值的竞品对比页，应该做到：明确比较对象、明确适用团队、明确差异点、明确推荐逻辑、明确你为什么更适合某类用户。</p><p><strong>如果你想知道自己的品牌是否已经具备足够的比较型内容信号，可以先用首页的品牌 AI 曝光度诊断器做一次初步评估。</strong></p>',
-        ),
-        array(
-            'title'   => '你的内容很多，为什么 AI 还是不推荐你？',
-            'slug'    => 'why-ai-still-does-not-recommend-you',
-            'excerpt' => '内容多，不代表内容有效。很多品牌拥有博客、白皮书、落地页和案例，但这些内容没有形成清晰的品牌表达和结构化信号。',
-            'content' => '<p>很多团队在讨论 GEO 的时候，最常见的一句困惑是：我们已经写了很多内容，为什么 AI 还是不提我们？</p><p>这个问题很现实。你可能已经有很多博客文章、官网多个落地页、若干案例，甚至还做过 SEO。但这些资产的存在，并不自动等于你已经具备了 AI 可见性。</p><h2>常见结构问题</h2><ul><li>内容主题分散，文章彼此之间缺少统一结构</li><li>品牌表达不清，首页、About、功能页说法不一致</li><li>页面类型不完整，缺品牌页、解决方案页、对比页或案例页</li><li>单篇文章回答小问题，但无法支撑完整业务场景</li><li>案例和证据太弱，难以形成高置信度推荐</li></ul><p>AI 推荐需要的不是“内容总量”，而是“可被理解和复述的内容结构”。这也是为什么很多品牌在内容上投入不少，但 AI 推荐中依然存在感很弱。</p><p><strong>如果你想先判断自己的内容到底是“多但无效”，还是“已经有 GEO 基础”，可以先用首页的品牌 AI 曝光度诊断器做一次快速检查。</strong></p>',
-        ),
-        array(
-            'title'   => '如何用 30 分钟判断品牌有没有 GEO 机会',
-            'slug'    => 'how-to-evaluate-geo-opportunity-in-30-minutes',
-            'excerpt' => '在重投入之前，品牌完全可以先用一个轻量流程判断 GEO 是否值得做。',
-            'content' => '<p>很多团队一听到 GEO，会马上把它想得很重：要不要上新工具？要不要接大模型 API？要不要重做整个内容体系？其实在大多数情况下，你完全可以先用 30 分钟做一个轻量判断。</p><h2>30 分钟检查法</h2><ol><li>看首页是否能清楚回答“你是谁、解决什么问题、适合谁”</li><li>看有没有核心解决方案页</li><li>看有没有比较型内容</li><li>看有没有案例和证据</li><li>做一次初步诊断</li></ol><p>通过这 5 步，你通常可以把品牌分成三类：基础很弱、有基础但结构不完整、基础较好。对大多数团队来说，这个检查的价值不是完美判断，而是避免在没搞清问题之前过度投入。</p><p><strong>如果你想立即做这 30 分钟检查里的最后一步，现在就可以回到首页，使用品牌 AI 曝光度诊断器做一次快速评估。</strong></p>',
-        ),
-        array(
-            'title'   => '内容自动化为什么会成为 GEO 的增长杠杆',
-            'slug'    => 'why-content-automation-is-a-geo-growth-lever',
-            'excerpt' => 'GEO 不只是可见性问题，也是内容生产效率问题。品牌要持续构建可被推荐的内容网络，就必须解决内容密度和边际成本。',
-            'content' => '<p>很多团队在讨论 GEO 的时候，会先把注意力放在“模型会不会推荐我”。但真正进入执行阶段后，很快就会遇到另一个问题：即使知道该做什么，我们有没有能力持续把这些内容做出来？</p><p>这就是为什么内容自动化会成为 GEO 的关键杠杆。GEO 并不只依赖一两篇文章，它更依赖一个逐步成形的内容网络，包括品牌介绍页、解决方案页、行业页、场景页、竞品对比页、案例页和方法论文章。</p><h2>自动化真正的价值</h2><ul><li>更快形成页面矩阵</li><li>更快覆盖核心场景</li><li>更快补足品牌与比较信号</li><li>更低成本地建设可被推荐的内容结构</li></ul><p>真正有效的方式通常是：人工确定优先级和结构，自动化帮助提高生产效率，最终仍由人控制质量和业务表达。</p><p><strong>如果你想快速评估内容自动化可能带来的商业空间，可以先用首页的 AIGC 营销内容 ROI 试算器做一次基础测算，再回到品牌 AI 曝光度诊断器看你的品牌可见性基础。</strong></p>',
-        ),
-    );
-
-    foreach ($posts as $post) {
-        $existing_post = get_page_by_path($post['slug'], OBJECT, 'post');
-        $postarr = array(
-            'post_title'   => $post['title'],
-            'post_name'    => $post['slug'],
-            'post_excerpt' => $post['excerpt'],
-            'post_content' => $post['content'],
-            'post_status'  => 'publish',
-            'post_type'    => 'post',
-        );
-
-        if ($category_id) {
-            $postarr['post_category'] = array($category_id);
-        }
-
-        if ($existing_post instanceof WP_Post) {
-            $postarr['ID'] = $existing_post->ID;
-            wp_update_post($postarr);
-            continue;
-        }
-
-        wp_insert_post($postarr);
-    }
-
-    update_option('usegeo_seed_demo_posts_v1', 'done');
-}
-add_action('init', 'usegeo_seed_local_demo_posts', 20);
-
-remove_action('init', 'usegeo_seed_local_demo_posts', 20);
 
 function usegeo_seed_local_demo_posts_v2() {
     $site_url = home_url('/');
@@ -764,7 +668,7 @@ function usegeo_handle_case_submission() {
     ));
 
     $post_id = wp_insert_post(array(
-        'post_type'   => 'usegeo_case_submission',
+        'post_type'   => 'usegeo_case',
         'post_status' => 'publish',
         'post_title'  => implode(' - ', $title_parts) . ' - ' . current_time('mysql'),
     ), true);
@@ -879,133 +783,6 @@ function usegeo_get_card_excerpt($post_id = 0, $word_limit = 18) {
     return wp_trim_words($source, $word_limit);
 }
 
-function usegeo_lead_admin_columns($columns) {
-    $date = isset($columns['date']) ? $columns['date'] : '';
-
-    unset($columns['date']);
-
-    $columns['work_email'] = __('Work Email', 'usegeo');
-    $columns['job_title'] = __('Job Title', 'usegeo');
-    $columns['scanner_query'] = __('Scanner Query', 'usegeo');
-    $columns['notification_status'] = __('Notification', 'usegeo');
-    $columns['notification_recipient'] = __('Recipient', 'usegeo');
-
-    if ($date) {
-        $columns['date'] = $date;
-    }
-
-    return $columns;
-}
-add_filter('manage_usegeo_lead_posts_columns', 'usegeo_lead_admin_columns');
-add_filter('manage_edit-usegeo_lead_columns', 'usegeo_lead_admin_columns');
-
-function usegeo_render_lead_admin_column($column, $post_id) {
-    switch ($column) {
-        case 'work_email':
-            echo esc_html(get_post_meta($post_id, 'work_email', true) ?: '—');
-            break;
-
-        case 'job_title':
-            echo esc_html(get_post_meta($post_id, 'job_title', true) ?: '—');
-            break;
-
-        case 'scanner_query':
-            echo esc_html(get_post_meta($post_id, 'scanner_query', true) ?: '—');
-            break;
-
-        case 'notification_status':
-            $sent = get_post_meta($post_id, 'notification_sent', true);
-            $error = get_post_meta($post_id, 'notification_error', true);
-
-            if ($sent === 'yes') {
-                echo '<span style="color:#15803d;font-weight:700;">sent</span>';
-            } elseif ($error) {
-                echo '<span style="color:#b91c1c;font-weight:700;">failed</span><br>';
-                echo '<span style="color:#6b7280;">' . esc_html($error) . '</span>';
-            } else {
-                echo '<span style="color:#92400e;font-weight:700;">not sent</span>';
-            }
-            break;
-
-        case 'notification_recipient':
-            echo esc_html(get_post_meta($post_id, 'notification_recipient', true) ?: '—');
-            break;
-    }
-}
-add_action('manage_usegeo_lead_posts_custom_column', 'usegeo_render_lead_admin_column', 10, 2);
-add_action('manage_posts_custom_column', 'usegeo_render_lead_admin_column', 10, 2);
-
-function usegeo_register_lead_meta_box() {
-    add_meta_box(
-        'usegeo-lead-details',
-        __('Lead Details', 'usegeo'),
-        'usegeo_render_lead_meta_box',
-        'usegeo_lead',
-        'normal',
-        'high'
-    );
-}
-add_action('add_meta_boxes', 'usegeo_register_lead_meta_box');
-
-function usegeo_render_lead_meta_box($post) {
-    $work_email = get_post_meta($post->ID, 'work_email', true);
-    $job_title = get_post_meta($post->ID, 'job_title', true);
-    $scanner_query = get_post_meta($post->ID, 'scanner_query', true);
-    $submitted_at = get_post_meta($post->ID, 'submitted_at', true);
-    $source = get_post_meta($post->ID, 'source', true);
-    $notification_sent = get_post_meta($post->ID, 'notification_sent', true);
-    $notification_recipient = get_post_meta($post->ID, 'notification_recipient', true);
-    $notification_error = get_post_meta($post->ID, 'notification_error', true);
-    ?>
-    <table class="form-table" role="presentation">
-        <tbody>
-            <tr>
-                <th scope="row"><?php esc_html_e('Work Email', 'usegeo'); ?></th>
-                <td><?php echo esc_html($work_email ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Job Title', 'usegeo'); ?></th>
-                <td><?php echo esc_html($job_title ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Scanner Query', 'usegeo'); ?></th>
-                <td><?php echo esc_html($scanner_query ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Submitted At', 'usegeo'); ?></th>
-                <td><?php echo esc_html($submitted_at ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Source', 'usegeo'); ?></th>
-                <td><?php echo esc_html($source ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Notification Status', 'usegeo'); ?></th>
-                <td>
-                    <?php
-                    if ($notification_sent === 'yes') {
-                        echo '<strong style="color:#15803d;">sent</strong>';
-                    } elseif ($notification_error) {
-                        echo '<strong style="color:#b91c1c;">failed</strong>';
-                    } else {
-                        echo '<strong style="color:#92400e;">not sent</strong>';
-                    }
-                    ?>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Notification Recipient', 'usegeo'); ?></th>
-                <td><?php echo esc_html($notification_recipient ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Notification Error', 'usegeo'); ?></th>
-                <td><?php echo esc_html($notification_error ?: '—'); ?></td>
-            </tr>
-        </tbody>
-    </table>
-    <?php
-}
-
 function usegeo_case_submission_admin_columns($columns) {
     $date = isset($columns['date']) ? $columns['date'] : '';
 
@@ -1024,8 +801,8 @@ function usegeo_case_submission_admin_columns($columns) {
 
     return $columns;
 }
-add_filter('manage_usegeo_case_submission_posts_columns', 'usegeo_case_submission_admin_columns');
-add_filter('manage_edit-usegeo_case_submission_columns', 'usegeo_case_submission_admin_columns');
+add_filter('manage_usegeo_case_posts_columns', 'usegeo_case_submission_admin_columns');
+add_filter('manage_edit-usegeo_case_columns', 'usegeo_case_submission_admin_columns');
 
 function usegeo_render_case_submission_admin_column($column, $post_id) {
     switch ($column) {
@@ -1058,14 +835,14 @@ function usegeo_render_case_submission_admin_column($column, $post_id) {
             break;
     }
 }
-add_action('manage_usegeo_case_submission_posts_custom_column', 'usegeo_render_case_submission_admin_column', 10, 2);
+add_action('manage_usegeo_case_posts_custom_column', 'usegeo_render_case_submission_admin_column', 10, 2);
 
 function usegeo_register_case_submission_meta_box() {
     add_meta_box(
         'usegeo-case-submission-details',
         __('Case Submission Details', 'usegeo'),
         'usegeo_render_case_submission_meta_box',
-        'usegeo_case_submission',
+        'usegeo_case',
         'normal',
         'high'
     );
@@ -1152,7 +929,7 @@ function usegeo_save_case_submission_review_meta($post_id) {
         return;
     }
 
-    if (get_post_type($post_id) !== 'usegeo_case_submission') {
+    if (get_post_type($post_id) !== 'usegeo_case') {
         return;
     }
 
@@ -1179,36 +956,7 @@ function usegeo_save_case_submission_review_meta($post_id) {
     update_post_meta($post_id, 'processing_lane', $processing_lane);
     update_post_meta($post_id, 'editorial_notes', $editorial_notes);
 }
-add_action('save_post_usegeo_case_submission', 'usegeo_save_case_submission_review_meta');
-
-remove_filter('manage_usegeo_lead_posts_columns', 'usegeo_lead_admin_columns');
-remove_filter('manage_edit-usegeo_lead_columns', 'usegeo_lead_admin_columns');
-remove_action('manage_usegeo_lead_posts_custom_column', 'usegeo_render_lead_admin_column', 10);
-remove_action('manage_posts_custom_column', 'usegeo_render_lead_admin_column', 10);
-remove_action('add_meta_boxes', 'usegeo_register_lead_meta_box');
-
-function usegeo_lead_admin_columns_v2($columns) {
-    $date = isset($columns['date']) ? $columns['date'] : '';
-
-    unset($columns['date']);
-
-    $columns['work_email'] = __('Work Email', 'usegeo');
-    $columns['company_type'] = __('Company Type', 'usegeo');
-    $columns['help_intent'] = __('Help Intent', 'usegeo');
-    $columns['support_level'] = __('Support Level', 'usegeo');
-    $columns['timeline'] = __('Timeline', 'usegeo');
-    $columns['scanner_query'] = __('Website Input', 'usegeo');
-    $columns['notification_status'] = __('Notification', 'usegeo');
-    $columns['notification_recipient'] = __('Recipient', 'usegeo');
-
-    if ($date) {
-        $columns['date'] = $date;
-    }
-
-    return $columns;
-}
-add_filter('manage_usegeo_lead_posts_columns', 'usegeo_lead_admin_columns_v2');
-add_filter('manage_edit-usegeo_lead_columns', 'usegeo_lead_admin_columns_v2');
+add_action('save_post_usegeo_case', 'usegeo_save_case_submission_review_meta');
 
 function usegeo_get_help_intent_labels() {
     return array(
@@ -1238,12 +986,12 @@ function usegeo_get_timeline_labels() {
 
 function usegeo_get_lead_company_type_options() {
     return array(
-        'b2b_saas'          => __('B2B SaaS', 'usegeo'),
-        'agency_consultancy'=> __('Agency / Consultancy', 'usegeo'),
-        'marketplace'       => __('Marketplace', 'usegeo'),
-        'media_content'     => __('Media / Content Business', 'usegeo'),
-        'ecommerce'         => __('Ecommerce', 'usegeo'),
-        'other'             => __('Other', 'usegeo'),
+        'b2b_saas'           => __('B2B SaaS', 'usegeo'),
+        'agency_consultancy' => __('Agency / Consultancy', 'usegeo'),
+        'marketplace'        => __('Marketplace', 'usegeo'),
+        'media_content'      => __('Media / Content Business', 'usegeo'),
+        'ecommerce'          => __('Ecommerce', 'usegeo'),
+        'other'              => __('Other', 'usegeo'),
     );
 }
 
@@ -1260,142 +1008,30 @@ function usegeo_render_lead_priority_badge($label, $tone = 'neutral') {
     return '<span style="display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;' . esc_attr($style) . '">' . esc_html($label) . '</span>';
 }
 
-function usegeo_render_lead_admin_column_v2($column, $post_id) {
-    switch ($column) {
-        case 'work_email':
-            echo esc_html(get_post_meta($post_id, 'work_email', true) ?: '—');
-            break;
+function usegeo_lead_admin_columns($columns) {
+    $date = isset($columns['date']) ? $columns['date'] : '';
 
-        case 'company_type':
-            echo esc_html(get_post_meta($post_id, 'company_type', true) ?: '—');
-            break;
+    unset($columns['date']);
 
-        case 'help_intent':
-            echo esc_html(get_post_meta($post_id, 'help_intent', true) ?: '—');
-            break;
+    $columns['work_email'] = __('Work Email', 'usegeo');
+    $columns['company_type'] = __('Company Type', 'usegeo');
+    $columns['help_intent'] = __('Help Intent', 'usegeo');
+    $columns['support_level'] = __('Support Level', 'usegeo');
+    $columns['timeline'] = __('Timeline', 'usegeo');
+    $columns['scanner_query'] = __('Website Input', 'usegeo');
+    $columns['notification_status'] = __('Notification', 'usegeo');
+    $columns['notification_recipient'] = __('Recipient', 'usegeo');
 
-        case 'support_level':
-            echo esc_html(get_post_meta($post_id, 'support_level', true) ?: '—');
-            break;
-
-        case 'scanner_query':
-            echo esc_html(get_post_meta($post_id, 'scanner_query', true) ?: '—');
-            break;
-
-        case 'notification_status':
-            $sent = get_post_meta($post_id, 'notification_sent', true);
-            $error = get_post_meta($post_id, 'notification_error', true);
-
-            if ($sent === 'yes') {
-                echo '<span style="color:#15803d;font-weight:700;">sent</span>';
-            } elseif ($error) {
-                echo '<span style="color:#b91c1c;font-weight:700;">failed</span><br>';
-                echo '<span style="color:#6b7280;">' . esc_html($error) . '</span>';
-            } else {
-                echo '<span style="color:#92400e;font-weight:700;">not sent</span>';
-            }
-            break;
-
-        case 'notification_recipient':
-            echo esc_html(get_post_meta($post_id, 'notification_recipient', true) ?: '—');
-            break;
+    if ($date) {
+        $columns['date'] = $date;
     }
+
+    return $columns;
 }
-add_action('manage_usegeo_lead_posts_custom_column', 'usegeo_render_lead_admin_column_v2', 10, 2);
+add_filter('manage_usegeo_lead_posts_columns', 'usegeo_lead_admin_columns');
+add_filter('manage_edit-usegeo_lead_columns', 'usegeo_lead_admin_columns');
 
-function usegeo_register_lead_meta_box_v2() {
-    add_meta_box(
-        'usegeo-lead-details-v2',
-        __('Lead Details', 'usegeo'),
-        'usegeo_render_lead_meta_box_v2',
-        'usegeo_lead',
-        'normal',
-        'high'
-    );
-}
-add_action('add_meta_boxes', 'usegeo_register_lead_meta_box_v2');
-
-function usegeo_render_lead_meta_box_v2($post) {
-    $work_email = get_post_meta($post->ID, 'work_email', true);
-    $company_type = get_post_meta($post->ID, 'company_type', true);
-    $help_intent = get_post_meta($post->ID, 'help_intent', true);
-    $support_level = get_post_meta($post->ID, 'support_level', true);
-    $scanner_query = get_post_meta($post->ID, 'scanner_query', true);
-    $submitted_at = get_post_meta($post->ID, 'submitted_at', true);
-    $source = get_post_meta($post->ID, 'source', true);
-    $notification_sent = get_post_meta($post->ID, 'notification_sent', true);
-    $notification_recipient = get_post_meta($post->ID, 'notification_recipient', true);
-    $notification_error = get_post_meta($post->ID, 'notification_error', true);
-    ?>
-    <table class="form-table" role="presentation">
-        <tbody>
-            <tr>
-                <th scope="row"><?php esc_html_e('Work Email', 'usegeo'); ?></th>
-                <td><?php echo esc_html($work_email ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Company Type', 'usegeo'); ?></th>
-                <td><?php echo esc_html($company_type ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Help Intent', 'usegeo'); ?></th>
-                <td><?php echo esc_html($help_intent ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Support Level', 'usegeo'); ?></th>
-                <td><?php echo esc_html($support_level ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Website Input', 'usegeo'); ?></th>
-                <td><?php echo esc_html($scanner_query ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Submitted At', 'usegeo'); ?></th>
-                <td><?php echo esc_html($submitted_at ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Source', 'usegeo'); ?></th>
-                <td><?php echo esc_html($source ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Notification Status', 'usegeo'); ?></th>
-                <td>
-                    <?php
-                    if ($notification_sent === 'yes') {
-                        echo '<strong style="color:#15803d;">sent</strong>';
-                    } elseif ($notification_error) {
-                        echo '<strong style="color:#b91c1c;">failed</strong>';
-                    } else {
-                        echo '<strong style="color:#92400e;">not sent</strong>';
-                    }
-                    ?>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Notification Recipient', 'usegeo'); ?></th>
-                <td><?php echo esc_html($notification_recipient ?: '—'); ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?php esc_html_e('Notification Error', 'usegeo'); ?></th>
-                <td><?php echo esc_html($notification_error ?: '—'); ?></td>
-            </tr>
-        </tbody>
-    </table>
-    <?php
-}
-
-remove_filter('manage_usegeo_lead_posts_columns', 'usegeo_lead_admin_columns_v2');
-remove_filter('manage_edit-usegeo_lead_columns', 'usegeo_lead_admin_columns_v2');
-remove_action('manage_usegeo_lead_posts_custom_column', 'usegeo_render_lead_admin_column_v2', 10);
-remove_action('add_meta_boxes', 'usegeo_register_lead_meta_box_v2');
-
-function usegeo_lead_admin_columns_v3($columns) {
-    return usegeo_lead_admin_columns_v2($columns);
-}
-add_filter('manage_usegeo_lead_posts_columns', 'usegeo_lead_admin_columns_v3');
-add_filter('manage_edit-usegeo_lead_columns', 'usegeo_lead_admin_columns_v3');
-
-function usegeo_render_lead_admin_column_v3($column, $post_id) {
+function usegeo_render_lead_admin_column($column, $post_id) {
     if ($column === 'company_type') {
         $company_type = get_post_meta($post_id, 'company_type', true);
         $company_type_options = usegeo_get_lead_company_type_options();
@@ -1452,23 +1088,49 @@ function usegeo_render_lead_admin_column_v3($column, $post_id) {
         return;
     }
 
-    usegeo_render_lead_admin_column_v2($column, $post_id);
-}
-add_action('manage_usegeo_lead_posts_custom_column', 'usegeo_render_lead_admin_column_v3', 10, 2);
+    switch ($column) {
+        case 'work_email':
+            echo esc_html(get_post_meta($post_id, 'work_email', true) ?: '—');
+            break;
 
-function usegeo_register_lead_meta_box_v3() {
+        case 'scanner_query':
+            echo esc_html(get_post_meta($post_id, 'scanner_query', true) ?: '—');
+            break;
+
+        case 'notification_status':
+            $sent = get_post_meta($post_id, 'notification_sent', true);
+            $error = get_post_meta($post_id, 'notification_error', true);
+
+            if ($sent === 'yes') {
+                echo '<span style="color:#15803d;font-weight:700;">sent</span>';
+            } elseif ($error) {
+                echo '<span style="color:#b91c1c;font-weight:700;">failed</span><br>';
+                echo '<span style="color:#6b7280;">' . esc_html($error) . '</span>';
+            } else {
+                echo '<span style="color:#92400e;font-weight:700;">not sent</span>';
+            }
+            break;
+
+        case 'notification_recipient':
+            echo esc_html(get_post_meta($post_id, 'notification_recipient', true) ?: '—');
+            break;
+    }
+}
+add_action('manage_usegeo_lead_posts_custom_column', 'usegeo_render_lead_admin_column', 10, 2);
+
+function usegeo_register_lead_meta_box() {
     add_meta_box(
-        'usegeo-lead-details-v3',
+        'usegeo-lead-details',
         __('Lead Details', 'usegeo'),
-        'usegeo_render_lead_meta_box_v3',
+        'usegeo_render_lead_meta_box',
         'usegeo_lead',
         'normal',
         'high'
     );
 }
-add_action('add_meta_boxes', 'usegeo_register_lead_meta_box_v3');
+add_action('add_meta_boxes', 'usegeo_register_lead_meta_box');
 
-function usegeo_render_lead_meta_box_v3($post) {
+function usegeo_render_lead_meta_box($post) {
     $work_email = get_post_meta($post->ID, 'work_email', true);
     $company_type = get_post_meta($post->ID, 'company_type', true);
     $help_intent = get_post_meta($post->ID, 'help_intent', true);
