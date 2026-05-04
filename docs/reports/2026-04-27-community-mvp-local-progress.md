@@ -24,7 +24,7 @@ This round covered:
 ### Submission Flow
 
 - Added a native WordPress form submission endpoint: `usegeo_submit_case`
-- Added a new custom post type: `usegeo_case_submission`
+- Added a new custom post type: `usegeo_case`
 - Added field capture for:
   - contributor name
   - contact email
