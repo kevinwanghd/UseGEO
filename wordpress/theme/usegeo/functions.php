@@ -570,13 +570,30 @@ function usegeo_capture_mail_failure($wp_error) {
 }
 add_action('wp_mail_failed', 'usegeo_capture_mail_failure');
 
+function usegeo_verify_public_form_nonce($action, $field_name) {
+    if (!is_user_logged_in()) {
+        return true;
+    }
+
+    if (!isset($_POST[$field_name])) {
+        return false;
+    }
+
+    $nonce = sanitize_text_field(wp_unslash($_POST[$field_name]));
+
+    return (bool) wp_verify_nonce($nonce, $action);
+}
+
 function usegeo_handle_lead_capture() {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         wp_safe_redirect(home_url('/'));
         exit;
     }
 
-    check_admin_referer('usegeo_capture_lead', 'usegeo_lead_nonce');
+    if (!usegeo_verify_public_form_nonce('usegeo_capture_lead', 'usegeo_lead_nonce')) {
+        wp_safe_redirect(add_query_arg('lead_status', 'invalid', home_url('/#scanner')));
+        exit;
+    }
 
     $work_email = isset($_POST['work_email']) ? sanitize_email(wp_unslash($_POST['work_email'])) : '';
     $company_type = isset($_POST['company_type']) ? sanitize_key(wp_unslash($_POST['company_type'])) : '';
@@ -642,7 +659,10 @@ function usegeo_handle_case_submission() {
         exit;
     }
 
-    check_admin_referer('usegeo_submit_case', 'usegeo_case_nonce');
+    if (!usegeo_verify_public_form_nonce('usegeo_submit_case', 'usegeo_case_nonce')) {
+        wp_safe_redirect(add_query_arg('case_submission_status', 'invalid', home_url('/#community')));
+        exit;
+    }
 
     $redirect_to = isset($_POST['redirect_to']) ? esc_url_raw(wp_unslash($_POST['redirect_to'])) : home_url('/#community');
     $contributor_name = isset($_POST['contributor_name']) ? sanitize_text_field(wp_unslash($_POST['contributor_name'])) : '';
