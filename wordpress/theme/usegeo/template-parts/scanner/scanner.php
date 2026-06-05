@@ -21,7 +21,7 @@
         <label class="screen-reader-text" for="usegeo-scanner-input">Company website</label>
         <form class="usegeo-tool__form" data-usegeo-scanner-form>
             <div class="usegeo-tool__row">
-                <input id="usegeo-scanner-input" type="text" name="query" placeholder="Enter your company website, for example https://yourcompany.com">
+                <input id="usegeo-scanner-input" type="text" inputmode="url" autocomplete="url" name="query" pattern="https?://[\w.-]+.*|[\w.-]+\.[\w]{2,}" placeholder="Enter your company website, for example https://yourcompany.com">
                 <button type="submit">Run assessment</button>
             </div>
         </form>

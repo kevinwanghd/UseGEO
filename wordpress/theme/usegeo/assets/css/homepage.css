@@ -920,3 +920,220 @@
     background-position: -200% 0;
   }
 }
+
+/* === 补充：Hero primary CTA === */
+.usegeo-inline-cta--primary {
+  background-color: var(--usegeo-accent, #2563eb);
+  color: #fff;
+  border-color: var(--usegeo-accent, #2563eb);
+}
+.usegeo-inline-cta--primary:hover {
+  background-color: var(--usegeo-accent-dark, #1d4ed8);
+  border-color: var(--usegeo-accent-dark, #1d4ed8);
+}
+
+/* === 补充：Scanner radar background === */
+.usegeo-radar__bg {
+  fill: none;
+  stroke: var(--usegeo-border, #e2e8f0);
+  stroke-width: 1;
+}
+
+/* === 补充：Case preview highlight === */
+.usegeo-case-preview-card[data-highlight] {
+  border-color: var(--usegeo-accent, #2563eb);
+  box-shadow: 0 0 0 1px var(--usegeo-accent, #2563eb);
+}
+
+
+/* === Mobile Navigation === */
+.usegeo-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.usegeo-menu-toggle__bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--usegeo-color-text);
+  border-radius: 2px;
+  transition: transform var(--usegeo-transition), opacity var(--usegeo-transition);
+}
+
+.usegeo-menu-toggle[aria-expanded="true"] .usegeo-menu-toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.usegeo-menu-toggle[aria-expanded="true"] .usegeo-menu-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.usegeo-menu-toggle[aria-expanded="true"] .usegeo-menu-toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* === Tablet: < 768px === */
+@media (max-width: 768px) {
+  .usegeo-menu-toggle {
+    display: flex;
+  }
+
+  .usegeo-site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--usegeo-color-border);
+    box-shadow: var(--usegeo-shadow-soft);
+    padding: 16px;
+    z-index: 100;
+  }
+
+  .usegeo-site-nav--open {
+    display: block;
+  }
+
+  .usegeo-site-header__inner {
+    position: relative;
+  }
+
+  .usegeo-menu--primary {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .usegeo-menu--primary a {
+    font-size: 16px;
+    padding: 8px 0;
+    display: block;
+  }
+
+  .usegeo-hero__content {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .usegeo-hero h1 {
+    max-width: none;
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
+  }
+
+  .usegeo-hero__panel {
+    display: none;
+  }
+
+  .usegeo-trust-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .usegeo-card {
+    padding: 20px;
+    margin: 12px 0;
+    border-radius: 14px;
+  }
+
+  .usegeo-section-heading h2 {
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+  }
+
+  .usegeo-scanner-result__header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .usegeo-scanner-models {
+    width: 100%;
+  }
+
+  .usegeo-tool__row {
+    flex-direction: column;
+  }
+
+  .usegeo-tool__row input {
+    width: 100%;
+  }
+
+  .usegeo-tool__row button {
+    width: 100%;
+  }
+
+  .usegeo-community-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .usegeo-article-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .usegeo-article-sidebar {
+    margin-top: 24px;
+  }
+
+  .usegeo-site-footer__grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .usegeo-roi__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .usegeo-roi__results {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Small mobile: < 480px === */
+
+/* === Footer Social Links === */
+.usegeo-site-footer__social {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.usegeo-site-footer__social a {
+    color: var(--usegeo-color-muted);
+    transition: color var(--usegeo-transition);
+}
+
+.usegeo-site-footer__social a:hover {
+    color: var(--usegeo-color-primary);
+}
+
+@media (max-width: 480px) {
+  .usegeo-hero__actions {
+    flex-direction: column;
+  }
+
+  .usegeo-hero__actions a {
+    text-align: center;
+  }
+
+  .usegeo-inline-cta,
+  .usegeo-inline-cta--primary,
+  .usegeo-inline-cta--ghost {
+    padding: 12px 20px;
+  }
+
+  .usegeo-content-card {
+    padding: 16px;
+  }
+
+  .usegeo-community-form__split {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,28 +1,70 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("[data-usegeo-roi]");
+// UseGEO ROI Calculator
+document.addEventListener('DOMContentLoaded', function() {
+  var container = document.querySelector('[data-usegeo-roi]');
+  if (!container) return;
 
-  if (!form) {
-    return;
-  }
+  var investmentInput = container.querySelector('input[name="investment"]');
+  var trafficInput = container.querySelector('input[name="traffic"]');
+  var conversionRateInput = container.querySelector('input[name="conversion_rate"]');
+  var calculateBtn = container.querySelector('#usegeo-roi-calculate');
+  var revenueDisplay = container.querySelector('[data-usegeo-roi-revenue]');
+  var percentDisplay = container.querySelector('[data-usegeo-roi-percent]');
+  var paybackDisplay = container.querySelector('[data-usegeo-roi-payback]');
 
-  const savingsNode = form.querySelector("[data-usegeo-roi-savings]");
-  const roiNode = form.querySelector("[data-usegeo-roi-value]");
+  if (!investmentInput || !calculateBtn) return;
 
-  const recalculate = function () {
-    const data = new FormData(form);
-    const posts = Number(data.get("posts")) || 0;
-    const cac = Number(data.get("cac")) || 0;
-    const acv = Number(data.get("acv")) || 0;
+  calculateBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    var investment = parseFloat(investmentInput.value) || 0;
+    var traffic = parseFloat(trafficInput.value) || 10000;
+    var conversionRate = parseFloat(conversionRateInput.value) || 2;
 
-    const traditionalCost = posts * cac;
-    const automatedCost = traditionalCost * 0.6;
-    const savings = traditionalCost > 0 ? ((traditionalCost - automatedCost) / traditionalCost) * 100 : 0;
-    const roi = automatedCost > 0 ? ((posts * acv - automatedCost) / automatedCost) * 100 : 0;
+    if (investment <= 0) {
+      investmentInput.focus();
+      return;
+    }
 
-    savingsNode.textContent = `${Math.round(savings)}%`;
-    roiNode.textContent = `${Math.max(0, Math.round(roi))}%`;
-  };
+    // GEO industry averages
+    var trafficIncrease = 0.30;
+    var conversionLift = 0.15;
+    var avgOrderValue = 500;  // B2B average order value estimate
 
-  form.addEventListener("input", recalculate);
-  recalculate();
+    var additionalVisitors = traffic * trafficIncrease;
+    var newConversionRate = conversionRate * (1 + conversionLift);
+    var additionalConversions = additionalVisitors * (newConversionRate / 100);
+    var monthlyRevenue = additionalConversions * avgOrderValue;
+    var yearlyRevenue = monthlyRevenue * 12;
+    var roi = ((yearlyRevenue - investment) / investment) * 100;
+
+    if (revenueDisplay) {
+      revenueDisplay.textContent = '$' + Math.round(yearlyRevenue).toLocaleString();
+    }
+    if (percentDisplay) {
+      percentDisplay.textContent = (roi > 0 ? '+' : '') + Math.round(roi) + '%';
+    }
+    var percentMetric = percentDisplay ? percentDisplay.closest('.usegeo-metric') : null;
+    if (percentMetric) {
+      percentMetric.classList.toggle('usegeo-metric--featured', roi > 0);
+    }
+    if (paybackDisplay) {
+      paybackDisplay.textContent = roi > 0 ? Math.ceil(investment / (monthlyRevenue || 1)) + ' months' : 'N/A';
+    }
+
+    // Track event
+    if (typeof dataLayer !== 'undefined') {
+      dataLayer.push({
+        event: 'roi_calculated',
+        event_category: 'engagement',
+        investment: investment,
+        roi: Math.round(roi)
+      });
+    }
+  });
+
+  // Enter key support
+  container.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      calculateBtn.click();
+    }
+  });
 });

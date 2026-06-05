@@ -54,6 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+    /**
+   * MVP: GEO readiness score is simulated based on input URL length.
+   * This is a placeholder for demonstration purposes.
+   * Production version will call a real GEO assessment API.
+   */
   const getResultPayload = function (query) {
     const normalized = String(query).trim();
     const length = Math.min(normalized.length, 24);

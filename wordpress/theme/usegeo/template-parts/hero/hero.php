@@ -16,7 +16,7 @@
 
             <div class="usegeo-hero__actions">
                 <a class="usegeo-inline-cta usegeo-inline-cta--primary" href="<?php echo esc_url(home_url('/#scanner')); ?>">Run your free assessment</a>
-                <a class="usegeo-inline-cta usegeo-inline-cta--ghost" href="<?php echo esc_url(home_url('/#content')); ?>">Learn GEO fundamentals</a>
+                <a class="usegeo-inline-cta usegeo-inline-cta--ghost" href="<?php echo esc_url(home_url('/articles/')); ?>">Learn GEO fundamentals</a>
             </div>
 
             <div class="usegeo-hero__microcopy">

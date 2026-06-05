@@ -1,0 +1,15 @@
+# Local agent/tooling artifacts
+.agents/
+.claude/
+.gstack/
+skills-lock.json
+
+# Build/package artifacts
+dist/
+*.zip
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
