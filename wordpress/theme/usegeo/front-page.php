@@ -8,6 +8,9 @@ get_header();
 ?>
 <main class="usegeo-shell">
     <?php get_template_part('template-parts/hero/hero'); ?>
+    <div id="scanner" class="usegeo-home-scanner">
+        <?php get_template_part('template-parts/scanner/scanner'); ?>
+    </div>
     <?php get_template_part('template-parts/value/value-proposition'); ?>
     <?php get_template_part('template-parts/learning/learning-path'); ?>
     <div id="content">
@@ -18,9 +21,6 @@ get_header();
     </div>
     <div id="cases">
         <?php get_template_part('template-parts/cases/case-preview'); ?>
-    </div>
-    <div id="scanner">
-        <?php get_template_part('template-parts/scanner/scanner'); ?>
     </div>
     <?php get_template_part('template-parts/roi/roi'); ?>
 </main>

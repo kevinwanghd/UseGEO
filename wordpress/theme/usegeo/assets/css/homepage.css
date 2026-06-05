@@ -1137,3 +1137,162 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* === 2026 Productized visual refresh === */
+.usegeo-hero {
+  margin-top: 28px;
+}
+
+.usegeo-hero__content {
+  border: 1px solid rgba(15, 98, 254, 0.14);
+  box-shadow: 0 28px 80px rgba(15, 98, 254, 0.12);
+  isolation: isolate;
+}
+
+.usegeo-hero__content::before {
+  border-color: rgba(15, 98, 254, 0.18);
+  box-shadow: 0 0 80px rgba(15, 98, 254, 0.08);
+}
+
+.usegeo-hero h1 {
+  max-width: 13ch;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.usegeo-hero .usegeo-lead {
+  max-width: 64ch;
+  color: #3f3f46;
+  font-size: clamp(1rem, 1.6vw, 1.16rem);
+}
+
+.usegeo-home-scanner {
+  margin-top: -18px;
+  position: relative;
+  z-index: 4;
+}
+
+.usegeo-home-scanner > .usegeo-card {
+  border-color: rgba(15, 98, 254, 0.18);
+  box-shadow: 0 30px 70px rgba(15, 98, 254, 0.12);
+}
+
+.usegeo-home-scanner .usegeo-section-heading {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 24px;
+}
+
+.usegeo-home-scanner .usegeo-section-heading::after {
+  content: "Free MVP assessment";
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 107, 0, 0.10);
+  color: #b45309;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.usegeo-tool__row {
+  padding: 8px;
+  border: 1px solid rgba(15, 98, 254, 0.14);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(15, 98, 254, 0.08);
+}
+
+.usegeo-tool__row input {
+  border: 0;
+  min-height: 58px;
+  font-size: 16px;
+}
+
+.usegeo-tool__row input:focus {
+  box-shadow: none;
+}
+
+.usegeo-tool__row button {
+  min-height: 58px;
+  padding-inline: 28px;
+  border-radius: 16px;
+  background: var(--usegeo-color-accent);
+}
+
+.usegeo-value-card,
+.usegeo-learning-card,
+.usegeo-content-card,
+.usegeo-community-point,
+.usegeo-case-preview-card {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.usegeo-value-card:hover,
+.usegeo-learning-card:hover,
+.usegeo-content-card:hover,
+.usegeo-community-point:hover,
+.usegeo-case-preview-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(15, 98, 254, 0.22);
+  box-shadow: 0 24px 50px rgba(15, 98, 254, 0.10);
+}
+
+.usegeo-content-card h3 {
+  min-height: auto;
+}
+
+.usegeo-content-card p {
+  min-height: auto;
+}
+
+.usegeo-content-card a {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 4px;
+  color: var(--usegeo-color-primary);
+}
+
+.usegeo-content-card a::after {
+  content: " →";
+}
+
+.usegeo-report-gate {
+  box-shadow: 0 18px 50px rgba(255, 107, 0, 0.10);
+}
+
+.usegeo-report-gate__button {
+  background: var(--usegeo-color-accent);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.usegeo-report-gate__button:hover {
+  background: var(--usegeo-color-accent-dark);
+  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.25);
+}
+
+@media (max-width: 900px) {
+  .usegeo-home-scanner {
+    margin-top: 18px;
+  }
+
+  .usegeo-home-scanner .usegeo-section-heading {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .usegeo-tool__row {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .usegeo-tool__row input {
+    border: 1px solid var(--usegeo-color-border);
+  }
+}

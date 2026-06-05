@@ -37,6 +37,13 @@ function usegeo_enqueue_assets() {
     $theme_uri = get_template_directory_uri();
 
     wp_enqueue_style(
+        'usegeo-fonts',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap',
+        array(),
+        null
+    );
+
+    wp_enqueue_style(
         'usegeo-base',
         $theme_uri . '/assets/css/base.css',
         array(),
