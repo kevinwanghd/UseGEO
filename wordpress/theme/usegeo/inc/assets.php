@@ -66,6 +66,15 @@ function usegeo_enqueue_assets() {
         true
     );
 
+    if (is_single()) {
+        wp_enqueue_style(
+            'usegeo-single',
+            $theme_uri . '/assets/css/single.css',
+            array('usegeo-base'),
+            usegeo_asset_version('/assets/css/single.css')
+        );
+    }
+
     if (is_front_page()) {
         wp_enqueue_style(
             'usegeo-homepage',
