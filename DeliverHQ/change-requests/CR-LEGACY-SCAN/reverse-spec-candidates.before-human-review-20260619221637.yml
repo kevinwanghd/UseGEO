@@ -1,0 +1,765 @@
+schema: deliverhq-reverse-spec
+version: 1
+project:
+  name: usegeo
+  scanned_at: '2026-06-19 20:22:25'
+  scan_root: D:\Code\UseGEO\wordpress\theme\usegeo
+  tech_stack: php
+candidates:
+- id: RC-001
+  title: 模块 404 的行为
+  source:
+    files:
+    - 404.php
+    functions: []
+    module: '404'
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 22
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-002
+  title: 模块 footer 的行为
+  source:
+    files:
+    - footer.php
+    functions: []
+    module: footer
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 34
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-003
+  title: 模块 front-page 的行为
+  source:
+    files:
+    - front-page.php
+    functions: []
+    module: front-page
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 29
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-004
+  title: 模块 functions 的行为
+  source:
+    files:
+    - functions.php
+    functions: []
+    module: functions
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: medium
+    loc: 9
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-005
+  title: 模块 header 的行为
+  source:
+    files:
+    - header.php
+    functions: []
+    module: header
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 55
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-006
+  title: 模块 index 的行为
+  source:
+    files:
+    - index.php
+    functions: []
+    module: index
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 14
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-007
+  title: 模块 page 的行为
+  source:
+    files:
+    - page.php
+    functions: []
+    module: page
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 27
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-008
+  title: 模块 search 的行为
+  source:
+    files:
+    - search.php
+    functions: []
+    module: search
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 36
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-009
+  title: 模块 single 的行为
+  source:
+    files:
+    - single.php
+    functions: []
+    module: single
+  risk_signals:
+    test_coverage: none
+    complexity: medium
+    sensitive_domain: []
+    change_frequency: low
+    loc: 185
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-010
+  title: 模块 admin 的行为
+  source:
+    files:
+    - inc/admin.php
+    functions: []
+    module: admin
+  risk_signals:
+    test_coverage: none
+    complexity: high
+    sensitive_domain: []
+    change_frequency: low
+    loc: 512
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  - 高复杂度
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-011
+  title: 模块 assets 的行为
+  source:
+    files:
+    - inc/assets.php
+    functions: []
+    module: assets
+  risk_signals:
+    test_coverage: none
+    complexity: medium
+    sensitive_domain: []
+    change_frequency: low
+    loc: 129
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-012
+  title: 模块 forms 的行为
+  source:
+    files:
+    - inc/forms.php
+    functions: []
+    module: forms
+  risk_signals:
+    test_coverage: none
+    complexity: medium
+    sensitive_domain:
+    - data
+    change_frequency: low
+    loc: 262
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  - data 敏感域
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-013
+  title: 模块 post-types 的行为
+  source:
+    files:
+    - inc/post-types.php
+    functions: []
+    module: post-types
+  risk_signals:
+    test_coverage: none
+    complexity: medium
+    sensitive_domain: []
+    change_frequency: low
+    loc: 222
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-014
+  title: 模块 setup 的行为
+  source:
+    files:
+    - inc/setup.php
+    functions: []
+    module: setup
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 68
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-015
+  title: 模块 case-preview 的行为
+  source:
+    files:
+    - template-parts/cases/case-preview.php
+    functions: []
+    module: case-preview
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 48
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-016
+  title: 模块 community-intro 的行为
+  source:
+    files:
+    - template-parts/community/community-intro.php
+    functions: []
+    module: community-intro
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 104
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-017
+  title: 模块 content-hub 的行为
+  source:
+    files:
+    - template-parts/content-hub/content-hub.php
+    functions: []
+    module: content-hub
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 45
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-018
+  title: 模块 methodology 的行为
+  source:
+    files:
+    - template-parts/conversion/methodology.php
+    functions: []
+    module: methodology
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: unknown
+    loc: 31
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-019
+  title: 模块 sample-report 的行为
+  source:
+    files:
+    - template-parts/conversion/sample-report.php
+    functions: []
+    module: sample-report
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: unknown
+    loc: 40
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-020
+  title: 模块 services 的行为
+  source:
+    files:
+    - template-parts/conversion/services.php
+    functions: []
+    module: services
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: unknown
+    loc: 47
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-021
+  title: 模块 sidebar-cta 的行为
+  source:
+    files:
+    - template-parts/cta/sidebar-cta.php
+    functions: []
+    module: sidebar-cta
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 20
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-022
+  title: 模块 hero 的行为
+  source:
+    files:
+    - template-parts/hero/hero.php
+    functions: []
+    module: hero
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 46
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-023
+  title: 模块 learning-path 的行为
+  source:
+    files:
+    - template-parts/learning/learning-path.php
+    functions: []
+    module: learning-path
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 23
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-024
+  title: 模块 roi 的行为
+  source:
+    files:
+    - template-parts/roi/roi.php
+    functions: []
+    module: roi
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 40
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-025
+  title: 模块 scanner 的行为
+  source:
+    files:
+    - template-parts/scanner/scanner.php
+    functions: []
+    module: scanner
+  risk_signals:
+    test_coverage: none
+    complexity: medium
+    sensitive_domain: []
+    change_frequency: low
+    loc: 212
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null
+- id: RC-026
+  title: 模块 value-proposition 的行为
+  source:
+    files:
+    - template-parts/value/value-proposition.php
+    functions: []
+    module: value-proposition
+  risk_signals:
+    test_coverage: none
+    complexity: low
+    sensitive_domain: []
+    change_frequency: low
+    loc: 23
+  inferred_behavior: '{{AI 待填：从代码推断该模块的行为}}'
+  confidence: low
+  assumptions: []
+  evidence:
+    supporting_tests: []
+    contradicting_tests: []
+  review_required: true
+  review_reason:
+  - 无测试覆盖
+  human_decision:
+    status: unconfirmed
+    is_real_requirement: null
+    decided_by: ''
+    date: ''
+    note: ''
+  becomes_acceptance_criteria: null

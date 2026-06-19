@@ -1,0 +1,18 @@
+{
+  "gate_name": "deploy",
+  "result": "pass",
+  "timestamp": "2026-06-19T20:22:03.288375",
+  "blocking_items": [],
+  "warnings": [],
+  "commands_run": [],
+  "artifacts": [],
+  "next_action": "Run writeback",
+  "failure_attribution": [],
+  "metadata": {
+    "current_state": "deploy_ready",
+    "current_phase": "deploy",
+    "current_owner": "deploy-agent",
+    "requires_human": false,
+    "worktree_path": "D:\\Code\\UseGEO\\DeliverHQ\\.claude\\worktrees\\CR-EXAMPLE"
+  }
+}

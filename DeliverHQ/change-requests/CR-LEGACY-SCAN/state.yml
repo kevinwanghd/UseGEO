@@ -1,0 +1,23 @@
+cr_id: CR-LEGACY-SCAN
+title: CR-LEGACY-SCAN
+lane: standard
+current_state: spec_review
+current_phase: spec
+current_owner: spec-agent
+goal: ''
+current_plan: null
+completed_steps: []
+blocking_reason: null
+blocked_by: []
+last_gate: spec
+next_gate: design
+next_required_gate: design
+requires_human: false
+worktree_path: null
+gate_status:
+  spec: pass
+created_at: '2026-06-19T22:20:03.561851'
+updated_at: '2026-06-19T22:36:20.967996'
+started_at: '2026-06-19T22:20:03.561851'
+completed_at: null
+transitions: []
