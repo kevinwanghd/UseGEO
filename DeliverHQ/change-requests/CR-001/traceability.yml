@@ -1,0 +1,93 @@
+schema: deliverhq-traceability
+version: 1
+CR-001:
+  requirement: 把首页 GEO Scanner 从前端模拟分数升级为基于真实首页内容的轻量诊断
+  priority: P0
+  origin: PRD-REAL-SCANNER-V1
+  acceptance_criteria:
+  - 场景 A：合法公开 URL → 真实抓取 → 5 维度分 + ≥3 条真实 findings
+  - 场景 B：LLM 不可用 → 规则版完整结果 + llm_summary.available=false
+  - 场景 C：URL 非法 / SSRF 命中 → 拒绝并返回明确错误
+  - 场景 D：抓取超时 / 非 HTML / 超大文件 → 友好错误
+  - 场景 E：触发 rate limit → rate_limited 错误
+  - 场景 F：lead 提交携带 scan snapshot → 8 个 post meta + 邮件 5 行 + 后台 2 列
+  - 场景 G：feature flag 关闭 → 回退到前端模拟
+  - 场景 H：scan 失败时 lead 表单仍可提交 → 标记 scan snapshot missing
+  - 不变式 1：不得声称检测 ChatGPT/Claude/Gemini 推荐结果
+  - 不变式 2：LLM 不得编造 extracted 中不存在的客户/案例/竞品
+  - 不变式 3：SSRF 黑名单不可被绕过（含重定向/DNS rebinding）
+  - 不变式 4：evidence 区不得为空但仍展示分数
+  - 不变式 5：失败路径不得返回模拟分数
+  - 不变式 6：不得向 LLM 发送 PII（邮箱/表单字段/IP/cookie）
+  implementation:
+  - file: wordpress/theme/usegeo/inc/scanner-api.php
+    functions:
+    - usegeo_scan_endpoint
+    - usegeo_register_scan_route
+    description: REST route POST /wp-json/usegeo/v1/scan 注册与编排
+    reverse_mapped: false
+  - file: wordpress/theme/usegeo/inc/scanner-fetch.php
+    functions:
+    - usegeo_scan_validate_url
+    - usegeo_scan_fetch_html
+    description: URL 校验 + SSRF 防护 + HTML 抓取
+    reverse_mapped: false
+  - file: wordpress/theme/usegeo/inc/scanner-parse.php
+    functions:
+    - usegeo_scan_parse_html
+    description: DOMDocument 解析 → title/meta/H1/H2/schema/canonical/signals
+    reverse_mapped: false
+  - file: wordpress/theme/usegeo/inc/scanner-score.php
+    functions:
+    - usegeo_scan_calculate_scores
+    description: 5 维度规则评分引擎
+    reverse_mapped: false
+  - file: wordpress/theme/usegeo/inc/scanner-llm.php
+    functions:
+    - usegeo_scan_llm_summarize
+    description: LLM 调用 + 降级处理
+    reverse_mapped: false
+  - file: wordpress/theme/usegeo/inc/scanner-ratelimit.php
+    functions:
+    - usegeo_scan_check_rate_limit
+    description: Transient 限流（6/min/IP + 12/5min/session）
+    reverse_mapped: false
+  - file: wordpress/theme/usegeo/assets/js/scanner.js
+    functions:
+    - usegeoScannerInit
+    description: 前端：API 调用替换模拟逻辑 + evidence 区 + 错误状态 + scan snapshot 携带
+    reverse_mapped: true
+  - file: wordpress/theme/usegeo/template-parts/scanner/scanner.php
+    description: 新增 evidence 区 + 错误状态区 + lead 表单隐藏字段
+    reverse_mapped: true
+  - file: wordpress/theme/usegeo/inc/forms.php
+    functions:
+    - usegeo_handle_lead_capture
+    - usegeo_send_lead_notification
+    description: lead 保存 scan snapshot post meta + 邮件追加 5 行
+    reverse_mapped: true
+  - file: wordpress/theme/usegeo/inc/admin.php
+    functions:
+    - usegeo_lead_admin_columns
+    - usegeo_render_lead_admin_column
+    description: lead 列表新增 scan_total_score + weakest_dimension 两列
+    reverse_mapped: true
+  - file: wordpress/theme/usegeo/assets/css/homepage.css
+    description: CR-001 implementation touchpoint
+    reverse_mapped: true
+  - file: wordpress/theme/usegeo/functions.php
+    description: CR-001 implementation touchpoint
+    reverse_mapped: true
+  - file: wordpress/theme/usegeo/inc/assets.php
+    description: CR-001 implementation touchpoint
+    reverse_mapped: true
+  tests:
+  - file: tests/scanner/test-scanner-api.php
+    description: API 契约测试（成功/错误/降级）
+    status: planned
+  - file: tests/scanner/test-scanner-fetch.php
+    description: SSRF 防护测试（localhost/内网/非http/file/重定向）
+    status: planned
+  - file: tests/scanner/test-scanner-score.php
+    description: 5 维度评分规则测试
+    status: planned

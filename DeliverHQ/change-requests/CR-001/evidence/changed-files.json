@@ -1,0 +1,15 @@
+[
+  "wordpress/theme/usegeo/assets/css/homepage.css",
+  "wordpress/theme/usegeo/assets/js/scanner.js",
+  "wordpress/theme/usegeo/functions.php",
+  "wordpress/theme/usegeo/inc/admin.php",
+  "wordpress/theme/usegeo/inc/assets.php",
+  "wordpress/theme/usegeo/inc/forms.php",
+  "wordpress/theme/usegeo/template-parts/scanner/scanner.php",
+  "wordpress/theme/usegeo/inc/scanner-api.php",
+  "wordpress/theme/usegeo/inc/scanner-fetch.php",
+  "wordpress/theme/usegeo/inc/scanner-llm.php",
+  "wordpress/theme/usegeo/inc/scanner-parse.php",
+  "wordpress/theme/usegeo/inc/scanner-ratelimit.php",
+  "wordpress/theme/usegeo/inc/scanner-score.php"
+]

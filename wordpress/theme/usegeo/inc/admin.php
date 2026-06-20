@@ -350,6 +350,8 @@ function usegeo_lead_admin_columns($columns) {
     $columns['support_level'] = __('Support Level', 'usegeo');
     $columns['timeline'] = __('Timeline', 'usegeo');
     $columns['scanner_query'] = __('Website Input', 'usegeo');
+    $columns['scan_total_score'] = __('GEO Score', 'usegeo');
+    $columns['weakest_dimension'] = __('Weakest Dimension', 'usegeo');
     $columns['notification_status'] = __('Notification', 'usegeo');
     $columns['notification_recipient'] = __('Recipient', 'usegeo');
 
@@ -424,6 +426,19 @@ function usegeo_render_lead_admin_column($column, $post_id) {
         } else {
             echo esc_html($timeline_label ?: '-');
         }
+        return;
+    }
+
+
+    if ($column === 'scan_total_score') {
+        $score = get_post_meta($post_id, 'scan_total_score', true);
+        echo esc_html($score !== '' ? $score : '—');
+        return;
+    }
+
+    if ($column === 'weakest_dimension') {
+        $weakest = function_exists('usegeo_get_scan_weakest_dimension') ? usegeo_get_scan_weakest_dimension($post_id) : '';
+        echo esc_html($weakest ?: '—');
         return;
     }
 
@@ -558,6 +573,18 @@ function usegeo_render_lead_meta_box($post) {
             <tr>
                 <th scope="row"><?php esc_html_e('Website Input', 'usegeo'); ?></th>
                 <td><?php echo esc_html($scanner_query ?: '-'); ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('GEO Score', 'usegeo'); ?></th>
+                <td><?php echo esc_html(get_post_meta($post->ID, 'scan_total_score', true) ?: '-'); ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('Weakest Dimension', 'usegeo'); ?></th>
+                <td><?php echo esc_html(function_exists('usegeo_get_scan_weakest_dimension') ? (usegeo_get_scan_weakest_dimension($post->ID) ?: '-') : '-'); ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('Scan Findings', 'usegeo'); ?></th>
+                <td><div style="white-space:pre-wrap;"><?php echo esc_html(get_post_meta($post->ID, 'scan_findings_summary', true) ?: '-'); ?></div></td>
             </tr>
             <tr>
                 <th scope="row"><?php esc_html_e('Submitted At', 'usegeo'); ?></th>
