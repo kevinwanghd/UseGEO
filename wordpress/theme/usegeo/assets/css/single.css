@@ -89,6 +89,7 @@
 .usegeo-single-hero__kicker,
 .usegeo-single-section-heading span,
 .usegeo-single-side-cta > span,
+.usegeo-single-mid-cta span,
 .usegeo-single-bottom-cta span,
 .usegeo-single-related-card > span {
   margin: 0 0 12px;
@@ -163,6 +164,7 @@
 .usegeo-single-toc,
 .usegeo-single-side-cta,
 .usegeo-single-content-card,
+.usegeo-single-mid-cta,
 .usegeo-single-bottom-cta,
 .usegeo-single-pagination__item,
 .usegeo-single-related-card {
@@ -280,6 +282,36 @@
   color: #5f6673;
   font-size: 14px;
   line-height: 1.6;
+}
+
+.usegeo-single-text-link {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 12px;
+  color: var(--usegeo-color-primary);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.usegeo-single-mid-cta {
+  margin: 34px 0;
+  padding: 30px;
+  border-color: rgba(255, 107, 0, 0.22);
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.08), #fff 58%);
+}
+
+.usegeo-single-mid-cta h2,
+.usegeo-single-mid-cta p {
+  max-width: 760px;
+}
+
+.usegeo-single-mid-cta h2 {
+  margin: 0 0 10px;
+}
+
+.usegeo-single-mid-cta p {
+  margin: 0 0 18px;
+  color: var(--usegeo-color-muted);
 }
 
 .usegeo-single-content-card {
@@ -519,6 +551,7 @@
 
   .usegeo-single-hero,
   .usegeo-single-content-card,
+  .usegeo-single-mid-cta,
   .usegeo-single-bottom-cta {
     border-radius: 24px;
   }
@@ -530,6 +563,10 @@
 
   .usegeo-single-content {
     padding: 26px 22px;
+  }
+
+  .usegeo-single-mid-cta {
+    padding: 22px;
   }
 
   .usegeo-single-pagination {

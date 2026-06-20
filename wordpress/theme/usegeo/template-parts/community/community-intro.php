@@ -6,10 +6,10 @@ if (!defined('ABSPATH')) {
 ?>
 <section class="usegeo-community-section usegeo-card">
     <div class="usegeo-section-heading">
-        <h2>Turn GEO execution into reusable case knowledge</h2>
+        <h2>Contribute GEO execution cases for the future library</h2>
         <p>
-            UseGEO is not just a learning site. Over time, it can become a structured library of real GEO execution patterns,
-            wins, tradeoffs, and lessons that other teams can actually use.
+            The current priority is diagnostic and consultation conversion. Case submissions are still useful because they create the proof base
+            for future playbooks, anonymized examples, and paid case-library products.
         </p>
     </div>
 
@@ -28,7 +28,7 @@ if (!defined('ABSPATH')) {
         <div class="usegeo-community-story">
             <div class="usegeo-community-story__card">
                 <span class="usegeo-community-story__eyebrow">Community Direction</span>
-                <h3>This is not a forum. It is a structured case contribution layer.</h3>
+                <h3>This is the intake layer for future proof assets, not a public forum.</h3>
                 <p>
                     The first version of the community is designed to collect real GEO execution stories,
                     review them, structure them, and turn them into case assets worth learning from.

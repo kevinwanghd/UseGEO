@@ -6,9 +6,8 @@
 
   // Push event to dataLayer (works with both GTM and GA4)
   window.usegeoTrackEvent = function(eventName, eventParams) {
-    if (typeof dataLayer !== 'undefined') {
-      dataLayer.push(Object.assign({ event: eventName }, eventParams || {}));
-    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: eventName }, eventParams || {}));
   };
 
   // Scanner start
@@ -36,6 +35,18 @@
     });
   });
 
+  // Full diagnostic requested after scanner result
+  document.addEventListener('usegeo_full_diagnostic_requested', function(e) {
+    window.usegeoTrackEvent('generate_lead', {
+      event_category: 'conversion',
+      event_label: 'full_diagnostic_request',
+      scanner_domain: e.detail && e.detail.domain || '',
+      help_intent: e.detail && e.detail.help_intent || '',
+      support_level: e.detail && e.detail.support_level || '',
+      timeline: e.detail && e.detail.timeline || ''
+    });
+  });
+
   // ROI calculated
   document.addEventListener('usegeo_roi_calculated', function(e) {
     window.usegeoTrackEvent('roi_calculated', {
@@ -53,12 +64,42 @@
     });
   });
 
+  document.addEventListener('submit', function(e) {
+    var form = e.target;
+    if (!form || !form.classList) return;
+    if (form.classList.contains('usegeo-report-gate__form')) {
+      var formData = new FormData(form);
+      window.usegeoTrackEvent('lead_form_submit_attempt', {
+        event_category: 'conversion',
+        event_label: 'full_assessment_gate',
+        scanner_domain: formData.get('scanner_query') || '',
+        help_intent: formData.get('help_intent') || '',
+        support_level: formData.get('support_level') || '',
+        timeline: formData.get('timeline') || ''
+      });
+      document.dispatchEvent(new CustomEvent('usegeo_full_diagnostic_requested', {
+        detail: {
+          domain: formData.get('scanner_query') || '',
+          help_intent: formData.get('help_intent') || '',
+          support_level: formData.get('support_level') || '',
+          timeline: formData.get('timeline') || ''
+        }
+      }));
+    }
+    if (form.classList.contains('usegeo-community-form')) {
+      window.usegeoTrackEvent('case_form_submit_attempt', {
+        event_category: 'engagement',
+        event_label: 'case_submission'
+      });
+    }
+  });
+
   // CTA click tracking
   document.addEventListener('click', function(e) {
     var target = e.target.closest('a[href], button');
     if (!target) return;
     var ctaLabel = target.getAttribute('data-cta') || target.textContent.trim().slice(0, 50);
-    if (target.classList.contains('usegeo-cta') || target.closest('.usegeo-cta')) {
+    if (target.classList.contains('usegeo-cta') || target.classList.contains('usegeo-inline-cta') || target.classList.contains('usegeo-single-button') || target.classList.contains('usegeo-report-gate__button') || target.closest('.usegeo-cta')) {
       window.usegeoTrackEvent('cta_click', {
         event_category: 'engagement',
         event_label: ctaLabel

@@ -41,8 +41,8 @@
     else :
     ?>
     <div class="usegeo-content-empty">
-      <p>Case library is being built...</p>
-      <p>Be the first to submit a GEO case study</p>
+      <p>The public case library is being built from reviewed submissions.</p>
+      <p><a class="usegeo-inline-cta usegeo-inline-cta--ghost" href="<?php echo esc_url(home_url('/#community')); ?>">Submit a GEO case</a></p>
     </div>
     <?php endif; ?>
   </div>

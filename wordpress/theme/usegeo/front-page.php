@@ -11,6 +11,9 @@ get_header();
     <div id="scanner" class="usegeo-home-scanner">
         <?php get_template_part('template-parts/scanner/scanner'); ?>
     </div>
+    <?php get_template_part('template-parts/conversion/services'); ?>
+    <?php get_template_part('template-parts/conversion/methodology'); ?>
+    <?php get_template_part('template-parts/conversion/sample-report'); ?>
     <?php get_template_part('template-parts/value/value-proposition'); ?>
     <?php get_template_part('template-parts/learning/learning-path'); ?>
     <div id="content">

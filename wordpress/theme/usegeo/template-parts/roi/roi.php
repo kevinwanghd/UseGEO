@@ -1,7 +1,7 @@
 <section class="usegeo-card">
   <div class="usegeo-section-heading">
-    <h2>GEO ROI Calculator</h2>
-    <p class="usegeo-eyebrow">Estimate how much growth a GEO strategy could bring to your business</p>
+    <h2>Estimate the upside of fixing AI visibility gaps</h2>
+    <p class="usegeo-eyebrow">A directional model for deciding whether a deeper GEO diagnostic is worth prioritizing</p>
   </div>
 
   <div class="usegeo-roi" data-usegeo-roi>
@@ -37,7 +37,7 @@
 
     <div class="usegeo-roi__cta">
       <button class="usegeo-report-gate__button" type="button" id="usegeo-roi-calculate">Calculate ROI</button>
-      <p>Based on GEO industry averages: 30% organic traffic lift, 15% conversion rate improvement</p>
+      <p>Directional estimate only. Use it to frame the business case for prioritizing high-impact GEO fixes.</p>
     </div>
   </div>
 </section>

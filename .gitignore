@@ -2,7 +2,15 @@
 .agents/
 .claude/
 .gstack/
+.hermes/
+.understand-anything/
+graphify-out/
+--help/
 skills-lock.json
+
+# Python cache
+__pycache__/
+*.pyc
 
 # Build/package artifacts
 dist/

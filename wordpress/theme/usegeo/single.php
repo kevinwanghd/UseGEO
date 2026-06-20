@@ -87,8 +87,8 @@ get_header();
                                 <p class="usegeo-single-hero__excerpt"><?php echo esc_html($excerpt); ?></p>
                             <?php endif; ?>
                             <div class="usegeo-single-hero__actions">
-                                <a class="usegeo-single-button" href="<?php echo esc_url(home_url('/#scanner')); ?>">Run the free assessment</a>
-                                <a class="usegeo-single-button usegeo-single-button--ghost" href="<?php echo esc_url(home_url('/articles/')); ?>">Browse articles</a>
+                                <a class="usegeo-single-button" data-cta="article_hero_scanner" href="<?php echo esc_url(home_url('/#scanner')); ?>">Run the free assessment</a>
+                                <a class="usegeo-single-button usegeo-single-button--ghost" data-cta="article_hero_manual_audit" href="<?php echo esc_url(home_url('/#services')); ?>">See audit options</a>
                             </div>
                         </div>
 
@@ -98,7 +98,7 @@ get_header();
                             <ul>
                                 <li>Assess baseline AI visibility</li>
                                 <li>Find missing content signals</li>
-                                <li>Prioritize execution work</li>
+                                <li>Decide whether a manual audit is worth it</li>
                             </ul>
                         </aside>
                     </div>
@@ -120,10 +120,11 @@ get_header();
                         <?php endif; ?>
 
                         <section class="usegeo-single-side-cta">
-                            <span>Free MVP assessment</span>
-                            <h2>Get your GEO readiness score</h2>
-                            <p>Use the scanner to turn this article into a practical next-step list for your own website.</p>
-                            <a class="usegeo-single-button" href="<?php echo esc_url(home_url('/#scanner')); ?>">Start assessment</a>
+                            <span>Conversion checkpoint</span>
+                            <h2>Apply this article to your own site</h2>
+                            <p>Run the scanner first. If your baseline shows commercial opportunity, request the full diagnostic and use it as a manual audit brief.</p>
+                            <a class="usegeo-single-button" data-cta="article_sidebar_scanner" href="<?php echo esc_url(home_url('/#scanner')); ?>">Start assessment</a>
+                            <a class="usegeo-single-text-link" data-cta="article_sidebar_sample_report" href="<?php echo esc_url(home_url('/#sample-report')); ?>">Preview the diagnostic →</a>
                         </section>
                     </aside>
 
@@ -134,13 +135,20 @@ get_header();
                     </div>
                 </div>
 
+                <section class="usegeo-single-mid-cta">
+                    <span>Before you keep reading</span>
+                    <h2>Want to know if this problem exists on your site?</h2>
+                    <p>Use the scanner to get a baseline, then unlock the full diagnostic if you want prioritized GEO fixes.</p>
+                    <a class="usegeo-single-button" data-cta="article_mid_scanner" href="<?php echo esc_url(home_url('/#scanner')); ?>">Run the scanner</a>
+                </section>
+
                 <section class="usegeo-single-bottom-cta">
                     <div>
                         <span>Ready to apply this?</span>
                         <h2>Turn GEO reading into an execution priority.</h2>
                         <p>Run the free assessment to see where your website is clear, where AI systems may struggle, and which gaps are worth closing first.</p>
                     </div>
-                    <a class="usegeo-single-button" href="<?php echo esc_url(home_url('/#scanner')); ?>">Get your readiness score</a>
+                    <a class="usegeo-single-button" data-cta="article_bottom_scanner" href="<?php echo esc_url(home_url('/#scanner')); ?>">Get your readiness score</a>
                 </section>
 
                 <nav class="usegeo-single-pagination" aria-label="Article navigation">

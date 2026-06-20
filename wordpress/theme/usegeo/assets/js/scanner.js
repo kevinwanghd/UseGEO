@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const form = container.querySelector("[data-usegeo-scanner-form]");
   const status = container.querySelector("[data-usegeo-scanner-status]");
+  const emptyState = container.querySelector("[data-usegeo-scanner-empty]");
   const loading = container.querySelector("[data-usegeo-scanner-loading]");
   const loadingMessage = container.querySelector("[data-usegeo-loading-message]");
   const result = container.querySelector("[data-usegeo-scanner-result]");
@@ -24,27 +25,53 @@ document.addEventListener("DOMContentLoaded", function () {
   const summary = container.querySelector("[data-usegeo-summary]");
   const findings = container.querySelector("[data-usegeo-findings]");
   const scannerQueryInput = container.querySelector("[data-usegeo-scanner-query]");
+  const stages = Array.from(container.querySelectorAll("[data-usegeo-stage]"));
+
+  if (!form || !status || !result) {
+    return;
+  }
 
   const loadingMessages = [
-    "Checking the website structure and signal pattern...",
-    "Estimating AI visibility and recommendation fit...",
-    "Preparing your GEO readiness snapshot...",
+    {
+      text: "Checking homepage clarity, entity definitions, and business category signals...",
+      stage: "structure",
+    },
+    {
+      text: "Mapping comparison coverage, proof depth, and semantic reuse signals...",
+      stage: "signals",
+    },
+    {
+      text: "Preparing your GEO readiness score and recommended next step...",
+      stage: "roadmap",
+    },
   ];
 
   let loadingTimer = null;
 
+  const setStage = function (stageName) {
+    stages.forEach(function (stage) {
+      const isCurrent = stage.getAttribute("data-usegeo-stage") === stageName;
+      stage.classList.toggle("is-active", isCurrent);
+      if (isCurrent) {
+        stage.classList.add("is-complete");
+      }
+    });
+  };
+
   const setLoading = function () {
     let index = 0;
     if (loadingMessage) {
-      loadingMessage.textContent = loadingMessages[index];
+      loadingMessage.textContent = loadingMessages[index].text;
     }
+    setStage(loadingMessages[index].stage);
 
     loadingTimer = window.setInterval(function () {
       index = (index + 1) % loadingMessages.length;
       if (loadingMessage) {
-        loadingMessage.textContent = loadingMessages[index];
+        loadingMessage.textContent = loadingMessages[index].text;
       }
-    }, 650);
+      setStage(loadingMessages[index].stage);
+    }, 700);
   };
 
   const clearLoading = function () {
@@ -54,30 +81,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-    /**
-   * MVP: GEO readiness score is simulated based on input URL length.
-   * This is a placeholder for demonstration purposes.
-   * Production version will call a real GEO assessment API.
+  /**
+   * MVP: GEO readiness score is simulated from input traits.
+   * Production version can replace this function with a real assessment API.
    */
   const getResultPayload = function (query) {
     const normalized = String(query).trim();
-    const length = Math.min(normalized.length, 24);
-    const visibilityScore = Math.min(60 + length, 88);
-    const gpt = Math.min(visibilityScore + 4, 92);
-    const claude = Math.max(visibilityScore - 2, 55);
-    const gemini = Math.min(visibilityScore + 1, 90);
+    const clean = normalized.replace(/^https?:\/\//i, "").replace(/\/$/, "");
+    const length = Math.min(clean.length, 28);
+    const hasPath = clean.indexOf("/") !== -1;
+    const hasSubdomain = clean.split(".").length > 2;
+    const visibilityScore = Math.min(58 + length + (hasPath ? 3 : 0) + (hasSubdomain ? 2 : 0), 89);
+    const gpt = Math.min(visibilityScore + 4, 93);
+    const claude = Math.max(visibilityScore - 3, 52);
+    const gemini = Math.min(visibilityScore + 1, 91);
 
     const radarContent = Math.min(visibilityScore + 2, 91);
     const radarMention = Math.max(visibilityScore - 5, 50);
-    const radarCompetitive = Math.max(visibilityScore - 10, 45);
+    const radarCompetitive = Math.max(visibilityScore - 12, 43);
     const radarSemantic = Math.max(visibilityScore - 6, 48);
-    const radarAuthority = Math.max(visibilityScore - 12, 42);
+    const radarAuthority = Math.max(visibilityScore - 14, 40);
 
     let gradeText = "Emerging readiness";
+    let actionText = "A Manual GEO Audit would help convert this baseline into a prioritized execution plan.";
     if (visibilityScore >= 80) {
       gradeText = "Strong readiness";
+      actionText = "You likely have enough signal to justify deeper prompt testing and a fix sprint.";
     } else if (visibilityScore < 70) {
       gradeText = "Early readiness";
+      actionText = "Start with the highest-impact page fixes before investing in ongoing monitoring.";
     }
 
     return {
@@ -91,11 +123,11 @@ document.addEventListener("DOMContentLoaded", function () {
       radarSemantic,
       radarAuthority,
       gradeText,
-      summaryText: `${normalized} shows ${gradeText.toLowerCase()} for GEO. The highest-leverage next steps are likely stronger solution clarity, comparison coverage, and more durable proof content.`,
+      summaryText: `${clean} shows ${gradeText.toLowerCase()} for GEO. The highest-leverage next steps are likely stronger solution clarity, comparison coverage, and more durable proof content. ${actionText}`,
       findingsHtml: [
-        "Your site has some foundational signals, but not enough structured clarity to support stronger AI recommendation consistency.",
-        "Solution, comparison, and proof content appear to be the most valuable gaps to close next.",
-        "The next move should be focused execution, not simply publishing more undifferentiated content volume."
+        "AI systems need clearer entity, solution, and proof signals before they can confidently reuse your site in recommendations.",
+        "The most valuable gaps to inspect next are comparison coverage, use-case clarity, and outcome-backed evidence.",
+        "The next step should be a prioritized diagnostic, not more unfocused content production."
       ]
     };
   };
@@ -106,25 +138,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const toRad = (deg) => (deg * Math.PI) / 180;
 
-    const r1 = (content / 100) * maxRadius;
-    const r2 = (mention / 100) * maxRadius;
-    const r3 = (competitive / 100) * maxRadius;
-    const r4 = (semantic / 100) * maxRadius;
-    const r5 = (authority / 100) * maxRadius;
+    const values = [content, mention, competitive, semantic, authority];
+    const degrees = [-90, -18, 54, 126, 198];
 
-    const p1 = { x: cx + r1 * Math.cos(toRad(-90)), y: cy + r1 * Math.sin(toRad(-90)) };
-    const p2 = { x: cx + r2 * Math.cos(toRad(-18)), y: cy + r2 * Math.sin(toRad(-18)) };
-    const p3 = { x: cx + r3 * Math.cos(toRad(54)), y: cy + r3 * Math.sin(toRad(54)) };
-    const p4 = { x: cx + r4 * Math.cos(toRad(126)), y: cy + r4 * Math.sin(toRad(126)) };
-    const p5 = { x: cx + r5 * Math.cos(toRad(198)), y: cy + r5 * Math.sin(toRad(198)) };
-
-    return [
-      Math.round(p1.x) + "," + Math.round(p1.y),
-      Math.round(p2.x) + "," + Math.round(p2.y),
-      Math.round(p3.x) + "," + Math.round(p3.y),
-      Math.round(p4.x) + "," + Math.round(p4.y),
-      Math.round(p5.x) + "," + Math.round(p5.y),
-    ].join(" ");
+    return values.map(function (value, index) {
+      const radius = (value / 100) * maxRadius;
+      const x = cx + radius * Math.cos(toRad(degrees[index]));
+      const y = cy + radius * Math.sin(toRad(degrees[index]));
+      return Math.round(x) + "," + Math.round(y);
+    }).join(" ");
   };
 
   form.addEventListener("submit", function (event) {
@@ -136,12 +158,22 @@ document.addEventListener("DOMContentLoaded", function () {
       if (loading) {
         loading.hidden = true;
       }
+      if (emptyState) {
+        emptyState.hidden = false;
+      }
       result.hidden = true;
       clearLoading();
       return;
     }
 
-    status.textContent = "Preparing your GEO readiness snapshot...";
+    const domain = String(query).trim();
+    status.textContent = "Preparing your GEO diagnostic snapshot...";
+    document.dispatchEvent(new CustomEvent("usegeo_scanner_start", {
+      detail: { domain }
+    }));
+    if (emptyState) {
+      emptyState.hidden = true;
+    }
     if (loading) {
       loading.hidden = false;
     }
@@ -181,21 +213,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
       summary.textContent = payload.summaryText;
       if (scannerQueryInput) {
-        scannerQueryInput.value = String(query).trim();
+        scannerQueryInput.value = domain;
       }
       findings.innerHTML = payload.findingsHtml.map(function (item) {
         return `<li>${item}</li>`;
       }).join("");
-      status.textContent = "Assessment complete.";
+      status.textContent = "Assessment complete. Review the snapshot below and request the full diagnostic if you want prioritized next steps.";
       result.hidden = false;
-      if (window.dataLayer) {
-        window.dataLayer.push({
-          event: "scanner_complete",
-          location: "homepage",
+      document.dispatchEvent(new CustomEvent("usegeo_scanner_complete", {
+        detail: {
+          domain,
           score: payload.visibilityScore,
-          query_length: String(query).trim().length,
-        });
-      }
-    }, 2100);
+          grade: payload.gradeText
+        }
+      }));
+    }, 2300);
   });
 });

@@ -79,7 +79,7 @@ function usegeo_get_case_submission_notice() {
 }
 
 
-function usegeo_send_lead_notification($lead_id, $work_email, $company_type, $help_intent, $support_level, $scanner_query) {
+function usegeo_send_lead_notification($lead_id, $work_email, $company_type, $company_size, $help_intent, $support_level, $scanner_query, $timeline = '') {
     $admin_email = get_option('admin_email');
 
     if (!$admin_email || !is_email($admin_email)) {
@@ -98,8 +98,10 @@ function usegeo_send_lead_notification($lead_id, $work_email, $company_type, $he
         'Lead ID: ' . $lead_id,
         'Work email: ' . $work_email,
         'Company type: ' . ($company_type ?: '(empty)'),
+        'Company size: ' . ($company_size ?: '(empty)'),
         'Help intent: ' . ($help_intent ?: '(empty)'),
         'Support level: ' . ($support_level ?: '(empty)'),
+        'Timeline: ' . ($timeline ?: '(empty)'),
         'Website input: ' . ($scanner_query ?: '(empty)'),
         'Submitted at: ' . current_time('mysql'),
         '',
@@ -192,6 +194,7 @@ function usegeo_handle_lead_capture() {
 
     $work_email = isset($_POST['work_email']) ? sanitize_email(wp_unslash($_POST['work_email'])) : '';
     $company_type = isset($_POST['company_type']) ? sanitize_key(wp_unslash($_POST['company_type'])) : '';
+    $company_size = isset($_POST['company_size']) ? sanitize_key(wp_unslash($_POST['company_size'])) : '';
     $help_intent = isset($_POST['help_intent']) ? sanitize_key(wp_unslash($_POST['help_intent'])) : '';
     $support_level = isset($_POST['support_level']) ? sanitize_key(wp_unslash($_POST['support_level'])) : '';
     $timeline = isset($_POST['timeline']) ? sanitize_key(wp_unslash($_POST['timeline'])) : '';
@@ -205,6 +208,8 @@ function usegeo_handle_lead_capture() {
         !is_email($work_email) ||
         !$company_type ||
         !isset($company_type_options[$company_type]) ||
+        !$company_size ||
+        !isset($company_size_options[$company_size]) ||
         !$help_intent ||
         !$support_level ||
         !$timeline ||
@@ -228,6 +233,7 @@ function usegeo_handle_lead_capture() {
 
     update_post_meta($post_id, 'work_email', $work_email);
     update_post_meta($post_id, 'company_type', $company_type);
+    update_post_meta($post_id, 'company_size', $company_size);
     update_post_meta($post_id, 'help_intent', $help_intent);
     update_post_meta($post_id, 'support_level', $support_level);
     update_post_meta($post_id, 'timeline', $timeline);
@@ -235,7 +241,7 @@ function usegeo_handle_lead_capture() {
     update_post_meta($post_id, 'submitted_at', current_time('mysql'));
     update_post_meta($post_id, 'source', 'full_assessment_gate');
 
-    $mail_result = usegeo_send_lead_notification($post_id, $work_email, $company_type, $help_intent, $support_level, $scanner_query);
+    $mail_result = usegeo_send_lead_notification($post_id, $work_email, $company_type, $company_size, $help_intent, $support_level, $scanner_query, $timeline);
     $mail_sent = !empty($mail_result['sent']);
     update_post_meta($post_id, 'notification_sent', $mail_sent ? 'yes' : 'no');
     update_post_meta($post_id, 'notification_recipient', isset($mail_result['recipient']) ? $mail_result['recipient'] : '');

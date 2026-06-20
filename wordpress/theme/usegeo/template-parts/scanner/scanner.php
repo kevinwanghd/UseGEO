@@ -1,7 +1,15 @@
-<section class="usegeo-card">
-    <div class="usegeo-section-heading">
-        <h2>Run a quick GEO assessment on your website</h2>
-        <p>Start with a lightweight read on your current AI visibility. Then unlock a fuller assessment with more specific next-step guidance.</p>
+<section class="usegeo-card usegeo-scanner-card">
+    <div class="usegeo-section-heading usegeo-scanner-heading">
+        <div>
+            <span class="usegeo-section-kicker">Free GEO scanner</span>
+            <h2>Find out whether AI systems can understand and recommend your brand.</h2>
+            <p>Enter your website to get a quick AI visibility snapshot. You will see a directional score, model-readiness breakdown, and the most likely signal gaps before requesting a full diagnostic.</p>
+        </div>
+        <div class="usegeo-scanner-heading__proof" aria-label="Scanner proof points">
+            <span>No login required</span>
+            <span>2-minute snapshot</span>
+            <span>Built for B2B sites</span>
+        </div>
     </div>
 
     <?php
@@ -21,17 +29,47 @@
         <label class="screen-reader-text" for="usegeo-scanner-input">Company website</label>
         <form class="usegeo-tool__form" data-usegeo-scanner-form>
             <div class="usegeo-tool__row">
-                <input id="usegeo-scanner-input" type="text" inputmode="url" autocomplete="url" name="query" pattern="https?://[\w.-]+.*|[\w.-]+\.[\w]{2,}" placeholder="Enter your company website, for example https://yourcompany.com">
-                <button type="submit">Run assessment</button>
+                <input id="usegeo-scanner-input" type="text" inputmode="url" autocomplete="url" name="query" pattern="https?://[\w.-]+.*|[\w.-]+\.[\w]{2,}" placeholder="Enter your company website, for example https://yourcompany.com" required>
+                <button type="submit" data-cta="scanner_run_assessment">Run assessment</button>
             </div>
         </form>
-        <div class="usegeo-tool__status" data-usegeo-scanner-status aria-live="polite"></div>
+        <div class="usegeo-tool__status" data-usegeo-scanner-status aria-live="polite">Enter a website to generate your free GEO readiness snapshot.</div>
+
+        <div class="usegeo-scanner-empty" data-usegeo-scanner-empty>
+            <div class="usegeo-scanner-empty__panel">
+                <span>What you will get</span>
+                <h3>A practical snapshot, not a vanity score.</h3>
+                <p>The scanner estimates whether your site has the content, entity, comparison, and proof signals AI systems need before they can mention or recommend you.</p>
+            </div>
+            <div class="usegeo-scanner-empty__grid" aria-label="Scanner preview">
+                <article>
+                    <strong>01</strong>
+                    <h4>AI visibility baseline</h4>
+                    <p>Directional readiness score across ChatGPT, Claude, and Gemini-style answers.</p>
+                </article>
+                <article>
+                    <strong>02</strong>
+                    <h4>Signal gap map</h4>
+                    <p>Content, authority, semantic, comparison, and proof signals ranked by likely impact.</p>
+                </article>
+                <article>
+                    <strong>03</strong>
+                    <h4>Next-step recommendation</h4>
+                    <p>Whether to fix pages yourself, request a manual audit, or wait until GEO is more relevant.</p>
+                </article>
+            </div>
+        </div>
 
         <div class="usegeo-scanner-loading" data-usegeo-scanner-loading hidden>
             <div class="usegeo-scanner-loading__pulse">
                 <span class="usegeo-scanner-loading__label">Preparing assessment</span>
-                <strong data-usegeo-loading-message>Checking the website structure and GEO signal pattern...</strong>
+                <strong data-usegeo-loading-message>Checking homepage clarity and brand signal density...</strong>
             </div>
+            <ol class="usegeo-scanner-steps" aria-label="Assessment progress">
+                <li data-usegeo-stage="structure" class="is-active"><span>1</span><strong>Read site structure</strong><small>Homepage, category, and entity clarity</small></li>
+                <li data-usegeo-stage="signals"><span>2</span><strong>Map AI signals</strong><small>Comparison, semantic, authority, and proof coverage</small></li>
+                <li data-usegeo-stage="roadmap"><span>3</span><strong>Prepare next steps</strong><small>Priority gaps and diagnostic recommendation</small></li>
+            </ol>
             <div class="usegeo-scanner-skeleton">
                 <div class="usegeo-scanner-skeleton__card"></div>
                 <div class="usegeo-scanner-skeleton__chart"></div>
@@ -73,11 +111,6 @@
                         <line x1="32" y1="60" x2="168" y2="60" stroke="#e5e7eb" stroke-width="1"/>
                         <line x1="52" y1="130" x2="148" y2="130" stroke="#e5e7eb" stroke-width="1"/>
                         <polygon class="usegeo-radar__data" data-usegeo-radar points="100,35 154,64 138,118 62,118 46,64" fill="rgba(15,98,254,0.15)" stroke="#0f62fe" stroke-width="2"/>
-                        <circle cx="100" cy="35" r="4" fill="#0f62fe"/>
-                        <circle cx="154" cy="64" r="4" fill="#0f62fe"/>
-                        <circle cx="138" cy="118" r="4" fill="#0f62fe"/>
-                        <circle cx="62" cy="118" r="4" fill="#0f62fe"/>
-                        <circle cx="46" cy="64" r="4" fill="#0f62fe"/>
                     </svg>
                     <div class="usegeo-radar-labels">
                         <span class="usegeo-radar-label usegeo-radar-label--top"><strong data-usegeo-radar-val-1>72</strong> Content signals</span>
@@ -102,11 +135,13 @@
 
             <div class="usegeo-report-gate">
                 <div class="usegeo-report-gate__copy">
-                    <h3>Unlock your full GEO assessment</h3>
+                    <span class="usegeo-report-gate__kicker">Recommended next step</span>
+                    <h3>Unlock the full diagnostic and expert interpretation</h3>
+                    <p class="usegeo-report-gate__intro">The free score is a starting point. The full assessment turns it into a short action plan you can review with a GEO specialist.</p>
                     <ul>
-                        <li>See your top 3 priority GEO gaps</li>
-                        <li>Get clearer next-step recommendations</li>
-                        <li>Understand what to do next and what not to do yet</li>
+                        <li>Your top 3 visibility gaps by business impact</li>
+                        <li>Recommended page and content fixes</li>
+                        <li>Whether a paid Manual GEO Audit is useful now or premature</li>
                     </ul>
                 </div>
                 <form class="usegeo-report-gate__form" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
@@ -114,6 +149,10 @@
                     <input type="hidden" name="redirect_to" value="<?php echo esc_url(home_url('/#scanner')); ?>">
                     <input type="hidden" name="scanner_query" value="" data-usegeo-scanner-query>
                     <?php wp_nonce_field('usegeo_capture_lead', 'usegeo_lead_nonce'); ?>
+                    <div class="usegeo-report-gate__form-head">
+                        <strong>Request the full diagnostic</strong>
+                        <span>Designed for teams that may need a manual audit, fix sprint, or clear next-step roadmap.</span>
+                    </div>
                     <label>
                         <span>Work email</span>
                         <input type="email" name="work_email" placeholder="name@company.com" required>
@@ -128,6 +167,17 @@
                             <option value="media_content">Media / Content Business</option>
                             <option value="ecommerce">Ecommerce</option>
                             <option value="other">Other</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Company size</span>
+                        <select name="company_size" required>
+                            <option value="">Select one</option>
+                            <option value="1_10">1–10 people</option>
+                            <option value="11_50">11–50 people</option>
+                            <option value="51_200">51–200 people</option>
+                            <option value="201_1000">201–1,000 people</option>
+                            <option value="1000_plus">1,000+ people</option>
                         </select>
                     </label>
                     <label>
@@ -159,9 +209,9 @@
                             <option value="not_sure_yet">Not sure yet</option>
                         </select>
                     </label>
-                    <button type="submit" class="usegeo-report-gate__button">Get my full assessment</button>
+                    <button type="submit" class="usegeo-report-gate__button" data-cta="request_full_diagnostic">Request full diagnostic</button>
                     <p class="usegeo-report-gate__disclosure">
-                        We use your submission to personalize the assessment and follow up if needed. If you ask for outside help or request a recommendation, we may use your details to help identify a relevant GEO specialist. See our
+                        We use your submission to personalize the assessment and follow up when relevant. See our
                         <a href="<?php echo esc_url(home_url('/privacy-policy')); ?>">Privacy Policy</a>.
                     </p>
                 </form>

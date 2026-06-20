@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
         <div class="usegeo-site-footer__grid">
             <div class="usegeo-site-footer__brand">
                 <strong><?php esc_html_e('usegeo.blog', 'usegeo'); ?></strong>
-                <p><?php esc_html_e('A GEO learning, assessment, and case-driven insight site for B2B teams.', 'usegeo'); ?></p>
+                <p><?php esc_html_e('AI visibility diagnostics, GEO learning, and case-driven execution insight for B2B teams.', 'usegeo'); ?></p>
             </div>
             <nav class="usegeo-site-footer__nav" aria-label="Footer navigation">
                 <ul class="usegeo-menu usegeo-menu--footer">
