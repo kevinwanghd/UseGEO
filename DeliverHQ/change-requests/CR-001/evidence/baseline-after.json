@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-06-21T00:01:42.598986",
+  "commit_hash": "03d8f6d74a8b8ec291fe20907c9e85ed140c9a6e",
+  "commands_run": [
+    "python DeliverHQ/change-requests/CR-001/evidence/static_verify.py"
+  ],
+  "build_passed": true,
+  "build_errors": [],
+  "tests_total": 0,
+  "tests_passed": 0,
+  "tests_failed": 0,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "usegeo",
+      "type": "php"
+    },
+    "build": {
+      "enabled": true,
+      "command": "python DeliverHQ/change-requests/CR-001/evidence/static_verify.py",
+      "working_dir": ".",
+      "timeout": 120,
+      "success_pattern": "static verification passed"
+    },
+    "test": {
+      "unit": {
+        "enabled": false,
+        "command": "",
+        "working_dir": ".",
+        "timeout": 300,
+        "coverage_enabled": false,
+        "coverage_threshold": 0
+      },
+      "integration": {
+        "enabled": false,
+        "command": ""
+      }
+    },
+    "manual": {
+      "enabled": true,
+      "checks": [
+        {
+          "id": "scanner_api_contract",
+          "description": "POST /wp-json/usegeo/v1/scan 返回结构符合 Interface Spec",
+          "method": "curl -s -X POST http://usegeo-local.local/wp-json/usegeo/v1/scan -H 'Content-Type: application/json' -d '{\"url\":\"https://example.com\"}' | python -m json.tool",
+          "expect": "contains:scores"
+        },
+        {
+          "id": "scanner_ssrf_block",
+          "description": "SSRF 黑名单 URL 被拒绝",
+          "method": "curl -s -o /dev/null -w '%{http_code}' -X POST http://usegeo-local.local/wp-json/usegeo/v1/scan -H 'Content-Type: application/json' -d '{\"url\":\"http://127.0.0.1\"}'",
+          "expect": "contains:400"
+        },
+        {
+          "id": "scanner_llm_fallback",
+          "description": "LLM 不可用时仍返回完整结果",
+          "method": "curl -s -X POST http://usegeo-local.local/wp-json/usegeo/v1/scan -H 'Content-Type: application/json' -d '{\"url\":\"https://example.com\"}' | python -c \"import sys,json; d=json.load(sys.stdin); print(d['ok'], d.get('llm_summary',{}).get('available','N/A'))\"",
+          "expect": "contains:True"
+        },
+        {
+          "id": "scanner_rate_limit",
+          "description": "触发 rate limit 返回 429",
+          "method": "for i in $(seq 1 8); do curl -s -o /dev/null -w '%{http_code}\\n' -X POST http://usegeo-local.local/wp-json/usegeo/v1/scan -H 'Content-Type: application/json' -d '{\"url\":\"https://example.com\"}'; done | grep 429",
+          "expect": "contains:429"
+        },
+        {
+          "id": "scanner_evidence_not_empty",
+          "description": "成功响应 evidence 区不为空",
+          "method": "curl -s -X POST http://usegeo-local.local/wp-json/usegeo/v1/scan -H 'Content-Type: application/json' -d '{\"url\":\"https://example.com\"}' | python -c \"import sys,json; d=json.load(sys.stdin); print(bool(d.get('extracted',{}).get('title','') or d.get('extracted',{}).get('h1',[''])[0]))\"",
+          "expect": "contains:True"
+        },
+        {
+          "id": "scanner_feature_flag_off",
+          "description": "feature flag 关闭时前端不调用 API",
+          "method": "grep -c 'wp-json/usegeo/v1/scan' wordpress/theme/usegeo/assets/js/scanner.js",
+          "expect": "exit_zero"
+        }
+      ]
+    },
+    "deliverhq": {
+      "enabled": true,
+      "command": "python DeliverHQ/scripts/selftest.py",
+      "working_dir": ".",
+      "timeout": 120,
+      "success_pattern": "DeliverHQ 框架健康"
+    }
+  },
+  "command_results": [
+    {
+      "name": "build",
+      "category": "build",
+      "command": "python DeliverHQ/change-requests/CR-001/evidence/static_verify.py",
+      "working_dir": "D:\\Code\\UseGEO\\.claude\\worktrees\\CR-001",
+      "timeout": 120,
+      "success": true,
+      "returncode": 0,
+      "stdout": "static verification passed\n",
+      "stderr": ""
+    }
+  ]
+}

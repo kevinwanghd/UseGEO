@@ -39,6 +39,12 @@
             </div>
         </div>
 
+        <div class="usegeo-tool__error usegeo-scanner-error" data-usegeo-scanner-error hidden>
+            <strong>We could not complete this scan.</strong>
+            <p data-usegeo-scanner-error-message>Please try again in a moment.</p>
+            <p class="usegeo-scanner-error__hint">You can still request a full diagnostic below if you want us to review the site manually.</p>
+        </div>
+
         <div class="usegeo-tool__result usegeo-scanner-result" data-usegeo-scanner-result hidden>
             <div class="usegeo-scanner-result__header">
                 <div class="usegeo-metric usegeo-metric--featured">
@@ -100,6 +106,18 @@
                 </ul>
             </div>
 
+            <div class="usegeo-scanner-evidence" data-usegeo-evidence hidden>
+                <span class="usegeo-scanner-evidence__label">What we found on your site</span>
+                <dl>
+                    <dt>Page title</dt><dd>Not scanned yet</dd>
+                    <dt>H1</dt><dd>Not scanned yet</dd>
+                    <dt>Schema detected</dt><dd>Not scanned yet</dd>
+                    <dt>Word count</dt><dd>0</dd>
+                    <dt>Proof signals</dt><dd>Not scanned yet</dd>
+                    <dt>Comparison signals</dt><dd>Not scanned yet</dd>
+                </dl>
+            </div>
+
             <div class="usegeo-report-gate">
                 <div class="usegeo-report-gate__copy">
                     <h3>Unlock your full GEO assessment</h3>
@@ -113,6 +131,15 @@
                     <input type="hidden" name="action" value="usegeo_capture_lead">
                     <input type="hidden" name="redirect_to" value="<?php echo esc_url(home_url('/#scanner')); ?>">
                     <input type="hidden" name="scanner_query" value="" data-usegeo-scanner-query>
+                    <input type="hidden" name="scan_total_score" value="" data-usegeo-scan-total-score>
+                    <input type="hidden" name="scan_entity_clarity" value="" data-usegeo-scan-entity-clarity>
+                    <input type="hidden" name="scan_content_structure" value="" data-usegeo-scan-content-structure>
+                    <input type="hidden" name="scan_proof_signals" value="" data-usegeo-scan-proof-signals>
+                    <input type="hidden" name="scan_comparison_readiness" value="" data-usegeo-scan-comparison-readiness>
+                    <input type="hidden" name="scan_ai_extractability" value="" data-usegeo-scan-ai-extractability>
+                    <input type="hidden" name="scan_completed_at" value="" data-usegeo-scan-completed-at>
+                    <input type="hidden" name="scan_findings_summary" value="" data-usegeo-scan-findings-summary>
+                    <input type="hidden" name="scan_llm_summary" value="" data-usegeo-scan-llm-summary>
                     <?php wp_nonce_field('usegeo_capture_lead', 'usegeo_lead_nonce'); ?>
                     <label>
                         <span>Work email</span>
@@ -128,6 +155,17 @@
                             <option value="media_content">Media / Content Business</option>
                             <option value="ecommerce">Ecommerce</option>
                             <option value="other">Other</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Company size</span>
+                        <select name="company_size" required>
+                            <option value="">Select one</option>
+                            <option value="1_10">1–10 people</option>
+                            <option value="11_50">11–50 people</option>
+                            <option value="51_200">51–200 people</option>
+                            <option value="201_1000">201–1,000 people</option>
+                            <option value="1000_plus">1,000+ people</option>
                         </select>
                     </label>
                     <label>

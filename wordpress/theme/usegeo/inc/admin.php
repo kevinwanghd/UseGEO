@@ -313,6 +313,7 @@ function usegeo_get_lead_company_type_options() {
 }
 
 
+
 function usegeo_render_lead_priority_badge($label, $tone = 'neutral') {
     $tones = array(
         'neutral' => 'background:#e5e7eb;color:#334155;',
@@ -334,10 +335,13 @@ function usegeo_lead_admin_columns($columns) {
 
     $columns['work_email'] = __('Work Email', 'usegeo');
     $columns['company_type'] = __('Company Type', 'usegeo');
+    $columns['company_size'] = __('Company Size', 'usegeo');
     $columns['help_intent'] = __('Help Intent', 'usegeo');
     $columns['support_level'] = __('Support Level', 'usegeo');
     $columns['timeline'] = __('Timeline', 'usegeo');
     $columns['scanner_query'] = __('Website Input', 'usegeo');
+    $columns['scan_total_score'] = __('GEO Score', 'usegeo');
+    $columns['weakest_dimension'] = __('Weakest Dimension', 'usegeo');
     $columns['notification_status'] = __('Notification', 'usegeo');
     $columns['notification_recipient'] = __('Recipient', 'usegeo');
 
@@ -356,6 +360,14 @@ function usegeo_render_lead_admin_column($column, $post_id) {
         $company_type = get_post_meta($post_id, 'company_type', true);
         $company_type_options = usegeo_get_lead_company_type_options();
         echo esc_html(isset($company_type_options[$company_type]) ? $company_type_options[$company_type] : ($company_type ?: '-'));
+        return;
+    }
+
+
+    if ($column === 'company_size') {
+        $company_size = get_post_meta($post_id, 'company_size', true);
+        $company_size_options = usegeo_get_lead_company_size_options();
+        echo esc_html(isset($company_size_options[$company_size]) ? $company_size_options[$company_size] : ($company_size ?: '—'));
         return;
     }
 
@@ -408,6 +420,19 @@ function usegeo_render_lead_admin_column($column, $post_id) {
         return;
     }
 
+
+    if ($column === 'scan_total_score') {
+        $score = get_post_meta($post_id, 'scan_total_score', true);
+        echo esc_html($score !== '' ? $score : '—');
+        return;
+    }
+
+    if ($column === 'weakest_dimension') {
+        $weakest = function_exists('usegeo_get_scan_weakest_dimension') ? usegeo_get_scan_weakest_dimension($post_id) : '';
+        echo esc_html($weakest ?: '—');
+        return;
+    }
+
     switch ($column) {
         case 'work_email':
             echo esc_html(get_post_meta($post_id, 'work_email', true) ?: '—');
@@ -455,6 +480,7 @@ add_action('add_meta_boxes', 'usegeo_register_lead_meta_box');
 function usegeo_render_lead_meta_box($post) {
     $work_email = get_post_meta($post->ID, 'work_email', true);
     $company_type = get_post_meta($post->ID, 'company_type', true);
+    $company_size = get_post_meta($post->ID, 'company_size', true);
     $help_intent = get_post_meta($post->ID, 'help_intent', true);
     $support_level = get_post_meta($post->ID, 'support_level', true);
     $timeline = get_post_meta($post->ID, 'timeline', true);
@@ -465,10 +491,12 @@ function usegeo_render_lead_meta_box($post) {
     $notification_recipient = get_post_meta($post->ID, 'notification_recipient', true);
     $notification_error = get_post_meta($post->ID, 'notification_error', true);
     $company_type_options = usegeo_get_lead_company_type_options();
+    $company_size_options = usegeo_get_lead_company_size_options();
     $help_intent_labels = usegeo_get_help_intent_labels();
     $support_level_labels = usegeo_get_support_level_labels();
     $timeline_labels = usegeo_get_timeline_labels();
     $company_type_label = isset($company_type_options[$company_type]) ? $company_type_options[$company_type] : $company_type;
+    $company_size_label = isset($company_size_options[$company_size]) ? $company_size_options[$company_size] : $company_size;
     $help_intent_label = isset($help_intent_labels[$help_intent]) ? $help_intent_labels[$help_intent] : $help_intent;
     $support_level_label = isset($support_level_labels[$support_level]) ? $support_level_labels[$support_level] : $support_level;
     $timeline_label = isset($timeline_labels[$timeline]) ? $timeline_labels[$timeline] : $timeline;
@@ -482,6 +510,10 @@ function usegeo_render_lead_meta_box($post) {
             <tr>
                 <th scope="row"><?php esc_html_e('Company Type', 'usegeo'); ?></th>
                 <td><?php echo esc_html($company_type_label ?: '-'); ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('Company Size', 'usegeo'); ?></th>
+                <td><?php echo esc_html($company_size_label ?: '-'); ?></td>
             </tr>
             <tr>
                 <th scope="row"><?php esc_html_e('Help Intent', 'usegeo'); ?></th>
@@ -532,6 +564,18 @@ function usegeo_render_lead_meta_box($post) {
             <tr>
                 <th scope="row"><?php esc_html_e('Website Input', 'usegeo'); ?></th>
                 <td><?php echo esc_html($scanner_query ?: '-'); ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('GEO Score', 'usegeo'); ?></th>
+                <td><?php echo esc_html(get_post_meta($post->ID, 'scan_total_score', true) ?: '-'); ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('Weakest Dimension', 'usegeo'); ?></th>
+                <td><?php echo esc_html(function_exists('usegeo_get_scan_weakest_dimension') ? (usegeo_get_scan_weakest_dimension($post->ID) ?: '-') : '-'); ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('Scan Findings', 'usegeo'); ?></th>
+                <td><div style="white-space:pre-wrap;"><?php echo esc_html(get_post_meta($post->ID, 'scan_findings_summary', true) ?: '-'); ?></div></td>
             </tr>
             <tr>
                 <th scope="row"><?php esc_html_e('Submitted At', 'usegeo'); ?></th>

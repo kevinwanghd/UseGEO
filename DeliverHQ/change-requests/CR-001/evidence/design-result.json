@@ -1,0 +1,18 @@
+{
+  "gate_name": "design",
+  "result": "pass",
+  "timestamp": "2026-06-20T10:03:53.828183",
+  "blocking_items": [],
+  "warnings": [],
+  "commands_run": [],
+  "artifacts": [],
+  "next_action": "Run context",
+  "failure_attribution": [],
+  "metadata": {
+    "current_state": "design",
+    "current_phase": "design",
+    "current_owner": "design-agent",
+    "requires_human": true,
+    "worktree_path": "D:\\Code\\UseGEO\\DeliverHQ\\.claude\\worktrees\\CR-001"
+  }
+}

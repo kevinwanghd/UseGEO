@@ -1,0 +1,70 @@
+# Verification Manifest
+# 定义项目的验证命令，QualityGate 会执行这些命令做真实验证
+
+project:
+  name: "usegeo"
+  type: "php"  # WordPress 主题
+
+# 构建验证（WordPress 无独立构建步骤，PHP 语法检查作为构建验证）
+build:
+  enabled: true
+  command: "python DeliverHQ/change-requests/CR-001/evidence/static_verify.py"
+  working_dir: "."
+  timeout: 120
+  success_pattern: "static verification passed"
+
+# 单元测试（v1 用手工/脚本验证，暂无 PHPUnit 框架）
+test:
+  unit:
+    enabled: false
+    command: ""
+    working_dir: "."
+    timeout: 300
+    coverage_enabled: false
+    coverage_threshold: 0
+
+  integration:
+    enabled: false
+    command: ""
+
+# 手工验证脚本（Behavior Spec 场景验证）
+manual:
+  enabled: true
+  checks:
+    - id: "scanner_api_contract"
+      description: "POST /wp-json/usegeo/v1/scan 返回结构符合 Interface Spec"
+      method: "curl -s -X POST http://usegeo-local.local/wp-json/usegeo/v1/scan -H 'Content-Type: application/json' -d '{\"url\":\"https://example.com\"}' | python -m json.tool"
+      expect: "contains:scores"
+
+    - id: "scanner_ssrf_block"
+      description: "SSRF 黑名单 URL 被拒绝"
+      method: "curl -s -o /dev/null -w '%{http_code}' -X POST http://usegeo-local.local/wp-json/usegeo/v1/scan -H 'Content-Type: application/json' -d '{\"url\":\"http://127.0.0.1\"}'"
+      expect: "contains:400"
+
+    - id: "scanner_llm_fallback"
+      description: "LLM 不可用时仍返回完整结果"
+      method: "curl -s -X POST http://usegeo-local.local/wp-json/usegeo/v1/scan -H 'Content-Type: application/json' -d '{\"url\":\"https://example.com\"}' | python -c \"import sys,json; d=json.load(sys.stdin); print(d['ok'], d.get('llm_summary',{}).get('available','N/A'))\""
+      expect: "contains:True"
+
+    - id: "scanner_rate_limit"
+      description: "触发 rate limit 返回 429"
+      method: "for i in $(seq 1 8); do curl -s -o /dev/null -w '%{http_code}\\n' -X POST http://usegeo-local.local/wp-json/usegeo/v1/scan -H 'Content-Type: application/json' -d '{\"url\":\"https://example.com\"}'; done | grep 429"
+      expect: "contains:429"
+
+    - id: "scanner_evidence_not_empty"
+      description: "成功响应 evidence 区不为空"
+      method: "curl -s -X POST http://usegeo-local.local/wp-json/usegeo/v1/scan -H 'Content-Type: application/json' -d '{\"url\":\"https://example.com\"}' | python -c \"import sys,json; d=json.load(sys.stdin); print(bool(d.get('extracted',{}).get('title','') or d.get('extracted',{}).get('h1',[''])[0]))\""
+      expect: "contains:True"
+
+    - id: "scanner_feature_flag_off"
+      description: "feature flag 关闭时前端不调用 API"
+      method: "grep -c 'wp-json/usegeo/v1/scan' wordpress/theme/usegeo/assets/js/scanner.js"
+      expect: "exit_zero"
+
+# DeliverHQ 自检
+deliverhq:
+  enabled: true
+  command: "python DeliverHQ/scripts/selftest.py"
+  working_dir: "."
+  timeout: 120
+  success_pattern: "DeliverHQ 框架健康"

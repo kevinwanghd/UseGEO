@@ -1,0 +1,18 @@
+{
+  "gate_name": "spec",
+  "result": "pass",
+  "timestamp": "2026-06-20T08:57:35.799678",
+  "blocking_items": [],
+  "warnings": [],
+  "commands_run": [],
+  "artifacts": [],
+  "next_action": "Run design",
+  "failure_attribution": [],
+  "metadata": {
+    "current_state": "spec_review",
+    "current_phase": "spec",
+    "current_owner": "spec-agent",
+    "requires_human": true,
+    "worktree_path": "D:\\Code\\UseGEO\\DeliverHQ\\.claude\\worktrees\\CR-001"
+  }
+}

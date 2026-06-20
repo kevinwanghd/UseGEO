@@ -91,6 +91,12 @@ function usegeo_enqueue_assets() {
             true
         );
 
+        wp_localize_script('usegeo-scanner', 'usegeoScannerConfig', array(
+            'realScannerEnabled' => function_exists('usegeo_is_real_scanner_enabled') ? usegeo_is_real_scanner_enabled() : false,
+            'apiUrl' => esc_url_raw(rest_url('usegeo/v1/scan')),
+            'nonce' => wp_create_nonce('wp_rest'),
+        ));
+
         wp_enqueue_script(
             'usegeo-roi',
             $theme_uri . '/assets/js/roi.js',
