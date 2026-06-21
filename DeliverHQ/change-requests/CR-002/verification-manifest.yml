@@ -1,0 +1,33 @@
+# Verification Manifest
+
+project:
+  name: "usegeo"
+  type: "wordpress-config"
+
+build:
+  enabled: true
+  command: "python DeliverHQ/change-requests/CR-002/evidence/verify_llm_config.py --mode fallback"
+  working_dir: "."
+  timeout: 60
+  success_pattern: "fallback verification passed"
+
+test:
+  unit:
+    enabled: false
+    command: ""
+    working_dir: "."
+    timeout: 300
+    coverage_enabled: false
+    coverage_threshold: 0
+
+manual:
+  enabled: true
+  checks:
+    - id: "llm_configured"
+      description: "配置代理 key + USEGEO_LLM_BASE_URL 后 scan API 返回 llm_summary.available=true"
+      method: "python DeliverHQ/change-requests/CR-002/evidence/verify_llm_config.py --mode llm"
+      expect: "contains:llm verification passed"
+    - id: "secret_not_public"
+      description: "页面源码/scanner.js/API 响应不暴露 key"
+      method: "python DeliverHQ/change-requests/CR-002/evidence/verify_llm_config.py --mode secret-scan"
+      expect: "contains:secret scan passed"
