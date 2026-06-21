@@ -1,0 +1,22 @@
+cr_id: CR-007
+title: Publish GEO Checklist Page
+lane: fast
+current_state: draft
+current_phase: request
+current_owner: Kevin
+goal: ''
+current_plan: null
+completed_steps: []
+blocking_reason: null
+blocked_by: []
+last_gate: null
+next_gate: spec
+next_required_gate: spec
+requires_human: false
+worktree_path: null
+gate_status: {}
+created_at: '2026-06-21T21:55:36.499063'
+updated_at: '2026-06-21T21:55:36.499063'
+started_at: '2026-06-21T21:55:36.499063'
+completed_at: null
+transitions: []
