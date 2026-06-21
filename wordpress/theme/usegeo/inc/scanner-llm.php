@@ -12,7 +12,19 @@ function usegeo_scan_get_llm_api_key() {
 }
 
 function usegeo_scan_get_llm_model() {
-    return (string) apply_filters('usegeo_llm_model', defined('USEGEO_LLM_MODEL') ? USEGEO_LLM_MODEL : 'gpt-4o-mini');
+    return (string) apply_filters('usegeo_llm_model', defined('USEGEO_LLM_MODEL') ? USEGEO_LLM_MODEL : 'gpt-5.4-mini');
+}
+
+function usegeo_scan_get_llm_base_url() {
+    $base_url = defined('USEGEO_LLM_BASE_URL') && USEGEO_LLM_BASE_URL
+        ? (string) USEGEO_LLM_BASE_URL
+        : 'https://api.openai.com/v1';
+    $base_url = (string) apply_filters('usegeo_llm_base_url', $base_url);
+    $base_url = rtrim($base_url, '/');
+    if (substr($base_url, -17) === '/chat/completions') {
+        return $base_url;
+    }
+    return $base_url . '/chat/completions';
 }
 
 function usegeo_scan_get_llm_timeout() {
@@ -68,7 +80,7 @@ function usegeo_scan_llm_summarize($url, $extracted, $scores, $findings) {
         ),
     );
 
-    $response = wp_remote_post('https://api.openai.com/v1/chat/completions', array(
+    $response = wp_remote_post(usegeo_scan_get_llm_base_url(), array(
         'timeout' => usegeo_scan_get_llm_timeout(),
         'headers' => array(
             'Authorization' => 'Bearer ' . $api_key,

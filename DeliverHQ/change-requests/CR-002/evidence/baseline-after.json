@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-06-21T13:49:37.861197",
+  "commit_hash": "56073696b050f2b9504bd11d81e305ef8e99536f",
+  "commands_run": [
+    "python DeliverHQ/change-requests/CR-002/evidence/verify_llm_config.py --mode fallback"
+  ],
+  "build_passed": true,
+  "build_errors": [],
+  "tests_total": 0,
+  "tests_passed": 0,
+  "tests_failed": 0,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "usegeo",
+      "type": "wordpress-config"
+    },
+    "build": {
+      "enabled": true,
+      "command": "python DeliverHQ/change-requests/CR-002/evidence/verify_llm_config.py --mode fallback",
+      "working_dir": ".",
+      "timeout": 60,
+      "success_pattern": "fallback verification passed"
+    },
+    "test": {
+      "unit": {
+        "enabled": false,
+        "command": "",
+        "working_dir": ".",
+        "timeout": 300,
+        "coverage_enabled": false,
+        "coverage_threshold": 0
+      }
+    },
+    "manual": {
+      "enabled": true,
+      "checks": [
+        {
+          "id": "llm_configured",
+          "description": "配置代理 key + USEGEO_LLM_BASE_URL 后 scan API 返回 llm_summary.available=true",
+          "method": "python DeliverHQ/change-requests/CR-002/evidence/verify_llm_config.py --mode llm",
+          "expect": "contains:llm verification passed"
+        },
+        {
+          "id": "secret_not_public",
+          "description": "页面源码/scanner.js/API 响应不暴露 key",
+          "method": "python DeliverHQ/change-requests/CR-002/evidence/verify_llm_config.py --mode secret-scan",
+          "expect": "contains:secret scan passed"
+        }
+      ]
+    }
+  },
+  "command_results": [
+    {
+      "name": "build",
+      "category": "build",
+      "command": "python DeliverHQ/change-requests/CR-002/evidence/verify_llm_config.py --mode fallback",
+      "working_dir": "D:\\Code\\UseGEO\\.claude\\worktrees\\CR-002",
+      "timeout": 60,
+      "success": true,
+      "returncode": 0,
+      "stdout": "fallback verification passed\n",
+      "stderr": ""
+    }
+  ]
+}

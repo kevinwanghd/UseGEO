@@ -1,0 +1,29 @@
+schema: deliverhq-traceability
+version: 1
+
+CR-002:
+  requirement: "启用并验证 Real Scanner v1 的 LLM Summary"
+  priority: P1
+  origin: PRD-REAL-SCANNER-V1
+
+  acceptance_criteria:
+    - "配置有效 LLM key 后，scan API 返回 llm_summary.available=true"
+    - "LLM summary 不编造 extracted 中不存在的客户/案例/竞品"
+    - "无 key / 错 key / 超时时 fallback 仍返回完整规则结果"
+    - "API key 不出现在仓库、前端源码、REST 响应、邮件正文"
+
+  implementation:
+    - file: wp-config.php
+      description: "生产环境 secret 配置位置（不入仓，仅人工配置）"
+      external: true
+    - file: wordpress/theme/usegeo/inc/scanner-llm.php
+      functions:
+        - usegeo_scan_get_llm_api_key
+        - usegeo_scan_llm_summarize
+      description: "CR-001 已实现的 LLM 调用与 fallback 逻辑"
+      reverse_mapped: true
+
+  tests:
+    - file: DeliverHQ/change-requests/CR-002/verification-manifest.yml
+      description: "配置前/配置后/回退验证命令"
+      status: planned

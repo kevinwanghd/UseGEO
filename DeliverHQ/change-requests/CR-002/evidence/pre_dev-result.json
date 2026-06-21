@@ -1,0 +1,26 @@
+{
+  "gate_name": "pre_dev",
+  "result": "pass",
+  "timestamp": "2026-06-21T13:47:36.300824",
+  "blocking_items": [],
+  "warnings": [
+    "验收规格提及 'secret'，注意规则 #7/#8"
+  ],
+  "commands_run": [
+    "permissiongate.py",
+    "pre_dev_gate.py",
+    "python DeliverHQ/change-requests/CR-002/evidence/verify_llm_config.py --mode fallback"
+  ],
+  "artifacts": [
+    "evidence/baseline-before.json"
+  ],
+  "next_action": "进入 ReviewGate / 开发执行阶段",
+  "failure_attribution": [],
+  "metadata": {
+    "current_state": "dev",
+    "current_phase": "dev",
+    "current_owner": "dev-agent",
+    "requires_human": true,
+    "worktree_path": "D:\\Code\\UseGEO\\DeliverHQ\\.claude\\worktrees\\CR-002"
+  }
+}
