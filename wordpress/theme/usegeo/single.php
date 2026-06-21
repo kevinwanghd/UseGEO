@@ -126,6 +126,7 @@ get_header();
                             <a class="usegeo-single-button" data-cta="article_sidebar_scanner" href="<?php echo esc_url(home_url('/#scanner')); ?>">Start assessment</a>
                             <a class="usegeo-single-text-link" data-cta="article_sidebar_sample_report" href="<?php echo esc_url(home_url('/#sample-report')); ?>">Preview the diagnostic →</a>
                         </section>
+                        <?php if (function_exists('usegeo_render_sponsor_slot')) { usegeo_render_sponsor_slot('article_sidebar'); } ?>
                     </aside>
 
                     <div class="usegeo-single-content-card">

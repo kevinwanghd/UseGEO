@@ -151,6 +151,8 @@
                 </dl>
             </div>
 
+            <?php if (function_exists('usegeo_render_sponsor_slot')) { usegeo_render_sponsor_slot('scanner_result'); } ?>
+
             <div class="usegeo-report-gate">
                 <div class="usegeo-report-gate__copy">
                     <span class="usegeo-report-gate__kicker">Recommended next step</span>

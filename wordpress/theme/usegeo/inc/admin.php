@@ -762,3 +762,89 @@ function usegeo_export_partner_leads() {
     fclose($out); exit;
 }
 add_action('admin_post_usegeo_export_partner_leads', 'usegeo_export_partner_leads');
+
+
+function usegeo_get_sponsor_placements() {
+    return array(
+        'homepage' => __('Homepage', 'usegeo'),
+        'scanner_result' => __('Scanner Result', 'usegeo'),
+        'article_sidebar' => __('Article Sidebar', 'usegeo'),
+    );
+}
+
+function usegeo_default_sponsor_slots() {
+    $defaults = array();
+    foreach (usegeo_get_sponsor_placements() as $placement => $label) {
+        $defaults[$placement] = array(
+            'active' => 'no',
+            'title' => '',
+            'description' => '',
+            'cta_label' => '',
+            'url' => '',
+        );
+    }
+    return $defaults;
+}
+
+function usegeo_get_sponsor_slots() {
+    $saved = get_option('usegeo_sponsor_slots', array());
+    return array_replace_recursive(usegeo_default_sponsor_slots(), is_array($saved) ? $saved : array());
+}
+
+function usegeo_register_sponsor_admin_page() {
+    add_theme_page(__('UseGEO Sponsors', 'usegeo'), __('UseGEO Sponsors', 'usegeo'), 'manage_options', 'usegeo-sponsors', 'usegeo_render_sponsor_admin_page');
+}
+add_action('admin_menu', 'usegeo_register_sponsor_admin_page');
+
+function usegeo_render_sponsor_admin_page() {
+    if (!current_user_can('manage_options')) return;
+    if (isset($_POST['usegeo_sponsor_nonce']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['usegeo_sponsor_nonce'])), 'usegeo_save_sponsors')) {
+        $next = usegeo_default_sponsor_slots();
+        foreach (usegeo_get_sponsor_placements() as $placement => $label) {
+            $row = isset($_POST['sponsors'][$placement]) && is_array($_POST['sponsors'][$placement]) ? wp_unslash($_POST['sponsors'][$placement]) : array();
+            $next[$placement] = array(
+                'active' => !empty($row['active']) ? 'yes' : 'no',
+                'title' => isset($row['title']) ? sanitize_text_field($row['title']) : '',
+                'description' => isset($row['description']) ? sanitize_textarea_field($row['description']) : '',
+                'cta_label' => isset($row['cta_label']) ? sanitize_text_field($row['cta_label']) : '',
+                'url' => isset($row['url']) ? esc_url_raw($row['url']) : '',
+            );
+        }
+        update_option('usegeo_sponsor_slots', $next, false);
+        echo '<div class="notice notice-success"><p>' . esc_html__('Sponsor slots saved.', 'usegeo') . '</p></div>';
+    }
+    $slots = usegeo_get_sponsor_slots();
+    ?>
+    <div class="wrap">
+        <h1><?php esc_html_e('UseGEO Sponsors', 'usegeo'); ?></h1>
+        <form method="post">
+            <?php wp_nonce_field('usegeo_save_sponsors', 'usegeo_sponsor_nonce'); ?>
+            <?php foreach (usegeo_get_sponsor_placements() as $placement => $label) : $slot = $slots[$placement]; ?>
+                <h2><?php echo esc_html($label); ?></h2>
+                <table class="form-table" role="presentation"><tbody>
+                    <tr><th><?php esc_html_e('Active', 'usegeo'); ?></th><td><label><input type="checkbox" name="sponsors[<?php echo esc_attr($placement); ?>][active]" value="yes" <?php checked($slot['active'], 'yes'); ?>> <?php esc_html_e('Show this sponsor slot', 'usegeo'); ?></label></td></tr>
+                    <tr><th><?php esc_html_e('Title', 'usegeo'); ?></th><td><input class="regular-text" name="sponsors[<?php echo esc_attr($placement); ?>][title]" value="<?php echo esc_attr($slot['title']); ?>"></td></tr>
+                    <tr><th><?php esc_html_e('Description', 'usegeo'); ?></th><td><textarea class="large-text" rows="3" name="sponsors[<?php echo esc_attr($placement); ?>][description]"><?php echo esc_textarea($slot['description']); ?></textarea></td></tr>
+                    <tr><th><?php esc_html_e('CTA Label', 'usegeo'); ?></th><td><input class="regular-text" name="sponsors[<?php echo esc_attr($placement); ?>][cta_label]" value="<?php echo esc_attr($slot['cta_label']); ?>"></td></tr>
+                    <tr><th><?php esc_html_e('URL', 'usegeo'); ?></th><td><input class="regular-text" type="url" name="sponsors[<?php echo esc_attr($placement); ?>][url]" value="<?php echo esc_attr($slot['url']); ?>"></td></tr>
+                </tbody></table>
+            <?php endforeach; ?>
+            <?php submit_button(__('Save Sponsor Slots', 'usegeo')); ?>
+        </form>
+    </div>
+    <?php
+}
+
+function usegeo_render_sponsor_slot($placement) {
+    $slots = usegeo_get_sponsor_slots();
+    if (empty($slots[$placement]) || $slots[$placement]['active'] !== 'yes' || !$slots[$placement]['title'] || !$slots[$placement]['url']) return;
+    $slot = $slots[$placement];
+    ?>
+    <aside class="usegeo-sponsor-card usegeo-card" data-usegeo-sponsor-slot="<?php echo esc_attr($placement); ?>">
+        <span class="usegeo-sponsor-card__label"><?php esc_html_e('Sponsored', 'usegeo'); ?></span>
+        <h3><?php echo esc_html($slot['title']); ?></h3>
+        <?php if ($slot['description']) : ?><p><?php echo esc_html($slot['description']); ?></p><?php endif; ?>
+        <a class="usegeo-inline-cta usegeo-inline-cta--ghost" href="<?php echo esc_url($slot['url']); ?>" target="_blank" rel="noopener sponsored"><?php echo esc_html($slot['cta_label'] ?: __('Learn more', 'usegeo')); ?></a>
+    </aside>
+    <?php
+}

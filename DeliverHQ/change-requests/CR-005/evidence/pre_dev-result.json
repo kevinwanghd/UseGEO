@@ -1,0 +1,24 @@
+{
+  "gate_name": "pre_dev",
+  "result": "pass",
+  "timestamp": "2026-06-21T20:36:56.915287",
+  "blocking_items": [],
+  "warnings": [],
+  "commands_run": [
+    "permissiongate.py",
+    "pre_dev_gate.py",
+    "python DeliverHQ/change-requests/CR-005/evidence/static_verify.py"
+  ],
+  "artifacts": [
+    "evidence/baseline-before.json"
+  ],
+  "next_action": "进入 ReviewGate / 开发执行阶段",
+  "failure_attribution": [],
+  "metadata": {
+    "current_state": "dev",
+    "current_phase": "dev",
+    "current_owner": "dev-agent",
+    "requires_human": false,
+    "worktree_path": "D:\\Code\\UseGEO\\DeliverHQ\\.claude\\worktrees\\CR-005"
+  }
+}

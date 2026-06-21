@@ -1,0 +1,7 @@
+[
+  "wordpress/theme/usegeo/assets/css/homepage.css",
+  "wordpress/theme/usegeo/front-page.php",
+  "wordpress/theme/usegeo/inc/admin.php",
+  "wordpress/theme/usegeo/single.php",
+  "wordpress/theme/usegeo/template-parts/scanner/scanner.php"
+]
