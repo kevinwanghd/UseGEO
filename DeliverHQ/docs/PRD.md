@@ -291,10 +291,10 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 > 作为正在了解 GEO 的访客，我希望读到结构化的教育文章、清晰的学习路径，并在阅读过程中被自然提醒可以回到 Scanner 评估自家网站。
 
 **功能描述**
-> 提供文章详情页（标题、分类、阅读时间、摘要、正文、TOC、Hero / 侧边栏 / 中段 / 底部 CTA、上一篇/下一篇/相关文章推荐），首页提供 content-hub 文章入口和 learning-path 学习路径；侧边栏 / 文中可复用 sidebar-cta 组件把读者引回 Scanner。
+> 提供文章详情页（标题、分类、阅读时间、摘要、正文、TOC、Hero / 侧边栏 / 中段 / 底部 CTA、上一篇/下一篇/相关文章推荐），首页提供 content-hub 文章入口、learning-path 学习路径和 SEO cluster 入口。内容集群优先覆盖 GEO basics、tactical checklist、tool/commercial pages（如 GEO checklist、AI visibility tools、Best GEO agencies），并通过内链把读者引回 Scanner 和 partner lead 路径。
 
 **验收意图**
-> 文章页阅读体验顺畅；TOC 在长文中可用；任何文章页都至少有一个明确的“运行 Scanner”入口；首页有清晰的内容入口模块和学习路径。
+> 文章页阅读体验顺畅；TOC 在长文中可用；任何文章页都至少有一个明确的“运行 Scanner”入口；首页有清晰的内容入口模块、学习路径和商业内容入口；内容结构能支撑 SEO 流量、广告赞助和 partner lead 变现。
 
 **绝不能发生**
 > 绝不允许文章页变成纯阅读页面，缺失任何转化 CTA；绝不允许相关文章 / TOC / CTA 的具体 HTML 结构被当成永久契约。
@@ -385,7 +385,7 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 |---|---|---|---|
 | M1 老项目基线确认 | PRD-LEGACY-BASELINE | CR-LEGACY-SCAN | 进行中 |
 | M2 Real Scanner v1 真实诊断 | PRD-REAL-SCANNER-V1, PRD-FREE-SCANNER, PRD-LEAD-CAPTURE | （待切 CR） | 计划中 |
-| M3 Lead 变现与内容转化 | PRD-HOMEPAGE-CONVERSION, PRD-PARTNER-LEADS, PRD-CONTENT-LIBRARY, PRD-COMMUNITY-CASE, PRD-OPS-ADMIN | CR-003, CR-004 | 进行中 |
+| M3 Lead 变现与内容转化 | PRD-HOMEPAGE-CONVERSION, PRD-PARTNER-LEADS, PRD-CONTENT-LIBRARY, PRD-COMMUNITY-CASE, PRD-OPS-ADMIN | CR-003, CR-004, CR-006 | 进行中 |
 | M4 分析与运营基线 | PRD-ANALYTICS, PRD-OPS-ADMIN, PRD-SITE-FOUNDATION, PRD-SPONSOR-INVENTORY | CR-005 | 计划中 |
 
 ## 变更记录
@@ -400,3 +400,4 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 | 2026-06-21 | PRD-HOMEPAGE-CONVERSION, PRD-LEAD-CAPTURE, PRD-OPS-ADMIN, PRD-PARTNER-LEADS | 将商业定位校准为 GEO 学习内容流量 + 广告/赞助/affiliate/partner referral/lead resale；新增 Partner Lead 锚点。 | CR-003 |
 | 2026-06-21 | PRD-PARTNER-LEADS | 增加 partner lead CSV 导出与人工运营管线状态要求。 | CR-004 |
 | 2026-06-21 | PRD-SPONSOR-INVENTORY | 新增手动赞助位与广告库存锚点，支持 sponsor slot 后台配置与前台展示。 | CR-005 |
+| 2026-06-21 | PRD-CONTENT-LIBRARY | 强化内容 SEO 集群入口，增加 GEO checklist / AI visibility tools / Best GEO agencies 等商业内容页入口。 | CR-006 |
