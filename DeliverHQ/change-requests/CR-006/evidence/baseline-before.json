@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-06-21T21:27:57.354190",
+  "commit_hash": "099f66313e54cb6fe7106bb118b6c7efea406c04",
+  "commands_run": [
+    "python DeliverHQ/change-requests/CR-006/evidence/static_verify.py"
+  ],
+  "build_passed": false,
+  "build_errors": [
+    "python: can't open file 'D:\\\\Code\\\\UseGEO\\\\DeliverHQ\\\\change-requests\\\\CR-006\\\\evidence\\\\static_verify.py': [Errno 2] No such file or directory"
+  ],
+  "tests_total": 0,
+  "tests_passed": 0,
+  "tests_failed": 0,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "usegeo",
+      "type": "php"
+    },
+    "build": {
+      "enabled": true,
+      "command": "python DeliverHQ/change-requests/CR-006/evidence/static_verify.py",
+      "working_dir": ".",
+      "timeout": 120,
+      "success_pattern": "static verification passed"
+    },
+    "test": {
+      "unit": {
+        "enabled": false,
+        "command": ""
+      }
+    }
+  },
+  "command_results": [
+    {
+      "name": "build",
+      "category": "build",
+      "command": "python DeliverHQ/change-requests/CR-006/evidence/static_verify.py",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": false,
+      "returncode": 2,
+      "stdout": "",
+      "stderr": "python: can't open file 'D:\\\\Code\\\\UseGEO\\\\DeliverHQ\\\\change-requests\\\\CR-006\\\\evidence\\\\static_verify.py': [Errno 2] No such file or directory\n"
+    }
+  ]
+}
