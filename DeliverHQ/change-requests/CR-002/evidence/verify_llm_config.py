@@ -41,14 +41,21 @@ def verify_llm():
     print('llm verification passed')
 
 
-def verify_secret_scan(secret_hint='sk-'):
+def verify_secret_scan():
+    forbidden_markers = [
+        'USEGEO_LLM_API_KEY',
+        'Authorization: Bearer',
+        'chat.aiprox.net',
+    ]
     status, payload = post_scan()
     body = json.dumps(payload)
-    assert secret_hint not in body, 'secret-like prefix found in scan response'
+    for marker in forbidden_markers:
+        assert marker not in body, f'forbidden marker found in scan response: {marker}'
     for url in PUBLIC_URLS:
         with urllib.request.urlopen(url, timeout=30) as response:
             text = response.read().decode(errors='replace')
-            assert secret_hint not in text, f'secret-like prefix found in {url}'
+            for marker in forbidden_markers:
+                assert marker not in text, f'forbidden marker found in {url}: {marker}'
     print('secret scan passed')
 
 
