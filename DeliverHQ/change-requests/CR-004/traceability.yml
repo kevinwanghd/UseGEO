@@ -1,0 +1,25 @@
+schema: deliverhq-traceability
+version: 1
+
+CR-004:
+  requirement: "Partner Lead Export / Pipeline"
+  priority: P0
+  origin: PRD-PARTNER-LEADS
+  acceptance_criteria:
+    - "后台筛选 partner_consent / lead_quality / partner_status"
+    - "lead 详情可编辑 partner_status / partner_notes"
+    - "CSV 只导出 consent=yes 且 hot/warm lead"
+    - "导出需要管理员权限和 nonce"
+  implementation:
+    - file: wordpress/theme/usegeo/inc/admin.php
+      functions:
+        - usegeo_lead_admin_columns
+        - usegeo_render_lead_admin_column
+        - usegeo_export_partner_leads
+        - usegeo_filter_partner_leads
+      description: "后台筛选、状态编辑、CSV 导出"
+      reverse_mapped: true
+  tests:
+    - file: DeliverHQ/change-requests/CR-004/evidence/static_verify.py
+      description: "静态契约验证"
+      status: planned

@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "regressions": [],
+  "improvements": [
+    "构建从失败变为通过"
+  ]
+}
