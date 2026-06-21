@@ -33,19 +33,21 @@ UseGEO 想解决的核心问题：
 - 增长团队对“GEO / AI visibility”的焦虑很泛，不知道该看什么、怎么改、值不值得投入。
 - 现有市面工具要么偏 SEO 老视角，要么是黑箱评分，缺少“可解释、可执行、可信任”的轻量诊断。
 
-UseGEO 的定位：把模糊的 GEO 焦虑，变成具体的网站信号缺口和可执行行动建议。
+UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把模糊的 GEO 焦虑变成可解释的网站信号缺口，并进一步沉淀可分级、可授权转介的高意向 lead。UseGEO 自身不以交付完整 GEO 服务为核心，而是通过内容流量、广告/赞助、affiliate、partner referral 和 lead resale 变现。
 
 ## 2. 目标与非目标
 
 - **目标**：
-  - 提供面向 B2B 增长团队的 GEO readiness 诊断入口，从“免费 Scanner snapshot → Full Diagnostic → 付费 Manual GEO Audit / Fix Sprint / Visibility Monitoring”形成清晰转化路径。
-  - 通过教育内容、案例库和 ROI 工具，建立 UseGEO 在 GEO/AI visibility 上的专业可信度。
-  - 用结构化数据沉淀 leads 和社区案例，作为后续付费服务和案例库的内容资产。
+  - 提供面向 B2B 增长团队的 GEO 学习内容和 readiness 诊断入口，从“阅读学习内容 → 运行 Scanner → 留下授权 lead → 匹配合作伙伴/广告赞助/affiliate”形成商业闭环。
+  - 通过教育内容、案例库、ROI 工具和 Scanner evidence，建立 UseGEO 在 GEO/AI visibility 上的专业可信度。
+  - 用结构化数据沉淀可分级 lead 和社区案例，作为广告、赞助、affiliate、partner referral 和 lead resale 的资产。
 - **非目标（明确不做）**：
   - 不做完整 SaaS 监控平台（不做账号体系、历史报告 dashboard、周期监控）。
   - 不声称真实抓取 ChatGPT/Claude/Gemini 的推荐排名。
   - 不做企业级权限管理或重型 CRM 自动化。
-  - 不取代 Manual GEO Audit 服务，scanner 只是诊断入口。
+  - 不亲自交付完整 GEO 咨询 / 审计 / Fix Sprint 服务。
+  - 不承诺为用户直接完成 GEO 修复。
+  - 不把 agency 服务交付作为核心商业模式；商业化重点是内容流量、广告赞助、affiliate、partner referral 和 lead resale。
 
 ## 3. 目标用户与场景
 
@@ -53,7 +55,7 @@ UseGEO 的定位：把模糊的 GEO 焦虑，变成具体的网站信号缺口�
 - **典型场景**：
   - 用户被“GEO / AI 推荐”话题吸引，想先免费看一眼自己的网站“在 AI 视角下长什么样”。
   - 在阅读 GEO 相关内容时，临时想运行 Scanner 评估自家网站。
-  - 已经看过免费分数，认真考虑是否值得申请 Full Diagnostic 或 Manual GEO Audit。
+  - 已经看过免费分数，愿意被推荐给合适的 GEO/SEO 专家、工具或服务商进一步跟进。
   - 内部团队在做 GEO 内部分享，参考 UseGEO 文章和案例。
 - **C 端 / B 端定性**：以 B 端 SMB / 中型团队为主，单人/小团队决策。
 
@@ -61,8 +63,12 @@ UseGEO 的定位：把模糊的 GEO 焦虑，变成具体的网站信号缺口�
 
 | 指标 | 目标值 | 说明 |
 |---|---|---|
-| Free Scanner → Full Diagnostic 表单提交率 | 待定（建议先采集基线） | 衡量首页转化路径是否真在产生 lead |
-| Full Diagnostic Lead → 付费咨询/审计转化率 | 待定 | 衡量销售跟进路径有效性 |
+| SEO / 内容自然流量 | 待定 | 衡量学习内容是否带来可持续访问 |
+| Scanner 启动次数 | 待定 | 衡量工具是否承接内容流量 |
+| Lead 捕获数 | 待定 | 衡量 Scanner 与表单转化能力 |
+| Partner consent lead 数 | 待定 | 衡量可转介 / 可售 lead 池规模 |
+| 广告 / 赞助 RPM | 待定 | 衡量内容流量直接变现效率 |
+| Lead resale / referral 收入 | 待定 | 衡量 partner referral 商业化效率 |
 | 文章页 → Scanner 跳转率 | 待定 | 衡量内容是否真把读者带回核心转化路径 |
 
 ## 5. 全局约束
@@ -135,13 +141,13 @@ UseGEO 的定位：把模糊的 GEO 焦虑，变成具体的网站信号缺口�
 - **优先级**: P0
 
 **意图**
-> 让首页成为 UseGEO 的主转化落地页，把访客从“GEO 焦虑”引导到“运行 Scanner → 看证明 → 提交线索 / 继续学习”的清晰路径。
+> 让首页成为 UseGEO 的主转化落地页，把访客从“GEO 焦虑”引导到“运行 Scanner → 看证明 → 授权成为可转介 lead / 继续学习”的清晰路径。
 
 **用户故事**
-> 作为对 GEO 感兴趣的 B2B 增长负责人，我希望首页一眼看清 UseGEO 是做什么的、能给我什么、下一步该点哪里，以便决定是运行 Scanner、阅读文章，还是直接申请 Manual Audit。
+> 作为对 GEO 感兴趣的 B2B 增长负责人，我希望首页一眼看清 UseGEO 是做什么的、能给我什么、下一步该点哪里，以便决定是运行 Scanner、阅读文章，还是授权 UseGEO 为我匹配合适的 GEO/SEO 专家或工具。
 
 **功能描述**
-> 首页应清晰呈现：Hero 价值主张、免费 Scanner 入口、服务（Manual Audit / Fix Sprint / Monitoring 或等价层级）说明、方法论、样例报告、价值主张、学习路径、内容入口、社区入口、案例入口和 ROI 估算模块；关键模块需保留可跳转锚点，让任意位置 CTA 都能引回 Scanner 主路径。
+> 首页应清晰呈现：Hero 价值主张、免费 Scanner 入口、合作伙伴/专家匹配或推荐路径说明、方法论、样例报告、价值主张、学习路径、内容入口、社区入口、案例入口和 ROI 估算模块；关键模块需保留可跳转锚点，让任意位置 CTA 都能引回 Scanner 与授权 lead 主路径。
 
 **验收意图**
 > 用户在首页能在不滚动太久的范围内理解“UseGEO 是什么 / 给我什么 / 我下一步该做什么”；任何 CTA 均能落到合理的下一步动作（Scanner、文章、Cases、Services、Sample Report 等）。
@@ -207,21 +213,45 @@ UseGEO 的定位：把模糊的 GEO 焦虑，变成具体的网站信号缺口�
 - **优先级**: P0
 
 **意图**
-> 把 Scanner / Full Assessment 转化路径上的线索安全、可靠地保存到后台，并确保表单提交不会因为安全或邮件问题导致静默失败。
+> 把 Scanner / Full Assessment / partner referral 转化路径上的线索安全、可靠地保存到后台，并区分普通内容 lead 与可授权转介/售卖的 partner lead。
 
 **用户故事**
-> 作为有需求的访客，我希望填完 Full Diagnostic 表单后能明确知道提交成功/失败/部分成功的状态；作为运营，我希望所有提交都被结构化保存到后台并尽可能通知到管理员邮箱。
+> 作为有需求的访客，我希望清楚知道我是否只是获取内容跟进，还是授权 UseGEO 将我的需求转介给相关 GEO/SEO 合作伙伴；作为运营，我希望所有提交都被结构化保存，并能识别哪些 lead 可转介。
 
 **功能描述**
-> 公开线索表单只接受 POST，必须通过 nonce 或同源校验；服务端校验邮箱、必填字段、枚举选项、scanner_query 等关键输入；提交成功后写入 `usegeo_lead` 自定义内容类型及元数据；尝试通知管理员邮箱并记录通知状态；邮件失败时以 success_no_mail 状态返回，保留 lead；所有失败/校验问题都有明确可追踪状态。
+> 公开线索表单只接受 POST，必须通过 nonce 或同源校验；服务端校验邮箱、必填字段、枚举选项、scanner_query 等关键输入；提交成功后写入 `usegeo_lead` 自定义内容类型及元数据；必须记录 partner referral consent、预算/地区/时间线等 qualification 信息（如已收集）；尝试通知管理员邮箱并记录通知状态；邮件失败时以 success_no_mail 状态返回，保留 lead；所有失败/校验问题都有明确可追踪状态。
 
 **验收意图**
-> 用户提交成功/失败/部分成功都有明确反馈；后台中能看到每一条 lead 及其通知状态；表单不会被外站伪造提交；邮件失败不会丢线索。
+> 用户提交成功/失败/部分成功都有明确反馈；后台中能看到每一条 lead、通知状态、partner consent 与 qualification 信息；表单不会被外站伪造提交；邮件失败不会丢线索。
 
 **绝不能发生**
-> 绝不允许 nonce 校验缺失或同源校验缺失；绝不允许邮件失败导致 lead 丢失；绝不允许把当前所有字段名 / 枚举选项当成永久不变的硬契约。
+> 绝不允许 nonce 校验缺失或同源校验缺失；绝不允许邮件失败导致 lead 丢失；绝不允许在未获得明确 consent 的情况下把用户信息转发/售卖给第三方；绝不允许把当前所有字段名 / 枚举选项当成永久不变的硬契约。
 
 **关联 CR**: CR-LEGACY-SCAN
+
+---
+
+## [PRD-PARTNER-LEADS] Partner Lead 转介与售卖
+
+- **状态**: confirmed
+- **优先级**: P0
+
+**意图**
+> 把 UseGEO 的内容流量和 Scanner 诊断结果，转化为可分级、可授权转介给 GEO/SEO 专家、工具商或 agency 的高质量 lead 池。
+
+**用户故事**
+> 作为访问者，我希望在明确知情和授权的前提下，被 UseGEO 推荐给相关 GEO/SEO 专家或工具；作为 Kevin，我希望能区分普通内容 lead 与可转介/可售 lead，并用这些 lead 与合作伙伴、广告主或 affiliate 项目变现。
+
+**功能描述**
+> Partner Lead 能力需要在表单中收集明确 consent、预算/支持意向/地区/时间线等 qualification 信息；后台需要展示 partner_consent、lead_quality、budget/region 等字段；邮件和运营视图需要标注该 lead 是否可转介。未授权 lead 只能用于 UseGEO 自有内容跟进，不得转发或售卖给第三方。
+
+**验收意图**
+> 每条 lead 都能清晰判断是否可转介、适合什么类型 partner、当前意向强弱和最弱 GEO 维度；可转介 lead 有明确 consent 证据；不可转介 lead 不会进入 partner pipeline。
+
+**绝不能发生**
+> 绝不允许没有明确 consent 的用户信息被转发或售卖；绝不允许把 partner matching 文案写成 UseGEO 自营完整服务承诺；绝不允许高意向判断只依赖主观备注而无字段证据。
+
+**关联 CR**:
 
 ---
 
@@ -279,19 +309,19 @@ UseGEO 的定位：把模糊的 GEO 焦虑，变成具体的网站信号缺口�
 - **优先级**: P1
 
 **意图**
-> 让 UseGEO 的销售跟进和案例编辑流程能在 WordPress 后台高效完成，把 lead 价值和案例审核结果转化为可执行的运营动作。
+> 让 UseGEO 的 lead 分级、partner referral、广告/赞助线索管理和案例编辑流程能在 WordPress 后台高效完成，把流量和 Scanner 结果转化为可运营、可转介、可变现的资产。
 
 **用户故事**
-> 作为 Kevin / 运营，我希望在后台一眼分辨高意向 lead，并能对社区案例做 review_status / processing_lane / editorial_notes 等审核动作。
+> 作为 Kevin / 运营，我希望在后台一眼分辨可转介 lead、普通内容 lead 和低意向 lead，并能对社区案例做 review_status / processing_lane / editorial_notes 等审核动作。
 
 **功能描述**
-> 后台 lead 列表展示邮箱、公司类型、规模、帮助意图、支持意向、行动时间、scanner_query 和通知状态，并对高意向字段做视觉标记；后台 case 列表展示联系邮箱、行业、review_status、processing_lane、是否匿名等核心字段；案例详情提供 review_status / processing_lane / editorial_notes 编辑界面。
+> 后台 lead 列表展示邮箱、公司类型、规模、帮助意图、支持意向、行动时间、scanner_query、GEO Score、Weakest Dimension、partner consent、预算/地区（如已收集）、lead quality 和通知状态，并能区分可转介 lead；后台 case 列表展示联系邮箱、行业、review_status、processing_lane、是否匿名等核心字段；案例详情提供 review_status / processing_lane / editorial_notes 编辑界面。
 
 **验收意图**
-> 后台能服务于真实的销售跟进和编辑工作流；高意向 lead 在列表中容易被识别；案例审核状态能直接驱动首页展示和后续运营动作。
+> 后台能服务于 lead resale / partner referral / sponsor sales 与案例编辑工作流；可转介 lead 在列表中容易被识别；案例审核状态能直接驱动首页展示和后续运营动作。
 
 **绝不能发生**
-> 绝不允许把当前 lane 名称 / 字段展示样式 / PHP 实现细节当成永久契约；绝不允许后台编辑动作绕过 nonce / 权限校验。
+> 绝不允许把当前 lane 名称 / 字段展示样式 / PHP 实现细节当成永久契约；绝不允许后台编辑动作绕过 nonce / 权限校验；绝不允许没有 consent 的 lead 被误标为可转介。
 
 **关联 CR**: CR-LEGACY-SCAN
 
@@ -331,7 +361,7 @@ UseGEO 的定位：把模糊的 GEO 焦虑，变成具体的网站信号缺口�
 |---|---|---|---|
 | M1 老项目基线确认 | PRD-LEGACY-BASELINE | CR-LEGACY-SCAN | 进行中 |
 | M2 Real Scanner v1 真实诊断 | PRD-REAL-SCANNER-V1, PRD-FREE-SCANNER, PRD-LEAD-CAPTURE | （待切 CR） | 计划中 |
-| M3 转化与内容优化 | PRD-HOMEPAGE-CONVERSION, PRD-CONTENT-LIBRARY, PRD-COMMUNITY-CASE, PRD-OPS-ADMIN | （待切 CR） | 计划中 |
+| M3 Lead 变现与内容转化 | PRD-HOMEPAGE-CONVERSION, PRD-PARTNER-LEADS, PRD-CONTENT-LIBRARY, PRD-COMMUNITY-CASE, PRD-OPS-ADMIN | CR-003 | 计划中 |
 | M4 分析与运营基线 | PRD-ANALYTICS, PRD-OPS-ADMIN, PRD-SITE-FOUNDATION | （待切 CR） | 计划中 |
 
 ## 变更记录
@@ -342,3 +372,5 @@ UseGEO 的定位：把模糊的 GEO 焦虑，变成具体的网站信号缺口�
 | 日期 | 改动锚点 | 摘要 | 触发对账的 CR |
 |---|---|---|---|
 | 2026-06-19 | 全部 | 从 DeliverHQ 模板初始化为 UseGEO 实际 PRD，建立 9 个功能锚点 + 1 个 Legacy 基线锚点。 | CR-LEGACY-SCAN |
+
+| 2026-06-21 | PRD-HOMEPAGE-CONVERSION, PRD-LEAD-CAPTURE, PRD-OPS-ADMIN, PRD-PARTNER-LEADS | 将商业定位校准为 GEO 学习内容流量 + 广告/赞助/affiliate/partner referral/lead resale；新增 Partner Lead 锚点。 | CR-003 |
