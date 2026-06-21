@@ -21,9 +21,17 @@ function usegeo_scan_get_llm_base_url() {
         : 'https://api.openai.com/v1';
     $base_url = (string) apply_filters('usegeo_llm_base_url', $base_url);
     $base_url = rtrim($base_url, '/');
+
     if (substr($base_url, -17) === '/chat/completions') {
         return $base_url;
     }
+
+    $parts = wp_parse_url($base_url);
+    $path = isset($parts['path']) ? trim($parts['path'], '/') : '';
+    if ($path === '') {
+        return $base_url . '/v1/chat/completions';
+    }
+
     return $base_url . '/chat/completions';
 }
 
@@ -80,19 +88,25 @@ function usegeo_scan_llm_summarize($url, $extracted, $scores, $findings) {
         ),
     );
 
-    $response = wp_remote_post(usegeo_scan_get_llm_base_url(), array(
-        'timeout' => usegeo_scan_get_llm_timeout(),
-        'headers' => array(
-            'Authorization' => 'Bearer ' . $api_key,
-            'Content-Type' => 'application/json',
-        ),
-        'body' => wp_json_encode(array(
+    try {
+        $request_body = apply_filters('usegeo_llm_request_body', array(
             'model' => usegeo_scan_get_llm_model(),
             'messages' => $messages,
             'temperature' => 0.2,
-            'response_format' => array('type' => 'json_object'),
-        )),
-    ));
+        ));
+
+        $response = wp_remote_post(usegeo_scan_get_llm_base_url(), array(
+            'timeout' => usegeo_scan_get_llm_timeout(),
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $api_key,
+                'Content-Type' => 'application/json',
+            ),
+            'body' => wp_json_encode($request_body),
+        ));
+    } catch (Throwable $exc) {
+        error_log('UseGEO scanner LLM exception: ' . $exc->getMessage());
+        return usegeo_scan_fallback_llm_summary($scores, $findings);
+    }
 
     if (is_wp_error($response)) {
         error_log('UseGEO scanner LLM failed: ' . $response->get_error_message());
