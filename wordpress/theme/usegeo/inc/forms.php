@@ -141,7 +141,8 @@ function usegeo_get_scan_top_finding($snapshot) {
     if (empty($snapshot['scan_findings_summary'])) {
         return '';
     }
-    $lines = preg_split('/?
+    $lines = preg_split('/
+?
 /', $snapshot['scan_findings_summary']);
     return trim($lines[0]);
 }
@@ -154,7 +155,47 @@ function usegeo_get_scan_recommended_next_step($snapshot) {
     return $top ? $top : '';
 }
 
-function usegeo_send_lead_notification($lead_id, $work_email, $company_type, $company_size, $help_intent, $support_level, $scanner_query, $timeline = '', $scan_snapshot = array()) {
+
+function usegeo_get_budget_range_labels() {
+    return array(
+        'under_500' => __('Under $500', 'usegeo'),
+        '500_1500' => __('$500–$1,500', 'usegeo'),
+        '1500_5000' => __('$1,500–$5,000', 'usegeo'),
+        '5000_plus' => __('$5,000+', 'usegeo'),
+        'not_sure' => __('Not sure yet', 'usegeo'),
+    );
+}
+
+function usegeo_get_region_labels() {
+    return array(
+        'north_america' => __('North America', 'usegeo'),
+        'europe' => __('Europe', 'usegeo'),
+        'asia_pacific' => __('Asia-Pacific', 'usegeo'),
+        'global_remote' => __('Global / remote', 'usegeo'),
+        'other' => __('Other', 'usegeo'),
+    );
+}
+
+function usegeo_calculate_lead_quality($partner_consent, $help_intent, $support_level, $timeline, $scan_total_score = '') {
+    if ($partner_consent !== 'yes') {
+        return 'cold';
+    }
+    $high_help = in_array($help_intent, array('prioritized_next_steps', 'open_to_specialist'), true);
+    $high_support = in_array($support_level, array('small_project', 'ongoing_support'), true);
+    $high_timeline = in_array($timeline, array('next_quarter', 'need_help_soon'), true);
+    if ($high_help && $high_support && $high_timeline) {
+        return 'hot';
+    }
+    if ($help_intent === 'exploring_geo' && $support_level === 'not_hiring') {
+        return 'cold';
+    }
+    if ($scan_total_score !== '' && (int) $scan_total_score < 70) {
+        return 'warm';
+    }
+    return 'warm';
+}
+
+function usegeo_send_lead_notification($lead_id, $work_email, $company_type, $company_size, $help_intent, $support_level, $scanner_query, $timeline = '', $scan_snapshot = array(), $partner_context = array()) {
     $admin_email = get_option('admin_email');
 
     if (!$admin_email || !is_email($admin_email)) {
@@ -182,6 +223,10 @@ function usegeo_send_lead_notification($lead_id, $work_email, $company_type, $co
         'Weakest Dimension: ' . (usegeo_get_scan_weakest_dimension($scan_snapshot) ?: '(scan unavailable)'),
         'Top Finding: ' . (usegeo_get_scan_top_finding($scan_snapshot) ?: '(scan unavailable)'),
         'Recommended Next Step: ' . (usegeo_get_scan_recommended_next_step($scan_snapshot) ?: '(scan unavailable)'),
+        'Partner Consent: ' . (!empty($partner_context['partner_consent']) ? $partner_context['partner_consent'] : 'no'),
+        'Lead Quality: ' . (!empty($partner_context['lead_quality']) ? $partner_context['lead_quality'] : 'cold'),
+        'Budget: ' . (!empty($partner_context['budget_range_label']) ? $partner_context['budget_range_label'] : '(empty)'),
+        'Region: ' . (!empty($partner_context['region_label']) ? $partner_context['region_label'] : '(empty)'),
         'Submitted at: ' . current_time('mysql'),
         '',
         'View in WordPress admin:',
@@ -278,11 +323,16 @@ function usegeo_handle_lead_capture() {
     $support_level = isset($_POST['support_level']) ? sanitize_key(wp_unslash($_POST['support_level'])) : '';
     $timeline = isset($_POST['timeline']) ? sanitize_key(wp_unslash($_POST['timeline'])) : '';
     $scanner_query = isset($_POST['scanner_query']) ? esc_url_raw(wp_unslash($_POST['scanner_query'])) : '';
+    $budget_range = isset($_POST['budget_range']) ? sanitize_key(wp_unslash($_POST['budget_range'])) : '';
+    $region = isset($_POST['region']) ? sanitize_key(wp_unslash($_POST['region'])) : '';
+    $partner_consent = isset($_POST['partner_consent']) && wp_unslash($_POST['partner_consent']) === 'yes' ? 'yes' : 'no';
     $redirect_to = isset($_POST['redirect_to']) ? esc_url_raw(wp_unslash($_POST['redirect_to'])) : home_url('/#scanner');
     $scan_snapshot = usegeo_collect_scan_snapshot_from_post();
     $company_type_options = usegeo_get_lead_company_type_options();
     $company_size_options = usegeo_get_lead_company_size_options();
     $timeline_labels = usegeo_get_timeline_labels();
+    $budget_labels = usegeo_get_budget_range_labels();
+    $region_labels = usegeo_get_region_labels();
 
     if (
         !$work_email ||
@@ -295,6 +345,8 @@ function usegeo_handle_lead_capture() {
         !$support_level ||
         !$timeline ||
         !isset($timeline_labels[$timeline]) ||
+        ($budget_range && !isset($budget_labels[$budget_range])) ||
+        ($region && !isset($region_labels[$region])) ||
         !$scanner_query
     ) {
         wp_safe_redirect(add_query_arg('lead_status', 'invalid', $redirect_to));
@@ -321,9 +373,20 @@ function usegeo_handle_lead_capture() {
     update_post_meta($post_id, 'scanner_query', $scanner_query);
     update_post_meta($post_id, 'submitted_at', current_time('mysql'));
     update_post_meta($post_id, 'source', 'full_assessment_gate');
+    $lead_quality = usegeo_calculate_lead_quality($partner_consent, $help_intent, $support_level, $timeline, isset($scan_snapshot['scan_total_score']) ? $scan_snapshot['scan_total_score'] : '');
+    update_post_meta($post_id, 'partner_consent', $partner_consent);
+    update_post_meta($post_id, 'budget_range', $budget_range);
+    update_post_meta($post_id, 'region', $region);
+    update_post_meta($post_id, 'lead_quality', $lead_quality);
     usegeo_save_scan_snapshot_meta($post_id, $scan_snapshot);
 
-    $mail_result = usegeo_send_lead_notification($post_id, $work_email, $company_type, $company_size, $help_intent, $support_level, $scanner_query, $timeline, $scan_snapshot);
+    $partner_context = array(
+        'partner_consent' => $partner_consent,
+        'lead_quality' => $lead_quality,
+        'budget_range_label' => $budget_range && isset($budget_labels[$budget_range]) ? $budget_labels[$budget_range] : '',
+        'region_label' => $region && isset($region_labels[$region]) ? $region_labels[$region] : '',
+    );
+    $mail_result = usegeo_send_lead_notification($post_id, $work_email, $company_type, $company_size, $help_intent, $support_level, $scanner_query, $timeline, $scan_snapshot, $partner_context);
     $mail_sent = !empty($mail_result['sent']);
     update_post_meta($post_id, 'notification_sent', $mail_sent ? 'yes' : 'no');
     update_post_meta($post_id, 'notification_recipient', isset($mail_result['recipient']) ? $mail_result['recipient'] : '');

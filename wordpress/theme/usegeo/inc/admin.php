@@ -352,6 +352,10 @@ function usegeo_lead_admin_columns($columns) {
     $columns['scanner_query'] = __('Website Input', 'usegeo');
     $columns['scan_total_score'] = __('GEO Score', 'usegeo');
     $columns['weakest_dimension'] = __('Weakest Dimension', 'usegeo');
+    $columns['partner_consent'] = __('Partner Consent', 'usegeo');
+    $columns['lead_quality'] = __('Lead Quality', 'usegeo');
+    $columns['budget_range'] = __('Budget', 'usegeo');
+    $columns['region'] = __('Region', 'usegeo');
     $columns['notification_status'] = __('Notification', 'usegeo');
     $columns['notification_recipient'] = __('Recipient', 'usegeo');
 
@@ -439,6 +443,31 @@ function usegeo_render_lead_admin_column($column, $post_id) {
     if ($column === 'weakest_dimension') {
         $weakest = function_exists('usegeo_get_scan_weakest_dimension') ? usegeo_get_scan_weakest_dimension($post_id) : '';
         echo esc_html($weakest ?: '—');
+        return;
+    }
+
+
+    if ($column === 'partner_consent') {
+        echo esc_html(get_post_meta($post_id, 'partner_consent', true) ?: 'no');
+        return;
+    }
+
+    if ($column === 'lead_quality') {
+        echo esc_html(get_post_meta($post_id, 'lead_quality', true) ?: 'cold');
+        return;
+    }
+
+    if ($column === 'budget_range') {
+        $value = get_post_meta($post_id, 'budget_range', true);
+        $labels = function_exists('usegeo_get_budget_range_labels') ? usegeo_get_budget_range_labels() : array();
+        echo esc_html(isset($labels[$value]) ? $labels[$value] : ($value ?: '—'));
+        return;
+    }
+
+    if ($column === 'region') {
+        $value = get_post_meta($post_id, 'region', true);
+        $labels = function_exists('usegeo_get_region_labels') ? usegeo_get_region_labels() : array();
+        echo esc_html(isset($labels[$value]) ? $labels[$value] : ($value ?: '—'));
         return;
     }
 
@@ -593,6 +622,22 @@ function usegeo_render_lead_meta_box($post) {
             <tr>
                 <th scope="row"><?php esc_html_e('Source', 'usegeo'); ?></th>
                 <td><?php echo esc_html($source ?: '-'); ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('Partner Consent', 'usegeo'); ?></th>
+                <td><?php echo esc_html(get_post_meta($post->ID, 'partner_consent', true) ?: 'no'); ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('Lead Quality', 'usegeo'); ?></th>
+                <td><?php echo esc_html(get_post_meta($post->ID, 'lead_quality', true) ?: 'cold'); ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('Budget', 'usegeo'); ?></th>
+                <td><?php $budget = get_post_meta($post->ID, 'budget_range', true); $budget_labels = function_exists('usegeo_get_budget_range_labels') ? usegeo_get_budget_range_labels() : array(); echo esc_html(isset($budget_labels[$budget]) ? $budget_labels[$budget] : ($budget ?: '-')); ?></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('Region', 'usegeo'); ?></th>
+                <td><?php $region = get_post_meta($post->ID, 'region', true); $region_labels = function_exists('usegeo_get_region_labels') ? usegeo_get_region_labels() : array(); echo esc_html(isset($region_labels[$region]) ? $region_labels[$region] : ($region ?: '-')); ?></td>
             </tr>
             <tr>
                 <th scope="row"><?php esc_html_e('Notification Status', 'usegeo'); ?></th>

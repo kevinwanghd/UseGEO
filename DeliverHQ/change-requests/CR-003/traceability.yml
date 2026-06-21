@@ -1,0 +1,38 @@
+schema: deliverhq-traceability
+version: 1
+
+CR-003:
+  requirement: "Partner Lead Monetization Foundation"
+  priority: P0
+  origin: PRD-PARTNER-LEADS
+
+  acceptance_criteria:
+    - "表单出现 partner consent checkbox、budget、region"
+    - "未勾选 consent 时 partner_consent=no 且 lead_quality=cold"
+    - "高意向 consent lead 保存 lead_quality=hot"
+    - "后台 lead 列表显示 Partner Consent / Lead Quality / Budget / Region"
+    - "邮件正文包含 Partner Consent / Lead Quality / Budget / Region"
+    - "原有 scan snapshot / GEO Score / Weakest Dimension 不被破坏"
+
+  implementation:
+    - file: wordpress/theme/usegeo/template-parts/scanner/scanner.php
+      description: "新增 partner_consent、budget_range、region 字段并调整 CTA/disclosure"
+      reverse_mapped: true
+    - file: wordpress/theme/usegeo/inc/forms.php
+      functions:
+        - usegeo_handle_lead_capture
+        - usegeo_send_lead_notification
+        - usegeo_calculate_lead_quality
+      description: "保存 partner fields、计算 lead_quality、邮件追加字段"
+      reverse_mapped: true
+    - file: wordpress/theme/usegeo/inc/admin.php
+      functions:
+        - usegeo_lead_admin_columns
+        - usegeo_render_lead_admin_column
+      description: "后台列和详情展示 partner fields"
+      reverse_mapped: true
+
+  tests:
+    - file: DeliverHQ/change-requests/CR-003/evidence/static_verify.py
+      description: "静态契约验证"
+      status: planned

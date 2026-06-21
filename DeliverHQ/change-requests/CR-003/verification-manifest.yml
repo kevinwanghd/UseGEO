@@ -1,0 +1,33 @@
+# Verification Manifest
+
+project:
+  name: "usegeo"
+  type: "php"
+
+build:
+  enabled: true
+  command: "python DeliverHQ/change-requests/CR-003/evidence/static_verify.py"
+  working_dir: "."
+  timeout: 120
+  success_pattern: "static verification passed"
+
+test:
+  unit:
+    enabled: false
+    command: ""
+    working_dir: "."
+    timeout: 300
+    coverage_enabled: false
+    coverage_threshold: 0
+
+manual:
+  enabled: true
+  checks:
+    - id: "partner_consent_saved"
+      description: "提交 consent lead 后后台显示 partner_consent=yes"
+      method: "browser/admin QA"
+      expect: "visible in admin"
+    - id: "no_consent_cold"
+      description: "未勾选 consent 的 lead 为 cold"
+      method: "browser/admin QA"
+      expect: "lead_quality=cold"

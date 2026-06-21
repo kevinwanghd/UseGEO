@@ -154,7 +154,7 @@
             <div class="usegeo-report-gate">
                 <div class="usegeo-report-gate__copy">
                     <span class="usegeo-report-gate__kicker">Recommended next step</span>
-                    <h3>Unlock the full diagnostic and expert interpretation</h3>
+                    <h3>Get matched with relevant GEO help</h3>
                     <p class="usegeo-report-gate__intro">The free score is a starting point. The full assessment turns it into a short action plan you can review with a GEO specialist.</p>
                     <ul>
                         <li>Your top 3 visibility gaps by business impact</li>
@@ -177,7 +177,7 @@
                     <input type="hidden" name="scan_llm_summary" value="" data-usegeo-scan-llm-summary>
                     <?php wp_nonce_field('usegeo_capture_lead', 'usegeo_lead_nonce'); ?>
                     <div class="usegeo-report-gate__form-head">
-                        <strong>Request the full diagnostic</strong>
+                        <strong>Request expert follow-up</strong>
                         <span>Designed for teams that may need a manual audit, fix sprint, or clear next-step roadmap.</span>
                     </div>
                     <label>
@@ -236,9 +236,35 @@
                             <option value="not_sure_yet">Not sure yet</option>
                         </select>
                     </label>
-                    <button type="submit" class="usegeo-report-gate__button" data-cta="request_full_diagnostic">Request full diagnostic</button>
+                    <label>
+                        <span>What budget range would be realistic if you decide to get outside help?</span>
+                        <select name="budget_range">
+                            <option value="">Select one</option>
+                            <option value="under_500">Under $500</option>
+                            <option value="500_1500">$500–$1,500</option>
+                            <option value="1500_5000">$1,500–$5,000</option>
+                            <option value="5000_plus">$5,000+</option>
+                            <option value="not_sure">Not sure yet</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Where is your team primarily based?</span>
+                        <select name="region">
+                            <option value="">Select one</option>
+                            <option value="north_america">North America</option>
+                            <option value="europe">Europe</option>
+                            <option value="asia_pacific">Asia-Pacific</option>
+                            <option value="global_remote">Global / remote</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </label>
+                    <label class="usegeo-report-gate__checkbox">
+                        <input type="checkbox" name="partner_consent" value="yes">
+                        <span>I agree that UseGEO may share my submission with relevant GEO/SEO partners who can contact me about services that may fit my needs.</span>
+                    </label>
+                    <button type="submit" class="usegeo-report-gate__button" data-cta="request_expert_followup">Request expert follow-up</button>
                     <p class="usegeo-report-gate__disclosure">
-                        We use your submission to personalize the assessment and follow up when relevant. See our
+                        We use your submission to personalize the assessment. If you opt in, we may share it with relevant GEO/SEO partners for follow-up. See our
                         <a href="<?php echo esc_url(home_url('/privacy-policy')); ?>">Privacy Policy</a>.
                     </p>
                 </form>

@@ -1,0 +1,5 @@
+[
+  "wordpress/theme/usegeo/inc/admin.php",
+  "wordpress/theme/usegeo/inc/forms.php",
+  "wordpress/theme/usegeo/template-parts/scanner/scanner.php"
+]
