@@ -243,13 +243,13 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 > 作为访问者，我希望在明确知情和授权的前提下，被 UseGEO 推荐给相关 GEO/SEO 专家或工具；作为 Kevin，我希望能区分普通内容 lead 与可转介/可售 lead，并用这些 lead 与合作伙伴、广告主或 affiliate 项目变现。
 
 **功能描述**
-> Partner Lead 能力需要在表单中收集明确 consent、预算/支持意向/地区/时间线等 qualification 信息；后台需要展示 partner_consent、lead_quality、budget/region 等字段；邮件和运营视图需要标注该 lead 是否可转介。未授权 lead 只能用于 UseGEO 自有内容跟进，不得转发或售卖给第三方。
+> Partner Lead 能力需要在表单中收集明确 consent、预算/支持意向/地区/时间线等 qualification 信息；后台需要展示 partner_consent、lead_quality、budget/region 等字段；邮件和运营视图需要标注该 lead 是否可转介。后台还需要支持人工运营管线：筛选可转介 lead、标记 partner_status（new/reviewing/contacted/sold/rejected）、记录 partner_notes，并导出 CSV 供手动售卖/转介。未授权 lead 只能用于 UseGEO 自有内容跟进，不得转发或售卖给第三方。
 
 **验收意图**
-> 每条 lead 都能清晰判断是否可转介、适合什么类型 partner、当前意向强弱和最弱 GEO 维度；可转介 lead 有明确 consent 证据；不可转介 lead 不会进入 partner pipeline。
+> 每条 lead 都能清晰判断是否可转介、适合什么类型 partner、当前意向强弱和最弱 GEO 维度；可转介 lead 有明确 consent 证据；不可转介 lead 不会进入 partner pipeline；运营可以手动导出 consent=yes 的 hot/warm lead，并跟踪 contacted/sold/rejected 等状态。
 
 **绝不能发生**
-> 绝不允许没有明确 consent 的用户信息被转发或售卖；绝不允许把 partner matching 文案写成 UseGEO 自营完整服务承诺；绝不允许高意向判断只依赖主观备注而无字段证据。
+> 绝不允许没有明确 consent 的用户信息被转发或售卖；绝不允许把 partner matching 文案写成 UseGEO 自营完整服务承诺；绝不允许高意向判断只依赖主观备注而无字段证据；绝不允许 CSV 导出包含未授权 lead。
 
 **关联 CR**:
 
@@ -361,7 +361,7 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 |---|---|---|---|
 | M1 老项目基线确认 | PRD-LEGACY-BASELINE | CR-LEGACY-SCAN | 进行中 |
 | M2 Real Scanner v1 真实诊断 | PRD-REAL-SCANNER-V1, PRD-FREE-SCANNER, PRD-LEAD-CAPTURE | （待切 CR） | 计划中 |
-| M3 Lead 变现与内容转化 | PRD-HOMEPAGE-CONVERSION, PRD-PARTNER-LEADS, PRD-CONTENT-LIBRARY, PRD-COMMUNITY-CASE, PRD-OPS-ADMIN | CR-003 | 计划中 |
+| M3 Lead 变现与内容转化 | PRD-HOMEPAGE-CONVERSION, PRD-PARTNER-LEADS, PRD-CONTENT-LIBRARY, PRD-COMMUNITY-CASE, PRD-OPS-ADMIN | CR-003, CR-004 | 进行中 |
 | M4 分析与运营基线 | PRD-ANALYTICS, PRD-OPS-ADMIN, PRD-SITE-FOUNDATION | （待切 CR） | 计划中 |
 
 ## 变更记录
@@ -374,3 +374,4 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 | 2026-06-19 | 全部 | 从 DeliverHQ 模板初始化为 UseGEO 实际 PRD，建立 9 个功能锚点 + 1 个 Legacy 基线锚点。 | CR-LEGACY-SCAN |
 
 | 2026-06-21 | PRD-HOMEPAGE-CONVERSION, PRD-LEAD-CAPTURE, PRD-OPS-ADMIN, PRD-PARTNER-LEADS | 将商业定位校准为 GEO 学习内容流量 + 广告/赞助/affiliate/partner referral/lead resale；新增 Partner Lead 锚点。 | CR-003 |
+| 2026-06-21 | PRD-PARTNER-LEADS | 增加 partner lead CSV 导出与人工运营管线状态要求。 | CR-004 |
