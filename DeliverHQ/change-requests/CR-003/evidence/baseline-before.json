@@ -1,0 +1,72 @@
+{
+  "timestamp": "2026-06-21T18:37:32.078798",
+  "commit_hash": "859d9f1321aa558510117988c4f9eda1e3cc4d21",
+  "commands_run": [
+    "python DeliverHQ/change-requests/CR-003/evidence/static_verify.py"
+  ],
+  "build_passed": false,
+  "build_errors": [
+    "python: can't open file 'D:\\\\Code\\\\UseGEO\\\\DeliverHQ\\\\change-requests\\\\CR-003\\\\evidence\\\\static_verify.py': [Errno 2] No such file or directory"
+  ],
+  "tests_total": 0,
+  "tests_passed": 0,
+  "tests_failed": 0,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "usegeo",
+      "type": "php"
+    },
+    "build": {
+      "enabled": true,
+      "command": "python DeliverHQ/change-requests/CR-003/evidence/static_verify.py",
+      "working_dir": ".",
+      "timeout": 120,
+      "success_pattern": "static verification passed"
+    },
+    "test": {
+      "unit": {
+        "enabled": false,
+        "command": "",
+        "working_dir": ".",
+        "timeout": 300,
+        "coverage_enabled": false,
+        "coverage_threshold": 0
+      }
+    },
+    "manual": {
+      "enabled": true,
+      "checks": [
+        {
+          "id": "partner_consent_saved",
+          "description": "提交 consent lead 后后台显示 partner_consent=yes",
+          "method": "browser/admin QA",
+          "expect": "visible in admin"
+        },
+        {
+          "id": "no_consent_cold",
+          "description": "未勾选 consent 的 lead 为 cold",
+          "method": "browser/admin QA",
+          "expect": "lead_quality=cold"
+        }
+      ]
+    }
+  },
+  "command_results": [
+    {
+      "name": "build",
+      "category": "build",
+      "command": "python DeliverHQ/change-requests/CR-003/evidence/static_verify.py",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": false,
+      "returncode": 2,
+      "stdout": "",
+      "stderr": "python: can't open file 'D:\\\\Code\\\\UseGEO\\\\DeliverHQ\\\\change-requests\\\\CR-003\\\\evidence\\\\static_verify.py': [Errno 2] No such file or directory\n"
+    }
+  ]
+}
