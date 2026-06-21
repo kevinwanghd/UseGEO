@@ -17,6 +17,7 @@ get_header();
     <?php get_template_part('template-parts/conversion/sample-report'); ?>
     <?php get_template_part('template-parts/value/value-proposition'); ?>
     <?php get_template_part('template-parts/learning/learning-path'); ?>
+    <?php get_template_part('template-parts/content-hub/seo-cluster'); ?>
     <div id="content">
         <?php get_template_part('template-parts/content-hub/content-hub'); ?>
     </div>

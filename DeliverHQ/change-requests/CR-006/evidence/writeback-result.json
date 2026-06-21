@@ -1,0 +1,24 @@
+{
+  "gate_name": "writeback",
+  "result": "pass",
+  "timestamp": "2026-06-21T21:38:16.889443",
+  "blocking_items": [],
+  "warnings": [
+    "存在未提交文件，确认是否已归档",
+    "完成后需归档到 delivery/YYYY-MM/"
+  ],
+  "commands_run": [],
+  "artifacts": [
+    "writeback-report.md",
+    "docs/rules-candidates.md"
+  ],
+  "next_action": "进入归档流程",
+  "failure_attribution": [],
+  "metadata": {
+    "current_state": "archived",
+    "current_phase": "writeback",
+    "current_owner": "writeback-agent",
+    "requires_human": false,
+    "worktree_path": "D:\\Code\\UseGEO\\DeliverHQ\\.claude\\worktrees\\CR-006"
+  }
+}

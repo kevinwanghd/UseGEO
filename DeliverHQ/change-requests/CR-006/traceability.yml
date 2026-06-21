@@ -1,0 +1,16 @@
+schema: deliverhq-traceability
+version: 1
+
+CR-006:
+  requirement: Content SEO Cluster Foundation
+  priority: P1
+  implementation:
+    - file: wordpress/theme/usegeo/template-parts/content-hub/seo-cluster.php
+      description: SEO cluster section
+    - file: wordpress/theme/usegeo/front-page.php
+      description: include seo-cluster template
+    - file: wordpress/theme/usegeo/assets/css/homepage.css
+      description: seo cluster styles
+  tests:
+    - file: DeliverHQ/change-requests/CR-006/evidence/static_verify.py
+      status: planned
