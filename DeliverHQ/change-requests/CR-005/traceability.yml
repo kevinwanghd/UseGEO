@@ -1,0 +1,20 @@
+schema: deliverhq-traceability
+version: 1
+
+CR-005:
+  requirement: Sponsor / Ad Inventory Foundation
+  priority: P1
+  implementation:
+    - file: wordpress/theme/usegeo/inc/admin.php
+      description: Sponsor admin config + render helper
+    - file: wordpress/theme/usegeo/front-page.php
+      description: homepage sponsor slot
+    - file: wordpress/theme/usegeo/template-parts/scanner/scanner.php
+      description: scanner result sponsor slot
+    - file: wordpress/theme/usegeo/single.php
+      description: article sidebar sponsor slot
+    - file: wordpress/theme/usegeo/assets/css/homepage.css
+      description: sponsor card styles
+  tests:
+    - file: DeliverHQ/change-requests/CR-005/evidence/static_verify.py
+      status: planned

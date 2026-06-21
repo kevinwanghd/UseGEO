@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-06-21T20:40:48.076081",
+  "commit_hash": "de71e23e490b4b5a6846a3d9e76224b438ec49c0",
+  "commands_run": [
+    "python DeliverHQ/change-requests/CR-005/evidence/static_verify.py"
+  ],
+  "build_passed": true,
+  "build_errors": [],
+  "tests_total": 0,
+  "tests_passed": 0,
+  "tests_failed": 0,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "usegeo",
+      "type": "php"
+    },
+    "build": {
+      "enabled": true,
+      "command": "python DeliverHQ/change-requests/CR-005/evidence/static_verify.py",
+      "working_dir": ".",
+      "timeout": 120,
+      "success_pattern": "static verification passed"
+    },
+    "test": {
+      "unit": {
+        "enabled": false,
+        "command": ""
+      }
+    }
+  },
+  "command_results": [
+    {
+      "name": "build",
+      "category": "build",
+      "command": "python DeliverHQ/change-requests/CR-005/evidence/static_verify.py",
+      "working_dir": "D:\\Code\\UseGEO\\.claude\\worktrees\\CR-005",
+      "timeout": 120,
+      "success": true,
+      "returncode": 0,
+      "stdout": "static verification passed\n",
+      "stderr": ""
+    }
+  ]
+}
