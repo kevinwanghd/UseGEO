@@ -351,6 +351,30 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 
 ---
 
+## [PRD-SPONSOR-INVENTORY] 手动赞助位与广告库存
+
+- **状态**: confirmed
+- **优先级**: P1
+
+**意图**
+> 为 UseGEO 的学习内容流量和 Scanner 结果页准备可手动售卖的广告/赞助库存，在不接入自动广告平台的前提下，先支持运营配置 sponsor 文案和链接。
+
+**用户故事**
+> 作为 Kevin，我希望能在首页、Scanner 结果区、文章侧边栏等位置配置赞助内容，以便向 GEO/SEO 工具商、agency 或相关服务商售卖曝光或导流位置。
+
+**功能描述**
+> Sponsor Inventory v1 提供后台配置能力和前台展示 slot。后台可配置 sponsor title、description、CTA label、URL、placement、active 状态；前台在指定 placement 渲染赞助卡片。v1 不接入 Google AdSense 或程序化广告，不做自动竞价，也不统计结算，只为手动 sponsor sales 准备库存。
+
+**验收意图**
+> 运营能在后台开启/关闭赞助位，并在首页/Scanner 结果/文章侧边栏看到对应 sponsor card；所有外链都应安全打开并标注 sponsored；关闭后前台不显示。
+
+**绝不能发生**
+> 绝不允许 sponsor 链接绕过 `esc_url`；绝不允许无 active 状态的赞助显示；绝不允许 sponsor 内容伪装成编辑推荐而不标注 sponsored。
+
+**关联 CR**:
+
+---
+
 # 第三部分：演进
 
 > 人在这里做规划。
@@ -362,7 +386,7 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 | M1 老项目基线确认 | PRD-LEGACY-BASELINE | CR-LEGACY-SCAN | 进行中 |
 | M2 Real Scanner v1 真实诊断 | PRD-REAL-SCANNER-V1, PRD-FREE-SCANNER, PRD-LEAD-CAPTURE | （待切 CR） | 计划中 |
 | M3 Lead 变现与内容转化 | PRD-HOMEPAGE-CONVERSION, PRD-PARTNER-LEADS, PRD-CONTENT-LIBRARY, PRD-COMMUNITY-CASE, PRD-OPS-ADMIN | CR-003, CR-004 | 进行中 |
-| M4 分析与运营基线 | PRD-ANALYTICS, PRD-OPS-ADMIN, PRD-SITE-FOUNDATION | （待切 CR） | 计划中 |
+| M4 分析与运营基线 | PRD-ANALYTICS, PRD-OPS-ADMIN, PRD-SITE-FOUNDATION, PRD-SPONSOR-INVENTORY | CR-005 | 计划中 |
 
 ## 变更记录
 
@@ -375,3 +399,4 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 
 | 2026-06-21 | PRD-HOMEPAGE-CONVERSION, PRD-LEAD-CAPTURE, PRD-OPS-ADMIN, PRD-PARTNER-LEADS | 将商业定位校准为 GEO 学习内容流量 + 广告/赞助/affiliate/partner referral/lead resale；新增 Partner Lead 锚点。 | CR-003 |
 | 2026-06-21 | PRD-PARTNER-LEADS | 增加 partner lead CSV 导出与人工运营管线状态要求。 | CR-004 |
+| 2026-06-21 | PRD-SPONSOR-INVENTORY | 新增手动赞助位与广告库存锚点，支持 sponsor slot 后台配置与前台展示。 | CR-005 |
