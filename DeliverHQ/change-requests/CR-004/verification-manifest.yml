@@ -1,0 +1,21 @@
+# Verification Manifest
+
+project:
+  name: "usegeo"
+  type: "php"
+
+build:
+  enabled: true
+  command: "python DeliverHQ/change-requests/CR-004/evidence/static_verify.py"
+  working_dir: "."
+  timeout: 120
+  success_pattern: "static verification passed"
+
+test:
+  unit:
+    enabled: false
+    command: ""
+    working_dir: "."
+    timeout: 300
+    coverage_enabled: false
+    coverage_threshold: 0
