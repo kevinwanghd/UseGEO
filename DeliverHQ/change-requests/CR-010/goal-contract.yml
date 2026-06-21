@@ -1,0 +1,13 @@
+schema: deliverhq-goal-contract
+version: 1
+cr_id: CR-010
+goal: "Expand and publish three UseGEO money pages with SEO/GEO depth, FAQ, internal links, and Scanner CTAs."
+non_goals:
+  - "Do not add fake third-party tool or agency rankings."
+  - "Do not position UseGEO as self-operated full GEO service delivery."
+  - "Do not commit or print production secrets."
+success_metrics:
+  - "3 production URLs return HTTP 200."
+  - "Each page has 2500-3500 words."
+  - "Each page has at least 5 FAQ items and 2 Scanner CTAs."
+  - "Forbidden claim scan returns 0 hits."

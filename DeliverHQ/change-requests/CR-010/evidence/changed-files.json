@@ -1,0 +1,21 @@
+[
+  "DeliverHQ/change-requests/CR-010/request.md",
+  "DeliverHQ/change-requests/CR-010/acceptance-spec.md",
+  "DeliverHQ/change-requests/CR-010/context-summary.md",
+  "DeliverHQ/change-requests/CR-010/implementation-plan.md",
+  "DeliverHQ/change-requests/CR-010/test-plan.md",
+  "DeliverHQ/change-requests/CR-010/human-decisions.md",
+  "DeliverHQ/change-requests/CR-010/design/metadata.yml",
+  "DeliverHQ/change-requests/CR-010/design/design-decisions.md",
+  "DeliverHQ/change-requests/CR-010/design/lo-fi-spec.md",
+  "DeliverHQ/change-requests/CR-010/design/hi-fi-spec.md",
+  "DeliverHQ/change-requests/CR-010/traceability.yml",
+  "DeliverHQ/change-requests/CR-010/verification-manifest.yml",
+  "DeliverHQ/change-requests/CR-010/goal-contract.yml",
+  "DeliverHQ/change-requests/CR-010/plan.yml",
+  "DeliverHQ/change-requests/CR-010/outputs/geo-checklist-expanded.html",
+  "DeliverHQ/change-requests/CR-010/outputs/ai-visibility-tools-expanded.html",
+  "DeliverHQ/change-requests/CR-010/outputs/best-geo-agencies-expanded.html",
+  "DeliverHQ/change-requests/CR-010/evidence/verify_money_pages.py",
+  "DeliverHQ/change-requests/CR-010/evidence/money-pages-local-result.json"
+]

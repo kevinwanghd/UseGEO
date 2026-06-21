@@ -1,0 +1,74 @@
+{
+  "timestamp": "2026-06-22T07:47:53.497133",
+  "commit_hash": "db20a47eec0f6cbdc532ce134d49e412a1e19652",
+  "commands_run": [
+    "/c/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-010/evidence/verify_money_pages.py --mode local"
+  ],
+  "build_passed": true,
+  "build_errors": [],
+  "tests_total": 1,
+  "tests_passed": 0,
+  "tests_failed": 1,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "UseGEO",
+      "type": "wordpress-content"
+    },
+    "build": {
+      "enabled": false,
+      "command": "",
+      "working_dir": ".",
+      "timeout": 60
+    },
+    "test": {
+      "unit": {
+        "enabled": true,
+        "command": "/c/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-010/evidence/verify_money_pages.py --mode local",
+        "working_dir": ".",
+        "timeout": 120,
+        "coverage_enabled": false
+      }
+    },
+    "lint": {
+      "enabled": false,
+      "tools": []
+    },
+    "typecheck": {
+      "enabled": false
+    },
+    "security": {
+      "enabled": false,
+      "command": ""
+    },
+    "custom": [
+      {
+        "name": "cr010-local-money-page-validation",
+        "command": "/c/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-010/evidence/verify_money_pages.py --mode local",
+        "enabled": true
+      }
+    ],
+    "qualitygate": {
+      "mode": "hybrid",
+      "fail_fast": true,
+      "auto_fix": false
+    }
+  },
+  "command_results": [
+    {
+      "name": "test-unit",
+      "category": "test",
+      "command": "/c/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-010/evidence/verify_money_pages.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": null
+    }
+  ]
+}

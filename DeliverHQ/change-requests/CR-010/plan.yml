@@ -1,0 +1,16 @@
+schema: deliverhq-plan
+version: 1
+cr_id: CR-010
+steps:
+  - id: generate-content
+    description: "Generate expanded HTML content for three money pages"
+    status: pending
+  - id: local-verify
+    description: "Run local money page verifier"
+    status: pending
+  - id: publish-production
+    description: "Update existing WordPress pages"
+    status: pending
+  - id: production-verify
+    description: "Fetch production URLs and verify content"
+    status: pending

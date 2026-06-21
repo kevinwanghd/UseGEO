@@ -1,0 +1,4 @@
+ui_type: B端
+surface: WordPress public content pages
+requires_hifi: false
+notes: Existing WordPress page layout is reused; CR-010 changes content only, not theme UI or visual system.

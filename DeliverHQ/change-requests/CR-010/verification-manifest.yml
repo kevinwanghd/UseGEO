@@ -1,0 +1,38 @@
+project:
+  name: "UseGEO"
+  type: "wordpress-content"
+
+build:
+  enabled: false
+  command: ""
+  working_dir: "."
+  timeout: 60
+
+test:
+  unit:
+    enabled: true
+    command: "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-010/evidence/verify_money_pages.py --mode local"
+    working_dir: "."
+    timeout: 120
+    coverage_enabled: false
+
+lint:
+  enabled: false
+  tools: []
+
+typecheck:
+  enabled: false
+
+security:
+  enabled: false
+  command: ""
+
+custom:
+  - name: "cr010-local-money-page-validation"
+    command: "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-010/evidence/verify_money_pages.py --mode local"
+    enabled: true
+
+qualitygate:
+  mode: "hybrid"
+  fail_fast: true
+  auto_fix: false

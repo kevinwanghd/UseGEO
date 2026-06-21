@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "slug": "geo-checklist",
+      "mode": "local",
+      "status": null,
+      "word_count": 2564,
+      "faq_count": 6,
+      "scanner_cta_count": 3,
+      "missing_links": [],
+      "missing_markers": [],
+      "forbidden_hits": [],
+      "secret_hits": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "ai-visibility-tools",
+      "mode": "local",
+      "status": null,
+      "word_count": 2540,
+      "faq_count": 6,
+      "scanner_cta_count": 3,
+      "missing_links": [],
+      "missing_markers": [],
+      "forbidden_hits": [],
+      "secret_hits": [],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "best-geo-agencies",
+      "mode": "local",
+      "status": null,
+      "word_count": 2539,
+      "faq_count": 6,
+      "scanner_cta_count": 3,
+      "missing_links": [],
+      "missing_markers": [],
+      "forbidden_hits": [],
+      "secret_hits": [],
+      "passed": true,
+      "errors": []
+    }
+  ]
+}
