@@ -335,6 +335,39 @@ function usegeo_get_partner_status_labels() {
     );
 }
 
+function usegeo_get_lead_quality_labels() {
+    return array(
+        '' => __('Use auto quality', 'usegeo'),
+        'hot' => __('Hot', 'usegeo'),
+        'warm' => __('Warm', 'usegeo'),
+        'cold' => __('Cold', 'usegeo'),
+    );
+}
+
+function usegeo_resolve_effective_lead_quality($auto_quality, $override_quality = '') {
+    $valid = array('hot', 'warm', 'cold');
+    if ($override_quality && in_array($override_quality, $valid, true)) {
+        return $override_quality;
+    }
+    if ($auto_quality && in_array($auto_quality, $valid, true)) {
+        return $auto_quality;
+    }
+    return 'cold';
+}
+
+function usegeo_append_partner_notes_log($post_id, $note) {
+    $note = trim((string) $note);
+    if ($note === '') {
+        return;
+    }
+    $existing = get_post_meta($post_id, 'partner_notes_log', true);
+    $entry = sprintf('[%s] %s', current_time('mysql'), $note);
+    $next = trim($existing ? $existing . "
+" . $entry : $entry);
+    update_post_meta($post_id, 'partner_notes_log', $next);
+    update_post_meta($post_id, 'partner_notes', $next);
+}
+
 function usegeo_render_lead_priority_badge($label, $tone = 'neutral') {
     $tones = array(
         'neutral' => 'background:#e5e7eb;color:#334155;',
@@ -465,7 +498,13 @@ function usegeo_render_lead_admin_column($column, $post_id) {
     }
 
     if ($column === 'lead_quality') {
-        echo esc_html(get_post_meta($post_id, 'lead_quality', true) ?: 'cold');
+        $auto_quality = get_post_meta($post_id, 'lead_quality_auto', true) ?: get_post_meta($post_id, 'lead_quality', true);
+        $override_quality = get_post_meta($post_id, 'lead_quality_override', true);
+        $effective_quality = usegeo_resolve_effective_lead_quality($auto_quality, $override_quality);
+        echo esc_html($effective_quality);
+        if ($override_quality) {
+            echo '<br><span style="color:#6b7280;font-size:12px;">override</span>';
+        }
         return;
     }
 
@@ -648,7 +687,26 @@ function usegeo_render_lead_meta_box($post) {
             </tr>
             <tr>
                 <th scope="row"><?php esc_html_e('Lead Quality', 'usegeo'); ?></th>
-                <td><?php echo esc_html(get_post_meta($post->ID, 'lead_quality', true) ?: 'cold'); ?></td>
+                <td>
+                    <?php
+                    $lead_quality_auto = get_post_meta($post->ID, 'lead_quality_auto', true) ?: get_post_meta($post->ID, 'lead_quality', true) ?: 'cold';
+                    $lead_quality_override = get_post_meta($post->ID, 'lead_quality_override', true);
+                    $lead_quality_effective = usegeo_resolve_effective_lead_quality($lead_quality_auto, $lead_quality_override);
+                    echo esc_html($lead_quality_effective);
+                    ?>
+                    <p class="description"><?php echo esc_html(sprintf(__('Auto: %s', 'usegeo'), $lead_quality_auto)); ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><label for="usegeo-lead-quality-override"><?php esc_html_e('Lead Quality Override', 'usegeo'); ?></label></th>
+                <td>
+                    <select id="usegeo-lead-quality-override" name="usegeo_lead_quality_override">
+                        <?php foreach (usegeo_get_lead_quality_labels() as $value => $label) : ?>
+                            <option value="<?php echo esc_attr($value); ?>" <?php selected($lead_quality_override, $value); ?>><?php echo esc_html($label); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <p class="description"><?php esc_html_e('Leave blank to use the automatically calculated quality.', 'usegeo'); ?></p>
+                </td>
             </tr>
             <tr>
                 <th scope="row"><?php esc_html_e('Budget', 'usegeo'); ?></th>
@@ -669,8 +727,12 @@ function usegeo_render_lead_meta_box($post) {
                 </td>
             </tr>
             <tr>
-                <th scope="row"><label for="usegeo-partner-notes"><?php esc_html_e('Partner Notes', 'usegeo'); ?></label></th>
-                <td><textarea id="usegeo-partner-notes" name="usegeo_partner_notes" rows="4" style="width:100%;"><?php echo esc_textarea(get_post_meta($post->ID, 'partner_notes', true)); ?></textarea></td>
+                <th scope="row"><label for="usegeo-partner-note-append"><?php esc_html_e('Append Partner Note', 'usegeo'); ?></label></th>
+                <td><textarea id="usegeo-partner-note-append" name="usegeo_partner_note_append" rows="3" style="width:100%;" placeholder="<?php esc_attr_e('Add a new note without overwriting history', 'usegeo'); ?>"></textarea></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('Partner Notes Log', 'usegeo'); ?></th>
+                <td><div style="white-space:pre-wrap;max-height:220px;overflow:auto;"><?php echo esc_html(get_post_meta($post->ID, 'partner_notes_log', true) ?: get_post_meta($post->ID, 'partner_notes', true) ?: '-'); ?></div></td>
             </tr>
             <tr>
                 <th scope="row"><?php esc_html_e('Notification Status', 'usegeo'); ?></th>
@@ -709,9 +771,15 @@ function usegeo_save_lead_partner_pipeline_meta($post_id) {
     $labels = usegeo_get_partner_status_labels();
     $status = isset($_POST['usegeo_partner_status']) ? sanitize_key(wp_unslash($_POST['usegeo_partner_status'])) : 'new';
     if (!isset($labels[$status])) $status = 'new';
-    $notes = isset($_POST['usegeo_partner_notes']) ? sanitize_textarea_field(wp_unslash($_POST['usegeo_partner_notes'])) : '';
+    $quality_labels = usegeo_get_lead_quality_labels();
+    $override_quality = isset($_POST['usegeo_lead_quality_override']) ? sanitize_key(wp_unslash($_POST['usegeo_lead_quality_override'])) : '';
+    if (!array_key_exists($override_quality, $quality_labels)) $override_quality = '';
+    $auto_quality = get_post_meta($post_id, 'lead_quality_auto', true) ?: get_post_meta($post_id, 'lead_quality', true) ?: 'cold';
     update_post_meta($post_id, 'partner_status', $status);
-    update_post_meta($post_id, 'partner_notes', $notes);
+    update_post_meta($post_id, 'lead_quality_override', $override_quality);
+    update_post_meta($post_id, 'lead_quality', usegeo_resolve_effective_lead_quality($auto_quality, $override_quality));
+    $note_append = isset($_POST['usegeo_partner_note_append']) ? sanitize_textarea_field(wp_unslash($_POST['usegeo_partner_note_append'])) : '';
+    usegeo_append_partner_notes_log($post_id, $note_append);
 }
 add_action('save_post_usegeo_lead', 'usegeo_save_lead_partner_pipeline_meta');
 
@@ -743,7 +811,14 @@ function usegeo_render_partner_lead_filters() {
         foreach ($options as $value => $label) echo '<option value="' . esc_attr($value) . '" ' . selected($current, $value, false) . '>' . esc_html($label) . '</option>';
         echo '</select>';
     }
-    $export_url = wp_nonce_url(admin_url('admin-post.php?action=usegeo_export_partner_leads'), 'usegeo_export_partner_leads');
+    $start_date = isset($_GET['start_date']) ? sanitize_text_field(wp_unslash($_GET['start_date'])) : '';
+    $end_date = isset($_GET['end_date']) ? sanitize_text_field(wp_unslash($_GET['end_date'])) : '';
+    echo '<input type="date" name="start_date" value="' . esc_attr($start_date) . '" aria-label="Export start date">';
+    echo '<input type="date" name="end_date" value="' . esc_attr($end_date) . '" aria-label="Export end date">';
+    $export_args = array('action' => 'usegeo_export_partner_leads');
+    if ($start_date) $export_args['start_date'] = $start_date;
+    if ($end_date) $export_args['end_date'] = $end_date;
+    $export_url = wp_nonce_url(add_query_arg($export_args, admin_url('admin-post.php')), 'usegeo_export_partner_leads');
     echo '<a class="button" style="margin-left:8px;" href="' . esc_url($export_url) . '">' . esc_html__('Export Partner Leads CSV', 'usegeo') . '</a>';
 }
 add_action('restrict_manage_posts', 'usegeo_render_partner_lead_filters');
@@ -751,17 +826,64 @@ add_action('restrict_manage_posts', 'usegeo_render_partner_lead_filters');
 function usegeo_export_partner_leads() {
     if (!current_user_can('manage_options')) wp_die('Forbidden', 403);
     check_admin_referer('usegeo_export_partner_leads');
-    $query = new WP_Query(array('post_type'=>'usegeo_lead','post_status'=>'publish','posts_per_page'=>500,'meta_query'=>array(array('key'=>'partner_consent','value'=>'yes','compare'=>'='),array('key'=>'lead_quality','value'=>array('hot','warm'),'compare'=>'IN'))));
+    $start_date = isset($_GET['start_date']) ? sanitize_text_field(wp_unslash($_GET['start_date'])) : '';
+    $end_date = isset($_GET['end_date']) ? sanitize_text_field(wp_unslash($_GET['end_date'])) : '';
+    $date_query = array();
+    if ($start_date || $end_date) {
+        $range = array('inclusive' => true);
+        if ($start_date) $range['after'] = $start_date;
+        if ($end_date) $range['before'] = $end_date;
+        $date_query[] = $range;
+    }
+    $args = array(
+        'post_type'=>'usegeo_lead',
+        'post_status'=>'publish',
+        'posts_per_page'=>500,
+        'meta_query'=>array(
+            array('key'=>'partner_consent','value'=>'yes','compare'=>'='),
+            array('key'=>'lead_quality','value'=>array('hot','warm'),'compare'=>'IN'),
+        ),
+    );
+    if ($date_query) $args['date_query'] = $date_query;
+    $query = new WP_Query($args);
     header('Content-Type: text/csv; charset=UTF-8');
     header('Content-Disposition: attachment; filename="usegeo-partner-leads.csv"');
     $out=fopen('php://output','w');
-    fputcsv($out,array('lead_id','work_email','company_type','company_size','website_input','geo_score','weakest_dimension','partner_consent','lead_quality','budget_range','region','help_intent','support_level','timeline','partner_status','submitted_at'));
+    fputcsv($out,array('lead_id','work_email','company_type','company_size','website_input','geo_score','weakest_dimension','partner_consent','lead_quality','lead_quality_auto','lead_quality_override','budget_range','region','help_intent','support_level','timeline','partner_status','submitted_at'));
     foreach ($query->posts as $post) {
-        fputcsv($out,array($post->ID,get_post_meta($post->ID,'work_email',true),get_post_meta($post->ID,'company_type',true),get_post_meta($post->ID,'company_size',true),get_post_meta($post->ID,'scanner_query',true),get_post_meta($post->ID,'scan_total_score',true),function_exists('usegeo_get_scan_weakest_dimension') ? usegeo_get_scan_weakest_dimension($post->ID) : '',get_post_meta($post->ID,'partner_consent',true),get_post_meta($post->ID,'lead_quality',true),get_post_meta($post->ID,'budget_range',true),get_post_meta($post->ID,'region',true),get_post_meta($post->ID,'help_intent',true),get_post_meta($post->ID,'support_level',true),get_post_meta($post->ID,'timeline',true),get_post_meta($post->ID,'partner_status',true) ?: 'new',get_post_meta($post->ID,'submitted_at',true)));
+        fputcsv($out,array($post->ID,get_post_meta($post->ID,'work_email',true),get_post_meta($post->ID,'company_type',true),get_post_meta($post->ID,'company_size',true),get_post_meta($post->ID,'scanner_query',true),get_post_meta($post->ID,'scan_total_score',true),function_exists('usegeo_get_scan_weakest_dimension') ? usegeo_get_scan_weakest_dimension($post->ID) : '',get_post_meta($post->ID,'partner_consent',true),get_post_meta($post->ID,'lead_quality',true),get_post_meta($post->ID,'lead_quality_auto',true),get_post_meta($post->ID,'lead_quality_override',true),get_post_meta($post->ID,'budget_range',true),get_post_meta($post->ID,'region',true),get_post_meta($post->ID,'help_intent',true),get_post_meta($post->ID,'support_level',true),get_post_meta($post->ID,'timeline',true),get_post_meta($post->ID,'partner_status',true) ?: 'new',get_post_meta($post->ID,'submitted_at',true)));
     }
     fclose($out); exit;
 }
 add_action('admin_post_usegeo_export_partner_leads', 'usegeo_export_partner_leads');
+
+
+function usegeo_partner_status_bulk_actions($bulk_actions) {
+    $bulk_actions['usegeo_partner_status_reviewing'] = __('Mark partner status: Reviewing', 'usegeo');
+    $bulk_actions['usegeo_partner_status_contacted'] = __('Mark partner status: Contacted', 'usegeo');
+    $bulk_actions['usegeo_partner_status_sold'] = __('Mark partner status: Sold', 'usegeo');
+    $bulk_actions['usegeo_partner_status_rejected'] = __('Mark partner status: Rejected', 'usegeo');
+    return $bulk_actions;
+}
+add_filter('bulk_actions-edit-usegeo_lead', 'usegeo_partner_status_bulk_actions');
+
+function usegeo_handle_partner_status_bulk_action($redirect_to, $action, $post_ids) {
+    $map = array(
+        'usegeo_partner_status_reviewing' => 'reviewing',
+        'usegeo_partner_status_contacted' => 'contacted',
+        'usegeo_partner_status_sold' => 'sold',
+        'usegeo_partner_status_rejected' => 'rejected',
+    );
+    if (!isset($map[$action])) return $redirect_to;
+    $updated = 0;
+    foreach ($post_ids as $post_id) {
+        if (get_post_type($post_id) !== 'usegeo_lead' || !current_user_can('edit_post', $post_id)) continue;
+        update_post_meta($post_id, 'partner_status', $map[$action]);
+        $updated++;
+    }
+    return add_query_arg('usegeo_partner_status_updated', $updated, $redirect_to);
+}
+add_filter('handle_bulk_actions-edit-usegeo_lead', 'usegeo_handle_partner_status_bulk_action', 10, 3);
 
 
 function usegeo_get_sponsor_placements() {

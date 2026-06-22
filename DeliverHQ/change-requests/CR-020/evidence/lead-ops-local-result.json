@@ -1,0 +1,71 @@
+{
+  "mode": "local",
+  "passed": true,
+  "checks": [
+    {
+      "name": "lead_quality_labels_present",
+      "passed": true
+    },
+    {
+      "name": "lead_quality_resolver_present",
+      "passed": true
+    },
+    {
+      "name": "lead_quality_override_select_present",
+      "passed": true
+    },
+    {
+      "name": "lead_quality_auto_saved_on_capture",
+      "passed": true
+    },
+    {
+      "name": "lead_quality_override_save_logic",
+      "passed": true
+    },
+    {
+      "name": "partner_notes_append_helper",
+      "passed": true
+    },
+    {
+      "name": "partner_notes_append_input",
+      "passed": true
+    },
+    {
+      "name": "partner_notes_not_overwritten",
+      "passed": true
+    },
+    {
+      "name": "partner_status_bulk_actions_registered",
+      "passed": true
+    },
+    {
+      "name": "partner_status_bulk_handler_present",
+      "passed": true
+    },
+    {
+      "name": "partner_status_bulk_statuses",
+      "passed": true
+    },
+    {
+      "name": "csv_date_inputs_in_filter_bar",
+      "passed": true
+    },
+    {
+      "name": "csv_export_start_end_params",
+      "passed": true
+    },
+    {
+      "name": "csv_export_date_query",
+      "passed": true
+    },
+    {
+      "name": "csv_export_consent_hot_warm_invariant",
+      "passed": true
+    },
+    {
+      "name": "static_balanced_delimiters",
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+schema: deliverhq-goal-contract
+version: 1
+cr_id: CR-020
+goal: Lead Ops Enhancements
+must:
+  - separate lead_quality_auto and lead_quality_override
+  - support partner_status bulk actions
+  - support CSV start_date and end_date filters
+  - append partner notes history without overwrite
+  - keep consent yes and hot/warm export invariant
+must_not:
+  - upload production without Kevin confirmation
+  - export consent no leads
+  - overwrite partner notes history
+success_metrics:
+  local_verifier_passed: true
+  export_consent_invariant: true

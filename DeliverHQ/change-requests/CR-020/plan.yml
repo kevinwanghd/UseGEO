@@ -1,0 +1,13 @@
+schema: deliverhq-plan
+version: 1
+cr_id: CR-020
+lane: standard
+steps:
+  - id: spec
+    status: completed
+  - id: implement-lead-quality
+    status: planned
+  - id: implement-bulk-and-export
+    status: planned
+  - id: verify-package
+    status: planned

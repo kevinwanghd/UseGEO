@@ -1,0 +1,75 @@
+{
+  "timestamp": "2026-06-22T18:11:04.127648",
+  "commit_hash": "c4790f890d6a101111da53124d1b49f935dd51ee",
+  "commands_run": [
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-020/evidence/verify_lead_ops.py --mode local",
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-020/evidence/verify_lead_ops.py --mode local"
+  ],
+  "build_passed": true,
+  "build_errors": [],
+  "tests_total": 1,
+  "tests_passed": 1,
+  "tests_failed": 0,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "UseGEO",
+      "type": "wordpress-lead-ops"
+    },
+    "build": {
+      "enabled": true,
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-020/evidence/verify_lead_ops.py --mode local",
+      "working_dir": ".",
+      "timeout": 120
+    },
+    "test": {
+      "unit": {
+        "enabled": true,
+        "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-020/evidence/verify_lead_ops.py --mode local",
+        "working_dir": ".",
+        "timeout": 120,
+        "coverage_enabled": false
+      }
+    },
+    "lint": {
+      "enabled": false,
+      "tools": []
+    },
+    "typecheck": {
+      "enabled": false
+    },
+    "qualitygate": {
+      "mode": "hybrid",
+      "fail_fast": true,
+      "auto_fix": false
+    }
+  },
+  "command_results": [
+    {
+      "name": "build",
+      "category": "build",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-020/evidence/verify_lead_ops.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": true,
+      "returncode": 0,
+      "stdout": "CR-020 lead ops verification (local): PASS\n- PASS: lead_quality_labels_present\n- PASS: lead_quality_resolver_present\n- PASS: lead_quality_override_select_present\n- PASS: lead_quality_auto_saved_on_capture\n- PASS: lead_quality_override_save_logic\n- PASS: partner_notes_append_helper\n- PASS: partner_notes_append_input\n- PASS: partner_notes_not_overwritten\n- PASS: partner_status_bulk_actions_registered\n- PASS: partner_status_bulk_handler_present\n- PASS: partner_status_bulk_statuses\n- PASS: csv_date_inputs_in_filter_bar\n- PASS: csv_export_start_end_params\n- PASS: csv_export_date_query\n- PASS: csv_export_consent_hot_warm_invariant\n- PASS: static_balanced_delimiters\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-020\\evidence\\lead-ops-local-result.json\n",
+      "stderr": ""
+    },
+    {
+      "name": "test-unit",
+      "category": "test",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-020/evidence/verify_lead_ops.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": true,
+      "returncode": 0,
+      "stdout": "CR-020 lead ops verification (local): PASS\n- PASS: lead_quality_labels_present\n- PASS: lead_quality_resolver_present\n- PASS: lead_quality_override_select_present\n- PASS: lead_quality_auto_saved_on_capture\n- PASS: lead_quality_override_save_logic\n- PASS: partner_notes_append_helper\n- PASS: partner_notes_append_input\n- PASS: partner_notes_not_overwritten\n- PASS: partner_status_bulk_actions_registered\n- PASS: partner_status_bulk_handler_present\n- PASS: partner_status_bulk_statuses\n- PASS: csv_date_inputs_in_filter_bar\n- PASS: csv_export_start_end_params\n- PASS: csv_export_date_query\n- PASS: csv_export_consent_hot_warm_invariant\n- PASS: static_balanced_delimiters\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-020\\evidence\\lead-ops-local-result.json\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -377,6 +377,8 @@ function usegeo_handle_lead_capture() {
     update_post_meta($post_id, 'partner_consent', $partner_consent);
     update_post_meta($post_id, 'budget_range', $budget_range);
     update_post_meta($post_id, 'region', $region);
+    update_post_meta($post_id, 'lead_quality_auto', $lead_quality);
+    update_post_meta($post_id, 'lead_quality_override', '');
     update_post_meta($post_id, 'lead_quality', $lead_quality);
     usegeo_save_scan_snapshot_meta($post_id, $scan_snapshot);
 

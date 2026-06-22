@@ -1,0 +1,31 @@
+schema: deliverhq-traceability
+version: 1
+
+CR-020:
+  requirement: "Lead Ops Enhancements"
+  priority: "P1"
+  acceptance_criteria:
+    - "lead_quality auto and override are stored separately"
+    - "partner_status has bulk action"
+    - "CSV export supports start_date and end_date"
+    - "partner notes append log does not overwrite history"
+  implementation:
+    - file: "wordpress/theme/usegeo/inc/admin.php"
+      type: "theme-code"
+    - file: "wordpress/theme/usegeo/inc/forms.php"
+      type: "theme-code"
+    - file: "DeliverHQ/change-requests/CR-020/evidence/verify_lead_ops.py"
+      type: "verification"
+  tests:
+    - file: "DeliverHQ/change-requests/CR-020/evidence/verify_lead_ops.py"
+      cases:
+        - name: "local lead ops acceptance"
+          covers: "quality override, bulk action, date export, notes append"
+          type: "static-and-production-verification"
+  verification:
+    - gate: "SpecGate"
+      status: "planned"
+    - gate: "PreDevGate"
+      status: "planned"
+    - gate: "LocalVerifier"
+      status: "planned"
