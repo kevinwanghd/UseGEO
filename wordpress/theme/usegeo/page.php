@@ -6,17 +6,9 @@ if (!defined('ABSPATH')) {
 
 if (!function_exists('usegeo_page_strip_first_h1')) {
     function usegeo_page_strip_first_h1($content, $page_title) {
-        $trimmed_title = trim(wp_strip_all_tags($page_title));
+        unset($page_title);
 
-        return preg_replace_callback('/^\s*<h1([^>]*)>(.*?)<\/h1>/is', function ($matches) use ($trimmed_title) {
-            $heading_text = trim(wp_strip_all_tags($matches[2]));
-
-            if ($heading_text && strcasecmp($heading_text, $trimmed_title) === 0) {
-                return '';
-            }
-
-            return $matches[0];
-        }, $content, 1);
+        return preg_replace('/^\s*<h1[^>]*>.*?<\/h1>/is', '', $content, 1);
     }
 }
 
