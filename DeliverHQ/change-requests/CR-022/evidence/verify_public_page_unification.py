@@ -30,9 +30,23 @@ def add(checks: list[dict[str, Any]], name: str, passed: bool, **extra: Any) -> 
 
 def fetch(url: str) -> tuple[int, str, str]:
     sep = '&' if '?' in url else '?'
-    req = urllib.request.Request(url + sep + 'cr022_verify=1', headers={'User-Agent': 'Hermes-UseGEO-CR022-Verifier/1.0', 'Accept': 'text/html,*/*'})
-    with urllib.request.urlopen(req, timeout=35) as resp:
-        return int(resp.status), resp.read().decode('utf-8', errors='replace'), resp.geturl()
+    target = url + sep + 'cr022_verify=1'
+    req = urllib.request.Request(target, headers={'User-Agent': 'Hermes-UseGEO-CR022-Verifier/1.0', 'Accept': 'text/html,*/*'})
+    try:
+        with urllib.request.urlopen(req, timeout=35) as resp:
+            return int(resp.status), resp.read().decode('utf-8', errors='replace'), resp.geturl()
+    except Exception:
+        node_code = """
+const url = process.argv[1];
+const r = await fetch(url, {headers: {'user-agent':'Hermes-UseGEO-CR022-Verifier/1.0','cache-control':'no-cache','pragma':'no-cache'}});
+const t = await r.text();
+process.stdout.write(JSON.stringify({status:r.status, url:r.url, text:t}));
+"""
+        result = subprocess.run(['node', '-e', node_code, target], cwd=str(ROOT), stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=45)
+        if result.returncode != 0:
+            raise RuntimeError(result.stderr or 'node fetch failed')
+        payload = json.loads(result.stdout)
+        return int(payload['status']), payload['text'], payload['url']
 
 
 def count_h1(html: str) -> int:

@@ -1,0 +1,468 @@
+{
+  "mode": "production",
+  "passed": true,
+  "checks": [
+    {
+      "name": "all_sample_pages_200",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": false,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/geo-checklist/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/geo-checklist/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/ai-visibility-tools/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/ai-visibility-tools/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/best-geo-agencies/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/best-geo-agencies/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/about/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/about/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/articles/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/articles/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/cases/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/cases/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/geo-for-content-marketing-teams/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/geo-for-content-marketing-teams/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": false,
+          "has_article_page": true,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "money_pages_single_h1",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/geo-checklist/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/geo-checklist/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/ai-visibility-tools/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/ai-visibility-tools/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/best-geo-agencies/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/best-geo-agencies/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "generic_pages_public_classes",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/about/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/about/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/articles/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/articles/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/cases/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/cases/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "money_pages_public_classes",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/geo-checklist/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/geo-checklist/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/ai-visibility-tools/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/ai-visibility-tools/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/best-geo-agencies/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/best-geo-agencies/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "money_pages_keep_links",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/geo-checklist/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/geo-checklist/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/ai-visibility-tools/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/ai-visibility-tools/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/best-geo-agencies/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/best-geo-agencies/?cr022_verify=1",
+          "h1_count": 1,
+          "has_public_page": true,
+          "has_article_page": false,
+          "has_scanner": true,
+          "money_links": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "article_redesign_deployed",
+      "passed": true,
+      "article": {
+        "path": "/geo-for-content-marketing-teams/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/geo-for-content-marketing-teams/?cr022_verify=1",
+        "h1_count": 1,
+        "has_public_page": false,
+        "has_article_page": true,
+        "has_scanner": true,
+        "money_links": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      }
+    },
+    {
+      "name": "homepage_smoke_200",
+      "passed": true,
+      "home": {
+        "path": "/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/?cr022_verify=1",
+        "h1_count": 1,
+        "has_public_page": false,
+        "has_article_page": false,
+        "has_scanner": true,
+        "money_links": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "pages": [
+      {
+        "path": "/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/?cr022_verify=1",
+        "h1_count": 1,
+        "has_public_page": false,
+        "has_article_page": false,
+        "has_scanner": true,
+        "money_links": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      },
+      {
+        "path": "/geo-checklist/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/geo-checklist/?cr022_verify=1",
+        "h1_count": 1,
+        "has_public_page": true,
+        "has_article_page": false,
+        "has_scanner": true,
+        "money_links": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      },
+      {
+        "path": "/ai-visibility-tools/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/ai-visibility-tools/?cr022_verify=1",
+        "h1_count": 1,
+        "has_public_page": true,
+        "has_article_page": false,
+        "has_scanner": true,
+        "money_links": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      },
+      {
+        "path": "/best-geo-agencies/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/best-geo-agencies/?cr022_verify=1",
+        "h1_count": 1,
+        "has_public_page": true,
+        "has_article_page": false,
+        "has_scanner": true,
+        "money_links": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      },
+      {
+        "path": "/about/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/about/?cr022_verify=1",
+        "h1_count": 1,
+        "has_public_page": true,
+        "has_article_page": false,
+        "has_scanner": true,
+        "money_links": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      },
+      {
+        "path": "/articles/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/articles/?cr022_verify=1",
+        "h1_count": 1,
+        "has_public_page": true,
+        "has_article_page": false,
+        "has_scanner": true,
+        "money_links": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      },
+      {
+        "path": "/cases/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/cases/?cr022_verify=1",
+        "h1_count": 1,
+        "has_public_page": true,
+        "has_article_page": false,
+        "has_scanner": true,
+        "money_links": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      },
+      {
+        "path": "/geo-for-content-marketing-teams/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/geo-for-content-marketing-teams/?cr022_verify=1",
+        "h1_count": 1,
+        "has_public_page": false,
+        "has_article_page": true,
+        "has_scanner": true,
+        "money_links": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      }
+    ]
+  }
+}
