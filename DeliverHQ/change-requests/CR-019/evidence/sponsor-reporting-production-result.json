@@ -1,0 +1,89 @@
+{
+  "mode": "production",
+  "passed": true,
+  "checks": [
+    {
+      "name": "tracking_js_status_200",
+      "passed": true,
+      "status": 200,
+      "final_url": "https://usegeo.blog/wp-content/themes/usegeo/assets/js/tracking.js?cr019_verify=1"
+    },
+    {
+      "name": "production_click_event_present",
+      "passed": true
+    },
+    {
+      "name": "production_impression_event_present",
+      "passed": true
+    },
+    {
+      "name": "production_impression_placement_only",
+      "passed": true
+    },
+    {
+      "name": "sample_pages_status_200",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/?cr019_verify=1",
+          "has_sponsor_slot_attr": false,
+          "has_sponsor_url_attr": false,
+          "has_sponsor_rel_safe": false
+        },
+        {
+          "path": "/what-is-geo-generative-engine-optimization/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/what-is-geo-generative-engine-optimization/?cr019_verify=1",
+          "has_sponsor_slot_attr": false,
+          "has_sponsor_url_attr": false,
+          "has_sponsor_rel_safe": false
+        }
+      ]
+    },
+    {
+      "name": "production_theme_ready_for_sponsor_attrs",
+      "passed": true,
+      "note": "Sponsor attributes are verified in local PHP; public HTML may not include sponsor card until a slot is active.",
+      "pages": [
+        {
+          "path": "/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/?cr019_verify=1",
+          "has_sponsor_slot_attr": false,
+          "has_sponsor_url_attr": false,
+          "has_sponsor_rel_safe": false
+        },
+        {
+          "path": "/what-is-geo-generative-engine-optimization/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/what-is-geo-generative-engine-optimization/?cr019_verify=1",
+          "has_sponsor_slot_attr": false,
+          "has_sponsor_url_attr": false,
+          "has_sponsor_rel_safe": false
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "pages": [
+      {
+        "path": "/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/?cr019_verify=1",
+        "has_sponsor_slot_attr": false,
+        "has_sponsor_url_attr": false,
+        "has_sponsor_rel_safe": false
+      },
+      {
+        "path": "/what-is-geo-generative-engine-optimization/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/what-is-geo-generative-engine-optimization/?cr019_verify=1",
+        "has_sponsor_slot_attr": false,
+        "has_sponsor_url_attr": false,
+        "has_sponsor_rel_safe": false
+      }
+    ]
+  }
+}
