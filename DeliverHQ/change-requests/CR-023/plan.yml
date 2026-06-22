@@ -1,0 +1,13 @@
+schema: deliverhq-plan
+version: 1
+cr_id: CR-023
+lane: standard
+steps:
+  - id: research
+    status: completed
+  - id: implement-routes
+    status: planned
+  - id: implement-homepage-module
+    status: planned
+  - id: verify-package
+    status: planned

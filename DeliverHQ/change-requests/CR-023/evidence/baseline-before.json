@@ -1,0 +1,77 @@
+{
+  "timestamp": "2026-06-22T21:23:58.288172",
+  "commit_hash": "5fd10a4aa42a6707ffccb8c7b449511549ade98a",
+  "commands_run": [
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-023/evidence/verify_commercial_conversion.py --mode local",
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-023/evidence/verify_commercial_conversion.py --mode local"
+  ],
+  "build_passed": false,
+  "build_errors": [
+    "CR-023 commercial conversion verification (local): FAIL\n- FAIL: commercial_module_required\n- FAIL: routes_registered\n- FAIL: route_renderers_present\n- FAIL: commercial_copy_markers\n- PASS: no_bad_claims\n- FAIL: homepage_module_added\n- FAIL: css_present\n- FAIL: scanner_ctas_present\n- PASS: no_external_side_effects\n- PASS: static_balanced_delimiters\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-023\\evidence\\commercial-conversion-local-result.json"
+  ],
+  "tests_total": 1,
+  "tests_passed": 0,
+  "tests_failed": 1,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "UseGEO",
+      "type": "wordpress-commercial-conversion"
+    },
+    "build": {
+      "enabled": true,
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-023/evidence/verify_commercial_conversion.py --mode local",
+      "working_dir": ".",
+      "timeout": 120
+    },
+    "test": {
+      "unit": {
+        "enabled": true,
+        "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-023/evidence/verify_commercial_conversion.py --mode local",
+        "working_dir": ".",
+        "timeout": 120,
+        "coverage_enabled": false
+      }
+    },
+    "lint": {
+      "enabled": false,
+      "tools": []
+    },
+    "typecheck": {
+      "enabled": false
+    },
+    "qualitygate": {
+      "mode": "hybrid",
+      "fail_fast": true,
+      "auto_fix": false
+    }
+  },
+  "command_results": [
+    {
+      "name": "build",
+      "category": "build",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-023/evidence/verify_commercial_conversion.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": false,
+      "returncode": 1,
+      "stdout": "CR-023 commercial conversion verification (local): FAIL\n- FAIL: commercial_module_required\n- FAIL: routes_registered\n- FAIL: route_renderers_present\n- FAIL: commercial_copy_markers\n- PASS: no_bad_claims\n- FAIL: homepage_module_added\n- FAIL: css_present\n- FAIL: scanner_ctas_present\n- PASS: no_external_side_effects\n- PASS: static_balanced_delimiters\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-023\\evidence\\commercial-conversion-local-result.json\n",
+      "stderr": ""
+    },
+    {
+      "name": "test-unit",
+      "category": "test",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-023/evidence/verify_commercial_conversion.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": false,
+      "returncode": 1,
+      "stdout": "CR-023 commercial conversion verification (local): FAIL\n- FAIL: commercial_module_required\n- FAIL: routes_registered\n- FAIL: route_renderers_present\n- FAIL: commercial_copy_markers\n- PASS: no_bad_claims\n- FAIL: homepage_module_added\n- FAIL: css_present\n- FAIL: scanner_ctas_present\n- PASS: no_external_side_effects\n- PASS: static_balanced_delimiters\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-023\\evidence\\commercial-conversion-local-result.json\n",
+      "stderr": ""
+    }
+  ]
+}

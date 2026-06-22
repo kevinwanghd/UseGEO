@@ -629,6 +629,166 @@ button {
   line-height: 1.62;
 }
 
+/* Commercial conversion pages */
+.usegeo-commercial-page {
+  --usegeo-commercial-ink: #111827;
+  --usegeo-commercial-muted: #526070;
+  --usegeo-commercial-line: #e2e8f0;
+  --usegeo-commercial-orange: #ff6b00;
+  --usegeo-commercial-blue: #0f62fe;
+  display: grid;
+  gap: 34px;
+  padding-top: 28px;
+  padding-bottom: 72px;
+}
+
+.usegeo-commercial-hero,
+.usegeo-commercial-panel,
+.usegeo-sample-report {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  gap: clamp(26px, 5vw, 64px);
+  align-items: center;
+  padding: clamp(30px, 5vw, 58px);
+  border: 1px solid var(--usegeo-commercial-line);
+  border-radius: 24px;
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 12px 34px rgba(15, 23, 42, 0.045);
+}
+
+.usegeo-commercial-kicker,
+.usegeo-commercial-proof-card span,
+.usegeo-commercial-card span,
+.usegeo-commercial-panel span,
+.usegeo-sample-report__score span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--usegeo-commercial-orange);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.usegeo-commercial-hero h1 {
+  max-width: 12ch;
+  margin: 0;
+  color: var(--usegeo-commercial-ink);
+  font-size: clamp(2.55rem, 5.8vw, 5rem);
+  font-weight: 850;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.usegeo-commercial-hero p,
+.usegeo-commercial-card p,
+.usegeo-commercial-panel p,
+.usegeo-sample-report p,
+.usegeo-sample-report dd {
+  color: var(--usegeo-commercial-muted);
+  line-height: 1.68;
+}
+
+.usegeo-commercial-hero__copy > p {
+  max-width: 68ch;
+  margin: 22px 0 0;
+  font-size: clamp(1.03rem, 1.25vw, 1.16rem);
+}
+
+.usegeo-commercial-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.usegeo-commercial-text-link {
+  color: #063b96;
+  font-weight: 820;
+  text-decoration: none;
+}
+
+.usegeo-commercial-proof-card,
+.usegeo-commercial-card,
+.usegeo-sample-report__score,
+.usegeo-sample-report__details {
+  padding: 22px;
+  border: 1px solid var(--usegeo-commercial-line);
+  border-radius: 22px;
+  background: #fff;
+}
+
+.usegeo-commercial-proof-card strong,
+.usegeo-commercial-card h3,
+.usegeo-commercial-panel h2,
+.usegeo-sample-report h2 {
+  margin: 0;
+  color: var(--usegeo-commercial-ink);
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+
+.usegeo-commercial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.usegeo-commercial-card {
+  min-height: 210px;
+}
+
+.usegeo-commercial-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.usegeo-commercial-list li {
+  padding: 12px 14px;
+  border: 1px solid rgba(15,98,254,0.12);
+  border-radius: 14px;
+  color: var(--usegeo-commercial-ink);
+  font-weight: 750;
+}
+
+.usegeo-commercial-panel--dark {
+  background: linear-gradient(135deg, #101827, #172033);
+  color: #fff;
+}
+
+.usegeo-commercial-panel--dark h2,
+.usegeo-commercial-panel--dark p,
+.usegeo-commercial-panel--dark span {
+  color: #fff;
+}
+
+.usegeo-sample-report__score strong {
+  display: block;
+  color: var(--usegeo-commercial-ink);
+  font-size: clamp(4rem, 9vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+}
+
+.usegeo-sample-report dl {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 0;
+}
+
+.usegeo-sample-report dt {
+  color: var(--usegeo-commercial-ink);
+  font-weight: 850;
+}
+
+.usegeo-sample-report dd {
+  margin: 0;
+}
+
 @media (max-width: 900px) {
   .usegeo-tool__row,
   .usegeo-article-layout,
@@ -636,7 +796,11 @@ button {
   .usegeo-site-footer__grid,
   .usegeo-public-page-hero,
   .usegeo-public-page-action,
-  .usegeo-public-page-foundation__grid {
+  .usegeo-public-page-foundation__grid,
+  .usegeo-commercial-hero,
+  .usegeo-commercial-panel,
+  .usegeo-sample-report,
+  .usegeo-commercial-grid {
     grid-template-columns: 1fr;
     display: grid;
   }
@@ -648,7 +812,10 @@ button {
   .usegeo-card,
   .usegeo-public-page-content,
   .usegeo-public-page-action,
-  .usegeo-public-page-foundation__grid a {
+  .usegeo-public-page-foundation__grid a,
+  .usegeo-commercial-hero,
+  .usegeo-commercial-panel,
+  .usegeo-sample-report {
     padding: 22px;
   }
 

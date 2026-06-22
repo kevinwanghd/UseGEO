@@ -1,0 +1,47 @@
+{
+  "mode": "local",
+  "passed": true,
+  "checks": [
+    {
+      "name": "commercial_module_required",
+      "passed": true
+    },
+    {
+      "name": "routes_registered",
+      "passed": true
+    },
+    {
+      "name": "route_renderers_present",
+      "passed": true
+    },
+    {
+      "name": "commercial_copy_markers",
+      "passed": true
+    },
+    {
+      "name": "no_bad_claims",
+      "passed": true
+    },
+    {
+      "name": "homepage_module_added",
+      "passed": true
+    },
+    {
+      "name": "css_present",
+      "passed": true
+    },
+    {
+      "name": "scanner_ctas_present",
+      "passed": true
+    },
+    {
+      "name": "no_external_side_effects",
+      "passed": true
+    },
+    {
+      "name": "static_balanced_delimiters",
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

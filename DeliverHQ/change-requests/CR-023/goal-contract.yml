@@ -1,0 +1,18 @@
+schema: deliverhq-goal-contract
+version: 1
+cr_id: CR-023
+goal: Commercial Conversion Layer
+must:
+  - render ai-visibility-audit sample-report partners routes
+  - add homepage commercial loop module
+  - explain consent based partner follow-up
+  - include sample report markers
+  - include partner lead and sponsor inventory definitions
+must_not:
+  - add payment
+  - send external outreach
+  - claim guaranteed AI rankings
+  - describe UseGEO as self-operated full service agency
+success_metrics:
+  production_routes_200: 3
+  local_verifier_passed: true

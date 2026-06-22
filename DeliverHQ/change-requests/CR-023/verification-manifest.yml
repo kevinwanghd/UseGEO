@@ -1,0 +1,29 @@
+project:
+  name: UseGEO
+  type: wordpress-commercial-conversion
+
+build:
+  enabled: true
+  command: "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-023/evidence/verify_commercial_conversion.py --mode local"
+  working_dir: "."
+  timeout: 120
+
+test:
+  unit:
+    enabled: true
+    command: "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-023/evidence/verify_commercial_conversion.py --mode local"
+    working_dir: "."
+    timeout: 120
+    coverage_enabled: false
+
+lint:
+  enabled: false
+  tools: []
+
+typecheck:
+  enabled: false
+
+qualitygate:
+  mode: hybrid
+  fail_fast: true
+  auto_fix: false

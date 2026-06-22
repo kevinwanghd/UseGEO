@@ -1,0 +1,8 @@
+[
+  "wordpress/theme/usegeo/functions.php",
+  "wordpress/theme/usegeo/inc/commercial-pages.php",
+  "wordpress/theme/usegeo/front-page.php",
+  "wordpress/theme/usegeo/template-parts/conversion/commercial-loop.php",
+  "wordpress/theme/usegeo/assets/css/base.css",
+  "wordpress/theme/usegeo/assets/css/homepage.css"
+]

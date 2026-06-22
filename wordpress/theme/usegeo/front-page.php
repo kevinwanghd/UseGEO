@@ -11,6 +11,7 @@ get_header();
     <div id="scanner" class="usegeo-home-scanner">
         <?php get_template_part('template-parts/scanner/scanner'); ?>
     </div>
+    <?php get_template_part('template-parts/conversion/commercial-loop'); ?>
     <?php if (function_exists('usegeo_render_sponsor_slot')) { usegeo_render_sponsor_slot('homepage'); } ?>
     <?php get_template_part('template-parts/conversion/services'); ?>
     <?php get_template_part('template-parts/conversion/methodology'); ?>
