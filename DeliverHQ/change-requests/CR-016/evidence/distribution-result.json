@@ -1,0 +1,273 @@
+{
+  "mode": "local",
+  "passed": true,
+  "checks": [
+    {
+      "name": "linkedin-template.md_exists",
+      "passed": true
+    },
+    {
+      "name": "x-twitter-template.md_exists",
+      "passed": true
+    },
+    {
+      "name": "community-template.md_exists",
+      "passed": true
+    },
+    {
+      "name": "partner-outreach-template.md_exists",
+      "passed": true
+    },
+    {
+      "name": "partner-prospect-list.json_exists",
+      "passed": true
+    },
+    {
+      "name": "linkedin-drafts.json_exists",
+      "passed": true
+    },
+    {
+      "name": "x-drafts.json_exists",
+      "passed": true
+    },
+    {
+      "name": "community-drafts.json_exists",
+      "passed": true
+    },
+    {
+      "name": "linkedin_geo-for-agencies_count",
+      "passed": true,
+      "count": 3,
+      "expected_min": 3
+    },
+    {
+      "name": "linkedin_geo-for-agencies_types",
+      "passed": true,
+      "types": [
+        "before_after",
+        "checklist",
+        "pov"
+      ]
+    },
+    {
+      "name": "x_geo-for-agencies_count",
+      "passed": true,
+      "count": 5,
+      "expected_min": 5
+    },
+    {
+      "name": "x_geo-for-agencies_scanner_cta",
+      "passed": true,
+      "count": 1,
+      "expected_min": 1
+    },
+    {
+      "name": "community_geo-for-agencies_count",
+      "passed": true,
+      "count": 1,
+      "expected_min": 1
+    },
+    {
+      "name": "community_geo-for-agencies_0_no_spam",
+      "passed": true,
+      "spam": [],
+      "direct_links": 0
+    },
+    {
+      "name": "linkedin_geo-for-b2b-saas_count",
+      "passed": true,
+      "count": 3,
+      "expected_min": 3
+    },
+    {
+      "name": "linkedin_geo-for-b2b-saas_types",
+      "passed": true,
+      "types": [
+        "before_after",
+        "checklist",
+        "pov"
+      ]
+    },
+    {
+      "name": "x_geo-for-b2b-saas_count",
+      "passed": true,
+      "count": 5,
+      "expected_min": 5
+    },
+    {
+      "name": "x_geo-for-b2b-saas_scanner_cta",
+      "passed": true,
+      "count": 1,
+      "expected_min": 1
+    },
+    {
+      "name": "community_geo-for-b2b-saas_count",
+      "passed": true,
+      "count": 1,
+      "expected_min": 1
+    },
+    {
+      "name": "community_geo-for-b2b-saas_0_no_spam",
+      "passed": true,
+      "spam": [],
+      "direct_links": 0
+    },
+    {
+      "name": "linkedin_geo-for-content-marketing-teams_count",
+      "passed": true,
+      "count": 3,
+      "expected_min": 3
+    },
+    {
+      "name": "linkedin_geo-for-content-marketing-teams_types",
+      "passed": true,
+      "types": [
+        "before_after",
+        "checklist",
+        "pov"
+      ]
+    },
+    {
+      "name": "x_geo-for-content-marketing-teams_count",
+      "passed": true,
+      "count": 5,
+      "expected_min": 5
+    },
+    {
+      "name": "x_geo-for-content-marketing-teams_scanner_cta",
+      "passed": true,
+      "count": 1,
+      "expected_min": 1
+    },
+    {
+      "name": "community_geo-for-content-marketing-teams_count",
+      "passed": true,
+      "count": 1,
+      "expected_min": 1
+    },
+    {
+      "name": "community_geo-for-content-marketing-teams_0_no_spam",
+      "passed": true,
+      "spam": [],
+      "direct_links": 0
+    },
+    {
+      "name": "linkedin_geo-for-developer-tools_count",
+      "passed": true,
+      "count": 3,
+      "expected_min": 3
+    },
+    {
+      "name": "linkedin_geo-for-developer-tools_types",
+      "passed": true,
+      "types": [
+        "before_after",
+        "checklist",
+        "pov"
+      ]
+    },
+    {
+      "name": "x_geo-for-developer-tools_count",
+      "passed": true,
+      "count": 5,
+      "expected_min": 5
+    },
+    {
+      "name": "x_geo-for-developer-tools_scanner_cta",
+      "passed": true,
+      "count": 1,
+      "expected_min": 1
+    },
+    {
+      "name": "community_geo-for-developer-tools_count",
+      "passed": true,
+      "count": 1,
+      "expected_min": 1
+    },
+    {
+      "name": "community_geo-for-developer-tools_0_no_spam",
+      "passed": true,
+      "spam": [],
+      "direct_links": 0
+    },
+    {
+      "name": "linkedin_geo-for-ecommerce-brands_count",
+      "passed": true,
+      "count": 3,
+      "expected_min": 3
+    },
+    {
+      "name": "linkedin_geo-for-ecommerce-brands_types",
+      "passed": true,
+      "types": [
+        "before_after",
+        "checklist",
+        "pov"
+      ]
+    },
+    {
+      "name": "x_geo-for-ecommerce-brands_count",
+      "passed": true,
+      "count": 5,
+      "expected_min": 5
+    },
+    {
+      "name": "x_geo-for-ecommerce-brands_scanner_cta",
+      "passed": true,
+      "count": 1,
+      "expected_min": 1
+    },
+    {
+      "name": "community_geo-for-ecommerce-brands_count",
+      "passed": true,
+      "count": 1,
+      "expected_min": 1
+    },
+    {
+      "name": "community_geo-for-ecommerce-brands_0_no_spam",
+      "passed": true,
+      "spam": [],
+      "direct_links": 0
+    },
+    {
+      "name": "partner_prospect_count",
+      "passed": true,
+      "count": 20,
+      "expected_min": 20
+    },
+    {
+      "name": "partner_tracking_fields",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "outreach_templates_count",
+      "passed": true,
+      "expected": "Cold email A and DM B"
+    },
+    {
+      "name": "tracking_table_fields_defined",
+      "passed": true,
+      "fields": [
+        "company",
+        "website",
+        "category",
+        "contact",
+        "fit",
+        "outreach_status"
+      ]
+    },
+    {
+      "name": "linkedin-template.md_has_no_guaranteed_ranking",
+      "passed": true
+    },
+    {
+      "name": "x-twitter-template.md_has_no_guaranteed_ranking",
+      "passed": true
+    },
+    {
+      "name": "community-template.md_has_no_guaranteed_ranking",
+      "passed": true
+    }
+  ]
+}

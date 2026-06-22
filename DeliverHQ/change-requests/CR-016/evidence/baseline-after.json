@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-06-22T10:55:11.725075",
+  "commit_hash": "9cbad81252be3298f10a6d3b540fb2edbee84b47",
+  "commands_run": [
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-016/evidence/verify_distribution.py --mode local"
+  ],
+  "build_passed": true,
+  "build_errors": [],
+  "tests_total": 1,
+  "tests_passed": 1,
+  "tests_failed": 0,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "UseGEO",
+      "type": "distribution-assets"
+    },
+    "build": {
+      "enabled": false,
+      "command": "",
+      "working_dir": ".",
+      "timeout": 60
+    },
+    "test": {
+      "unit": {
+        "enabled": true,
+        "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-016/evidence/verify_distribution.py --mode local",
+        "working_dir": ".",
+        "timeout": 120,
+        "coverage_enabled": false
+      }
+    },
+    "lint": {
+      "enabled": false,
+      "tools": []
+    },
+    "typecheck": {
+      "enabled": false
+    },
+    "qualitygate": {
+      "mode": "hybrid",
+      "fail_fast": true,
+      "auto_fix": false
+    }
+  },
+  "command_results": [
+    {
+      "name": "test-unit",
+      "category": "test",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-016/evidence/verify_distribution.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": true,
+      "returncode": 0,
+      "stdout": "CR-016 distribution verification (local): PASS\n- PASS: linkedin-template.md_exists\n- PASS: x-twitter-template.md_exists\n- PASS: community-template.md_exists\n- PASS: partner-outreach-template.md_exists\n- PASS: partner-prospect-list.json_exists\n- PASS: linkedin-drafts.json_exists\n- PASS: x-drafts.json_exists\n- PASS: community-drafts.json_exists\n- PASS: linkedin_geo-for-agencies_count count=3\n- PASS: linkedin_geo-for-agencies_types\n- PASS: x_geo-for-agencies_count count=5\n- PASS: x_geo-for-agencies_scanner_cta count=1\n- PASS: community_geo-for-agencies_count count=1\n- PASS: community_geo-for-agencies_0_no_spam\n- PASS: linkedin_geo-for-b2b-saas_count count=3\n- PASS: linkedin_geo-for-b2b-saas_types\n- PASS: x_geo-for-b2b-saas_count count=5\n- PASS: x_geo-for-b2b-saas_scanner_cta count=1\n- PASS: community_geo-for-b2b-saas_count count=1\n- PASS: community_geo-for-b2b-saas_0_no_spam\n- PASS: linkedin_geo-for-content-marketing-teams_count count=3\n- PASS: linkedin_geo-for-content-marketing-teams_types\n- PASS: x_geo-for-content-marketing-teams_count count=5\n- PASS: x_geo-for-content-marketing-teams_scanner_cta count=1\n- PASS: community_geo-for-content-marketing-teams_count count=1\n- PASS: community_geo-for-content-marketing-teams_0_no_spam\n- PASS: linkedin_geo-for-developer-tools_count count=3\n- PASS: linkedin_geo-for-developer-tools_types\n- PASS: x_geo-for-developer-tools_count count=5\n- PASS: x_geo-for-developer-tools_scanner_cta count=1\n- PASS: community_geo-for-developer-tools_count count=1\n- PASS: community_geo-for-developer-tools_0_no_spam\n- PASS: linkedin_geo-for-ecommerce-brands_count count=3\n- PASS: linkedin_geo-for-ecommerce-brands_types\n- PASS: x_geo-for-ecommerce-brands_count count=5\n- PASS: x_geo-for-ecommerce-brands_scanner_cta count=1\n- PASS: community_geo-for-ecommerce-brands_count count=1\n- PASS: community_geo-for-ecommerce-brands_0_no_spam\n- PASS: partner_prospect_count count=20\n- PASS: partner_tracking_fields\n- PASS: outreach_templates_count\n- PASS: tracking_table_fields_defined\n- PASS: linkedin-template.md_has_no_guaranteed_ranking\n- PASS: x-twitter-template.md_has_no_guaranteed_ranking\n- PASS: community-template.md_has_no_guaranteed_ranking\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-016\\evidence\\distribution-result.json\n",
+      "stderr": ""
+    }
+  ]
+}

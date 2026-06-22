@@ -1,0 +1,12 @@
+schema: deliverhq-goal-contract
+version: 1
+cr_id: CR-016
+goal: Create distribution templates and launch drafts without external posting/sending.
+non_goals:
+  - Publish to LinkedIn/X/Reddit.
+  - Send partner emails or DMs.
+  - Invent contacts.
+success_metrics:
+  - Each sample article has 3 LinkedIn drafts and 5 X drafts.
+  - Community drafts have no spam risk.
+  - Prospect list has at least 20 targets and tracking fields.

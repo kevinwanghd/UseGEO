@@ -1,0 +1,12 @@
+schema: deliverhq-plan
+version: 1
+cr_id: CR-016
+steps:
+  - id: generate-assets
+    status: pending
+  - id: local-verify
+    status: pending
+  - id: gates
+    status: pending
+  - id: commit-push
+    status: pending
