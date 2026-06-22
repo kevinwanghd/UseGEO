@@ -1,0 +1,75 @@
+{
+  "timestamp": "2026-06-22T17:00:42.694506",
+  "commit_hash": "1abd0d3c05b4ebdf81c07e2e2a389c99d6e80bdf",
+  "commands_run": [
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py --mode local",
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py --mode local"
+  ],
+  "build_passed": true,
+  "build_errors": [],
+  "tests_total": 1,
+  "tests_passed": 1,
+  "tests_failed": 0,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "UseGEO",
+      "type": "wordpress-theme-seo-geo-foundation"
+    },
+    "build": {
+      "enabled": true,
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py --mode local",
+      "working_dir": ".",
+      "timeout": 120
+    },
+    "test": {
+      "unit": {
+        "enabled": true,
+        "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py --mode local",
+        "working_dir": ".",
+        "timeout": 120,
+        "coverage_enabled": false
+      }
+    },
+    "lint": {
+      "enabled": false,
+      "tools": []
+    },
+    "typecheck": {
+      "enabled": false
+    },
+    "qualitygate": {
+      "mode": "hybrid",
+      "fail_fast": true,
+      "auto_fix": false
+    }
+  },
+  "command_results": [
+    {
+      "name": "build",
+      "category": "build",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": true,
+      "returncode": 0,
+      "stdout": "CR-018 SEO/GEO foundation verification (local): PASS\n- PASS: seo_php_exists\n- PASS: functions_requires_seo\n- PASS: wp_head_schema_hook\n- PASS: schema_builder_functions_present\n- PASS: schema_types_present\n- PASS: no_fake_schema_terms\n- PASS: faq_visible_content_parser\n- PASS: json_encode_safety_flags\n- PASS: header_meta_description_existing\n- PASS: single_template_money_links\n- PASS: single_foundation_section_present\n- PASS: single_foundation_css_present\n- PASS: schema_no_external_fetch\n- PASS: php_static_balanced_delimiters\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-018\\evidence\\seo-geo-local-result.json\n",
+      "stderr": ""
+    },
+    {
+      "name": "test-unit",
+      "category": "test",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": true,
+      "returncode": 0,
+      "stdout": "CR-018 SEO/GEO foundation verification (local): PASS\n- PASS: seo_php_exists\n- PASS: functions_requires_seo\n- PASS: wp_head_schema_hook\n- PASS: schema_builder_functions_present\n- PASS: schema_types_present\n- PASS: no_fake_schema_terms\n- PASS: faq_visible_content_parser\n- PASS: json_encode_safety_flags\n- PASS: header_meta_description_existing\n- PASS: single_template_money_links\n- PASS: single_foundation_section_present\n- PASS: single_foundation_css_present\n- PASS: schema_no_external_fetch\n- PASS: php_static_balanced_delimiters\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-018\\evidence\\seo-geo-local-result.json\n",
+      "stderr": ""
+    }
+  ]
+}

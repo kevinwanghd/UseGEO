@@ -1,0 +1,77 @@
+{
+  "timestamp": "2026-06-22T16:50:45.826085",
+  "commit_hash": "1abd0d3c05b4ebdf81c07e2e2a389c99d6e80bdf",
+  "commands_run": [
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py --mode local",
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py --mode local"
+  ],
+  "build_passed": false,
+  "build_errors": [
+    "Traceback (most recent call last):\n  File \"D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-018\\evidence\\verify_seo_geo_foundation.py\", line 230, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-018\\evidence\\verify_seo_geo_foundation.py\", line 201, in main\n    out = check_local()\n          ^^^^^^^^^^^^^\n  File \"D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-018\\evidence\\verify_seo_geo_foundation.py\", line 105, in check_local\n    tex"
+  ],
+  "tests_total": 1,
+  "tests_passed": 0,
+  "tests_failed": 1,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "UseGEO",
+      "type": "wordpress-theme-seo-geo-foundation"
+    },
+    "build": {
+      "enabled": true,
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py --mode local",
+      "working_dir": ".",
+      "timeout": 120
+    },
+    "test": {
+      "unit": {
+        "enabled": true,
+        "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py --mode local",
+        "working_dir": ".",
+        "timeout": 120,
+        "coverage_enabled": false
+      }
+    },
+    "lint": {
+      "enabled": false,
+      "tools": []
+    },
+    "typecheck": {
+      "enabled": false
+    },
+    "qualitygate": {
+      "mode": "hybrid",
+      "fail_fast": true,
+      "auto_fix": false
+    }
+  },
+  "command_results": [
+    {
+      "name": "build",
+      "category": "build",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-018\\evidence\\verify_seo_geo_foundation.py\", line 230, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-018\\evidence\\verify_seo_geo_foundation.py\", line 201, in main\n    out = check_local()\n          ^^^^^^^^^^^^^\n  File \"D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-018\\evidence\\verify_seo_geo_foundation.py\", line 105, in check_local\n    text = read(rel)\n           ^^^^^^^^^\n  File \"D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-018\\evidence\\verify_seo_geo_foundation.py\", line 26, in read\n    return (ROOT / rel).read_text(encoding=\"utf-8\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kevin\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kevin\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'D:\\\\Code\\\\UseGEO\\\\wordpress\\\\theme\\\\usegeo\\\\inc\\\\seo.php'\n"
+    },
+    {
+      "name": "test-unit",
+      "category": "test",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-018\\evidence\\verify_seo_geo_foundation.py\", line 230, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-018\\evidence\\verify_seo_geo_foundation.py\", line 201, in main\n    out = check_local()\n          ^^^^^^^^^^^^^\n  File \"D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-018\\evidence\\verify_seo_geo_foundation.py\", line 105, in check_local\n    text = read(rel)\n           ^^^^^^^^^\n  File \"D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-018\\evidence\\verify_seo_geo_foundation.py\", line 26, in read\n    return (ROOT / rel).read_text(encoding=\"utf-8\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kevin\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kevin\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'D:\\\\Code\\\\UseGEO\\\\wordpress\\\\theme\\\\usegeo\\\\inc\\\\seo.php'\n"
+    }
+  ]
+}

@@ -184,6 +184,30 @@ get_header();
                 }
                 ?>
 
+                <section class="usegeo-single-foundation-links" aria-label="GEO foundation guides">
+                    <div class="usegeo-single-section-heading">
+                        <span>GEO foundation</span>
+                        <h2>Use these guides to turn this article into a practical next step</h2>
+                    </div>
+                    <div class="usegeo-single-foundation-links__grid">
+                        <a href="<?php echo esc_url(home_url('/geo-checklist/')); ?>">
+                            <span>Checklist</span>
+                            <strong>Generative Engine Optimization Checklist</strong>
+                            <em>Inspect entity clarity, proof, comparison readiness, and extractability.</em>
+                        </a>
+                        <a href="<?php echo esc_url(home_url('/ai-visibility-tools/')); ?>">
+                            <span>Tools</span>
+                            <strong>AI Visibility Tools</strong>
+                            <em>Compare scanners, monitoring tools, and measurement limits before buying.</em>
+                        </a>
+                        <a href="<?php echo esc_url(home_url('/best-geo-agencies/')); ?>">
+                            <span>Partner help</span>
+                            <strong>Best GEO Agencies</strong>
+                            <em>Evaluate expert support without falling for fake ranking promises.</em>
+                        </a>
+                    </div>
+                </section>
+
                 <?php if ($related_posts->have_posts()) : ?>
                     <section class="usegeo-single-related" aria-label="Recommended reading">
                         <div class="usegeo-single-section-heading">

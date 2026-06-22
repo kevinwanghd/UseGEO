@@ -1,0 +1,17 @@
+schema: deliverhq-goal-contract
+version: 1
+cr_id: CR-018
+goal: On-site SEO/GEO Technical Foundation
+must:
+  - verify sitemap and robots
+  - add safe minimal JSON-LD schema
+  - enforce article links to three money pages
+  - avoid fake rating/review schema
+must_not:
+  - upload production without Kevin confirmation
+  - invent ratings reviews credentials or third-party claims
+  - change lead consent sponsor or scanner behavior
+success_metrics:
+  - local_verifier_passed: true
+  - forbidden_schema_hits: 0
+  - money_page_links_in_single_template: 3

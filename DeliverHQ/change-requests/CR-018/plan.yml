@@ -1,0 +1,21 @@
+schema: deliverhq-plan
+version: 1
+cr_id: CR-018
+lane: standard
+steps:
+  - id: audit-production
+    status: planned
+    evidence: evidence/seo-geo-production-audit.json
+  - id: implement-schema
+    status: planned
+    files:
+      - wordpress/theme/usegeo/inc/seo.php
+      - wordpress/theme/usegeo/functions.php
+  - id: implement-internal-links
+    status: planned
+    files:
+      - wordpress/theme/usegeo/single.php
+      - wordpress/theme/usegeo/assets/css/single.css
+  - id: verify-package
+    status: planned
+    evidence: evidence/seo-geo-local-result.json

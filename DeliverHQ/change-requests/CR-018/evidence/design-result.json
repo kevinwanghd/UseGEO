@@ -1,0 +1,14 @@
+{
+  "gate_name": "design",
+  "result": "pass",
+  "timestamp": "2026-06-22T16:50:44.981272",
+  "blocking_items": [],
+  "warnings": [],
+  "commands_run": [],
+  "artifacts": [],
+  "next_action": "进入 ContextWindowGate",
+  "failure_attribution": [],
+  "metadata": {
+    "ui_type": "N/A"
+  }
+}

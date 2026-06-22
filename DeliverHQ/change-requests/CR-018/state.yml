@@ -1,0 +1,30 @@
+cr_id: CR-018
+title: CR-018
+lane: standard
+current_state: testing
+current_phase: quality
+current_owner: quality-agent
+goal: ''
+current_plan: null
+completed_steps: []
+blocking_reason: null
+blocked_by: []
+last_gate: quality
+next_gate: writeback
+next_required_gate: writeback
+requires_human: false
+worktree_path: null
+gate_status:
+  spec: pass
+  design: pass
+  context: pass
+  permission: pass
+  pre_dev: pass
+  review: pass
+  quality: pass
+  writeback: pass
+created_at: '2026-06-22T16:50:44.725074'
+updated_at: '2026-06-22T17:00:43.280326'
+started_at: '2026-06-22T16:50:44.725074'
+completed_at: null
+transitions: []

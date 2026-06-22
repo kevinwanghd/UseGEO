@@ -1,0 +1,69 @@
+{
+  "mode": "local",
+  "passed": true,
+  "checks": [
+    {
+      "name": "seo_php_exists",
+      "passed": true,
+      "file": "wordpress/theme/usegeo/inc/seo.php"
+    },
+    {
+      "name": "functions_requires_seo",
+      "passed": true
+    },
+    {
+      "name": "wp_head_schema_hook",
+      "passed": true
+    },
+    {
+      "name": "schema_builder_functions_present",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "schema_types_present",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "no_fake_schema_terms",
+      "passed": true,
+      "hits": []
+    },
+    {
+      "name": "faq_visible_content_parser",
+      "passed": true
+    },
+    {
+      "name": "json_encode_safety_flags",
+      "passed": true
+    },
+    {
+      "name": "header_meta_description_existing",
+      "passed": true
+    },
+    {
+      "name": "single_template_money_links",
+      "passed": true,
+      "missing": [],
+      "expected_count": 3
+    },
+    {
+      "name": "single_foundation_section_present",
+      "passed": true
+    },
+    {
+      "name": "single_foundation_css_present",
+      "passed": true
+    },
+    {
+      "name": "schema_no_external_fetch",
+      "passed": true
+    },
+    {
+      "name": "php_static_balanced_delimiters",
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

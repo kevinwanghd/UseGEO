@@ -1,0 +1,326 @@
+{
+  "mode": "production-audit",
+  "passed": false,
+  "checks": [
+    {
+      "name": "sitemap_status_200",
+      "passed": true,
+      "status": 200,
+      "final_url": "https://usegeo.blog/wp-sitemap.xml?cr018_verify=1"
+    },
+    {
+      "name": "robots_status_200",
+      "passed": true,
+      "status": 200,
+      "final_url": "https://usegeo.blog/robots.txt?cr018_verify=1"
+    },
+    {
+      "name": "robots_has_sitemap",
+      "passed": true,
+      "robots": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n\nSitemap: https://usegeo.blog/wp-sitemap.xml\n"
+    },
+    {
+      "name": "post_sitemap_count",
+      "passed": true,
+      "count": 24,
+      "expected_min": 20
+    },
+    {
+      "name": "page_sitemap_money_pages",
+      "passed": true,
+      "found": [
+        "/geo-checklist/",
+        "/ai-visibility-tools/",
+        "/best-geo-agencies/"
+      ],
+      "expected": [
+        "/geo-checklist/",
+        "/ai-visibility-tools/",
+        "/best-geo-agencies/"
+      ]
+    },
+    {
+      "name": "sample_pages_status_200",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/?cr018_verify=1",
+          "jsonld_count": 0,
+          "title": "usegeo.blog",
+          "description": "What I Do? I explain and teach tech­nol­o­gy, solve tech prob­lems and help you make gad­get buy­ing decisions. SUBSCRIBE TO OUR NEWSLETTER 125.000 Join the List of Subscribers Proudly featured…",
+          "money_link_hits": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/geo-checklist/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/geo-checklist/?cr018_verify=1",
+          "jsonld_count": 0,
+          "title": "Generative Engine Optimization Checklist – usegeo.blog",
+          "description": "Generative Engine Optimization Checklist Use this practical GEO checklist to inspect whether your public pages give AI systems and human buyers enough clear evidence to understand, compare, and trust your…",
+          "money_link_hits": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/ai-visibility-tools/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/ai-visibility-tools/?cr018_verify=1",
+          "jsonld_count": 0,
+          "title": "AI Visibility Tools – usegeo.blog",
+          "description": "AI Visibility Tools: What to Measure Before You Buy AI visibility tools can help you understand whether your brand is ready for AI-assisted discovery, but the category is noisy. Use…",
+          "money_link_hits": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/best-geo-agencies/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/best-geo-agencies/?cr018_verify=1",
+          "jsonld_count": 0,
+          "title": "Best GEO Agencies – usegeo.blog",
+          "description": "Best GEO Agencies: How to Evaluate Expert Help Without Falling for Hype The best GEO agency for your company is not the one with the loudest AI promise. It is…",
+          "money_link_hits": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/what-is-geo-generative-engine-optimization/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/what-is-geo-generative-engine-optimization/?cr018_verify=1",
+          "jsonld_count": 0,
+          "title": "What Is Generative Engine Optimization? – usegeo.blog",
+          "description": "GEO is the practice of optimizing content so AI-powered search engines understand, cite, and recommend your brand.",
+          "money_link_hits": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "current_production_jsonld_present",
+      "passed": false,
+      "note": "Expected to fail before CR-018 theme deployment",
+      "pages": [
+        {
+          "path": "/",
+          "jsonld_count": 0
+        },
+        {
+          "path": "/geo-checklist/",
+          "jsonld_count": 0
+        },
+        {
+          "path": "/ai-visibility-tools/",
+          "jsonld_count": 0
+        },
+        {
+          "path": "/best-geo-agencies/",
+          "jsonld_count": 0
+        },
+        {
+          "path": "/what-is-geo-generative-engine-optimization/",
+          "jsonld_count": 0
+        }
+      ]
+    },
+    {
+      "name": "homepage_links_three_money_pages",
+      "passed": true,
+      "hits": [
+        "/geo-checklist/",
+        "/ai-visibility-tools/",
+        "/best-geo-agencies/"
+      ]
+    },
+    {
+      "name": "money_pages_mutual_links",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/geo-checklist/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/geo-checklist/?cr018_verify=1",
+          "jsonld_count": 0,
+          "title": "Generative Engine Optimization Checklist – usegeo.blog",
+          "description": "Generative Engine Optimization Checklist Use this practical GEO checklist to inspect whether your public pages give AI systems and human buyers enough clear evidence to understand, compare, and trust your…",
+          "money_link_hits": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/ai-visibility-tools/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/ai-visibility-tools/?cr018_verify=1",
+          "jsonld_count": 0,
+          "title": "AI Visibility Tools – usegeo.blog",
+          "description": "AI Visibility Tools: What to Measure Before You Buy AI visibility tools can help you understand whether your brand is ready for AI-assisted discovery, but the category is noisy. Use…",
+          "money_link_hits": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        },
+        {
+          "path": "/best-geo-agencies/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/best-geo-agencies/?cr018_verify=1",
+          "jsonld_count": 0,
+          "title": "Best GEO Agencies – usegeo.blog",
+          "description": "Best GEO Agencies: How to Evaluate Expert Help Without Falling for Hype The best GEO agency for your company is not the one with the loudest AI promise. It is…",
+          "money_link_hits": [
+            "/geo-checklist/",
+            "/ai-visibility-tools/",
+            "/best-geo-agencies/"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "money_page_unique_titles",
+      "passed": true,
+      "titles": [
+        "Generative Engine Optimization Checklist – usegeo.blog",
+        "AI Visibility Tools – usegeo.blog",
+        "Best GEO Agencies – usegeo.blog"
+      ]
+    },
+    {
+      "name": "money_page_unique_descriptions",
+      "passed": true,
+      "descriptions": [
+        "Generative Engine Optimization Checklist Use this practical GEO checklist to inspect whether your public pages give AI systems and human buyers enough clear evidence to understand, compare, and trust your…",
+        "AI Visibility Tools: What to Measure Before You Buy AI visibility tools can help you understand whether your brand is ready for AI-assisted discovery, but the category is noisy. Use…",
+        "Best GEO Agencies: How to Evaluate Expert Help Without Falling for Hype The best GEO agency for your company is not the one with the loudest AI promise. It is…"
+      ]
+    },
+    {
+      "name": "published_articles_have_money_links",
+      "passed": false,
+      "missing_count": 4,
+      "missing": [
+        {
+          "url": "https://usegeo.blog/geo-readiness-score-measurement/",
+          "status": 200,
+          "money_link_count": 0,
+          "money_link_hits": []
+        },
+        {
+          "url": "https://usegeo.blog/solution-pages-ai-visibility-structure/",
+          "status": 200,
+          "money_link_count": 0,
+          "money_link_hits": []
+        },
+        {
+          "url": "https://usegeo.blog/comparison-pages-geo-asset/",
+          "status": 200,
+          "money_link_count": 0,
+          "money_link_hits": []
+        },
+        {
+          "url": "https://usegeo.blog/geo-prioritization-framework/",
+          "status": 200,
+          "money_link_count": 0,
+          "money_link_hits": []
+        }
+      ],
+      "total": 24
+    },
+    {
+      "name": "title_keyword_stuffing_absent",
+      "passed": true,
+      "hits": []
+    }
+  ],
+  "summary": {
+    "sitemap_final_url": "https://usegeo.blog/wp-sitemap.xml?cr018_verify=1",
+    "post_count": 24,
+    "page_count": 11,
+    "indexed_money_pages": [
+      "/geo-checklist/",
+      "/ai-visibility-tools/",
+      "/best-geo-agencies/"
+    ],
+    "sample_pages": [
+      {
+        "path": "/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/?cr018_verify=1",
+        "jsonld_count": 0,
+        "title": "usegeo.blog",
+        "description": "What I Do? I explain and teach tech­nol­o­gy, solve tech prob­lems and help you make gad­get buy­ing decisions. SUBSCRIBE TO OUR NEWSLETTER 125.000 Join the List of Subscribers Proudly featured…",
+        "money_link_hits": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      },
+      {
+        "path": "/geo-checklist/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/geo-checklist/?cr018_verify=1",
+        "jsonld_count": 0,
+        "title": "Generative Engine Optimization Checklist – usegeo.blog",
+        "description": "Generative Engine Optimization Checklist Use this practical GEO checklist to inspect whether your public pages give AI systems and human buyers enough clear evidence to understand, compare, and trust your…",
+        "money_link_hits": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      },
+      {
+        "path": "/ai-visibility-tools/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/ai-visibility-tools/?cr018_verify=1",
+        "jsonld_count": 0,
+        "title": "AI Visibility Tools – usegeo.blog",
+        "description": "AI Visibility Tools: What to Measure Before You Buy AI visibility tools can help you understand whether your brand is ready for AI-assisted discovery, but the category is noisy. Use…",
+        "money_link_hits": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      },
+      {
+        "path": "/best-geo-agencies/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/best-geo-agencies/?cr018_verify=1",
+        "jsonld_count": 0,
+        "title": "Best GEO Agencies – usegeo.blog",
+        "description": "Best GEO Agencies: How to Evaluate Expert Help Without Falling for Hype The best GEO agency for your company is not the one with the loudest AI promise. It is…",
+        "money_link_hits": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/",
+          "/best-geo-agencies/"
+        ]
+      },
+      {
+        "path": "/what-is-geo-generative-engine-optimization/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/what-is-geo-generative-engine-optimization/?cr018_verify=1",
+        "jsonld_count": 0,
+        "title": "What Is Generative Engine Optimization? – usegeo.blog",
+        "description": "GEO is the practice of optimizing content so AI-powered search engines understand, cite, and recommend your brand.",
+        "money_link_hits": [
+          "/geo-checklist/",
+          "/ai-visibility-tools/"
+        ]
+      }
+    ],
+    "article_money_link_missing_count": 4
+  }
+}

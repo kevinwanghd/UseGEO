@@ -1,0 +1,17 @@
+{
+  "zip_path": "dist/usegeo-theme-cr018-seo-geo-foundation-20260622-170041.zip",
+  "size_bytes": 73504,
+  "top_level": [
+    "usegeo"
+  ],
+  "backslash_entries": 0,
+  "entry_count": 44,
+  "required_files": {
+    "usegeo/style.css": true,
+    "usegeo/functions.php": true,
+    "usegeo/inc/seo.php": true,
+    "usegeo/single.php": true,
+    "usegeo/assets/css/single.css": true
+  },
+  "passed": true
+}

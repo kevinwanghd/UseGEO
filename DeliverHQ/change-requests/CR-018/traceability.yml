@@ -1,0 +1,36 @@
+schema: deliverhq-traceability
+version: 1
+
+CR-018:
+  requirement: "On-site SEO/GEO Technical Foundation"
+  priority: "P1"
+  acceptance_criteria:
+    - "Sitemap and robots are publicly auditable"
+    - "Theme outputs safe Organization/WebSite/WebPage/Article/FAQPage JSON-LD"
+    - "FAQ schema mirrors visible FAQ only"
+    - "All article pages get links to the three money pages through the template"
+    - "Money page title/meta uniqueness and internal links are audited"
+  implementation:
+    - file: "wordpress/theme/usegeo/inc/seo.php"
+      type: "theme-code"
+    - file: "wordpress/theme/usegeo/functions.php"
+      type: "theme-code"
+    - file: "wordpress/theme/usegeo/single.php"
+      type: "theme-code"
+    - file: "wordpress/theme/usegeo/assets/css/single.css"
+      type: "theme-code"
+    - file: "DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py"
+      type: "verification"
+  tests:
+    - file: "DeliverHQ/change-requests/CR-018/evidence/verify_seo_geo_foundation.py"
+      cases:
+        - name: "local seo geo foundation acceptance"
+          covers: "schema builders, no fake schema, article money links, manifest files"
+          type: "static-and-production-audit-verification"
+  verification:
+    - gate: "SpecGate"
+      status: "planned"
+    - gate: "PreDevGate"
+      status: "planned"
+    - gate: "LocalVerifier"
+      status: "planned"
