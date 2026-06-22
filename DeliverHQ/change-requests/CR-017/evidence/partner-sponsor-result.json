@@ -1,0 +1,98 @@
+{
+  "mode": "local",
+  "passed": true,
+  "checks": [
+    {
+      "name": "partner-prospect-list.json_exists",
+      "passed": true
+    },
+    {
+      "name": "partner-prospect-list.csv_exists",
+      "passed": true
+    },
+    {
+      "name": "first-20-outreach-queue.json_exists",
+      "passed": true
+    },
+    {
+      "name": "sponsor-offer.md_exists",
+      "passed": true
+    },
+    {
+      "name": "lead-referral-offer.md_exists",
+      "passed": true
+    },
+    {
+      "name": "outreach-templates.md_exists",
+      "passed": true
+    },
+    {
+      "name": "prospect_count",
+      "passed": true,
+      "count": 50,
+      "expected_min": 50
+    },
+    {
+      "name": "unique_companies",
+      "passed": true,
+      "duplicate_count": 0
+    },
+    {
+      "name": "high_fit_count",
+      "passed": true,
+      "count": 20,
+      "expected_min": 20
+    },
+    {
+      "name": "category_coverage",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "prospect_required_fields",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "contacts_not_blank",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "queue_count",
+      "passed": true,
+      "count": 20,
+      "expected": 20
+    },
+    {
+      "name": "queue_not_sent",
+      "passed": true,
+      "bad_count": 0
+    },
+    {
+      "name": "sponsor_offer_complete",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "lead_referral_offer_complete",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "outreach_templates_complete",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "no_external_send_state",
+      "passed": true,
+      "sent_count": 0
+    },
+    {
+      "name": "no_guarantee_claims",
+      "passed": true,
+      "hits": []
+    }
+  ]
+}

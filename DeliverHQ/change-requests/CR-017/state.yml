@@ -1,0 +1,30 @@
+cr_id: CR-017
+title: Partner & Sponsor Prospecting
+lane: standard
+current_state: archived
+current_phase: writeback
+current_owner: writeback-agent
+goal: ''
+current_plan: null
+completed_steps: []
+blocking_reason: null
+blocked_by: []
+last_gate: writeback
+next_gate: null
+next_required_gate: null
+requires_human: false
+worktree_path: null
+gate_status:
+  spec: pass
+  design: pass
+  context: pass
+  permission: pass
+  pre_dev: pass
+  review: pass
+  quality: pass
+  writeback: pass
+created_at: '2026-06-22T11:01:48.623471'
+updated_at: '2026-06-22T11:05:44.261565'
+started_at: '2026-06-22T11:01:48.623471'
+completed_at: null
+transitions: []

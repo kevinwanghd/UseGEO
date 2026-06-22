@@ -1,0 +1,12 @@
+schema: deliverhq-plan
+version: 1
+cr_id: CR-017
+steps:
+  - id: generate-prospects
+    status: pending
+  - id: generate-offers
+    status: pending
+  - id: local-verify
+    status: pending
+  - id: commit-push
+    status: pending

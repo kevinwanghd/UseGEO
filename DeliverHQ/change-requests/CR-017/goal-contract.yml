@@ -1,0 +1,13 @@
+schema: deliverhq-goal-contract
+version: 1
+cr_id: CR-017
+goal: Create partner/sponsor prospecting assets without sending external outreach.
+non_goals:
+  - Send emails or DMs.
+  - Invent contact details.
+  - Promise traffic volume.
+success_metrics:
+  - Prospect list >=50.
+  - High fit >=20.
+  - Sponsor and lead referral offers complete.
+  - First 20 queue ready but not sent.
