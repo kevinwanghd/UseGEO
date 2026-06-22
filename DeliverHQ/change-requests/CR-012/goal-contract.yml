@@ -1,0 +1,12 @@
+schema: deliverhq-goal-contract
+version: 1
+cr_id: CR-012
+goal: Create a reusable UseGEO content template and publishing checklist for future SEO/GEO articles.
+non_goals:
+  - Publish production WordPress posts.
+  - Modify theme code.
+  - Implement JSON-LD output.
+success_metrics:
+  - Template verifier passes.
+  - Required article fields and sections are covered.
+  - Schema plan forbids fake/non-visible structured data.

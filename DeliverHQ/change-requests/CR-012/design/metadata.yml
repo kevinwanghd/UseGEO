@@ -1,0 +1,4 @@
+ui_type: B端
+surface: DeliverHQ content template docs
+requires_hifi: false
+notes: Documentation/template system only; no WordPress UI change.

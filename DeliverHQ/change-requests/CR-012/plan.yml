@@ -1,0 +1,12 @@
+schema: deliverhq-plan
+version: 1
+cr_id: CR-012
+steps:
+  - id: create-template-docs
+    status: pending
+  - id: create-verifier
+    status: pending
+  - id: run-gates
+    status: pending
+  - id: commit-push
+    status: pending

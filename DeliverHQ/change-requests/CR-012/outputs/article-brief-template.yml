@@ -1,0 +1,33 @@
+primary_keyword: "how to improve entity clarity for AI search"
+secondary_keywords:
+  - "entity clarity AI search"
+  - "AI visibility entity signals"
+  - "GEO entity optimization"
+search_intent: "informational / tactical"
+target_reader: "B2B SaaS growth lead or SEO lead"
+reader_problem: "The reader suspects AI systems cannot clearly understand what the company does."
+related_money_page: "/geo-checklist/"
+scanner_cta:
+  label: "Check entity clarity with the free GEO scanner"
+  href: "/#scanner"
+partner_angle: "If the scan shows weak entity clarity, the visitor may need content strategy or expert follow-up."
+internal_links:
+  - "/#scanner"
+  - "/geo-checklist/"
+  - "/what-is-geo-generative-engine-optimization/"
+outline:
+  - "Quick answer"
+  - "Why entity clarity matters"
+  - "Checklist for a clearer homepage"
+  - "Before/after example"
+  - "Common mistakes"
+  - "FAQ"
+faq_items:
+  - "What does entity clarity mean in AI search?"
+  - "Is entity clarity the same as keyword targeting?"
+  - "Can schema fix weak entity clarity?"
+  - "How do I test entity clarity on my homepage?"
+forbidden_claims:
+  - "Do not promise AI rankings."
+  - "Do not claim precise tracking of every AI recommendation."
+  - "Do not say SEO is dead."

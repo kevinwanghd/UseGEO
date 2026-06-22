@@ -1,0 +1,88 @@
+{
+  "mode": "local",
+  "passed": true,
+  "checks": [
+    {
+      "name": "template_doc_exists",
+      "passed": true,
+      "path": "D:\\Code\\UseGEO\\DeliverHQ\\docs\\CONTENT-TEMPLATE.md"
+    },
+    {
+      "name": "brief_template_exists",
+      "passed": true,
+      "path": "D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-012\\outputs\\article-brief-template.yml"
+    },
+    {
+      "name": "html_skeleton_exists",
+      "passed": true,
+      "path": "D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-012\\outputs\\article-html-skeleton.html"
+    },
+    {
+      "name": "publishing_checklist_exists",
+      "passed": true,
+      "path": "D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-012\\outputs\\publishing-checklist.md"
+    },
+    {
+      "name": "schema_plan_exists",
+      "passed": true,
+      "path": "D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-012\\outputs\\faq-jsonld-plan.md"
+    },
+    {
+      "name": "template_required_brief_fields",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "template_required_structure",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "template_link_cta_rules",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "template_forbidden_claims_safe",
+      "passed": true,
+      "unsafe_hits": []
+    },
+    {
+      "name": "brief_fields",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "brief_internal_links_count",
+      "passed": true,
+      "count": 3,
+      "expected_min": 3
+    },
+    {
+      "name": "html_skeleton_structure",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "html_skeleton_faq_items",
+      "passed": true,
+      "count": 4,
+      "expected_min": 4
+    },
+    {
+      "name": "publishing_checklist_items",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "schema_plan_safety",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "schema_plan_visible_faq_only",
+      "passed": true,
+      "expected": "visible FAQ only"
+    }
+  ]
+}
