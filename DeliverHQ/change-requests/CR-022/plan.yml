@@ -1,0 +1,11 @@
+schema: deliverhq-plan
+version: 1
+cr_id: CR-022
+lane: standard
+steps:
+  - id: audit
+    status: completed
+  - id: implement-page-template
+    status: planned
+  - id: verify-package
+    status: planned

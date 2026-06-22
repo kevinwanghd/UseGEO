@@ -1,0 +1,17 @@
+schema: deliverhq-goal-contract
+version: 1
+cr_id: CR-022
+goal: Public Page Visual Unification
+must:
+  - unify public page visual system
+  - remove duplicate H1 from money pages
+  - preserve scanner and money page links
+  - preserve homepage structure
+  - include CR-021 article redesign in final package
+must_not:
+  - change URLs or WordPress content
+  - change public form fields
+  - upload production without Kevin confirmation
+success_metrics:
+  money_page_h1_count: 1
+  local_verifier_passed: true

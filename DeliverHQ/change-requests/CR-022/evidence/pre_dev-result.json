@@ -1,0 +1,25 @@
+{
+  "gate_name": "pre_dev",
+  "result": "pass",
+  "timestamp": "2026-06-22T18:36:55.325660",
+  "blocking_items": [],
+  "warnings": [],
+  "commands_run": [
+    "permissiongate.py",
+    "pre_dev_gate.py",
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-022/evidence/verify_public_page_unification.py --mode local",
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-022/evidence/verify_public_page_unification.py --mode local"
+  ],
+  "artifacts": [
+    "evidence/baseline-before.json"
+  ],
+  "next_action": "进入 ReviewGate / 开发执行阶段",
+  "failure_attribution": [],
+  "metadata": {
+    "current_state": "dev",
+    "current_phase": "dev",
+    "current_owner": "dev-agent",
+    "requires_human": false,
+    "worktree_path": null
+  }
+}

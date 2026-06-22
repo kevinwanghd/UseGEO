@@ -1,0 +1,50 @@
+{
+  "mode": "local",
+  "passed": true,
+  "checks": [
+    {
+      "name": "page_duplicate_h1_strip_helper",
+      "passed": true
+    },
+    {
+      "name": "public_page_classes_present",
+      "passed": true
+    },
+    {
+      "name": "public_page_css_present",
+      "passed": true
+    },
+    {
+      "name": "page_money_links_present",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "page_scanner_cta_present",
+      "passed": true
+    },
+    {
+      "name": "front_page_structure_unchanged",
+      "passed": true
+    },
+    {
+      "name": "no_fake_screenshot_or_images",
+      "passed": true
+    },
+    {
+      "name": "no_em_dash_visible_copy",
+      "passed": true
+    },
+    {
+      "name": "cr021_article_redesign_still_passes",
+      "passed": true,
+      "stdout": "cation (local): PASS\n- PASS: duplicate_h1_strip_helper_present\n- PASS: toc_h2_only\n- PASS: sponsor_slot_retained\n- PASS: three_money_links_retained\n- PASS: scanner_cta_retained\n- PASS: mid_cta_removed\n- PASS: new_article_shell_classes\n- PASS: css_rewritten_classes_present\n- PASS: old_heavy_hero_removed\n- PASS: no_em_dash_visible_copy\n- PASS: no_fake_screenshot\n- PASS: static_balanced_delimiters\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-021\\evidence\\article-redesign-local-result.json\n",
+      "stderr": ""
+    },
+    {
+      "name": "static_balanced_delimiters",
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

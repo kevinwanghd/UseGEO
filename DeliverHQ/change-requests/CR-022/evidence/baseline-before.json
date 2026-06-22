@@ -1,0 +1,77 @@
+{
+  "timestamp": "2026-06-22T18:36:54.505439",
+  "commit_hash": "481cd315c5c1e93d152beeb54f2db299880c4a57",
+  "commands_run": [
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-022/evidence/verify_public_page_unification.py --mode local",
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-022/evidence/verify_public_page_unification.py --mode local"
+  ],
+  "build_passed": false,
+  "build_errors": [
+    "CR-022 public page unification verification (local): FAIL\n- FAIL: page_duplicate_h1_strip_helper\n- FAIL: public_page_classes_present\n- FAIL: public_page_css_present\n- FAIL: page_money_links_present missing=['/geo-checklist/', '/ai-visibility-tools/', '/best-geo-agencies/']\n- FAIL: page_scanner_cta_present\n- PASS: front_page_structure_unchanged\n- PASS: no_fake_screenshot_or_images\n- PASS: no_em_dash_visible_copy\n- PASS: cr021_article_redesign_still_passes\n- PASS: static_balanced_delimiters\nEviden"
+  ],
+  "tests_total": 1,
+  "tests_passed": 0,
+  "tests_failed": 1,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "UseGEO",
+      "type": "wordpress-public-page-unification"
+    },
+    "build": {
+      "enabled": true,
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-022/evidence/verify_public_page_unification.py --mode local",
+      "working_dir": ".",
+      "timeout": 120
+    },
+    "test": {
+      "unit": {
+        "enabled": true,
+        "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-022/evidence/verify_public_page_unification.py --mode local",
+        "working_dir": ".",
+        "timeout": 120,
+        "coverage_enabled": false
+      }
+    },
+    "lint": {
+      "enabled": false,
+      "tools": []
+    },
+    "typecheck": {
+      "enabled": false
+    },
+    "qualitygate": {
+      "mode": "hybrid",
+      "fail_fast": true,
+      "auto_fix": false
+    }
+  },
+  "command_results": [
+    {
+      "name": "build",
+      "category": "build",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-022/evidence/verify_public_page_unification.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": false,
+      "returncode": 1,
+      "stdout": "CR-022 public page unification verification (local): FAIL\n- FAIL: page_duplicate_h1_strip_helper\n- FAIL: public_page_classes_present\n- FAIL: public_page_css_present\n- FAIL: page_money_links_present missing=['/geo-checklist/', '/ai-visibility-tools/', '/best-geo-agencies/']\n- FAIL: page_scanner_cta_present\n- PASS: front_page_structure_unchanged\n- PASS: no_fake_screenshot_or_images\n- PASS: no_em_dash_visible_copy\n- PASS: cr021_article_redesign_still_passes\n- PASS: static_balanced_delimiters\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-022\\evidence\\public-page-unification-local-result.json\n",
+      "stderr": ""
+    },
+    {
+      "name": "test-unit",
+      "category": "test",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-022/evidence/verify_public_page_unification.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": false,
+      "returncode": 1,
+      "stdout": "CR-022 public page unification verification (local): FAIL\n- FAIL: page_duplicate_h1_strip_helper\n- FAIL: public_page_classes_present\n- FAIL: public_page_css_present\n- FAIL: page_money_links_present missing=['/geo-checklist/', '/ai-visibility-tools/', '/best-geo-agencies/']\n- FAIL: page_scanner_cta_present\n- PASS: front_page_structure_unchanged\n- PASS: no_fake_screenshot_or_images\n- PASS: no_em_dash_visible_copy\n- PASS: cr021_article_redesign_still_passes\n- PASS: static_balanced_delimiters\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-022\\evidence\\public-page-unification-local-result.json\n",
+      "stderr": ""
+    }
+  ]
+}

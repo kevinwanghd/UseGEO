@@ -1,0 +1,37 @@
+schema: deliverhq-traceability
+version: 1
+
+CR-022:
+  requirement: "Public Page Visual Unification"
+  priority: "P0"
+  acceptance_criteria:
+    - "Money pages have one H1 after deploy"
+    - "Generic pages use public page classes"
+    - "Scanner and money links are retained"
+    - "Homepage structure unchanged"
+  implementation:
+    - file: "wordpress/theme/usegeo/page.php"
+      type: "theme-code"
+    - file: "wordpress/theme/usegeo/assets/css/base.css"
+      type: "theme-code"
+    - file: "wordpress/theme/usegeo/single.php"
+      type: "theme-code"
+      note: "Included from CR-021 in final unified upload package"
+    - file: "wordpress/theme/usegeo/assets/css/single.css"
+      type: "theme-code"
+      note: "Included from CR-021 in final unified upload package"
+    - file: "DeliverHQ/change-requests/CR-022/evidence/verify_public_page_unification.py"
+      type: "verification"
+  tests:
+    - file: "DeliverHQ/change-requests/CR-022/evidence/verify_public_page_unification.py"
+      cases:
+        - name: "public page visual unification"
+          covers: "H1, classes, links, homepage smoke"
+          type: "static-and-production-verification"
+  verification:
+    - gate: "SpecGate"
+      status: "planned"
+    - gate: "PreDevGate"
+      status: "planned"
+    - gate: "LocalVerifier"
+      status: "planned"
