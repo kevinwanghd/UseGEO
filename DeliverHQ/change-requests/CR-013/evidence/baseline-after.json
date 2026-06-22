@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-06-22T09:47:40.972624",
+  "commit_hash": "d7a48ea2db5e8b434f1344d2986bc6abad084885",
+  "commands_run": [
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-013/evidence/verify_tactical_geo.py --mode local"
+  ],
+  "build_passed": true,
+  "build_errors": [],
+  "tests_total": 1,
+  "tests_passed": 1,
+  "tests_failed": 0,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "UseGEO",
+      "type": "wordpress-content"
+    },
+    "build": {
+      "enabled": false,
+      "command": "",
+      "working_dir": ".",
+      "timeout": 60
+    },
+    "test": {
+      "unit": {
+        "enabled": true,
+        "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-013/evidence/verify_tactical_geo.py --mode local",
+        "working_dir": ".",
+        "timeout": 120,
+        "coverage_enabled": false
+      }
+    },
+    "lint": {
+      "enabled": false,
+      "tools": []
+    },
+    "typecheck": {
+      "enabled": false
+    },
+    "qualitygate": {
+      "mode": "hybrid",
+      "fail_fast": true,
+      "auto_fix": false
+    }
+  },
+  "command_results": [
+    {
+      "name": "test-unit",
+      "category": "test",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-013/evidence/verify_tactical_geo.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": true,
+      "returncode": 0,
+      "stdout": "CR-013 tactical GEO verification (local): PASS\n- how-to-improve-entity-clarity-for-ai-search: PASS | words=1315 faq=5 cta=4 links=3\n- how-to-build-comparison-pages-for-geo: PASS | words=1255 faq=5 cta=4 links=3\n- how-proof-signals-help-ai-recommend-your-brand: PASS | words=1262 faq=5 cta=4 links=3\n- schema-markup-for-ai-visibility: PASS | words=1233 faq=5 cta=4 links=3\n- how-to-make-your-homepage-easier-for-llms-to-understand: PASS | words=1245 faq=5 cta=4 links=3\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-013\\evidence\\tactical-geo-local-result.json\n",
+      "stderr": ""
+    }
+  ]
+}

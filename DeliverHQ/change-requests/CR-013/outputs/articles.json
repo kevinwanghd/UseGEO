@@ -1,0 +1,272 @@
+{
+  "how-to-improve-entity-clarity-for-ai-search": {
+    "title": "How to Improve Entity Clarity for AI Search",
+    "wp_slug": "how-to-improve-entity-clarity-for-ai-search",
+    "category": "content-strategy",
+    "keywords": [
+      "how to improve entity clarity for AI search",
+      "entity clarity AI search",
+      "GEO entity optimization",
+      "AI visibility entity signals"
+    ],
+    "links": [
+      "/geo-checklist/",
+      "/#scanner",
+      "/what-is-geo-generative-engine-optimization/"
+    ],
+    "quick": "Entity clarity is the foundation of AI visibility. If a model, crawler, or buyer cannot quickly identify who you are, what category you belong to, who you serve, and what outcome you help create, every other GEO tactic becomes weaker. Improving entity clarity means replacing vague positioning with specific, repeated, visible context across your key pages.",
+    "sections": [
+      [
+        "Why entity clarity matters",
+        "AI-assisted discovery compresses information. When someone asks for tools, agencies, or solutions, the system needs to connect named entities to categories and use cases. If your homepage sounds like any company in your market, you give the system little to reuse. Clear entity signals help a page become easier to summarize and compare."
+      ],
+      [
+        "What a clear entity looks like",
+        "A clear entity has a name, category, audience, problem, and evidence. A strong first screen might say: “UseGEO is a GEO readiness scanner for B2B teams that want to understand whether their public pages are easy for AI search systems to parse.” That sentence is not fancy. It is useful because it tells the reader and crawler what box to put the company in."
+      ],
+      [
+        "Homepage before and after",
+        "Before: “We help modern teams unlock growth with intelligent insights.” This could describe thousands of companies. After: “UseGEO helps B2B growth teams check whether their website gives AI search systems enough entity, proof, and comparison signals.” The second version names the audience, context, and visible signals."
+      ],
+      [
+        "Entity clarity checklist",
+        "Use the checklist below on your homepage, main service page, or category page. The test is not whether the copy sounds impressive. The test is whether a stranger could repeat your category and best-fit customer after scanning the page for 30 seconds."
+      ],
+      [
+        "How to measure progress",
+        "Run a scanner before and after the rewrite. Then inspect whether the title, H1, meta description, section headings, and proof blocks all reinforce the same entity story. The goal is a stronger public signal, not a promise of any specific AI answer."
+      ]
+    ],
+    "checklist": [
+      "Brand name is visible as text, not only as a logo image.",
+      "Category is named in ordinary language.",
+      "Audience and use case are explicit.",
+      "First 100 words explain the problem and outcome.",
+      "Proof or examples reinforce the category claim.",
+      "Related pages link to the same entity language."
+    ],
+    "mistakes": [
+      "Leading with slogans before explaining the category.",
+      "Using five different names for the same product or service.",
+      "Assuming schema can fix vague public copy.",
+      "Writing only for investors or insiders instead of buyers.",
+      "Promising AI rankings instead of improving visible signals."
+    ]
+  },
+  "how-to-build-comparison-pages-for-geo": {
+    "title": "How to Build Comparison Pages for GEO",
+    "wp_slug": "how-to-build-comparison-pages-for-geo",
+    "category": "content-strategy",
+    "keywords": [
+      "how to build comparison pages for GEO",
+      "GEO comparison pages",
+      "comparison pages AI search",
+      "AI visibility comparison content"
+    ],
+    "links": [
+      "/best-geo-agencies/",
+      "/geo-checklist/",
+      "/#scanner"
+    ],
+    "quick": "Comparison pages help AI search systems and buyers understand tradeoffs. A good comparison page does not attack competitors or invent a fake ranking. It explains who each option is for, what criteria matter, what evidence supports the choice, and when your offer is not the right fit. That context is useful for recommendation-style queries.",
+    "sections": [
+      [
+        "Why comparison pages matter for GEO",
+        "Many AI search questions are comparison questions. People ask which tool to use, which agency to hire, what category fits their problem, or why one approach is different from another. If your site never explains tradeoffs, AI systems must infer them from weaker outside sources."
+      ],
+      [
+        "Start with criteria before vendors",
+        "A strong comparison page starts with decision criteria. For example: category fit, data source, proof quality, technical depth, workflow support, price, and implementation effort. Criteria make the page useful even before the reader chooses a vendor."
+      ],
+      [
+        "Comparison page outline",
+        "Use a repeatable outline: quick answer, who should read this, decision criteria, option-by-option comparison, best-fit scenarios, when not to choose each option, common mistakes, and next-step CTA. This structure gives AI systems clear chunks and gives buyers a real decision tool."
+      ],
+      [
+        "What not to do",
+        "Do not publish fake Top 10 lists if you do not have real evaluation criteria. Do not pretend every competitor is bad. Do not hide your own limitations. Honest tradeoffs often build more trust than aggressive positioning."
+      ],
+      [
+        "How to connect comparison pages to conversion",
+        "A comparison page should not end with a generic contact form. Link to a diagnostic, checklist, agency evaluation guide, or scanner. The next step should help the reader understand their own situation before asking for expert follow-up."
+      ]
+    ],
+    "checklist": [
+      "Open with a direct answer to the comparison query.",
+      "List decision criteria before naming winners.",
+      "Explain who each option is best for.",
+      "Include a “when not to choose this” section.",
+      "Link to a checklist or scanner for self-assessment.",
+      "Avoid fake rankings and unsupported claims."
+    ],
+    "mistakes": [
+      "Creating a biased sales page and calling it a comparison.",
+      "Ranking vendors without visible criteria.",
+      "Ignoring your own limitations.",
+      "Using thin feature tables with no buyer context.",
+      "Forgetting to link comparison readers to the next diagnostic step."
+    ]
+  },
+  "how-proof-signals-help-ai-recommend-your-brand": {
+    "title": "How Proof Signals Help AI Recommend Your Brand",
+    "wp_slug": "how-proof-signals-help-ai-recommend-your-brand",
+    "category": "strategy",
+    "keywords": [
+      "how proof signals help AI recommend your brand",
+      "proof signals AI search",
+      "testimonials AI visibility",
+      "case studies GEO"
+    ],
+    "links": [
+      "/#scanner",
+      "/geo-checklist/",
+      "/what-is-ai-visibility/"
+    ],
+    "quick": "Proof signals make your brand safer to mention. AI-assisted discovery depends on public evidence: testimonials, case studies, reviews, examples, metrics, integrations, and specific outcomes. A page that only says “we help teams grow” gives weak evidence. A page that shows who you helped, what changed, and why it matters gives stronger material for both buyers and AI systems.",
+    "sections": [
+      [
+        "Why proof changes recommendations",
+        "Recommendation requires confidence. When AI systems summarize a category, they need signals that a brand belongs in the answer. Proof helps reduce uncertainty. It gives the system and the human buyer something concrete to repeat."
+      ],
+      [
+        "Types of proof signals",
+        "Useful proof can include testimonials, case studies, named customer segments, review snippets, implementation examples, before-and-after screenshots, metrics, integrations, awards, partner mentions, and detailed use cases. You do not need all of them. You need enough relevant proof to support your category claim."
+      ],
+      [
+        "Proof signal examples",
+        "Weak: “Trusted by growing teams.” Stronger: “Used by B2B SaaS teams to identify missing comparison and proof sections before launching AI visibility content.” Stronger still: a short case example showing the original page issue, the rewrite, and the resulting operational decision."
+      ],
+      [
+        "How to add proof without overclaiming",
+        "If your proof is early, say it is early. If you cannot name a customer, describe the segment and situation honestly. If a number is directional, label it as directional. Trust matters more than making every claim sound bigger."
+      ],
+      [
+        "Where proof should live",
+        "Put proof on the homepage, product pages, comparison pages, case studies, FAQ answers, and relevant guides. Proof should not be trapped in one testimonials page that no one links to. Internal links help distribute the evidence."
+      ]
+    ],
+    "checklist": [
+      "Add at least one proof block to every high-intent page.",
+      "Make proof specific to the page topic.",
+      "Link claims to examples, cases, or source context.",
+      "Use real segments when customer names are unavailable.",
+      "Avoid numbers without source context.",
+      "Connect proof pages back to Scanner or checklist pages."
+    ],
+    "mistakes": [
+      "Using vague social proof with no context.",
+      "Inventing metrics or exaggerating early evidence.",
+      "Hiding proof on isolated pages.",
+      "Publishing testimonials that do not match the buyer question.",
+      "Assuming a model will infer proof that is not visible."
+    ]
+  },
+  "schema-markup-for-ai-visibility": {
+    "title": "Schema Markup for AI Visibility",
+    "wp_slug": "schema-markup-for-ai-visibility",
+    "category": "measurement",
+    "keywords": [
+      "schema markup for AI visibility",
+      "FAQ schema GEO",
+      "Article schema AI search",
+      "Organization schema AI visibility"
+    ],
+    "links": [
+      "/ai-visibility-tools/",
+      "/#scanner",
+      "/geo-checklist/"
+    ],
+    "quick": "Schema markup can help clarify what a page represents, but it does not guarantee AI recommendations. Organization, Article, FAQ, Breadcrumb, and Product schema can make content easier to interpret when they mirror visible page content. The rule is simple: schema should label real content, not invent content, reviews, ratings, or proof that users cannot see.",
+    "sections": [
+      [
+        "What schema can do",
+        "Schema gives machines structured hints about entities, articles, FAQs, breadcrumbs, products, and organizations. It can reduce ambiguity when the visible page already has useful content. For AI visibility, schema is best understood as a clarity layer, not a magic distribution channel."
+      ],
+      [
+        "Organization schema",
+        "Organization schema can clarify your brand name, URL, logo, same-as profiles, and contact context. It is useful when your brand has public profiles and consistent naming. It should not invent credentials or relationships that are not true."
+      ],
+      [
+        "FAQ schema",
+        "FAQ schema should only mirror visible FAQ content. If a question and answer are not shown on the page, do not put them in structured data. For UseGEO-style content, FAQ schema is a future enhancement after the article body already contains useful FAQ answers."
+      ],
+      [
+        "Article schema",
+        "Article schema should match the published title, canonical URL, author, date, and content. It helps label editorial content, but it cannot turn thin content into expertise. The article still needs a direct answer, sections, proof, and next steps."
+      ],
+      [
+        "How to verify schema",
+        "Do not rely only on static curl because plugins and JavaScript can inject JSON-LD after render. Use browser-rendered inspection, Rich Results Test, or a crawler that captures rendered HTML. Validate that schema matches the visible page."
+      ]
+    ],
+    "checklist": [
+      "Add schema only after visible content is useful.",
+      "Use Organization schema for real brand identity.",
+      "Use FAQ schema only for visible FAQ items.",
+      "Use Article schema for real editorial posts.",
+      "Do not add fake ratings, reviews, or credentials.",
+      "Validate rendered JSON-LD, not just raw source."
+    ],
+    "mistakes": [
+      "Believing schema directly causes AI recommendations.",
+      "Adding FAQ schema for hidden questions.",
+      "Inventing ratings or reviews.",
+      "Treating schema as a substitute for proof.",
+      "Failing to verify rendered JSON-LD."
+    ]
+  },
+  "how-to-make-your-homepage-easier-for-llms-to-understand": {
+    "title": "How to Make Your Homepage Easier for LLMs to Understand",
+    "wp_slug": "how-to-make-your-homepage-easier-for-llms-to-understand",
+    "category": "content-strategy",
+    "keywords": [
+      "how to make your homepage easier for LLMs to understand",
+      "LLM homepage optimization",
+      "AI extractability homepage",
+      "homepage GEO checklist"
+    ],
+    "links": [
+      "/#scanner",
+      "/geo-checklist/",
+      "/how-to-improve-entity-clarity-for-ai-search/"
+    ],
+    "quick": "To make your homepage easier for LLMs to understand, make it easier for a human to summarize. Use a clear title, one specific H1, a direct opening, descriptive H2 sections, visible proof, comparison context, and internal links to deeper pages. Avoid hiding the core explanation in slogans, images, or vague hero copy.",
+    "sections": [
+      [
+        "Start with the first screen",
+        "The first screen should answer four questions: who are you, what category are you in, who do you serve, and what problem do you help solve? If the hero copy cannot answer those questions, the rest of the page has to work much harder."
+      ],
+      [
+        "Fix the title and H1",
+        "The title and H1 should reinforce the same entity story. They do not need to be identical, but they should not point in different directions. A title about AI visibility and an H1 about growth intelligence create ambiguity."
+      ],
+      [
+        "Use descriptive H2 sections",
+        "H2 headings are extraction landmarks. Use headings like “Who this is for,” “What the scanner checks,” “Proof signals that matter,” or “When you need expert help.” Avoid decorative headings that sound clever but do not explain the section."
+      ],
+      [
+        "Add examples and proof",
+        "LLMs and buyers both benefit from concrete examples. Show a vague headline and a clearer rewrite. Show what a proof block looks like. Link to a checklist, comparison guide, or case study. Make claims visible and reusable."
+      ],
+      [
+        "End with a clear next step",
+        "A homepage should not end with ambiguity. Send the reader to the scanner, a checklist, a tool guide, or a partner discovery path. The next step should match the problem the page just explained."
+      ]
+    ],
+    "checklist": [
+      "One clear title and H1.",
+      "Opening explains category, audience, and outcome.",
+      "Visible text carries the important explanation.",
+      "H2 headings describe real sections.",
+      "Proof blocks support major claims.",
+      "Internal links point to checklist, tools, agencies, or scanner."
+    ],
+    "mistakes": [
+      "Hiding core positioning in an image.",
+      "Using abstract hero copy that could fit any company.",
+      "Skipping proof on the homepage.",
+      "Using headings only for design rhythm.",
+      "Offering no clear next step after education."
+    ]
+  }
+}

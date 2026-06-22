@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "slug": "how-to-improve-entity-clarity-for-ai-search",
+      "wp_slug": "how-to-improve-entity-clarity-for-ai-search",
+      "mode": "local",
+      "status": null,
+      "word_count": 1315,
+      "faq_count": 5,
+      "scanner_cta_count": 4,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "how-to-build-comparison-pages-for-geo",
+      "wp_slug": "how-to-build-comparison-pages-for-geo",
+      "mode": "local",
+      "status": null,
+      "word_count": 1255,
+      "faq_count": 5,
+      "scanner_cta_count": 4,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "how-proof-signals-help-ai-recommend-your-brand",
+      "wp_slug": "how-proof-signals-help-ai-recommend-your-brand",
+      "mode": "local",
+      "status": null,
+      "word_count": 1262,
+      "faq_count": 5,
+      "scanner_cta_count": 4,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "schema-markup-for-ai-visibility",
+      "wp_slug": "schema-markup-for-ai-visibility",
+      "mode": "local",
+      "status": null,
+      "word_count": 1233,
+      "faq_count": 5,
+      "scanner_cta_count": 4,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "how-to-make-your-homepage-easier-for-llms-to-understand",
+      "wp_slug": "how-to-make-your-homepage-easier-for-llms-to-understand",
+      "mode": "local",
+      "status": null,
+      "word_count": 1245,
+      "faq_count": 5,
+      "scanner_cta_count": 4,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

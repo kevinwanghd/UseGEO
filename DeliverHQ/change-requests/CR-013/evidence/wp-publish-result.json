@@ -1,0 +1,49 @@
+{
+  "results": [
+    {
+      "key": "how-to-improve-entity-clarity-for-ai-search",
+      "slug": "how-to-improve-entity-clarity-for-ai-search",
+      "action": "created",
+      "status": 201,
+      "id": 1516,
+      "link": "https://usegeo.blog/how-to-improve-entity-clarity-for-ai-search/",
+      "modified_gmt": "2026-06-22T01:46:37"
+    },
+    {
+      "key": "how-to-build-comparison-pages-for-geo",
+      "slug": "how-to-build-comparison-pages-for-geo",
+      "action": "created",
+      "status": 201,
+      "id": 1517,
+      "link": "https://usegeo.blog/how-to-build-comparison-pages-for-geo/",
+      "modified_gmt": "2026-06-22T01:46:38"
+    },
+    {
+      "key": "how-proof-signals-help-ai-recommend-your-brand",
+      "slug": "how-proof-signals-help-ai-recommend-your-brand",
+      "action": "created",
+      "status": 201,
+      "id": 1518,
+      "link": "https://usegeo.blog/how-proof-signals-help-ai-recommend-your-brand/",
+      "modified_gmt": "2026-06-22T01:46:39"
+    },
+    {
+      "key": "schema-markup-for-ai-visibility",
+      "slug": "schema-markup-for-ai-visibility",
+      "action": "created",
+      "status": 201,
+      "id": 1519,
+      "link": "https://usegeo.blog/schema-markup-for-ai-visibility/",
+      "modified_gmt": "2026-06-22T01:46:40"
+    },
+    {
+      "key": "how-to-make-your-homepage-easier-for-llms-to-understand",
+      "slug": "how-to-make-your-homepage-easier-for-llms-to-understand",
+      "action": "created",
+      "status": 201,
+      "id": 1520,
+      "link": "https://usegeo.blog/how-to-make-your-homepage-easier-for-llms-to-understand/",
+      "modified_gmt": "2026-06-22T01:46:40"
+    }
+  ]
+}

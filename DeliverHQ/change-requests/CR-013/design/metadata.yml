@@ -1,0 +1,4 @@
+ui_type: B端
+surface: WordPress public article posts
+requires_hifi: false
+notes: Existing WordPress post template is reused; CR-013 changes content only.
