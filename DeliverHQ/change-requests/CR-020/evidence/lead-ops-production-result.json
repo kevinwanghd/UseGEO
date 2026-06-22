@@ -1,0 +1,20 @@
+{
+  "mode": "production",
+  "passed": true,
+  "checks": [
+    {
+      "name": "homepage_status_200",
+      "passed": true,
+      "status": 200,
+      "final_url": "https://usegeo.blog/?cr020_verify=1"
+    },
+    {
+      "name": "production_smoke_public_site_up",
+      "passed": true,
+      "length": 70308
+    }
+  ],
+  "summary": {
+    "homepage_length": 70308
+  }
+}
