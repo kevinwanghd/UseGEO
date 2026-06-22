@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "slug": "geo-for-b2b-saas",
+      "wp_slug": "geo-for-b2b-saas",
+      "mode": "production",
+      "status": 200,
+      "word_count": 1685,
+      "faq_count": 6,
+      "scanner_cta_count": 9,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "geo-for-agencies",
+      "wp_slug": "geo-for-agencies",
+      "mode": "production",
+      "status": 200,
+      "word_count": 1663,
+      "faq_count": 6,
+      "scanner_cta_count": 9,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "geo-for-ecommerce-brands",
+      "wp_slug": "geo-for-ecommerce-brands",
+      "mode": "production",
+      "status": 200,
+      "word_count": 1646,
+      "faq_count": 6,
+      "scanner_cta_count": 9,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "geo-for-developer-tools",
+      "wp_slug": "geo-for-developer-tools",
+      "mode": "production",
+      "status": 200,
+      "word_count": 1654,
+      "faq_count": 6,
+      "scanner_cta_count": 9,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "geo-for-content-marketing-teams",
+      "wp_slug": "geo-for-content-marketing-teams",
+      "mode": "production",
+      "status": 200,
+      "word_count": 1662,
+      "faq_count": 6,
+      "scanner_cta_count": 9,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

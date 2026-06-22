@@ -1,0 +1,49 @@
+{
+  "results": [
+    {
+      "key": "geo-for-b2b-saas",
+      "slug": "geo-for-b2b-saas",
+      "action": "created",
+      "status": 201,
+      "id": 1526,
+      "link": "https://usegeo.blog/geo-for-b2b-saas/",
+      "modified_gmt": "2026-06-22T02:47:27"
+    },
+    {
+      "key": "geo-for-agencies",
+      "slug": "geo-for-agencies",
+      "action": "created",
+      "status": 201,
+      "id": 1527,
+      "link": "https://usegeo.blog/geo-for-agencies/",
+      "modified_gmt": "2026-06-22T02:47:28"
+    },
+    {
+      "key": "geo-for-ecommerce-brands",
+      "slug": "geo-for-ecommerce-brands",
+      "action": "created",
+      "status": 201,
+      "id": 1528,
+      "link": "https://usegeo.blog/geo-for-ecommerce-brands/",
+      "modified_gmt": "2026-06-22T02:47:29"
+    },
+    {
+      "key": "geo-for-developer-tools",
+      "slug": "geo-for-developer-tools",
+      "action": "created",
+      "status": 201,
+      "id": 1529,
+      "link": "https://usegeo.blog/geo-for-developer-tools/",
+      "modified_gmt": "2026-06-22T02:47:29"
+    },
+    {
+      "key": "geo-for-content-marketing-teams",
+      "slug": "geo-for-content-marketing-teams",
+      "action": "created",
+      "status": 201,
+      "id": 1530,
+      "link": "https://usegeo.blog/geo-for-content-marketing-teams/",
+      "modified_gmt": "2026-06-22T02:47:30"
+    }
+  ]
+}

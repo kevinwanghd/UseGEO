@@ -1,0 +1,11 @@
+schema: deliverhq-goal-contract
+version: 1
+cr_id: CR-015
+goal: Publish 5 GEO use-case articles following the CR-012 content template.
+non_goals:
+  - Insert unconfirmed sponsors.
+  - Modify theme code.
+  - Commit production secrets.
+success_metrics:
+  - 5 production URLs HTTP 200.
+  - Each article has 1200-1800 words, FAQ >=4, CTA >=1, internal links >=3.

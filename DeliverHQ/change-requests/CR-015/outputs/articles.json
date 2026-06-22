@@ -1,0 +1,257 @@
+{
+  "geo-for-b2b-saas": {
+    "title": "GEO for B2B SaaS: Homepage, Comparison, and Proof Signals",
+    "wp_slug": "geo-for-b2b-saas",
+    "category": "content-strategy",
+    "keywords": [
+      "GEO for B2B SaaS",
+      "B2B SaaS AI visibility",
+      "SaaS generative engine optimization"
+    ],
+    "links": [
+      "/#scanner",
+      "/best-geo-agencies/",
+      "/how-to-build-comparison-pages-for-geo/"
+    ],
+    "quick": "For B2B SaaS, GEO is mostly about making your category, use case, proof, and comparison context easier for AI systems and buyers to understand. The highest-leverage pages are usually the homepage, comparison pages, product pages, and proof assets. Start by making those pages specific enough to be quoted, summarized, and compared.",
+    "sections": [
+      [
+        "Why B2B SaaS has a GEO problem",
+        "B2B SaaS websites often sound polished but vague. The homepage says the product streamlines workflows, unlocks revenue, or transforms operations, but it may not name the exact category, buyer, use case, or proof. That weakens AI visibility because recommendation-style answers need concrete evidence."
+      ],
+      [
+        "Homepage signals",
+        "A SaaS homepage should explain the product category, target segment, primary workflow, strongest outcome, and proof in the first screen. A model should not need to infer whether you are a CRM, analytics tool, project management app, developer platform, or agency service."
+      ],
+      [
+        "Comparison pages",
+        "SaaS buyers compare alternatives constantly. Comparison pages help explain who the product is for, what tradeoffs matter, and when an alternative may be better. That makes them useful for both AI search and human buying committees."
+      ],
+      [
+        "Proof examples",
+        "Proof matters because SaaS claims are easy to overstate. Add customer segments, use cases, integration examples, case studies, screenshots, and metrics with context. Even small proof is useful if it is specific and honest."
+      ],
+      [
+        "Workflow",
+        "Run the scanner on the homepage, identify the weakest signal, fix one page, then build supporting comparison and proof content."
+      ]
+    ],
+    "checklist": [
+      "Homepage names category and buyer.",
+      "Product pages explain use cases.",
+      "Comparison pages include tradeoffs.",
+      "Proof assets support major claims.",
+      "Internal links connect homepage, checklist, tools, and agency guide."
+    ],
+    "mistakes": [
+      "Using generic SaaS hero copy.",
+      "Publishing comparison pages with no criteria.",
+      "Hiding proof in sales decks.",
+      "Treating AI visibility as separate from buyer enablement."
+    ]
+  },
+  "geo-for-agencies": {
+    "title": "GEO for Agencies: How to Serve Clients and Build Sponsor Demand",
+    "wp_slug": "geo-for-agencies",
+    "category": "strategy",
+    "keywords": [
+      "GEO for agencies",
+      "AI visibility agency services",
+      "GEO agency opportunities"
+    ],
+    "links": [
+      "/ai-visibility-tools/",
+      "/#scanner",
+      "/best-ai-visibility-tools/"
+    ],
+    "quick": "For agencies, GEO is both a client service opportunity and a sponsor or partner channel. Agencies can use GEO content to educate clients, diagnose public signal gaps, and package focused audits or content sprints. The strongest agency positioning is practical: show how you improve pages, proof, comparison content, and measurement without promising AI rankings.",
+    "sections": [
+      [
+        "Why agencies care about GEO",
+        "Clients are asking why they do or do not appear in AI answers. Agencies can help by translating vague anxiety into page-level work: clearer entity language, better content structure, stronger proof, comparison pages, schema hygiene, and measurement plans."
+      ],
+      [
+        "Service packaging",
+        "A useful first offer is a GEO readiness audit or page sprint. It should include page findings, prioritized fixes, before/after examples, and a measurement plan. Avoid selling a broad retainer before diagnosing the gap."
+      ],
+      [
+        "Agency content strategy",
+        "Agencies can publish educational content that explains signals, tools, audits, and examples. This builds trust with clients and can also attract sponsor or partner opportunities from tools that serve the same audience."
+      ],
+      [
+        "Potential sponsor angle",
+        "A GEO agency audience may be valuable to AI visibility tools, schema tools, content platforms, and SEO software. Sponsor placements should be labeled and separated from editorial recommendations."
+      ],
+      [
+        "Client workflow",
+        "Start with a scanner result, choose one client page, fix the clearest gap, and use the result as a repeatable case pattern."
+      ]
+    ],
+    "checklist": [
+      "Offer a diagnostic before a retainer.",
+      "Show page-level examples.",
+      "Separate sponsor content from editorial criteria.",
+      "Explain measurement uncertainty.",
+      "Link readers to tools and scanner workflows."
+    ],
+    "mistakes": [
+      "Promising guaranteed AI mentions.",
+      "Selling trend language without deliverables.",
+      "Ignoring SEO foundations.",
+      "Publishing sponsor-like content without labels."
+    ]
+  },
+  "geo-for-ecommerce-brands": {
+    "title": "GEO for Ecommerce Brands: Product, Category, and Proof Signals",
+    "wp_slug": "geo-for-ecommerce-brands",
+    "category": "content-strategy",
+    "keywords": [
+      "GEO for ecommerce",
+      "ecommerce AI visibility",
+      "AI search ecommerce optimization"
+    ],
+    "links": [
+      "/geo-checklist/",
+      "/#scanner",
+      "/schema-markup-for-ai-visibility/"
+    ],
+    "quick": "For ecommerce brands, GEO is not just a B2B SaaS playbook. Product pages, category pages, reviews, comparisons, buying guides, availability, and schema all matter. The goal is to make products and categories easier for AI systems and shoppers to understand without pretending that schema or reviews alone can force recommendations.",
+    "sections": [
+      [
+        "How ecommerce differs",
+        "Ecommerce discovery often starts with product needs, category comparisons, materials, use cases, price ranges, reviews, and trust signals. A generic B2B SaaS checklist is not enough. Ecommerce GEO needs product-level and category-level evidence."
+      ],
+      [
+        "Category pages",
+        "Category pages should explain who the category is for, how to choose, what tradeoffs matter, and which products fit which needs. Thin grids with no buying context are weak source material."
+      ],
+      [
+        "Product pages",
+        "Product pages need clear names, specs, differentiators, reviews, FAQs, shipping or availability context, and internal links. The best pages answer buyer questions before the buyer asks a chatbot."
+      ],
+      [
+        "Proof and reviews",
+        "Reviews, testimonials, UGC, expert notes, and comparison content help reduce uncertainty. Use real proof and label it honestly. Do not invent ratings or create fake schema."
+      ],
+      [
+        "Schema and technical basics",
+        "Product schema, FAQ schema, breadcrumbs, canonical tags, and crawlability matter when they mirror visible content. They are labels, not substitutes for useful product information."
+      ]
+    ],
+    "checklist": [
+      "Category pages include buying criteria.",
+      "Product pages include specs and FAQs.",
+      "Reviews are visible and real.",
+      "Schema mirrors visible content.",
+      "Scanner or checklist links guide next steps."
+    ],
+    "mistakes": [
+      "Applying only SaaS homepage advice.",
+      "Using thin category grids.",
+      "Treating schema as a magic fix.",
+      "Hiding important specs in images."
+    ]
+  },
+  "geo-for-developer-tools": {
+    "title": "GEO for Developer Tools: Docs, Comparisons, and Community Proof",
+    "wp_slug": "geo-for-developer-tools",
+    "category": "content-strategy",
+    "keywords": [
+      "GEO for developer tools",
+      "developer tools AI visibility",
+      "devtools comparison pages"
+    ],
+    "links": [
+      "/#scanner",
+      "/ai-visibility-tools/",
+      "/how-to-build-comparison-pages-for-geo/"
+    ],
+    "quick": "For developer tools, GEO depends heavily on documentation, examples, comparison pages, integration guides, and community proof. Developers and AI systems both need precise category language, working examples, API references, tradeoffs, and evidence from real usage. Thin marketing pages are not enough.",
+    "sections": [
+      [
+        "Why devtools are different",
+        "Developer tools are evaluated through docs, examples, GitHub activity, integration paths, community discussions, and technical tradeoffs. AI systems often summarize these materials when answering build or tool-selection questions."
+      ],
+      [
+        "Docs as GEO assets",
+        "Documentation should not only describe API calls. It should explain the problem, the category, the use cases, quickstarts, limitations, and comparisons. Good docs are highly extractable source material."
+      ],
+      [
+        "Comparison pages",
+        "Devtools buyers want to know when to use one framework, API, database, SDK, or monitoring tool instead of another. Comparison pages should be fair, technical, and specific."
+      ],
+      [
+        "Community proof",
+        "GitHub stars are not the only proof. Issues, examples, tutorials, changelog activity, forum answers, and community integrations all help establish trust."
+      ],
+      [
+        "Homepage and docs connection",
+        "The homepage should route developers to the right docs, examples, and comparisons. If the homepage and docs use different category language, both humans and AI systems get weaker signals."
+      ]
+    ],
+    "checklist": [
+      "Docs explain use cases and limitations.",
+      "Quickstarts are visible and current.",
+      "Comparison pages explain tradeoffs.",
+      "Community proof is linked.",
+      "Homepage and docs use consistent category language."
+    ],
+    "mistakes": [
+      "Relying only on marketing copy.",
+      "Burying examples deep in docs.",
+      "Avoiding comparison pages.",
+      "Assuming GitHub stars explain the product."
+    ]
+  },
+  "geo-for-content-marketing-teams": {
+    "title": "GEO for Content Marketing Teams: A Workflow Beyond SEO Checklists",
+    "wp_slug": "geo-for-content-marketing-teams",
+    "category": "content-strategy",
+    "keywords": [
+      "GEO for content marketing teams",
+      "AI visibility content workflow",
+      "GEO content workflow"
+    ],
+    "links": [
+      "/geo-checklist/",
+      "/#scanner",
+      "/what-is-geo-generative-engine-optimization/"
+    ],
+    "quick": "For content marketing teams, GEO is a workflow change, not just another SEO checklist. Teams need briefs that include search intent, entity clarity, proof, internal links, FAQ, comparison context, and scanner CTAs. The goal is to publish content that answers buyer questions and feeds the next diagnostic or partner-referral step.",
+    "sections": [
+      [
+        "Why content teams own much of GEO",
+        "Many GEO gaps are content gaps: vague definitions, missing proof, no comparison context, weak FAQs, and poor internal links. Technical SEO matters, but content teams can fix a large share of visible signal problems."
+      ],
+      [
+        "Briefs need new fields",
+        "A GEO-ready brief should include primary keyword, search intent, target reader, entity angle, proof requirements, related money page, scanner CTA, internal links, FAQ questions, and partner angle."
+      ],
+      [
+        "Workflow from idea to publish",
+        "Start with the search question, write a direct answer, build practical sections, add proof, include common mistakes, link to related pages, and run a verifier before publishing. This makes the work repeatable."
+      ],
+      [
+        "Not just an SEO checklist",
+        "Classic SEO checks title, headings, and keywords. GEO adds answer readiness, extractability, proof, comparison context, and uncertainty language. Both disciplines should work together."
+      ],
+      [
+        "How to prioritize",
+        "Prioritize articles that support money pages, scanner usage, partner referrals, and sponsor categories. Content should build a commercial path, not just traffic."
+      ]
+    ],
+    "checklist": [
+      "Brief includes entity and proof angle.",
+      "Opening answers the query.",
+      "Article links to scanner and money page.",
+      "FAQ is visible and schema-ready.",
+      "Common mistakes address overclaiming."
+    ],
+    "mistakes": [
+      "Treating GEO as a keyword add-on.",
+      "Publishing definitions with no next step.",
+      "Forgetting proof and comparison context.",
+      "Writing for AI at the expense of human buyers."
+    ]
+  }
+}
