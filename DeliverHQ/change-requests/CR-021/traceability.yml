@@ -1,0 +1,31 @@
+schema: deliverhq-traceability
+version: 1
+
+CR-021:
+  requirement: "Article Page Conversion Redesign"
+  priority: "P0"
+  acceptance_criteria:
+    - "Sample article page has one H1 after deploy"
+    - "TOC includes H2 only"
+    - "Scanner CTA and three money page links are retained"
+    - "article_sidebar sponsor slot is retained"
+  implementation:
+    - file: "wordpress/theme/usegeo/single.php"
+      type: "theme-code"
+    - file: "wordpress/theme/usegeo/assets/css/single.css"
+      type: "theme-code"
+    - file: "DeliverHQ/change-requests/CR-021/evidence/verify_article_redesign.py"
+      type: "verification"
+  tests:
+    - file: "DeliverHQ/change-requests/CR-021/evidence/verify_article_redesign.py"
+      cases:
+        - name: "article redesign acceptance"
+          covers: "H1, TOC, CTA, links, sponsor slot"
+          type: "static-and-production-verification"
+  verification:
+    - gate: "SpecGate"
+      status: "planned"
+    - gate: "PreDevGate"
+      status: "planned"
+    - gate: "LocalVerifier"
+      status: "planned"

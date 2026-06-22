@@ -1,0 +1,16 @@
+{
+  "zip_path": "dist/usegeo-theme-cr021-article-redesign-20260622-183158.zip",
+  "size_bytes": 74432,
+  "top_level": [
+    "usegeo"
+  ],
+  "backslash_entries": 0,
+  "entry_count": 44,
+  "required_files": {
+    "usegeo/style.css": true,
+    "usegeo/functions.php": true,
+    "usegeo/single.php": true,
+    "usegeo/assets/css/single.css": true
+  },
+  "passed": true
+}

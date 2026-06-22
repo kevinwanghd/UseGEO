@@ -1,0 +1,18 @@
+schema: deliverhq-goal-contract
+version: 1
+cr_id: CR-021
+goal: Article Page Conversion Redesign
+must:
+  - remove duplicate first H1 from rendered content
+  - keep TOC to H2 entries only
+  - preserve scanner CTA and money page links
+  - preserve article_sidebar sponsor slot
+  - improve article page visual hierarchy
+must_not:
+  - change article URLs
+  - change public form field names
+  - remove sponsor slot or scanner path
+  - upload production without Kevin confirmation
+success_metrics:
+  production_h1_count: 1
+  local_verifier_passed: true

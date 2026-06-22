@@ -1,0 +1,56 @@
+{
+  "mode": "local",
+  "passed": true,
+  "checks": [
+    {
+      "name": "duplicate_h1_strip_helper_present",
+      "passed": true
+    },
+    {
+      "name": "toc_h2_only",
+      "passed": true
+    },
+    {
+      "name": "sponsor_slot_retained",
+      "passed": true
+    },
+    {
+      "name": "three_money_links_retained",
+      "passed": true,
+      "missing": []
+    },
+    {
+      "name": "scanner_cta_retained",
+      "passed": true
+    },
+    {
+      "name": "mid_cta_removed",
+      "passed": true
+    },
+    {
+      "name": "new_article_shell_classes",
+      "passed": true
+    },
+    {
+      "name": "css_rewritten_classes_present",
+      "passed": true
+    },
+    {
+      "name": "old_heavy_hero_removed",
+      "passed": true
+    },
+    {
+      "name": "no_em_dash_visible_copy",
+      "passed": true
+    },
+    {
+      "name": "no_fake_screenshot",
+      "passed": true
+    },
+    {
+      "name": "static_balanced_delimiters",
+      "passed": true,
+      "errors": []
+    }
+  ]
+}
