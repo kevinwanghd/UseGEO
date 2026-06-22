@@ -1,0 +1,18 @@
+schema: deliverhq-goal-contract
+version: 1
+cr_id: CR-019
+goal: Sponsor Reporting & Inventory Tracking
+must:
+  - push sponsor_click with placement and sponsor_url
+  - push sponsor_impression with placement only
+  - support sponsor start_date and end_date
+  - hide expired sponsor slots
+  - use noopener sponsored nofollow on sponsor links
+must_not:
+  - upload production without Kevin confirmation
+  - send external messages
+  - record user identity in impression event
+success_metrics:
+  local_verifier_passed: true
+  sponsor_rel_safe: true
+  impression_url_payload: false

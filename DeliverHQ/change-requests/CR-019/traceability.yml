@@ -1,0 +1,32 @@
+schema: deliverhq-traceability
+version: 1
+
+CR-019:
+  requirement: "Sponsor Reporting & Inventory Tracking"
+  priority: "P1"
+  acceptance_criteria:
+    - "sponsor_click includes placement and sponsor_url"
+    - "sponsor_impression includes placement only"
+    - "Sponsor admin supports start_date and end_date"
+    - "Expired sponsor slots are hidden"
+    - "Sponsor links use noopener sponsored nofollow"
+  implementation:
+    - file: "wordpress/theme/usegeo/inc/admin.php"
+      type: "theme-code"
+    - file: "wordpress/theme/usegeo/assets/js/tracking.js"
+      type: "theme-code"
+    - file: "DeliverHQ/change-requests/CR-019/evidence/verify_sponsor_reporting.py"
+      type: "verification"
+  tests:
+    - file: "DeliverHQ/change-requests/CR-019/evidence/verify_sponsor_reporting.py"
+      cases:
+        - name: "local sponsor reporting acceptance"
+          covers: "click event, impression event, dates, rel safety"
+          type: "static-and-production-verification"
+  verification:
+    - gate: "SpecGate"
+      status: "planned"
+    - gate: "PreDevGate"
+      status: "planned"
+    - gate: "LocalVerifier"
+      status: "planned"

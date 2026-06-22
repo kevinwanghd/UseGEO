@@ -1,0 +1,59 @@
+{
+  "mode": "local",
+  "passed": true,
+  "checks": [
+    {
+      "name": "sponsor_date_fields_defaulted",
+      "passed": true
+    },
+    {
+      "name": "sponsor_date_admin_inputs",
+      "passed": true
+    },
+    {
+      "name": "sponsor_date_sanitized",
+      "passed": true
+    },
+    {
+      "name": "active_window_helper_present",
+      "passed": true
+    },
+    {
+      "name": "render_checks_active_window",
+      "passed": true
+    },
+    {
+      "name": "sponsor_data_attributes",
+      "passed": true
+    },
+    {
+      "name": "sponsor_rel_safe",
+      "passed": true
+    },
+    {
+      "name": "tracking_sponsor_click_event",
+      "passed": true
+    },
+    {
+      "name": "tracking_sponsor_impression_event",
+      "passed": true
+    },
+    {
+      "name": "impression_payload_placement_only",
+      "passed": true
+    },
+    {
+      "name": "click_payload_has_url",
+      "passed": true
+    },
+    {
+      "name": "no_tracking_network_request",
+      "passed": true
+    },
+    {
+      "name": "static_balanced_delimiters",
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

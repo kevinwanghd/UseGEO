@@ -94,6 +94,43 @@
     }
   });
 
+
+  // Sponsor click and impression tracking
+  document.addEventListener('click', function(e) {
+    var sponsorLink = e.target.closest('.usegeo-sponsor-card a[href]');
+    if (!sponsorLink) return;
+    var sponsorCard = sponsorLink.closest('.usegeo-sponsor-card');
+    var placement = sponsorCard && sponsorCard.getAttribute('data-usegeo-sponsor-slot') || '';
+    var sponsorUrl = sponsorCard && sponsorCard.getAttribute('data-usegeo-sponsor-url') || sponsorLink.href || '';
+    window.usegeoTrackEvent('sponsor_click', {
+      event_category: 'sponsor',
+      placement: placement,
+      sponsor_url: sponsorUrl
+    });
+  });
+
+  function trackSponsorImpression(card) {
+    if (!card || card.dataset.usegeoSponsorImpressionTracked === 'yes') return;
+    card.dataset.usegeoSponsorImpressionTracked = 'yes';
+    window.usegeoTrackEvent('sponsor_impression', {
+      event_category: 'sponsor',
+      placement: card.getAttribute('data-usegeo-sponsor-slot') || ''
+    });
+  }
+
+  var sponsorCards = Array.prototype.slice.call(document.querySelectorAll('.usegeo-sponsor-card[data-usegeo-sponsor-slot]'));
+  if ('IntersectionObserver' in window) {
+    var sponsorObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          trackSponsorImpression(entry.target);
+          sponsorObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    sponsorCards.forEach(function(card) { sponsorObserver.observe(card); });
+  }
+
   // CTA click tracking
   document.addEventListener('click', function(e) {
     var target = e.target.closest('a[href], button');

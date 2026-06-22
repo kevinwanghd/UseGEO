@@ -1,0 +1,13 @@
+schema: deliverhq-plan
+version: 1
+cr_id: CR-019
+lane: standard
+steps:
+  - id: spec
+    status: completed
+  - id: implement-sponsor-dates
+    status: planned
+  - id: implement-tracking-events
+    status: planned
+  - id: verify-package
+    status: planned

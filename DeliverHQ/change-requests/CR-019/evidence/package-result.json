@@ -1,0 +1,16 @@
+{
+  "zip_path": "dist/usegeo-theme-cr019-sponsor-reporting-20260622-174125.zip",
+  "size_bytes": 74141,
+  "top_level": [
+    "usegeo"
+  ],
+  "backslash_entries": 0,
+  "entry_count": 44,
+  "required_files": {
+    "usegeo/style.css": true,
+    "usegeo/functions.php": true,
+    "usegeo/inc/admin.php": true,
+    "usegeo/assets/js/tracking.js": true
+  },
+  "passed": true
+}

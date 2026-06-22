@@ -1,0 +1,77 @@
+{
+  "timestamp": "2026-06-22T17:39:48.297759",
+  "commit_hash": "12da3454016cecd742b0e62709a53f27657d113f",
+  "commands_run": [
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-019/evidence/verify_sponsor_reporting.py --mode local",
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-019/evidence/verify_sponsor_reporting.py --mode local"
+  ],
+  "build_passed": false,
+  "build_errors": [
+    "CR-019 sponsor reporting verification (local): FAIL\n- FAIL: sponsor_date_fields_defaulted\n- FAIL: sponsor_date_admin_inputs\n- FAIL: sponsor_date_sanitized\n- FAIL: active_window_helper_present\n- FAIL: render_checks_active_window\n- FAIL: sponsor_data_attributes\n- FAIL: sponsor_rel_safe\n- FAIL: tracking_sponsor_click_event\n- FAIL: tracking_sponsor_impression_event\n- FAIL: impression_payload_placement_only\n- FAIL: click_payload_has_url\n- PASS: no_tracking_network_request\n- PASS: static_balanced_deli"
+  ],
+  "tests_total": 1,
+  "tests_passed": 0,
+  "tests_failed": 1,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "UseGEO",
+      "type": "wordpress-sponsor-reporting"
+    },
+    "build": {
+      "enabled": true,
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-019/evidence/verify_sponsor_reporting.py --mode local",
+      "working_dir": ".",
+      "timeout": 120
+    },
+    "test": {
+      "unit": {
+        "enabled": true,
+        "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-019/evidence/verify_sponsor_reporting.py --mode local",
+        "working_dir": ".",
+        "timeout": 120,
+        "coverage_enabled": false
+      }
+    },
+    "lint": {
+      "enabled": false,
+      "tools": []
+    },
+    "typecheck": {
+      "enabled": false
+    },
+    "qualitygate": {
+      "mode": "hybrid",
+      "fail_fast": true,
+      "auto_fix": false
+    }
+  },
+  "command_results": [
+    {
+      "name": "build",
+      "category": "build",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-019/evidence/verify_sponsor_reporting.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": false,
+      "returncode": 1,
+      "stdout": "CR-019 sponsor reporting verification (local): FAIL\n- FAIL: sponsor_date_fields_defaulted\n- FAIL: sponsor_date_admin_inputs\n- FAIL: sponsor_date_sanitized\n- FAIL: active_window_helper_present\n- FAIL: render_checks_active_window\n- FAIL: sponsor_data_attributes\n- FAIL: sponsor_rel_safe\n- FAIL: tracking_sponsor_click_event\n- FAIL: tracking_sponsor_impression_event\n- FAIL: impression_payload_placement_only\n- FAIL: click_payload_has_url\n- PASS: no_tracking_network_request\n- PASS: static_balanced_delimiters\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-019\\evidence\\sponsor-reporting-local-result.json\n",
+      "stderr": ""
+    },
+    {
+      "name": "test-unit",
+      "category": "test",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-019/evidence/verify_sponsor_reporting.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": false,
+      "returncode": 1,
+      "stdout": "CR-019 sponsor reporting verification (local): FAIL\n- FAIL: sponsor_date_fields_defaulted\n- FAIL: sponsor_date_admin_inputs\n- FAIL: sponsor_date_sanitized\n- FAIL: active_window_helper_present\n- FAIL: render_checks_active_window\n- FAIL: sponsor_data_attributes\n- FAIL: sponsor_rel_safe\n- FAIL: tracking_sponsor_click_event\n- FAIL: tracking_sponsor_impression_event\n- FAIL: impression_payload_placement_only\n- FAIL: click_payload_has_url\n- PASS: no_tracking_network_request\n- PASS: static_balanced_delimiters\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-019\\evidence\\sponsor-reporting-local-result.json\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -781,6 +781,8 @@ function usegeo_default_sponsor_slots() {
             'description' => '',
             'cta_label' => '',
             'url' => '',
+            'start_date' => '',
+            'end_date' => '',
         );
     }
     return $defaults;
@@ -808,6 +810,8 @@ function usegeo_render_sponsor_admin_page() {
                 'description' => isset($row['description']) ? sanitize_textarea_field($row['description']) : '',
                 'cta_label' => isset($row['cta_label']) ? sanitize_text_field($row['cta_label']) : '',
                 'url' => isset($row['url']) ? esc_url_raw($row['url']) : '',
+                'start_date' => isset($row['start_date']) ? sanitize_text_field($row['start_date']) : '',
+                'end_date' => isset($row['end_date']) ? sanitize_text_field($row['end_date']) : '',
             );
         }
         update_option('usegeo_sponsor_slots', $next, false);
@@ -827,6 +831,8 @@ function usegeo_render_sponsor_admin_page() {
                     <tr><th><?php esc_html_e('Description', 'usegeo'); ?></th><td><textarea class="large-text" rows="3" name="sponsors[<?php echo esc_attr($placement); ?>][description]"><?php echo esc_textarea($slot['description']); ?></textarea></td></tr>
                     <tr><th><?php esc_html_e('CTA Label', 'usegeo'); ?></th><td><input class="regular-text" name="sponsors[<?php echo esc_attr($placement); ?>][cta_label]" value="<?php echo esc_attr($slot['cta_label']); ?>"></td></tr>
                     <tr><th><?php esc_html_e('URL', 'usegeo'); ?></th><td><input class="regular-text" type="url" name="sponsors[<?php echo esc_attr($placement); ?>][url]" value="<?php echo esc_attr($slot['url']); ?>"></td></tr>
+                    <tr><th><?php esc_html_e('Start Date', 'usegeo'); ?></th><td><input type="date" name="sponsors[<?php echo esc_attr($placement); ?>][start_date]" value="<?php echo esc_attr($slot['start_date']); ?>"> <p class="description"><?php esc_html_e('Optional. Leave blank to show immediately.', 'usegeo'); ?></p></td></tr>
+                    <tr><th><?php esc_html_e('End Date', 'usegeo'); ?></th><td><input type="date" name="sponsors[<?php echo esc_attr($placement); ?>][end_date]" value="<?php echo esc_attr($slot['end_date']); ?>"> <p class="description"><?php esc_html_e('Optional. Leave blank to keep showing until manually disabled.', 'usegeo'); ?></p></td></tr>
                 </tbody></table>
             <?php endforeach; ?>
             <?php submit_button(__('Save Sponsor Slots', 'usegeo')); ?>
@@ -835,16 +841,33 @@ function usegeo_render_sponsor_admin_page() {
     <?php
 }
 
+function usegeo_is_sponsor_slot_in_active_window($slot) {
+    $today = current_time('Y-m-d');
+    $start_date = isset($slot['start_date']) ? trim((string) $slot['start_date']) : '';
+    $end_date = isset($slot['end_date']) ? trim((string) $slot['end_date']) : '';
+
+    if ($start_date && $today < $start_date) {
+        return false;
+    }
+
+    if ($end_date && $today > $end_date) {
+        return false;
+    }
+
+    return true;
+}
+
 function usegeo_render_sponsor_slot($placement) {
     $slots = usegeo_get_sponsor_slots();
     if (empty($slots[$placement]) || $slots[$placement]['active'] !== 'yes' || !$slots[$placement]['title'] || !$slots[$placement]['url']) return;
     $slot = $slots[$placement];
+    if (!usegeo_is_sponsor_slot_in_active_window($slot)) return;
     ?>
-    <aside class="usegeo-sponsor-card usegeo-card" data-usegeo-sponsor-slot="<?php echo esc_attr($placement); ?>">
+    <aside class="usegeo-sponsor-card usegeo-card" data-usegeo-sponsor-slot="<?php echo esc_attr($placement); ?>" data-usegeo-sponsor-url="<?php echo esc_url($slot['url']); ?>" data-usegeo-sponsor-active-window="<?php echo esc_attr(($slot['start_date'] ?: 'open') . ':' . ($slot['end_date'] ?: 'open')); ?>">
         <span class="usegeo-sponsor-card__label"><?php esc_html_e('Sponsored', 'usegeo'); ?></span>
         <h3><?php echo esc_html($slot['title']); ?></h3>
         <?php if ($slot['description']) : ?><p><?php echo esc_html($slot['description']); ?></p><?php endif; ?>
-        <a class="usegeo-inline-cta usegeo-inline-cta--ghost" href="<?php echo esc_url($slot['url']); ?>" target="_blank" rel="noopener sponsored"><?php echo esc_html($slot['cta_label'] ?: __('Learn more', 'usegeo')); ?></a>
+        <a class="usegeo-inline-cta usegeo-inline-cta--ghost" href="<?php echo esc_url($slot['url']); ?>" target="_blank" rel="noopener sponsored nofollow"><?php echo esc_html($slot['cta_label'] ?: __('Learn more', 'usegeo')); ?></a>
     </aside>
     <?php
 }
