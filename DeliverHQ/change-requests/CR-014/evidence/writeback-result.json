@@ -1,0 +1,25 @@
+{
+  "gate_name": "writeback",
+  "result": "pass",
+  "timestamp": "2026-06-22T10:02:11.996440",
+  "blocking_items": [],
+  "warnings": [
+    "存在未提交文件，确认是否已归档",
+    "writeback-report.md 未明确说明是否产生规则候选",
+    "完成后需归档到 delivery/YYYY-MM/"
+  ],
+  "commands_run": [],
+  "artifacts": [
+    "writeback-report.md",
+    "docs/rules-candidates.md"
+  ],
+  "next_action": "进入归档流程",
+  "failure_attribution": [],
+  "metadata": {
+    "current_state": "archived",
+    "current_phase": "writeback",
+    "current_owner": "writeback-agent",
+    "requires_human": false,
+    "worktree_path": null
+  }
+}

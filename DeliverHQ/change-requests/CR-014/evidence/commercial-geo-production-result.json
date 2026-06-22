@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "slug": "best-ai-visibility-tools",
+      "wp_slug": "best-ai-visibility-tools",
+      "mode": "production",
+      "status": 200,
+      "word_count": 1689,
+      "faq_count": 6,
+      "scanner_cta_count": 9,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "geo-tools-what-to-look-for",
+      "wp_slug": "geo-tools-what-to-look-for",
+      "mode": "production",
+      "status": 200,
+      "word_count": 1667,
+      "faq_count": 6,
+      "scanner_cta_count": 9,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "chatgpt-visibility-checker-what-it-can-and-cannot-measure",
+      "wp_slug": "chatgpt-visibility-checker-what-it-can-and-cannot-measure",
+      "mode": "production",
+      "status": 200,
+      "word_count": 1639,
+      "faq_count": 6,
+      "scanner_cta_count": 9,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "how-to-choose-a-geo-agency",
+      "wp_slug": "how-to-choose-a-geo-agency",
+      "mode": "production",
+      "status": 200,
+      "word_count": 1614,
+      "faq_count": 6,
+      "scanner_cta_count": 9,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "geo-audit-what-should-be-included",
+      "wp_slug": "geo-audit-what-should-be-included",
+      "mode": "production",
+      "status": 200,
+      "word_count": 1632,
+      "faq_count": 6,
+      "scanner_cta_count": 9,
+      "internal_link_count": 3,
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

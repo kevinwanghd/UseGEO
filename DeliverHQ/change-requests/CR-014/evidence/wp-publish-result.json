@@ -1,0 +1,49 @@
+{
+  "results": [
+    {
+      "key": "best-ai-visibility-tools",
+      "slug": "best-ai-visibility-tools",
+      "action": "created",
+      "status": 201,
+      "id": 1521,
+      "link": "https://usegeo.blog/best-ai-visibility-tools/",
+      "modified_gmt": "2026-06-22T02:01:00"
+    },
+    {
+      "key": "geo-tools-what-to-look-for",
+      "slug": "geo-tools-what-to-look-for",
+      "action": "created",
+      "status": 201,
+      "id": 1522,
+      "link": "https://usegeo.blog/geo-tools-what-to-look-for/",
+      "modified_gmt": "2026-06-22T02:01:01"
+    },
+    {
+      "key": "chatgpt-visibility-checker-what-it-can-and-cannot-measure",
+      "slug": "chatgpt-visibility-checker-what-it-can-and-cannot-measure",
+      "action": "created",
+      "status": 201,
+      "id": 1523,
+      "link": "https://usegeo.blog/chatgpt-visibility-checker-what-it-can-and-cannot-measure/",
+      "modified_gmt": "2026-06-22T02:01:03"
+    },
+    {
+      "key": "how-to-choose-a-geo-agency",
+      "slug": "how-to-choose-a-geo-agency",
+      "action": "created",
+      "status": 201,
+      "id": 1524,
+      "link": "https://usegeo.blog/how-to-choose-a-geo-agency/",
+      "modified_gmt": "2026-06-22T02:01:04"
+    },
+    {
+      "key": "geo-audit-what-should-be-included",
+      "slug": "geo-audit-what-should-be-included",
+      "action": "created",
+      "status": 201,
+      "id": 1525,
+      "link": "https://usegeo.blog/geo-audit-what-should-be-included/",
+      "modified_gmt": "2026-06-22T02:01:05"
+    }
+  ]
+}

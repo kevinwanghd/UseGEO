@@ -1,0 +1,271 @@
+{
+  "best-ai-visibility-tools": {
+    "title": "Best AI Visibility Tools: Categories to Compare Before You Buy",
+    "wp_slug": "best-ai-visibility-tools",
+    "category": "measurement",
+    "keywords": [
+      "best AI visibility tools",
+      "AI visibility tools",
+      "GEO tools",
+      "AI search visibility software"
+    ],
+    "links": [
+      "/ai-visibility-tools/",
+      "/#scanner",
+      "/geo-tools-what-to-look-for/"
+    ],
+    "quick": "The best AI visibility tool depends on the decision you need to make. Some tools are readiness scanners, some audit content and entity clarity, some monitor prompt samples, and some check technical extractability. Start with categories before rankings, because fake Top 10 lists often hide the most important question: what action will this tool help your team take?",
+    "sections": [
+      [
+        "Start with categories, not a fake Top 10",
+        "AI visibility is still a young category. Ranking specific tools without a clear method creates false confidence. A better buying guide starts by explaining the tool categories: readiness scanners, content audit tools, prompt monitoring platforms, technical SEO/schema tools, and workflow systems."
+      ],
+      [
+        "Readiness scanners",
+        "Readiness scanners help early teams inspect one page and find visible signal gaps. They are useful before you buy a large platform because they tell you whether the problem is entity clarity, proof, comparison content, or extractability."
+      ],
+      [
+        "Content and entity audit tools",
+        "Content audit tools help teams review many pages for missing definitions, weak headings, poor proof, and thin comparison language. They are useful when the team already knows it needs a content improvement workflow."
+      ],
+      [
+        "Prompt monitoring platforms",
+        "Monitoring platforms sample AI answers across chosen prompts. They can reveal patterns, but they do not observe every private AI session. Use them after your core pages are already clear enough to deserve monitoring."
+      ],
+      [
+        "Technical extraction tools",
+        "Technical tools inspect crawlability, schema, canonicals, rendered content, and internal links. They matter because even strong content can be invisible or confusing if the page is technically hard to extract."
+      ]
+    ],
+    "checklist": [
+      "Define the decision the tool must support.",
+      "Ask for visible evidence behind every score.",
+      "Prefer tools that explain limits and sampling methods.",
+      "Check whether output can become an editorial or technical task.",
+      "Avoid vendors promising AI ranking certainty.",
+      "Leave room for sponsor or affiliate insertion only after partner evaluation."
+    ],
+    "mistakes": [
+      "Buying a dashboard before fixing obvious page gaps.",
+      "Trusting a Top 10 list with no evaluation criteria.",
+      "Treating prompt samples as complete measurement.",
+      "Ignoring technical extractability.",
+      "Choosing one tool category for every maturity stage."
+    ]
+  },
+  "geo-tools-what-to-look-for": {
+    "title": "GEO Tools: What to Look For Before You Buy",
+    "wp_slug": "geo-tools-what-to-look-for",
+    "category": "measurement",
+    "keywords": [
+      "GEO tools what to look for",
+      "generative engine optimization tools",
+      "GEO software buying criteria"
+    ],
+    "links": [
+      "/ai-visibility-tools/",
+      "/geo-checklist/",
+      "/#scanner"
+    ],
+    "quick": "A useful GEO tool should show evidence, explain limits, and turn findings into action. Look for page-level diagnostics, transparent prompt sampling, content and entity checks, technical extractability review, and exportable recommendations. Avoid tools that reduce GEO to one mysterious score or push you toward a single tactic before diagnosing the actual gap.",
+    "sections": [
+      [
+        "The core buying standard",
+        "A GEO tool is only useful if it helps you decide what to change. A score can start a conversation, but the real value is in findings: which page is unclear, which proof signal is missing, which comparison section is thin, and which technical issue blocks extraction."
+      ],
+      [
+        "Evidence quality",
+        "Ask whether the tool shows the source, page, prompt, rule, or sample behind a finding. A black-box score may be fine for a quick snapshot, but it is weak as an operating system for content work."
+      ],
+      [
+        "Workflow fit",
+        "The tool should map to the team that will use it. Writers need briefs and examples. SEO teams need crawl and schema checks. Executives need trend summaries. Agencies need exportable findings and clear scopes."
+      ],
+      [
+        "Red flags",
+        "Be cautious with tools that promise guaranteed AI placements, hide methodology, push one vendor category, or treat schema as a magic fix. Strong vendors explain uncertainty instead of pretending the market is fully measurable."
+      ],
+      [
+        "A practical buying process",
+        "Run a scanner, list the visible gaps, decide which category of tool matches the gap, then test one workflow. Do not buy the broadest platform first if your homepage still cannot explain the company clearly."
+      ]
+    ],
+    "checklist": [
+      "Does the tool show evidence behind findings?",
+      "Can the output become a task?",
+      "Does it explain sampling limits?",
+      "Does it support content and technical workflows?",
+      "Can it export findings for a partner or agency?",
+      "Does pricing match your maturity stage?"
+    ],
+    "mistakes": [
+      "Choosing a tool because the category is trendy.",
+      "Ignoring whether your team can act on the output.",
+      "Accepting precise-looking numbers without methodology.",
+      "Buying monitoring before improving public evidence.",
+      "Letting a vendor define your GEO strategy."
+    ]
+  },
+  "chatgpt-visibility-checker-what-it-can-and-cannot-measure": {
+    "title": "ChatGPT Visibility Checker: What It Can and Cannot Measure",
+    "wp_slug": "chatgpt-visibility-checker-what-it-can-and-cannot-measure",
+    "category": "measurement",
+    "keywords": [
+      "ChatGPT visibility checker",
+      "ChatGPT brand visibility",
+      "AI recommendation checker",
+      "ChatGPT SEO visibility"
+    ],
+    "links": [
+      "/ai-visibility-tools/",
+      "/#scanner",
+      "/what-is-ai-visibility/"
+    ],
+    "quick": "A ChatGPT visibility checker can sample whether your brand appears for selected prompts, but it cannot precisely measure every ChatGPT recommendation. Results vary by prompt, model, retrieval mode, time, geography, account context, and personalization. Use a checker for directional patterns, not as proof that your brand is visible or invisible in all AI answers.",
+    "sections": [
+      [
+        "What a checker can measure",
+        "A checker can run a defined set of prompts and record whether a brand appears, which competitors appear, and what sources or claims show up. This is useful for snapshots and trends when the prompt set is transparent."
+      ],
+      [
+        "What it cannot measure",
+        "It cannot see every private user prompt, every model variant, every browsing or retrieval mode, or every personalized answer. Any vendor claiming complete visibility into all ChatGPT recommendations is overclaiming."
+      ],
+      [
+        "How to design a useful prompt set",
+        "Use buyer questions that match real commercial intent: category research, tool comparison, agency selection, troubleshooting, and buying criteria. Avoid random prompts that do not map to actual decisions."
+      ],
+      [
+        "How to connect checks to action",
+        "If your brand is absent, do not jump straight to prompt manipulation. Inspect your public pages. Missing mentions often reflect unclear category language, weak proof, thin comparison context, or limited third-party evidence."
+      ],
+      [
+        "Compliance and wording",
+        "When reporting results internally, say “sampled prompts” and “directional pattern.” Do not say the tool proves complete ChatGPT ranking or universal recommendation coverage."
+      ]
+    ],
+    "checklist": [
+      "Record exact prompts and dates.",
+      "Separate sampled visibility from complete measurement.",
+      "Track competitors and sources, not only your own brand.",
+      "Map absence to page-level signal gaps.",
+      "Re-run after meaningful content changes.",
+      "Use careful language in reports."
+    ],
+    "mistakes": [
+      "Claiming precise ChatGPT ranking.",
+      "Testing one prompt and making a broad conclusion.",
+      "Ignoring prompt design.",
+      "Treating absence as purely technical.",
+      "Reporting sampled results as universal truth."
+    ]
+  },
+  "how-to-choose-a-geo-agency": {
+    "title": "How to Choose a GEO Agency",
+    "wp_slug": "how-to-choose-a-geo-agency",
+    "category": "strategy",
+    "keywords": [
+      "how to choose a GEO agency",
+      "GEO agency selection",
+      "AI visibility agency criteria",
+      "generative engine optimization agency"
+    ],
+    "links": [
+      "/best-geo-agencies/",
+      "/#scanner",
+      "/geo-audit-what-should-be-included/"
+    ],
+    "quick": "Choose a GEO agency by evaluating its diagnostic process, content judgment, technical SEO ability, proof standards, and measurement honesty. A good agency explains what it can improve and what it cannot control. It should help you strengthen public evidence, not promise guaranteed AI recommendations. The best first engagement is often a focused audit or page sprint, not a broad retainer.",
+    "sections": [
+      [
+        "Start with your constraint",
+        "Before evaluating agencies, decide whether your main constraint is positioning, content architecture, technical SEO, proof assets, or measurement. Different agencies are strong in different areas."
+      ],
+      [
+        "Selection criteria",
+        "Look for page-level audit examples, clear writing judgment, technical SEO competence, comparison content experience, proof-building ability, and transparent measurement language. Ask how they turn findings into deliverables."
+      ],
+      [
+        "Questions to ask",
+        "Ask what pages they would review first, what they consider a strong proof signal, how they handle prompt monitoring uncertainty, what they will not claim, and how they scope a first phase."
+      ],
+      [
+        "Partner lead fit",
+        "If you are open to partner follow-up, share the scanner results, budget range, region, and timeline. That lets UseGEO or a partner route the need without treating every visitor as ready for a full retainer."
+      ],
+      [
+        "Red flags",
+        "Avoid agencies that promise guaranteed AI placements, hide methodology, publish fake rankings, ignore SEO foundations, or cannot show concrete page examples."
+      ]
+    ],
+    "checklist": [
+      "Can they explain their audit method?",
+      "Do they show page-level examples?",
+      "Can they write clear comparison and proof content?",
+      "Do they understand technical SEO and schema limits?",
+      "Do they avoid guaranteed-placement claims?",
+      "Can they scope a small first phase?"
+    ],
+    "mistakes": [
+      "Choosing based only on trend language.",
+      "Skipping diagnostic work.",
+      "Buying a broad retainer before knowing the gap.",
+      "Ignoring consent and lead quality.",
+      "Assuming every GEO problem needs the same agency type."
+    ]
+  },
+  "geo-audit-what-should-be-included": {
+    "title": "GEO Audit: What Should Be Included?",
+    "wp_slug": "geo-audit-what-should-be-included",
+    "category": "strategy",
+    "keywords": [
+      "GEO audit what should be included",
+      "generative engine optimization audit",
+      "AI visibility audit checklist",
+      "GEO audit deliverables"
+    ],
+    "links": [
+      "/best-geo-agencies/",
+      "/geo-checklist/",
+      "/#scanner"
+    ],
+    "quick": "A useful GEO audit should review entity clarity, content structure, proof signals, comparison readiness, technical extractability, internal links, schema opportunities, and measurement limits. It should produce prioritized page-level recommendations, not only a score. UseGEO does not need to self-deliver every audit; the scanner can help qualify the gap and route appropriate partner follow-up.",
+    "sections": [
+      [
+        "The purpose of a GEO audit",
+        "A GEO audit turns vague AI visibility concern into visible page-level work. It should explain what signals are missing, why they matter, and what to fix first."
+      ],
+      [
+        "Core audit sections",
+        "A strong audit includes entity clarity, first-screen positioning, H1/title/meta alignment, headings, proof blocks, comparison content, FAQ quality, internal links, crawlability, schema, and next-step CTAs."
+      ],
+      [
+        "Deliverables",
+        "Useful deliverables include a priority list, page-by-page findings, before/after examples, content briefs, technical notes, schema recommendations, and a measurement plan. A dashboard screenshot alone is not enough."
+      ],
+      [
+        "What the audit should not promise",
+        "An audit should not promise that a brand will appear in every AI answer. It should improve public evidence and decision readiness. That is valuable even when AI systems remain partly unpredictable."
+      ],
+      [
+        "How to use audit results",
+        "Start with the top three page fixes. Update the homepage or a commercial guide, add proof, improve comparison context, and run the scanner again. Then decide whether a partner, agency, or tool is needed."
+      ]
+    ],
+    "checklist": [
+      "Entity clarity review.",
+      "Proof and case-study review.",
+      "Comparison readiness review.",
+      "Technical extractability and schema review.",
+      "Internal link and CTA review.",
+      "Prioritized implementation plan."
+    ],
+    "mistakes": [
+      "Accepting an audit with no page-level findings.",
+      "Treating prompt monitoring as the whole audit.",
+      "Ignoring proof and comparison pages.",
+      "Publishing schema recommendations that do not match visible content.",
+      "Assuming UseGEO must personally deliver the full service."
+    ]
+  }
+}
