@@ -1,0 +1,222 @@
+{
+  "what-is-generative-engine-optimization": {
+    "title": "What Is Generative Engine Optimization?",
+    "wp_slug": "what-is-geo-generative-engine-optimization",
+    "category": "geo-fundamentals",
+    "keywords": [
+      "what is generative engine optimization",
+      "GEO meaning",
+      "generative engine optimization definition"
+    ],
+    "links": [
+      "/geo-checklist/",
+      "/#scanner",
+      "/ai-visibility-tools/"
+    ],
+    "quick": "Generative Engine Optimization, or GEO, is the practice of making your public web content easier for AI answer systems to understand, cite, compare, and recommend. It does not replace SEO. It extends SEO by focusing on entity clarity, answer-ready structure, proof, comparison context, and technical extractability.",
+    "sections": [
+      [
+        "GEO in plain English",
+        "GEO is about being understandable in AI-assisted discovery moments. A buyer may ask ChatGPT, Claude, Gemini, Perplexity, or an AI search feature which brands, tools, agencies, or approaches they should consider. Your website cannot control that answer, but it can provide clearer source material for systems and humans that evaluate your category."
+      ],
+      [
+        "Why GEO exists now",
+        "Search behavior is changing from ten blue links toward summarized research. Buyers still visit websites, but they often arrive after an AI system has compressed the category for them. If your pages are vague, unsupported, or hard to extract, they are less useful as source material. GEO is the operating discipline for improving that source material."
+      ],
+      [
+        "How GEO differs from old keyword stuffing",
+        "GEO is not repeating a phrase until it sounds unnatural. It is making the page easier to parse. A good GEO page names the entity, explains the problem, shows proof, answers follow-up questions, and links to deeper context. It should help a human buyer first; AI extractability follows from that clarity."
+      ],
+      [
+        "The core signals",
+        "The recurring signals are entity clarity, content structure, proof signals, comparison readiness, and AI extractability. These are visible, practical, and testable. A team can improve them without pretending to reverse-engineer a private model."
+      ],
+      [
+        "How to start",
+        "Start with one page. Run a scan, inspect the first screen, check headings, look for proof, and ask whether a buyer could summarize your company from the page alone. Then fix the most obvious gap before buying a complex monitoring suite."
+      ]
+    ],
+    "mistakes": [
+      "Treating GEO as a trick instead of a content quality practice.",
+      "Promising specific AI rankings that no team can control.",
+      "Ignoring classic SEO foundations such as crawlability and internal links.",
+      "Publishing generic definitions without examples or proof."
+    ]
+  },
+  "geo-vs-seo": {
+    "title": "GEO vs SEO: What Actually Changes?",
+    "wp_slug": "geo-vs-seo-ai-content-differences",
+    "category": "geo-vs-seo",
+    "keywords": [
+      "GEO vs SEO",
+      "generative engine optimization vs SEO",
+      "AI search vs Google search"
+    ],
+    "links": [
+      "/geo-checklist/",
+      "/ai-visibility-tools/",
+      "/#scanner"
+    ],
+    "quick": "SEO helps pages get discovered, crawled, indexed, and ranked in search engines. GEO helps pages become easier for AI systems to understand and reuse in answer-style discovery. The best strategy is not GEO instead of SEO. It is SEO foundations plus clearer entities, proof, comparison context, and answer-ready content.",
+    "sections": [
+      [
+        "What stays the same",
+        "Technical SEO still matters. Pages need to be crawlable, indexable, fast enough, canonicalized, internally linked, and useful. If Google or Bing cannot access a page, AI discovery will not magically fix it. GEO starts from the same web foundations."
+      ],
+      [
+        "What changes",
+        "The unit of discovery shifts from a search result page to a summarized answer or recommendation. That puts more pressure on clarity. A model or AI search feature needs to know what your company is, who it serves, what evidence supports the claim, and how it compares to alternatives."
+      ],
+      [
+        "Keyword targeting vs answer readiness",
+        "SEO often starts with a keyword map. GEO starts with buyer questions and answer fragments. You still care about terms such as AI visibility or GEO checklist, but the page also needs concise definitions, criteria, examples, mistakes, and FAQs that can stand alone."
+      ],
+      [
+        "Proof becomes more important",
+        "AI-assisted buyers ask recommendation-style questions. Recommendation requires evidence. Testimonials, case studies, named use cases, integration details, and comparison pages all help explain why one brand belongs in a consideration set."
+      ],
+      [
+        "How teams should adapt",
+        "Do not throw away SEO. Add GEO review to your existing content workflow. Before publishing a commercial page, check whether it names the entity, answers the core question early, links to related guides, and gives a next step such as running a scanner."
+      ]
+    ],
+    "mistakes": [
+      "Saying GEO kills SEO. It does not.",
+      "Measuring only prompt mentions before fixing thin pages.",
+      "Writing for models in a way that becomes worse for human readers.",
+      "Confusing a monitoring dashboard with an improvement plan."
+    ]
+  },
+  "what-is-ai-visibility": {
+    "title": "What Is AI Visibility?",
+    "wp_slug": "what-is-ai-visibility",
+    "category": "measurement",
+    "keywords": [
+      "what is AI visibility",
+      "AI visibility SEO",
+      "brand visibility in AI search"
+    ],
+    "links": [
+      "/ai-visibility-tools/",
+      "/geo-checklist/",
+      "/#scanner"
+    ],
+    "quick": "AI visibility is the degree to which your brand, products, content, or expertise can be found, understood, and mentioned in AI-assisted discovery. It is not a single universal ranking. It is a mix of public evidence, content clarity, third-party signals, technical accessibility, and how well your pages answer the questions buyers ask.",
+    "sections": [
+      [
+        "A practical definition",
+        "AI visibility means your brand has enough clear public context to be included when people use AI systems for research. That can include appearing in AI search results, being cited as a source, being summarized accurately, or being considered in recommendation-style answers."
+      ],
+      [
+        "What you can measure",
+        "You can measure readiness signals on your own pages, such as entity clarity, headings, proof, schema, internal links, and comparison content. You can also sample AI answers with defined prompts. Both are useful, but neither is a perfect view of every private AI session."
+      ],
+      [
+        "What you cannot measure precisely",
+        "No tool can see every prompt, every model variant, every retrieval source, and every personalized answer. Treat AI visibility metrics as directional evidence. The more transparent the method, the more useful the metric."
+      ],
+      [
+        "Why content quality matters",
+        "AI visibility depends on source material. If your website only says broad things like transform your growth, there is little for a system to reuse. If your pages explain the category, show proof, and answer buyer questions, they become better source material."
+      ],
+      [
+        "How to improve it",
+        "Improve the pages that buyers and crawlers already use: homepage, product pages, comparison pages, case studies, FAQs, and educational guides. Then monitor a small set of important questions to see whether the market narrative is moving in the right direction."
+      ]
+    ],
+    "mistakes": [
+      "Treating AI visibility as one exact score.",
+      "Assuming a tool can observe every AI answer.",
+      "Ignoring public page quality while chasing mentions.",
+      "Making claims about model behavior without evidence."
+    ]
+  },
+  "why-your-brand-does-not-show-up-in-chatgpt-recommendations": {
+    "title": "Why Your Brand Does Not Show Up in ChatGPT Recommendations",
+    "wp_slug": "why-your-brand-does-not-show-up-in-chatgpt-recommendations",
+    "category": "geo-fundamentals",
+    "keywords": [
+      "why ChatGPT doesn't recommend my brand",
+      "brand not showing up in ChatGPT",
+      "AI recommendations brand visibility"
+    ],
+    "links": [
+      "/#scanner",
+      "/geo-checklist/",
+      "/best-geo-agencies/"
+    ],
+    "quick": "If your brand does not show up in ChatGPT-style recommendations, the cause is usually not one hidden switch. Common reasons include unclear positioning, thin public content, missing proof, weak comparison context, limited third-party signals, and technical pages that are hard to extract. You cannot control every answer, but you can improve the signals AI systems and buyers can see.",
+    "sections": [
+      [
+        "Start with uncertainty",
+        "AI recommendations vary by prompt, model, retrieval mode, freshness, and user context. A missing mention in one test does not prove your brand is invisible everywhere. But repeated absence across important category prompts can reveal a real signal gap."
+      ],
+      [
+        "Your category may be unclear",
+        "If your homepage does not clearly name your category, audience, and use case, an AI system has less reason to place you in a recommendation set. Vague positioning makes the brand hard to compare."
+      ],
+      [
+        "Your proof may be too thin",
+        "Recommendation requires confidence. Case studies, customer examples, testimonials, reviews, integrations, and specific outcomes all reduce uncertainty. Without proof, your brand may be mentioned less often than competitors with clearer evidence."
+      ],
+      [
+        "Your comparison context may be missing",
+        "People ask AI systems which tools or agencies to consider. If your site never explains alternatives, tradeoffs, best-fit customers, or decision criteria, the system may rely on outside sources or better-structured competitor pages."
+      ],
+      [
+        "What to fix first",
+        "Do not start by trying to manipulate prompts. Start with public evidence. Clarify your homepage, add proof, publish comparison or checklist content, fix crawlability, and run a scanner to identify the most visible gaps."
+      ]
+    ],
+    "mistakes": [
+      "Testing one prompt once and drawing a final conclusion.",
+      "Trying to force mentions before improving public evidence.",
+      "Publishing fake awards or unsupported proof.",
+      "Assuming technical schema alone will solve weak positioning."
+    ]
+  },
+  "how-ai-search-chooses-which-brands-to-mention": {
+    "title": "How AI Search Chooses Which Brands to Mention",
+    "wp_slug": "how-ai-search-chooses-which-brands-to-mention",
+    "category": "strategy",
+    "keywords": [
+      "how AI search chooses brands",
+      "how LLMs recommend brands",
+      "AI search brand mentions"
+    ],
+    "links": [
+      "/ai-visibility-tools/",
+      "/best-geo-agencies/",
+      "/#scanner"
+    ],
+    "quick": "AI search and answer systems mention brands when the available evidence makes a brand relevant, understandable, and useful for the question. The exact systems vary, but durable signals include entity clarity, content structure, proof, comparison context, authority signals, and technical extractability. The practical goal is to make your public evidence easier to evaluate.",
+    "sections": [
+      [
+        "There is no single selector",
+        "Different AI systems use different models, indexes, retrieval methods, and answer policies. Some answers are generated from web results, some from internal model knowledge, and some from a mix. That means no outside team can describe one universal ranking formula."
+      ],
+      [
+        "Relevance comes first",
+        "A brand has to match the question. If the user asks for AI visibility tools and your page never uses that language or explains that category, it is harder to select. Clear category language helps systems connect the brand to the query."
+      ],
+      [
+        "Evidence reduces risk",
+        "AI systems tend to be cautious when making recommendations. Public proof, named use cases, reviews, case studies, and specific outcomes make it safer to mention a brand. Unsupported marketing claims are weak evidence."
+      ],
+      [
+        "Comparison context helps recommendations",
+        "Recommendation questions require tradeoffs. Pages that explain who a product is for, when it is not a fit, and how it compares to alternatives provide useful decision boundaries."
+      ],
+      [
+        "A useful checklist",
+        "Check whether your page names the entity, explains the category, answers the buyer question, provides proof, links to related context, and is technically accessible. These improvements help both people and machines."
+      ]
+    ],
+    "mistakes": [
+      "Looking for one secret ranking factor.",
+      "Ignoring relevance and category language.",
+      "Publishing only broad claims without proof.",
+      "Writing academic explanations that do not help buyers choose."
+    ]
+  }
+}

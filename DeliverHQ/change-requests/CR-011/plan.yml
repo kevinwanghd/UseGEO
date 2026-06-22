@@ -1,0 +1,12 @@
+schema: deliverhq-plan
+version: 1
+cr_id: CR-011
+steps:
+  - id: generate-articles
+    status: pending
+  - id: local-verify
+    status: pending
+  - id: publish-production
+    status: pending
+  - id: production-verify
+    status: pending

@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-06-22T09:08:58.649785",
+  "commit_hash": "43484cd0a5cf6aca593fc105ce3696ba5fda0ee8",
+  "commands_run": [
+    "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-011/evidence/verify_geo_basics.py --mode local"
+  ],
+  "build_passed": true,
+  "build_errors": [],
+  "tests_total": 1,
+  "tests_passed": 1,
+  "tests_failed": 0,
+  "failing_tests": [],
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "type_errors": 0,
+  "coverage_percent": null,
+  "command_config": {
+    "project": {
+      "name": "UseGEO",
+      "type": "wordpress-content"
+    },
+    "build": {
+      "enabled": false,
+      "command": "",
+      "working_dir": ".",
+      "timeout": 60
+    },
+    "test": {
+      "unit": {
+        "enabled": true,
+        "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-011/evidence/verify_geo_basics.py --mode local",
+        "working_dir": ".",
+        "timeout": 120,
+        "coverage_enabled": false
+      }
+    },
+    "lint": {
+      "enabled": false,
+      "tools": []
+    },
+    "typecheck": {
+      "enabled": false
+    },
+    "qualitygate": {
+      "mode": "hybrid",
+      "fail_fast": true,
+      "auto_fix": false
+    }
+  },
+  "command_results": [
+    {
+      "name": "test-unit",
+      "category": "test",
+      "command": "C:/Users/kevin/AppData/Local/Programs/Python/Python312/python.exe DeliverHQ/change-requests/CR-011/evidence/verify_geo_basics.py --mode local",
+      "working_dir": "D:\\Code\\UseGEO",
+      "timeout": 120,
+      "success": true,
+      "returncode": 0,
+      "stdout": "CR-011 GEO basics verification (local): PASS\n- what-is-generative-engine-optimization: PASS | words=1235 faq=5 cta=4\n- geo-vs-seo: PASS | words=1213 faq=5 cta=4\n- what-is-ai-visibility: PASS | words=1204 faq=5 cta=4\n- why-your-brand-does-not-show-up-in-chatgpt-recommendations: PASS | words=1215 faq=5 cta=4\n- how-ai-search-chooses-which-brands-to-mention: PASS | words=1241 faq=5 cta=4\nEvidence: D:\\Code\\UseGEO\\DeliverHQ\\change-requests\\CR-011\\evidence\\geo-basics-local-result.json\n",
+      "stderr": ""
+    }
+  ]
+}

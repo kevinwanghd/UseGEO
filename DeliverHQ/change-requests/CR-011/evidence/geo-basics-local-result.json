@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "slug": "what-is-generative-engine-optimization",
+      "wp_slug": "what-is-geo-generative-engine-optimization",
+      "mode": "local",
+      "status": null,
+      "word_count": 1235,
+      "faq_count": 5,
+      "scanner_cta_count": 4,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "geo-vs-seo",
+      "wp_slug": "geo-vs-seo-ai-content-differences",
+      "mode": "local",
+      "status": null,
+      "word_count": 1213,
+      "faq_count": 5,
+      "scanner_cta_count": 4,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "what-is-ai-visibility",
+      "wp_slug": "what-is-ai-visibility",
+      "mode": "local",
+      "status": null,
+      "word_count": 1204,
+      "faq_count": 5,
+      "scanner_cta_count": 4,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "why-your-brand-does-not-show-up-in-chatgpt-recommendations",
+      "wp_slug": "why-your-brand-does-not-show-up-in-chatgpt-recommendations",
+      "mode": "local",
+      "status": null,
+      "word_count": 1215,
+      "faq_count": 5,
+      "scanner_cta_count": 4,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "slug": "how-ai-search-chooses-which-brands-to-mention",
+      "wp_slug": "how-ai-search-chooses-which-brands-to-mention",
+      "mode": "local",
+      "status": null,
+      "word_count": 1241,
+      "faq_count": 5,
+      "scanner_cta_count": 4,
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

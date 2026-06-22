@@ -1,0 +1,49 @@
+{
+  "results": [
+    {
+      "key": "what-is-generative-engine-optimization",
+      "slug": "what-is-geo-generative-engine-optimization",
+      "action": "updated",
+      "status": 200,
+      "id": 1470,
+      "link": "https://usegeo.blog/what-is-geo-generative-engine-optimization/",
+      "modified_gmt": "2026-06-22T01:06:43"
+    },
+    {
+      "key": "geo-vs-seo",
+      "slug": "geo-vs-seo-ai-content-differences",
+      "action": "updated",
+      "status": 200,
+      "id": 1471,
+      "link": "https://usegeo.blog/geo-vs-seo-ai-content-differences/",
+      "modified_gmt": "2026-06-22T01:06:44"
+    },
+    {
+      "key": "what-is-ai-visibility",
+      "slug": "what-is-ai-visibility",
+      "action": "created",
+      "status": 201,
+      "id": 1513,
+      "link": "https://usegeo.blog/what-is-ai-visibility/",
+      "modified_gmt": "2026-06-22T01:06:46"
+    },
+    {
+      "key": "why-your-brand-does-not-show-up-in-chatgpt-recommendations",
+      "slug": "why-your-brand-does-not-show-up-in-chatgpt-recommendations",
+      "action": "created",
+      "status": 201,
+      "id": 1514,
+      "link": "https://usegeo.blog/why-your-brand-does-not-show-up-in-chatgpt-recommendations/",
+      "modified_gmt": "2026-06-22T01:06:46"
+    },
+    {
+      "key": "how-ai-search-chooses-which-brands-to-mention",
+      "slug": "how-ai-search-chooses-which-brands-to-mention",
+      "action": "created",
+      "status": 201,
+      "id": 1515,
+      "link": "https://usegeo.blog/how-ai-search-chooses-which-brands-to-mention/",
+      "modified_gmt": "2026-06-22T01:06:47"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+schema: deliverhq-goal-contract
+version: 1
+cr_id: CR-011
+goal: Publish 5 GEO Basics Cluster articles to build topical authority and route readers to Scanner/money pages.
+non_goals:
+  - Add FAQ schema or theme code.
+  - Promise AI rankings or precise tracking of all AI recommendations.
+  - Commit production secrets.
+success_metrics:
+  - 5 production URLs return HTTP 200.
+  - Each article has 1200-1800 words, FAQ >=4, Scanner CTA >=1.
