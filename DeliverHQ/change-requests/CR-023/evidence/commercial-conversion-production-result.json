@@ -1,0 +1,208 @@
+{
+  "mode": "production",
+  "passed": true,
+  "checks": [
+    {
+      "name": "routes_200",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/ai-visibility-audit/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/ai-visibility-audit/?cr023_verify=1",
+          "has_commercial": true,
+          "has_scanner": true,
+          "has_consent": true,
+          "has_no_ranking": true,
+          "h1_count": 1
+        },
+        {
+          "path": "/sample-report/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/sample-report/?cr023_verify=1",
+          "has_commercial": true,
+          "has_scanner": true,
+          "has_consent": true,
+          "has_no_ranking": true,
+          "h1_count": 1
+        },
+        {
+          "path": "/partners/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/partners/?cr023_verify=1",
+          "has_commercial": true,
+          "has_scanner": true,
+          "has_consent": true,
+          "has_no_ranking": true,
+          "h1_count": 1
+        }
+      ]
+    },
+    {
+      "name": "routes_have_commercial_classes",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/ai-visibility-audit/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/ai-visibility-audit/?cr023_verify=1",
+          "has_commercial": true,
+          "has_scanner": true,
+          "has_consent": true,
+          "has_no_ranking": true,
+          "h1_count": 1
+        },
+        {
+          "path": "/sample-report/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/sample-report/?cr023_verify=1",
+          "has_commercial": true,
+          "has_scanner": true,
+          "has_consent": true,
+          "has_no_ranking": true,
+          "h1_count": 1
+        },
+        {
+          "path": "/partners/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/partners/?cr023_verify=1",
+          "has_commercial": true,
+          "has_scanner": true,
+          "has_consent": true,
+          "has_no_ranking": true,
+          "h1_count": 1
+        }
+      ]
+    },
+    {
+      "name": "routes_have_scanner_and_consent",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/ai-visibility-audit/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/ai-visibility-audit/?cr023_verify=1",
+          "has_commercial": true,
+          "has_scanner": true,
+          "has_consent": true,
+          "has_no_ranking": true,
+          "h1_count": 1
+        },
+        {
+          "path": "/sample-report/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/sample-report/?cr023_verify=1",
+          "has_commercial": true,
+          "has_scanner": true,
+          "has_consent": true,
+          "has_no_ranking": true,
+          "h1_count": 1
+        },
+        {
+          "path": "/partners/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/partners/?cr023_verify=1",
+          "has_commercial": true,
+          "has_scanner": true,
+          "has_consent": true,
+          "has_no_ranking": true,
+          "h1_count": 1
+        }
+      ]
+    },
+    {
+      "name": "routes_have_no_ranking_copy",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/ai-visibility-audit/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/ai-visibility-audit/?cr023_verify=1",
+          "has_commercial": true,
+          "has_scanner": true,
+          "has_consent": true,
+          "has_no_ranking": true,
+          "h1_count": 1
+        },
+        {
+          "path": "/sample-report/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/sample-report/?cr023_verify=1",
+          "has_commercial": true,
+          "has_scanner": true,
+          "has_consent": true,
+          "has_no_ranking": true,
+          "h1_count": 1
+        },
+        {
+          "path": "/partners/",
+          "status": 200,
+          "final_url": "https://usegeo.blog/partners/?cr023_verify=1",
+          "has_commercial": true,
+          "has_scanner": true,
+          "has_consent": true,
+          "has_no_ranking": true,
+          "h1_count": 1
+        }
+      ]
+    },
+    {
+      "name": "homepage_commercial_module",
+      "passed": true,
+      "home": {
+        "path": "/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/?cr023_verify=1",
+        "has_commercial": true,
+        "has_scanner": true,
+        "has_consent": true,
+        "has_no_ranking": false,
+        "h1_count": 1
+      }
+    }
+  ],
+  "summary": {
+    "pages": [
+      {
+        "path": "/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/?cr023_verify=1",
+        "has_commercial": true,
+        "has_scanner": true,
+        "has_consent": true,
+        "has_no_ranking": false,
+        "h1_count": 1
+      },
+      {
+        "path": "/ai-visibility-audit/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/ai-visibility-audit/?cr023_verify=1",
+        "has_commercial": true,
+        "has_scanner": true,
+        "has_consent": true,
+        "has_no_ranking": true,
+        "h1_count": 1
+      },
+      {
+        "path": "/sample-report/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/sample-report/?cr023_verify=1",
+        "has_commercial": true,
+        "has_scanner": true,
+        "has_consent": true,
+        "has_no_ranking": true,
+        "h1_count": 1
+      },
+      {
+        "path": "/partners/",
+        "status": 200,
+        "final_url": "https://usegeo.blog/partners/?cr023_verify=1",
+        "has_commercial": true,
+        "has_scanner": true,
+        "has_consent": true,
+        "has_no_ranking": true,
+        "h1_count": 1
+      }
+    ]
+  }
+}
