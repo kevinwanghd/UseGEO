@@ -1,0 +1,17 @@
+schema: deliverhq-goal-contract
+version: 1
+cr_id: CR-024
+goal: Commercial Design Upgrade
+must:
+  - add audit input and report preview
+  - make sample report look like a deliverable
+  - add partner beta packages and lead object
+  - upgrade homepage commercial loop
+  - keep no ranking promises and consent copy
+must_not:
+  - add payment
+  - send external messages
+  - fake customers or fake revenue stats
+success_metrics:
+  local_verifier_passed: true
+  production_routes_passed: true

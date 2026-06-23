@@ -1,0 +1,18 @@
+{
+  "zip_path": "dist/usegeo-theme-cr024-commercial-design-20260623-090330.zip",
+  "size_bytes": 82085,
+  "top_level": [
+    "usegeo"
+  ],
+  "backslash_entries": 0,
+  "entry_count": 46,
+  "required_files": {
+    "usegeo/style.css": true,
+    "usegeo/functions.php": true,
+    "usegeo/inc/commercial-pages.php": true,
+    "usegeo/template-parts/conversion/commercial-loop.php": true,
+    "usegeo/assets/css/base.css": true,
+    "usegeo/assets/css/homepage.css": true
+  },
+  "passed": true
+}

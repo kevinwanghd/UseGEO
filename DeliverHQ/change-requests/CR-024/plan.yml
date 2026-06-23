@@ -1,0 +1,11 @@
+schema: deliverhq-plan
+version: 1
+cr_id: CR-024
+lane: standard
+steps:
+  - id: spec
+    status: completed
+  - id: design-upgrade
+    status: planned
+  - id: verify-package
+    status: planned

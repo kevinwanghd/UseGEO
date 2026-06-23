@@ -1,0 +1,47 @@
+{
+  "mode": "local",
+  "passed": true,
+  "checks": [
+    {
+      "name": "audit_input_present",
+      "passed": true
+    },
+    {
+      "name": "audit_preview_present",
+      "passed": true
+    },
+    {
+      "name": "report_mockup_present",
+      "passed": true
+    },
+    {
+      "name": "partner_packages_present",
+      "passed": true
+    },
+    {
+      "name": "lead_object_present",
+      "passed": true
+    },
+    {
+      "name": "homepage_loop_upgraded",
+      "passed": true
+    },
+    {
+      "name": "css_upgrade_present",
+      "passed": true
+    },
+    {
+      "name": "no_bad_claims",
+      "passed": true
+    },
+    {
+      "name": "no_external_side_effects",
+      "passed": true
+    },
+    {
+      "name": "static_balanced_delimiters",
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

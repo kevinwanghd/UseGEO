@@ -2032,3 +2032,49 @@
     grid-template-columns: 1fr;
   }
 }
+
+.usegeo-commercial-loop__path {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.usegeo-commercial-loop__path article {
+  min-height: 190px;
+  padding: 22px;
+  border: 1px solid rgba(15, 98, 254, 0.12);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgba(15, 23, 42, 0.045);
+}
+
+.usegeo-commercial-loop__path span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--usegeo-color-accent);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.usegeo-commercial-loop__path h3 {
+  margin: 0;
+  color: var(--usegeo-color-text);
+  font-size: 1.22rem;
+  letter-spacing: -0.03em;
+}
+
+.usegeo-commercial-loop__path p {
+  margin: 10px 0 0;
+  color: var(--usegeo-color-muted);
+  font-size: 14px;
+  line-height: 1.62;
+}
+
+@media (max-width: 900px) {
+  .usegeo-commercial-loop__path {
+    grid-template-columns: 1fr;
+  }
+}

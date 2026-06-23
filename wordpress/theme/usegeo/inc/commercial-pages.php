@@ -26,7 +26,7 @@ function usegeo_commercial_page_header($label, $title, $description, $primary_la
         </div>
         <aside class="usegeo-commercial-proof-card">
             <span><?php esc_html_e('No AI ranking promises', 'usegeo'); ?></span>
-            <strong><?php esc_html_e('The scan is a directional diagnostic, not a promise of AI placement.', 'usegeo'); ?></strong>
+            <strong><?php esc_html_e('A directional diagnostic, not a promise of AI placement.', 'usegeo'); ?></strong>
             <p><?php esc_html_e('Partner follow-up only happens with explicit consent. You can use the report yourself first.', 'usegeo'); ?></p>
         </aside>
     </section>
@@ -43,6 +43,106 @@ function usegeo_commercial_card($title, $body, $label = '') {
     <?php
 }
 
+function usegeo_render_audit_input_mockup() {
+    ?>
+    <section class="usegeo-audit-input" aria-label="Audit input preview">
+        <div class="usegeo-audit-input__form" role="group" aria-label="Website scan input preview">
+            <label for="usegeo-audit-url-preview"><?php esc_html_e('Website URL', 'usegeo'); ?></label>
+            <div>
+                <input id="usegeo-audit-url-preview" type="text" value="https://example-b2b-site.com" readonly>
+                <a class="usegeo-inline-cta" href="<?php echo esc_url(home_url('/#scanner')); ?>">Run scanner</a>
+            </div>
+            <p><?php esc_html_e('Use the live scanner on the homepage. This field previews the flow without submitting data here.', 'usegeo'); ?></p>
+        </div>
+        <div class="usegeo-audit-preview" aria-label="Readiness preview">
+            <span>Readiness preview</span>
+            <strong>72</strong>
+            <p>Emerging readiness with weak comparison context and limited proof signals.</p>
+            <ul>
+                <li>Entity clarity: good</li>
+                <li>Proof signals: needs work</li>
+                <li>Comparison readiness: weakest</li>
+            </ul>
+        </div>
+    </section>
+    <?php
+}
+
+function usegeo_render_report_mockup() {
+    $dimensions = array(
+        'Entity clarity' => 'Clear category and company language',
+        'Content structure' => 'Readable sections, but weak prioritization',
+        'Proof signals' => 'Few concrete examples or third-party signals',
+        'Comparison readiness' => 'Missing buyer comparison context',
+        'AI extractability' => 'Good headings, limited quotable passages',
+    );
+    ?>
+    <section class="usegeo-report-mockup" aria-label="Sample report deliverable">
+        <div class="usegeo-report-mockup__summary">
+            <span>Sample report</span>
+            <h2>What the scanner turns into</h2>
+            <p>This is a fictional sample, designed to show the structure of the evidence and next-step recommendations.</p>
+        </div>
+        <div class="usegeo-report-mockup__score">
+            <span>Sample score</span>
+            <strong>72</strong>
+            <p>Emerging readiness</p>
+        </div>
+        <div class="usegeo-report-mockup__dimensions">
+            <h3>Dimensions</h3>
+            <?php foreach ($dimensions as $name => $note) : ?>
+                <div class="usegeo-report-row"><strong><?php echo esc_html($name); ?></strong><span><?php echo esc_html($note); ?></span></div>
+            <?php endforeach; ?>
+        </div>
+        <div class="usegeo-report-mockup__evidence">
+            <h3>Evidence table</h3>
+            <dl>
+                <dt>Page title</dt><dd>Clear topic, weak differentiation.</dd>
+                <dt>Schema</dt><dd>Organization and Article schema present. FAQ schema should mirror visible FAQ content.</dd>
+                <dt>Top gap</dt><dd>The page does not explain when a buyer should choose this company over alternatives.</dd>
+                <dt>Recommended action</dt><dd>Add comparison context, proof examples, and a next-step CTA tied to buyer intent.</dd>
+            </dl>
+        </div>
+        <div class="usegeo-report-mockup__handoff">
+            <h3>Partner handoff</h3>
+            <p>If the visitor gives explicit consent, a partner sees the score, weakest dimension, business context, and requested support level.</p>
+        </div>
+    </section>
+    <?php
+}
+
+function usegeo_render_partner_offer_blocks() {
+    ?>
+    <section class="usegeo-lead-object" aria-label="Partner lead object">
+        <div>
+            <span>Lead object</span>
+            <h2>A partner lead should arrive with context, not just contact data.</h2>
+        </div>
+        <ul class="usegeo-commercial-list">
+            <li>partner_consent = yes</li>
+            <li>lead_quality = hot or warm</li>
+            <li>business email</li>
+            <li>scanner snapshot</li>
+            <li>budget, region, support intent, and timeline when provided</li>
+        </ul>
+    </section>
+    <section class="usegeo-partner-packages" aria-label="Partner beta packages">
+        <article>
+            <span>Beta package</span>
+            <h3>Sponsor beta</h3>
+            <p>Test homepage, scanner result, or article sidebar inventory while traffic and reply data are still early.</p>
+            <strong>Best for tools and agencies validating demand.</strong>
+        </article>
+        <article>
+            <span>Beta package</span>
+            <h3>Lead referral beta</h3>
+            <p>Receive manually reviewed consented leads with scanner evidence and business context.</p>
+            <strong>Best for GEO consultants and specialist agencies.</strong>
+        </article>
+    </section>
+    <?php
+}
+
 function usegeo_render_ai_visibility_audit_page() {
     get_header();
     ?>
@@ -52,29 +152,14 @@ function usegeo_render_ai_visibility_audit_page() {
             'Run a free GEO scan before you buy tools or hire help.',
             'UseGEO turns your public homepage into a practical readiness snapshot, then explains whether you should fix it yourself, compare tools, or consent to partner follow-up.'
         ); ?>
-
+        <?php usegeo_render_audit_input_mockup(); ?>
         <section class="usegeo-commercial-grid" aria-label="Audit path">
             <?php
-            usegeo_commercial_card('Learn the gaps', 'Understand whether your page has clear entities, extractable content, proof signals, comparison context, and structured data.', '01');
-            usegeo_commercial_card('Run the scanner', 'Get a directional score from your public page. The scanner records evidence that can become a manual brief.', '02');
-            usegeo_commercial_card('Choose the next step', 'Use the sample report to decide whether to self-fix, evaluate tools, or request consent-based partner follow-up.', '03');
+            usegeo_commercial_card('Scan', 'Check whether your page is clear enough for AI systems and human buyers to understand.', 'Step');
+            usegeo_commercial_card('Report', 'Review a sample-style snapshot with evidence, gaps, and practical next steps.', 'Step');
+            usegeo_commercial_card('Match', 'If the gap is worth acting on, give consent for relevant partner follow-up.', 'Step');
             ?>
         </section>
-
-        <section class="usegeo-commercial-panel" aria-label="What the audit checks">
-            <div>
-                <span>What we check</span>
-                <h2>Five dimensions that explain why AI systems may struggle with your site.</h2>
-            </div>
-            <ul class="usegeo-commercial-list">
-                <li>Entity clarity</li>
-                <li>Content structure</li>
-                <li>Proof signals</li>
-                <li>Comparison readiness</li>
-                <li>AI extractability</li>
-            </ul>
-        </section>
-
         <section class="usegeo-commercial-panel usegeo-commercial-panel--dark" aria-label="Consent explanation">
             <div>
                 <span>Consent protected</span>
@@ -100,32 +185,7 @@ function usegeo_render_sample_report_page() {
             'Apply this to your site',
             '/ai-visibility-audit/'
         ); ?>
-
-        <section class="usegeo-sample-report" aria-label="Sample report preview">
-            <div class="usegeo-sample-report__score">
-                <span>Sample score</span>
-                <strong>72</strong>
-                <p>Emerging readiness. Clear enough to start, but missing stronger proof and comparison signals.</p>
-            </div>
-            <div class="usegeo-sample-report__details">
-                <h2>Example evidence</h2>
-                <dl>
-                    <dt>Page title</dt><dd>Clear category language, but weak differentiation.</dd>
-                    <dt>H1</dt><dd>Readable, but does not state the buyer problem directly.</dd>
-                    <dt>Schema</dt><dd>Organization and Article schema present. FAQ schema should mirror visible FAQ content.</dd>
-                    <dt>Weakest dimension</dt><dd>Comparison readiness.</dd>
-                </dl>
-            </div>
-        </section>
-
-        <section class="usegeo-commercial-grid" aria-label="Sample recommendations">
-            <?php
-            usegeo_commercial_card('Top gap', 'The page does not explain when a buyer should choose you instead of a better-known alternative.', 'Evidence');
-            usegeo_commercial_card('Fix first', 'Add a comparison section, proof examples, and a next-step CTA that maps to the buyer stage.', 'Action');
-            usegeo_commercial_card('Partner handoff', 'If you consent, a partner can see the score, weakest dimension, business context, and your stated support intent.', 'Consent');
-            ?>
-        </section>
-
+        <?php usegeo_render_report_mockup(); ?>
         <section class="usegeo-commercial-panel usegeo-commercial-panel--dark">
             <div>
                 <span>No fake certainty</span>
@@ -151,21 +211,7 @@ function usegeo_render_partners_page() {
             'See sample report',
             '/sample-report/'
         ); ?>
-
-        <section class="usegeo-commercial-panel" aria-label="Partner lead definition">
-            <div>
-                <span>Partner lead definition</span>
-                <h2>A qualified partner lead is not just an email address.</h2>
-            </div>
-            <ul class="usegeo-commercial-list">
-                <li>partner_consent = yes</li>
-                <li>lead_quality = hot or warm</li>
-                <li>business email</li>
-                <li>scanner snapshot</li>
-                <li>budget, region, support intent, and timeline when provided</li>
-            </ul>
-        </section>
-
+        <?php usegeo_render_partner_offer_blocks(); ?>
         <section class="usegeo-commercial-grid" aria-label="Sponsor inventory">
             <?php
             usegeo_commercial_card('Homepage sponsor', 'Reach visitors before they run the scanner or choose a learning path.', 'Inventory');
@@ -173,7 +219,6 @@ function usegeo_render_partners_page() {
             usegeo_commercial_card('Article sidebar sponsor', 'Reach readers while they are learning a specific GEO tactic or use case.', 'Inventory');
             ?>
         </section>
-
         <section class="usegeo-commercial-panel usegeo-commercial-panel--dark">
             <div>
                 <span>Beta terms</span>

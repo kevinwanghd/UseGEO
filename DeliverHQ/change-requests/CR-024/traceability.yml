@@ -1,0 +1,35 @@
+schema: deliverhq-traceability
+version: 1
+
+CR-024:
+  requirement: "Commercial Design Upgrade"
+  priority: "P0"
+  acceptance_criteria:
+    - "Audit page has input and report preview"
+    - "Sample report has score dimensions evidence and handoff"
+    - "Partners page has beta packages and lead object"
+    - "Homepage commercial loop is upgraded"
+  implementation:
+    - file: "wordpress/theme/usegeo/inc/commercial-pages.php"
+      type: "theme-code"
+    - file: "wordpress/theme/usegeo/template-parts/conversion/commercial-loop.php"
+      type: "theme-code"
+    - file: "wordpress/theme/usegeo/assets/css/base.css"
+      type: "theme-code"
+    - file: "wordpress/theme/usegeo/assets/css/homepage.css"
+      type: "theme-code"
+    - file: "DeliverHQ/change-requests/CR-024/evidence/verify_commercial_design.py"
+      type: "verification"
+  tests:
+    - file: "DeliverHQ/change-requests/CR-024/evidence/verify_commercial_design.py"
+      cases:
+        - name: "commercial design upgrade"
+          covers: "audit input, report mockup, partner packages, homepage loop"
+          type: "static-and-production-verification"
+  verification:
+    - gate: "SpecGate"
+      status: "planned"
+    - gate: "PreDevGate"
+      status: "planned"
+    - gate: "LocalVerifier"
+      status: "planned"
