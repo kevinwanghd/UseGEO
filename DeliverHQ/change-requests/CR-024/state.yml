@@ -1,17 +1,17 @@
 cr_id: CR-024
 title: Commercial Design Upgrade
 lane: standard
-current_state: testing
-current_phase: quality
-current_owner: quality-agent
+current_state: archived
+current_phase: writeback
+current_owner: writeback-agent
 goal: ''
 current_plan: null
 completed_steps: []
 blocking_reason: null
 blocked_by: []
-last_gate: quality
-next_gate: writeback
-next_required_gate: writeback
+last_gate: writeback
+next_gate: null
+next_required_gate: null
 requires_human: false
 worktree_path: null
 gate_status:
@@ -24,7 +24,7 @@ gate_status:
   quality: pass
   writeback: pass
 created_at: '2026-06-22T21:52:02.167874'
-updated_at: '2026-06-23T09:03:34.851949'
+updated_at: '2026-06-23T09:24:07.084711'
 started_at: '2026-06-22T21:52:02.167874'
 completed_at: null
 transitions: []

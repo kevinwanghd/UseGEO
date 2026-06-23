@@ -1,0 +1,230 @@
+{
+  "mode": "production",
+  "passed": true,
+  "checks": [
+    {
+      "name": "routes_200",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/",
+          "status": 200,
+          "url": "https://usegeo.blog/?cr024_verify=1782177828634",
+          "audit_input": false,
+          "audit_preview": false,
+          "report": false,
+          "packages": false,
+          "lead_object": false,
+          "loop": true,
+          "no_bad": true
+        },
+        {
+          "path": "/ai-visibility-audit/",
+          "status": 200,
+          "url": "https://usegeo.blog/ai-visibility-audit/?cr024_verify=1782177830058",
+          "audit_input": true,
+          "audit_preview": true,
+          "report": false,
+          "packages": false,
+          "lead_object": false,
+          "loop": false,
+          "no_bad": true
+        },
+        {
+          "path": "/sample-report/",
+          "status": 200,
+          "url": "https://usegeo.blog/sample-report/?cr024_verify=1782177830996",
+          "audit_input": false,
+          "audit_preview": false,
+          "report": true,
+          "packages": false,
+          "lead_object": false,
+          "loop": false,
+          "no_bad": true
+        },
+        {
+          "path": "/partners/",
+          "status": 200,
+          "url": "https://usegeo.blog/partners/?cr024_verify=1782177831910",
+          "audit_input": false,
+          "audit_preview": false,
+          "report": false,
+          "packages": true,
+          "lead_object": true,
+          "loop": false,
+          "no_bad": true
+        }
+      ]
+    },
+    {
+      "name": "audit_page_upgraded",
+      "passed": true,
+      "audit": {
+        "path": "/ai-visibility-audit/",
+        "status": 200,
+        "url": "https://usegeo.blog/ai-visibility-audit/?cr024_verify=1782177830058",
+        "audit_input": true,
+        "audit_preview": true,
+        "report": false,
+        "packages": false,
+        "lead_object": false,
+        "loop": false,
+        "no_bad": true
+      }
+    },
+    {
+      "name": "sample_report_upgraded",
+      "passed": true,
+      "sample": {
+        "path": "/sample-report/",
+        "status": 200,
+        "url": "https://usegeo.blog/sample-report/?cr024_verify=1782177830996",
+        "audit_input": false,
+        "audit_preview": false,
+        "report": true,
+        "packages": false,
+        "lead_object": false,
+        "loop": false,
+        "no_bad": true
+      }
+    },
+    {
+      "name": "partners_page_upgraded",
+      "passed": true,
+      "partners": {
+        "path": "/partners/",
+        "status": 200,
+        "url": "https://usegeo.blog/partners/?cr024_verify=1782177831910",
+        "audit_input": false,
+        "audit_preview": false,
+        "report": false,
+        "packages": true,
+        "lead_object": true,
+        "loop": false,
+        "no_bad": true
+      }
+    },
+    {
+      "name": "homepage_loop_upgraded",
+      "passed": true,
+      "home": {
+        "path": "/",
+        "status": 200,
+        "url": "https://usegeo.blog/?cr024_verify=1782177828634",
+        "audit_input": false,
+        "audit_preview": false,
+        "report": false,
+        "packages": false,
+        "lead_object": false,
+        "loop": true,
+        "no_bad": true
+      }
+    },
+    {
+      "name": "no_bad_claims_production",
+      "passed": true,
+      "pages": [
+        {
+          "path": "/",
+          "status": 200,
+          "url": "https://usegeo.blog/?cr024_verify=1782177828634",
+          "audit_input": false,
+          "audit_preview": false,
+          "report": false,
+          "packages": false,
+          "lead_object": false,
+          "loop": true,
+          "no_bad": true
+        },
+        {
+          "path": "/ai-visibility-audit/",
+          "status": 200,
+          "url": "https://usegeo.blog/ai-visibility-audit/?cr024_verify=1782177830058",
+          "audit_input": true,
+          "audit_preview": true,
+          "report": false,
+          "packages": false,
+          "lead_object": false,
+          "loop": false,
+          "no_bad": true
+        },
+        {
+          "path": "/sample-report/",
+          "status": 200,
+          "url": "https://usegeo.blog/sample-report/?cr024_verify=1782177830996",
+          "audit_input": false,
+          "audit_preview": false,
+          "report": true,
+          "packages": false,
+          "lead_object": false,
+          "loop": false,
+          "no_bad": true
+        },
+        {
+          "path": "/partners/",
+          "status": 200,
+          "url": "https://usegeo.blog/partners/?cr024_verify=1782177831910",
+          "audit_input": false,
+          "audit_preview": false,
+          "report": false,
+          "packages": true,
+          "lead_object": true,
+          "loop": false,
+          "no_bad": true
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "pages": [
+      {
+        "path": "/",
+        "status": 200,
+        "url": "https://usegeo.blog/?cr024_verify=1782177828634",
+        "audit_input": false,
+        "audit_preview": false,
+        "report": false,
+        "packages": false,
+        "lead_object": false,
+        "loop": true,
+        "no_bad": true
+      },
+      {
+        "path": "/ai-visibility-audit/",
+        "status": 200,
+        "url": "https://usegeo.blog/ai-visibility-audit/?cr024_verify=1782177830058",
+        "audit_input": true,
+        "audit_preview": true,
+        "report": false,
+        "packages": false,
+        "lead_object": false,
+        "loop": false,
+        "no_bad": true
+      },
+      {
+        "path": "/sample-report/",
+        "status": 200,
+        "url": "https://usegeo.blog/sample-report/?cr024_verify=1782177830996",
+        "audit_input": false,
+        "audit_preview": false,
+        "report": true,
+        "packages": false,
+        "lead_object": false,
+        "loop": false,
+        "no_bad": true
+      },
+      {
+        "path": "/partners/",
+        "status": 200,
+        "url": "https://usegeo.blog/partners/?cr024_verify=1782177831910",
+        "audit_input": false,
+        "audit_preview": false,
+        "report": false,
+        "packages": true,
+        "lead_object": true,
+        "loop": false,
+        "no_bad": true
+      }
+    ]
+  }
+}
