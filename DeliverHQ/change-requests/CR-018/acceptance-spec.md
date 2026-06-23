@@ -7,7 +7,7 @@ CR-018
 ```yaml
 derived_from:
   prd_section: PRD-CONTENT-LIBRARY
-  prd_hash: 77f775574a7a
+  prd_hash: 56ad78679ada
 ```
 
 ## 1. Data Spec（数据规格）

@@ -8,7 +8,7 @@ CR-004
 ```yaml
 derived_from:
   prd_section: PRD-PARTNER-LEADS
-  prd_hash: "5a64ade53a77"
+  prd_hash: 7891c116cc71
 ```
 
 ---

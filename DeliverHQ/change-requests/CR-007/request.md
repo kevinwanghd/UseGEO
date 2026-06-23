@@ -53,3 +53,9 @@ P1
 3. 页面包含至少 6 个 checklist sections。
 4. 页面包含至少 2 个指向 `/#scanner` 的 CTA。
 5. 页面包含到 `/ai-visibility-tools/` 和 `/best-geo-agencies/` 的内链。
+
+---
+
+## Superseded / 对齐说明
+
+本早期页面发布草稿已被 CR-010 Expand Money Pages 覆盖并生产验证。为避免需求漂移，本 CR 不再继续开发，状态标记为 archived/superseded。

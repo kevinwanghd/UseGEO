@@ -8,7 +8,7 @@ CR-006
 ```yaml
 derived_from:
   prd_section: PRD-CONTENT-LIBRARY
-  prd_hash: "77f775574a7a"
+  prd_hash: 56ad78679ada
 ```
 
 ---

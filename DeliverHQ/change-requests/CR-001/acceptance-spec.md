@@ -11,7 +11,7 @@ CR-001
 ```yaml
 derived_from:
   prd_section: PRD-REAL-SCANNER-V1
-  prd_hash: "65ad7b96a4d4"
+  prd_hash: bb44da62253e
 ```
 
 ## 规格框架

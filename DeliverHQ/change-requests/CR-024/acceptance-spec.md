@@ -7,7 +7,7 @@ CR-024
 ```yaml
 derived_from:
   prd_section: PRD-PARTNER-LEADS
-  prd_hash: 5a64ade53a77
+  prd_hash: 7891c116cc71
 ```
 
 ## 1. Data Spec（数据规格）

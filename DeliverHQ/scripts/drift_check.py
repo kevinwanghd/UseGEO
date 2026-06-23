@@ -51,7 +51,12 @@ def _anchor_hash(prd_text, anchor_id):
     section = _anchor_section(prd_text, anchor_id)
     if section is None:
         return None
-    kept = [l for l in section.splitlines() if not l.lstrip().startswith('关联 CR')]
+    kept = []
+    for l in section.splitlines():
+        stripped = l.lstrip()
+        if stripped.startswith('关联 CR') or stripped.startswith('**关联 CR**'):
+            continue
+        kept.append(l)
     norm = '\n'.join(kept).strip()
     return hashlib.sha256(norm.encode('utf-8')).hexdigest()[:12]
 

@@ -131,7 +131,7 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 **绝不能发生**
 > 绝不允许 404 / 静态页面静默无返回路径；绝不允许全站缺失 wp_head / wp_footer，导致追踪/插件失效。
 
-**关联 CR**: CR-LEGACY-SCAN
+**关联 CR**: CR-LEGACY-SCAN, CR-022
 
 ---
 
@@ -155,7 +155,7 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 **绝不能发生**
 > 绝不允许首页变成纯展示页——必须保留 Scanner、Content、Community、Cases 等转化锚点；绝不允许 ROI / Sample Report 等模块被包装成确定性收益承诺。
 
-**关联 CR**: CR-LEGACY-SCAN
+**关联 CR**: CR-LEGACY-SCAN, CR-006, CR-023, CR-024
 
 ---
 
@@ -179,7 +179,7 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 **绝不能发生**
 > 绝不允许文案宣称 scanner 已经检测了 ChatGPT/Claude/Gemini 是否在推荐用户品牌；绝不允许把估算结果包装成确定性数据；绝不允许 scanner 与 lead 表单脱钩，丢失 scanner_query。
 
-**关联 CR**: CR-LEGACY-SCAN
+**关联 CR**: CR-LEGACY-SCAN, CR-001, CR-002, CR-023, CR-024
 
 ---
 
@@ -203,7 +203,7 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 **绝不能发生**
 > 绝不允许 Real Scanner v1 在没有真实抓取或解析失败时沉默地用模拟分数蒙混过关；绝不允许把规则评分误描述为真实 ChatGPT/Claude/Gemini 推荐排名追踪；绝不允许 SSRF / 滥用接口的输入未做防护。
 
-**关联 CR**:
+**关联 CR**: CR-001, CR-002
 
 ---
 
@@ -227,7 +227,7 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 **绝不能发生**
 > 绝不允许 nonce 校验缺失或同源校验缺失；绝不允许邮件失败导致 lead 丢失；绝不允许在未获得明确 consent 的情况下把用户信息转发/售卖给第三方；绝不允许把当前所有字段名 / 枚举选项当成永久不变的硬契约。
 
-**关联 CR**: CR-LEGACY-SCAN
+**关联 CR**: CR-LEGACY-SCAN, CR-003, CR-020
 
 ---
 
@@ -251,7 +251,7 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 **绝不能发生**
 > 绝不允许没有明确 consent 的用户信息被转发或售卖；绝不允许把 partner matching 文案写成 UseGEO 自营完整服务承诺；绝不允许高意向判断只依赖主观备注而无字段证据；绝不允许 CSV 导出包含未授权 lead。
 
-**关联 CR**:
+**关联 CR**: CR-003, CR-004, CR-017, CR-020, CR-023, CR-024
 
 ---
 
@@ -299,7 +299,7 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 **绝不能发生**
 > 绝不允许文章页变成纯阅读页面，缺失任何转化 CTA；绝不允许相关文章 / TOC / CTA 的具体 HTML 结构被当成永久契约。
 
-**关联 CR**: CR-LEGACY-SCAN
+**关联 CR**: CR-LEGACY-SCAN, CR-006, CR-010, CR-011, CR-012, CR-013, CR-014, CR-015, CR-016, CR-018, CR-021, CR-022
 
 ---
 
@@ -323,7 +323,7 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 **绝不能发生**
 > 绝不允许把当前 lane 名称 / 字段展示样式 / PHP 实现细节当成永久契约；绝不允许后台编辑动作绕过 nonce / 权限校验；绝不允许没有 consent 的 lead 被误标为可转介。
 
-**关联 CR**: CR-LEGACY-SCAN
+**关联 CR**: CR-LEGACY-SCAN, CR-004, CR-020
 
 ---
 
@@ -347,7 +347,7 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 **绝不能发生**
 > 绝不允许在同一页面同时启用 GTM 和 GA4 直接 tag 注入；绝不允许把当前文件名、Google Fonts URL、enqueue handle 等实现细节当成不可变需求。
 
-**关联 CR**: CR-LEGACY-SCAN
+**关联 CR**: CR-LEGACY-SCAN, CR-019
 
 ---
 
@@ -371,7 +371,7 @@ UseGEO 的定位：用系统化 GEO 学习内容和可信 Scanner 工具，把�
 **绝不能发生**
 > 绝不允许 sponsor 链接绕过 `esc_url`；绝不允许无 active 状态的赞助显示；绝不允许 sponsor 内容伪装成编辑推荐而不标注 sponsored。
 
-**关联 CR**:
+**关联 CR**: CR-005, CR-017, CR-019, CR-023, CR-024
 
 ---
 

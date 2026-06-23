@@ -8,7 +8,7 @@ CR-005
 ```yaml
 derived_from:
   prd_section: PRD-SPONSOR-INVENTORY
-  prd_hash: "99fc8a94c518"
+  prd_hash: 22b739cd2479
 ```
 
 ---
