@@ -27,3 +27,5 @@
 ## 一句话原则
 
 **主文档持续更新，报告文档按日期沉淀，根目录不堆 Markdown。**
+
+<!-- governance check trigger -->
