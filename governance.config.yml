@@ -1,0 +1,98 @@
+# UseGEO 治理配置 (AgentGate MR 治理规范 v1)
+# 部署形态: 自包含 (脚本在 governance/scripts/)
+version: v1.0.0
+
+metadata:
+  enforcement: soft           # 软启动: 现有项目有历史内容, 给团队 90 天缓冲
+  soft_deadline: 2026-09-28   # 到期自动转 hard
+  mandatory_fields:
+    - background
+    - changes
+    - ai_usage
+    - self_test
+
+risk_annotations:
+  enforcement: hard           # 风险注解第一天起即硬阻断 (只扫 PR 增量, 不碰历史)
+  reviewed_max_age_days: 180
+  registered_types:
+    - auth-bypass
+    - magic-id
+    - swallowed-exception
+    - suppressed-warning
+    - skipped-test
+    - time-bypass
+    - env-hardcode
+    - todo-no-context
+    - test-removal
+    - untested
+  reason_blacklist:
+    - 临时
+    - 先这样
+    - 历史原因
+    - TODO
+    - 待确认
+    - quick fix
+    - temp
+    - wip
+    - hack
+    - for now
+
+large_change:
+  line_threshold: 500
+  excluded_paths:
+    - "*.lock"
+    - "*.min.js"
+    - "*.min.css"
+    - "**/*.generated.*"
+    - "wordpress/**"          # WordPress 内容目录, 不计入大变更行数
+  sensitive_paths:
+    - "ci/"
+    - ".github/"
+    - "CODEOWNERS"
+    - "*secret*"
+    - "*.env"
+  schema_paths:
+    - "*.sql"
+
+testing:
+  enforcement: soft           # 软启动
+  soft_deadline: 2026-09-28
+  untested_max_age_days: 180
+  # UseGEO 以 HTML/文档/WordPress 为主, 这些不要求单测
+  exclude_paths:
+    - "docs/**"
+    - "wordpress/**"
+    - "DeliverHQ/**"
+    - ".superpowers/**"
+    - "**/*.html"
+    - "**/*.md"
+    - "**/*.css"
+  reason_blacklist:
+    - 临时
+    - 先这样
+    - 历史原因
+    - TODO
+    - 待确认
+    - quick fix
+    - temp
+    - wip
+    - hack
+    - for now
+
+# UseGEO 已有 DeliverHQ/ 目录 → 开启共存:
+# create_mr.py 会按分支名里的 CR-xxxx 从 DeliverHQ/change-requests/ 自动读背景
+deliverhq_integration:
+  enabled: true
+  records_dirs:
+    - "DeliverHQ/change-requests/"
+    - "docs/requirements/"
+  requirement_doc_patterns:
+    - "requirement.md"
+    - "spec.md"
+    - "README.md"
+    - "index.md"
+  background_headings:
+    - "背景"
+    - "Background"
+    - "需求描述"
+    - "目标"

@@ -1,0 +1,100 @@
+# UseGEO 治理门禁 (AgentGate MR 治理规范 v1 · GitHub Actions)
+#
+# 部署形态: 中心化拉取。UseGEO 仓库内不放扫描脚本; 每个 job 运行时从
+# AgentGate 仓库拉取脚本再执行。好处:
+#   - AgentGate 升级一处, 所有接入仓库自动用新版
+#   - UseGEO 里没有脚本文件, 风险扫描不会扫到"扫描器自己的规则"(无自指误报)
+#
+# ┌──────────────────────────────────────────────────────────────┐
+# │ 硬约束: 严格只扫 PR 增量 (base..HEAD), 任何情况都不全量扫描。      │
+# │ - 只在 pull_request 触发 (PR 的 base.sha 永远存在, 是稳定基准)。  │
+# │ - 不在 push 触发 (push 无 base, 会退化成不可控范围)。            │
+# └──────────────────────────────────────────────────────────────┘
+#
+# 软门禁(mr-validate / test-check): v1 软启动仅警告, soft_deadline 后转硬。
+# 硬门禁(risk-scan / secret-scan): 第一天起即阻断。
+name: governance
+
+on:
+  pull_request:
+
+env:
+  # AgentGate 脚本来源 (升级时改这里的 ref 即可)
+  AGENTGATE_REPO: https://github.com/kevinwanghd/AgentGate.git
+  AGENTGATE_REF: main
+
+jobs:
+  # 风险扫描: 硬阻断
+  risk-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -q pyyaml
+      - name: fetch AgentGate scripts
+        run: git clone --depth 1 -b "$AGENTGATE_REF" "$AGENTGATE_REPO" /tmp/agentgate
+      - name: scan risks
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          if [ -z "$BASE" ]; then echo "::error::PR base.sha 缺失, 拒绝扫描 (不允许全量回退)"; exit 1; fi
+          python /tmp/agentgate/scripts/scan_risks.py --diff-base "$BASE" --config governance.config.yml
+
+  # 密钥扫描: 硬阻断
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: gitleaks (本次 PR 范围)
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          if [ -z "$BASE" ]; then echo "::error::PR base.sha 缺失, 拒绝扫描 (不允许全量回退)"; exit 1; fi
+          docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:latest \
+            detect --source /repo --log-opts="${BASE}..HEAD" \
+            --redact --no-banner --verbose
+
+  # MR 描述校验: 软→硬
+  mr-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -q pyyaml
+      - name: fetch AgentGate scripts
+        run: git clone --depth 1 -b "$AGENTGATE_REF" "$AGENTGATE_REPO" /tmp/agentgate
+      - name: validate PR description
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          if [ -z "$BASE" ]; then echo "::error::PR base.sha 缺失, 拒绝扫描 (不允许全量回退)"; exit 1; fi
+          printf '%s' "$PR_BODY" \
+            | python /tmp/agentgate/scripts/validate_mr.py --diff-base "$BASE" --config governance.config.yml
+
+  # 测试痕迹检测: 软→硬 (失败测试记录无条件硬拦)
+  test-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -q pyyaml
+      - name: fetch AgentGate scripts
+        run: git clone --depth 1 -b "$AGENTGATE_REF" "$AGENTGATE_REPO" /tmp/agentgate
+      - name: check tested
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          if [ -z "$BASE" ]; then echo "::error::PR base.sha 缺失, 拒绝扫描 (不允许全量回退)"; exit 1; fi
+          python /tmp/agentgate/scripts/check_tested.py --diff-base "$BASE" --config governance.config.yml

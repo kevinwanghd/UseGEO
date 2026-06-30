@@ -1,0 +1,6 @@
+# UseGEO 关键文件保护 — 改动需仓库 owner 审批
+# (治理规范、配置、CI workflow 不能被随意改弱)
+
+/governance.config.yml      @kevinwanghd
+/.github/                   @kevinwanghd
+/governance/                @kevinwanghd
