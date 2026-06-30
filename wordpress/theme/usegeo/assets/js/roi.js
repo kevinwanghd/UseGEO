@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!container) return;
 
   var investmentInput = container.querySelector('input[name="investment"]');
+  var articlesInput = container.querySelector('input[name="articles"]');
   var trafficInput = container.querySelector('input[name="traffic"]');
   var conversionRateInput = container.querySelector('input[name="conversion_rate"]');
   var calculateBtn = container.querySelector('#usegeo-roi-calculate');
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
   calculateBtn.addEventListener('click', function(e) {
     e.preventDefault();
     var investment = parseFloat(investmentInput.value) || 0;
+    var articles = parseFloat(articlesInput.value) || 4;
     var traffic = parseFloat(trafficInput.value) || 10000;
     var conversionRate = parseFloat(conversionRateInput.value) || 2;
 
@@ -28,8 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var trafficIncrease = 0.30;
     var conversionLift = 0.15;
     var avgOrderValue = 500;  // B2B average order value estimate
+    var contentLiftFactor = Math.min(articles / 4, 3);  // Scale factor: 4 articles = 1x, more = higher lift
 
-    var additionalVisitors = traffic * trafficIncrease;
+    var additionalVisitors = traffic * trafficIncrease * contentLiftFactor;
     var newConversionRate = conversionRate * (1 + conversionLift);
     var additionalConversions = additionalVisitors * (newConversionRate / 100);
     var monthlyRevenue = additionalConversions * avgOrderValue;
@@ -56,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event: 'roi_calculated',
         event_category: 'engagement',
         investment: investment,
+        articles: articles,
         roi: Math.round(roi)
       });
     }
