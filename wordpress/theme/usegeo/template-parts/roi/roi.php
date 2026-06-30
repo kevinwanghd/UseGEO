@@ -11,6 +11,10 @@
         <input type="number" name="investment" placeholder="e.g. 5000" min="0" step="100">
       </label>
       <label>
+        <span>Articles published per month</span>
+        <input type="number" name="articles" value="4" min="0" step="1" placeholder="e.g. 4">
+      </label>
+      <label>
         <span>Current monthly traffic</span>
         <input type="number" name="traffic" value="10000" min="0" step="100">
       </label>
