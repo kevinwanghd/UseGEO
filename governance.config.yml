@@ -12,8 +12,20 @@ metadata:
     - self_test
 
 risk_annotations:
-  enforcement: hard           # 风险注解第一天起即硬阻断 (只扫 PR 增量, 不碰历史)
+  enforcement: soft           # 现有项目有历史包袱, 默认软启动(只警告); 稳定后团队改 hard
   reviewed_max_age_days: 180
+  # 路径豁免: 生成/引入/第三方代码不扫
+  scan_exclude_paths:
+    - "**/vendor/**"
+    - "**/node_modules/**"
+    - "**/third_party/**"
+    - "**/*.generated.*"
+    - "**/gen/**"
+    - "**/dist/**"
+    - "**/build/**"
+    - "**/migrations/**"
+    - "**/*.min.js"
+    - "**/*.min.css"
   registered_types:
     - auth-bypass
     - magic-id
