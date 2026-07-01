@@ -7,7 +7,7 @@
 #
 # ┌──────────────────────────────────────────────────────────────┐
 # │ 硬约束: 严格只扫 PR 增量 (base..HEAD), 任何情况都不全量扫描。      │
-# │ - 只在 pull_request 触发 (PR 的 base.sha 永远存在, 是稳定基准)。  │
+# │ - 只在 pull_request 触发, 用目标分支最新 tip (origin/base.ref) 算 diff。│
 # │ - 不在 push 触发 (push 无 base, 会退化成不可控范围)。            │
 # └──────────────────────────────────────────────────────────────┘
 #
@@ -39,9 +39,11 @@ jobs:
         run: git clone --depth 1 -b "$AGENTGATE_REF" "$AGENTGATE_REPO" /tmp/agentgate
       - name: scan risks
         run: |
-          BASE="${{ github.event.pull_request.base.sha }}"
-          if [ -z "$BASE" ]; then echo "::error::PR base.sha 缺失, 拒绝扫描 (不允许全量回退)"; exit 1; fi
-          python /tmp/agentgate/scripts/scan_risks.py --diff-base "$BASE" --config governance.config.yml
+          BASE_REF="${{ github.event.pull_request.base.ref }}"
+          # 用目标分支最新 tip (而非 PR 创建时旧快照), 否则 merge 进来的他人改动被误算
+          if [ -z "$BASE_REF" ]; then echo "::error::PR base.ref 缺失, 拒绝扫描"; exit 1; fi
+          git fetch -q origin "$BASE_REF"
+          python /tmp/agentgate/scripts/scan_risks.py --diff-base "origin/$BASE_REF" --config governance.config.yml
 
   # 密钥扫描: 硬阻断
   secret-scan:
@@ -52,10 +54,11 @@ jobs:
           fetch-depth: 0
       - name: gitleaks (本次 PR 范围)
         run: |
-          BASE="${{ github.event.pull_request.base.sha }}"
-          if [ -z "$BASE" ]; then echo "::error::PR base.sha 缺失, 拒绝扫描 (不允许全量回退)"; exit 1; fi
+          BASE_REF="${{ github.event.pull_request.base.ref }}"
+          if [ -z "$BASE_REF" ]; then echo "::error::PR base.ref 缺失, 拒绝扫描"; exit 1; fi
+          git fetch -q origin "$BASE_REF"
           docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:latest \
-            detect --source /repo --log-opts="${BASE}..HEAD" \
+            detect --source /repo --log-opts="origin/${BASE_REF}..HEAD" \
             --redact --no-banner --verbose
 
   # MR 描述校验: 软→硬
@@ -75,10 +78,11 @@ jobs:
         env:
           PR_BODY: ${{ github.event.pull_request.body }}
         run: |
-          BASE="${{ github.event.pull_request.base.sha }}"
-          if [ -z "$BASE" ]; then echo "::error::PR base.sha 缺失, 拒绝扫描 (不允许全量回退)"; exit 1; fi
+          BASE_REF="${{ github.event.pull_request.base.ref }}"
+          if [ -z "$BASE_REF" ]; then echo "::error::PR base.ref 缺失, 拒绝扫描"; exit 1; fi
+          git fetch -q origin "$BASE_REF"
           printf '%s' "$PR_BODY" \
-            | python /tmp/agentgate/scripts/validate_mr.py --diff-base "$BASE" --config governance.config.yml
+            | python /tmp/agentgate/scripts/validate_mr.py --diff-base "origin/$BASE_REF" --config governance.config.yml
 
   # 测试痕迹检测: 软→硬 (失败测试记录无条件硬拦)
   test-check:
@@ -95,6 +99,7 @@ jobs:
         run: git clone --depth 1 -b "$AGENTGATE_REF" "$AGENTGATE_REPO" /tmp/agentgate
       - name: check tested
         run: |
-          BASE="${{ github.event.pull_request.base.sha }}"
-          if [ -z "$BASE" ]; then echo "::error::PR base.sha 缺失, 拒绝扫描 (不允许全量回退)"; exit 1; fi
-          python /tmp/agentgate/scripts/check_tested.py --diff-base "$BASE" --config governance.config.yml
+          BASE_REF="${{ github.event.pull_request.base.ref }}"
+          if [ -z "$BASE_REF" ]; then echo "::error::PR base.ref 缺失, 拒绝扫描"; exit 1; fi
+          git fetch -q origin "$BASE_REF"
+          python /tmp/agentgate/scripts/check_tested.py --diff-base "origin/$BASE_REF" --config governance.config.yml
