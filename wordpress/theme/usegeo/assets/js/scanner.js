@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const config = window.usegeoScannerConfig || {};
   const realScannerEnabled = config.realScannerEnabled !== false;
   const apiUrl = config.apiUrl || "/wp-json/usegeo/v1/scan";
+  const reportApiUrl = config.reportApiUrl || "/wp-json/usegeo/v1/report";
   const nonce = config.nonce || "";
 
   const form = container.querySelector("[data-usegeo-scanner-form]");
@@ -31,6 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const findings = container.querySelector("[data-usegeo-findings]");
   const evidence = container.querySelector("[data-usegeo-evidence]");
   const scannerQueryInput = container.querySelector("[data-usegeo-scanner-query]");
+  const reportForm = container.querySelector("[data-usegeo-report-form]");
+  const reportStatus = container.querySelector("[data-usegeo-report-status]");
   const hidden = {
     total: container.querySelector("[data-usegeo-scan-total-score]"),
     entity: container.querySelector("[data-usegeo-scan-entity-clarity]"),
@@ -61,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   let loadingTimer = null;
+  let currentPayload = null;
   const escapeHtml = (value) => String(value || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 
   function setStage(stageName) {
@@ -179,6 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function renderPayload(query, payload) {
+    currentPayload = payload.demo_mode ? null : payload;
     const scores = payload.scores || {};
     const total = Number(scores.total || 0);
     const gradeText = payload.grade || (total >= 80 ? "Strong readiness" : (total >= 65 ? "Emerging readiness" : "Early readiness"));
@@ -210,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function showError(query, code, message) {
+    currentPayload = null;
     clearSnapshot(query);
     if (status) status.textContent = "Assessment could not be completed.";
     if (emptyState) emptyState.hidden = false;
@@ -260,4 +266,48 @@ document.addEventListener("DOMContentLoaded", function () {
       showError(query, error.code || "internal_error", error.message || "");
     });
   });
+
+  if (reportForm) {
+    reportForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const submitter = event.submitter;
+      const action = submitter && submitter.value === "checkout" ? "checkout" : "email";
+      const email = new FormData(reportForm).get("email");
+      if (!currentPayload) {
+        if (reportStatus) reportStatus.textContent = "Run a real website scan before requesting a report.";
+        return;
+      }
+      if (!email) {
+        if (reportStatus) reportStatus.textContent = "Enter the email address where we should send your report.";
+        return;
+      }
+      const buttons = Array.from(reportForm.querySelectorAll("button"));
+      buttons.forEach(button => { button.disabled = true; });
+      if (reportStatus) reportStatus.textContent = action === "checkout" ? "Opening secure checkout..." : "Preparing your free snapshot...";
+
+      window.fetch(reportApiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-WP-Nonce": nonce },
+        credentials: "same-origin",
+        body: JSON.stringify({ email: String(email).trim(), snapshot: currentPayload, checkout: action === "checkout" })
+      }).then(response => response.json().then(body => {
+        if (!response.ok || !body.ok) throw new Error(body.message || "We could not prepare your report.");
+        return body;
+      })).then(body => {
+        if (action === "checkout" && body.checkout_url) {
+          window.usegeoTrackEvent && window.usegeoTrackEvent("begin_checkout", { product: "homepage_geo_action_report", value: 29, currency: "USD" });
+          window.location.assign(body.checkout_url);
+          return;
+        }
+        if (reportStatus) reportStatus.innerHTML = body.email_sent
+          ? `Snapshot sent. <a href="${escapeHtml(body.report_url)}">Open it now</a>.`
+          : `Your snapshot is ready, but email delivery failed. <a href="${escapeHtml(body.report_url)}">Open it now</a>.`;
+        window.usegeoTrackEvent && window.usegeoTrackEvent("free_report_requested", { product: "homepage_geo_snapshot" });
+      }).catch(error => {
+        if (reportStatus) reportStatus.textContent = error.message || "We could not prepare your report.";
+      }).finally(() => {
+        buttons.forEach(button => { button.disabled = false; });
+      });
+    });
+  }
 });

@@ -9,6 +9,9 @@ function usegeo_get_schema_site_url() {
 }
 
 function usegeo_get_schema_description($post_id = 0) {
+    if (is_front_page()) {
+        return __('Scan your B2B website for GEO readiness and unlock a prioritized AI visibility action report without a sales call or subscription.', 'usegeo');
+    }
     if ($post_id) {
         $source = has_excerpt($post_id) ? get_the_excerpt($post_id) : wp_strip_all_tags(get_post_field('post_content', $post_id));
         return wp_trim_words($source, 30, '');
@@ -189,3 +192,20 @@ function usegeo_output_json_ld() {
     <?php
 }
 add_action('wp_head', 'usegeo_output_json_ld', 6);
+
+function usegeo_front_page_document_title($title) {
+    return is_front_page() ? 'UseGEO — Automated GEO Readiness Scanner & Action Report' : $title;
+}
+add_filter('pre_get_document_title', 'usegeo_front_page_document_title', 20);
+
+function usegeo_output_front_page_meta() {
+    if (!is_front_page()) {
+        return;
+    }
+    ?>
+    <meta name="description" content="Scan your B2B website for GEO readiness and unlock a prioritized AI visibility action report without a sales call or subscription.">
+    <meta property="og:title" content="UseGEO — Automated GEO Readiness Scanner & Action Report">
+    <meta property="og:description" content="Turn homepage evidence into a focused 30-day GEO action plan.">
+    <?php
+}
+add_action('wp_head', 'usegeo_output_front_page_meta', 5);

@@ -44,6 +44,26 @@ function usegeo_register_post_types() {
         'exclude_from_search' => true,
         'show_in_rest'        => false,
     ));
+
+    register_post_type('usegeo_report', array(
+        'labels' => array(
+            'name'          => __('UseGEO Reports', 'usegeo'),
+            'singular_name' => __('UseGEO Report', 'usegeo'),
+        ),
+        'public'              => false,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'menu_position'       => 27,
+        'menu_icon'           => 'dashicons-chart-area',
+        'supports'            => array('title'),
+        'capability_type'     => 'post',
+        'has_archive'         => false,
+        'rewrite'             => false,
+        'query_var'           => false,
+        'publicly_queryable'  => false,
+        'exclude_from_search' => true,
+        'show_in_rest'        => false,
+    ));
 }
 add_action('init', 'usegeo_register_post_types');
 

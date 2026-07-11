@@ -153,122 +153,33 @@
 
             <?php if (function_exists('usegeo_render_sponsor_slot')) { usegeo_render_sponsor_slot('scanner_result'); } ?>
 
-            <div class="usegeo-report-gate">
+            <div class="usegeo-report-gate" data-usegeo-report-gate>
                 <div class="usegeo-report-gate__copy">
-                    <span class="usegeo-report-gate__kicker">Recommended next step</span>
-                    <h3>Get matched with relevant GEO help</h3>
-                    <p class="usegeo-report-gate__intro">The free score is a starting point. The full assessment turns it into a short action plan you can review with a GEO specialist.</p>
+                    <span class="usegeo-report-gate__kicker">Your next move</span>
+                    <h3>Turn this snapshot into a focused 30-day action plan.</h3>
+                    <p class="usegeo-report-gate__intro">Get the free result by email, or unlock the full implementation report instantly. No sales call and no subscription.</p>
                     <ul>
-                        <li>Your top 3 visibility gaps by business impact</li>
-                        <li>Recommended page and content fixes</li>
-                        <li>Whether a paid Manual GEO Audit is useful now or premature</li>
+                        <li>Every evidence-backed finding and recommendation</li>
+                        <li>Your three lowest-scoring priorities in order</li>
+                        <li>A printable report your team can execute</li>
                     </ul>
                 </div>
-                <form class="usegeo-report-gate__form" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
-                    <input type="hidden" name="action" value="usegeo_capture_lead">
-                    <input type="hidden" name="redirect_to" value="<?php echo esc_url(home_url('/#scanner')); ?>">
-                    <input type="hidden" name="scanner_query" value="" data-usegeo-scanner-query>
-                    <input type="hidden" name="scan_total_score" value="" data-usegeo-scan-total-score>
-                    <input type="hidden" name="scan_entity_clarity" value="" data-usegeo-scan-entity-clarity>
-                    <input type="hidden" name="scan_content_structure" value="" data-usegeo-scan-content-structure>
-                    <input type="hidden" name="scan_proof_signals" value="" data-usegeo-scan-proof-signals>
-                    <input type="hidden" name="scan_comparison_readiness" value="" data-usegeo-scan-comparison-readiness>
-                    <input type="hidden" name="scan_ai_extractability" value="" data-usegeo-scan-ai-extractability>
-                    <input type="hidden" name="scan_completed_at" value="" data-usegeo-scan-completed-at>
-                    <input type="hidden" name="scan_findings_summary" value="" data-usegeo-scan-findings-summary>
-                    <input type="hidden" name="scan_llm_summary" value="" data-usegeo-scan-llm-summary>
-                    <?php wp_nonce_field('usegeo_capture_lead', 'usegeo_lead_nonce'); ?>
+                <form class="usegeo-report-gate__form" data-usegeo-report-form>
                     <div class="usegeo-report-gate__form-head">
-                        <strong>Request expert follow-up</strong>
-                        <span>Designed for teams that may need a manual audit, fix sprint, or clear next-step roadmap.</span>
+                        <span>Homepage GEO Action Report</span>
+                        <strong>$29</strong>
+                        <small>One website · instant delivery</small>
                     </div>
                     <label>
-                        <span>Work email</span>
-                        <input type="email" name="work_email" placeholder="name@company.com" required>
+                        <span>Where should we send your result?</span>
+                        <input type="email" name="email" autocomplete="email" placeholder="name@company.com" required>
                     </label>
-                    <label>
-                        <span>Company type</span>
-                        <select name="company_type" required>
-                            <option value="">Select one</option>
-                            <option value="b2b_saas">B2B SaaS</option>
-                            <option value="agency_consultancy">Agency / Consultancy</option>
-                            <option value="marketplace">Marketplace</option>
-                            <option value="media_content">Media / Content Business</option>
-                            <option value="ecommerce">Ecommerce</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>Company size</span>
-                        <select name="company_size" required>
-                            <option value="">Select one</option>
-                            <option value="1_10">1–10 people</option>
-                            <option value="11_50">11–50 people</option>
-                            <option value="51_200">51–200 people</option>
-                            <option value="201_1000">201–1,000 people</option>
-                            <option value="1000_plus">1,000+ people</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>What kind of help are you looking for?</span>
-                        <select name="help_intent" required>
-                            <option value="">Select one</option>
-                            <option value="exploring_geo">Just exploring GEO</option>
-                            <option value="prioritized_next_steps">Want prioritized next steps</option>
-                            <option value="open_to_specialist">Open to working with a GEO specialist</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>If you need outside help, what level of support would be realistic?</span>
-                        <select name="support_level" required>
-                            <option value="">Select one</option>
-                            <option value="not_hiring">Not planning to hire anyone</option>
-                            <option value="small_project">Open to a small project</option>
-                            <option value="ongoing_support">Open to ongoing support</option>
-                            <option value="not_sure">Not sure yet</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>When would you realistically act on this?</span>
-                        <select name="timeline" required>
-                            <option value="">Select one</option>
-                            <option value="just_researching">Just researching</option>
-                            <option value="next_quarter">Planning in the next quarter</option>
-                            <option value="need_help_soon">Need help soon</option>
-                            <option value="not_sure_yet">Not sure yet</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>What budget range would be realistic if you decide to get outside help?</span>
-                        <select name="budget_range">
-                            <option value="">Select one</option>
-                            <option value="under_500">Under $500</option>
-                            <option value="500_1500">$500–$1,500</option>
-                            <option value="1500_5000">$1,500–$5,000</option>
-                            <option value="5000_plus">$5,000+</option>
-                            <option value="not_sure">Not sure yet</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>Where is your team primarily based?</span>
-                        <select name="region">
-                            <option value="">Select one</option>
-                            <option value="north_america">North America</option>
-                            <option value="europe">Europe</option>
-                            <option value="asia_pacific">Asia-Pacific</option>
-                            <option value="global_remote">Global / remote</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </label>
-                    <label class="usegeo-report-gate__checkbox">
-                        <input type="checkbox" name="partner_consent" value="yes">
-                        <span>I agree that UseGEO may share my submission with relevant GEO/SEO partners who can contact me about services that may fit my needs.</span>
-                    </label>
-                    <button type="submit" class="usegeo-report-gate__button" data-cta="request_expert_followup">Request expert follow-up</button>
-                    <p class="usegeo-report-gate__disclosure">
-                        We use your submission to personalize the assessment. If you opt in, we may share it with relevant GEO/SEO partners for follow-up. See our
-                        <a href="<?php echo esc_url(home_url('/privacy-policy')); ?>">Privacy Policy</a>.
-                    </p>
+                    <div class="usegeo-report-gate__actions">
+                        <button type="submit" name="report_action" value="email" class="usegeo-report-gate__secondary" data-cta="email_free_snapshot">Email free snapshot</button>
+                        <button type="submit" name="report_action" value="checkout" class="usegeo-report-gate__button" data-cta="unlock_report">Unlock full report · $29</button>
+                    </div>
+                    <p class="usegeo-report-gate__status" data-usegeo-report-status aria-live="polite"></p>
+                    <p class="usegeo-report-gate__disclosure">Secure checkout by Stripe. Your information is used only to deliver this report. See our <a href="<?php echo esc_url(home_url('/privacy-policy')); ?>">Privacy Policy</a>.</p>
                 </form>
             </div>
         </div>

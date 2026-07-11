@@ -1,27 +1,27 @@
 <section class="usegeo-hero">
     <div class="usegeo-hero__content usegeo-card">
         <div class="usegeo-hero__copy">
-            <p class="usegeo-eyebrow">AI visibility diagnostic for B2B growth teams</p>
-            <h1>Find out why AI tools do not recommend your brand yet.</h1>
+            <p class="usegeo-eyebrow">Automated GEO diagnostics for B2B websites</p>
+            <h1>Turn your website into an AI-ready action plan.</h1>
             <p class="usegeo-lead">
-                Run a fast GEO readiness scan, see the signals holding your site back,
-                and request a specialist review before you spend more budget on content that may not move AI visibility.
+                Scan your homepage, see the signals holding it back, and unlock a prioritized report
+                you can execute without hiring a consultant or sitting through a sales call.
             </p>
 
             <div class="usegeo-trust-row" aria-label="Trust signals">
                 <span class="usegeo-trust-pill">Free diagnostic snapshot</span>
                 <span class="usegeo-trust-pill">Prioritized GEO gaps</span>
-                <span class="usegeo-trust-pill">Optional expert review path</span>
+                <span class="usegeo-trust-pill">$29 full action report</span>
             </div>
 
             <div class="usegeo-hero__actions">
-                <a class="usegeo-inline-cta usegeo-inline-cta--primary" href="<?php echo esc_url(home_url('/#scanner')); ?>">Run your free assessment</a>
+                <a class="usegeo-inline-cta usegeo-inline-cta--primary" href="<?php echo esc_url(home_url('/#scanner')); ?>">Scan your website</a>
                 <a class="usegeo-inline-cta usegeo-inline-cta--ghost" href="<?php echo esc_url(home_url('/articles/')); ?>">Learn GEO fundamentals</a>
             </div>
 
             <div class="usegeo-hero__microcopy">
-                <strong>Do not publish blindly.</strong>
-                <span>Use the scanner to turn vague GEO anxiety into a concrete list of visibility, content, and proof gaps.</span>
+                <strong>No ranking promises.</strong>
+                <span>Use evidence from your own homepage to decide what to fix next.</span>
             </div>
         </div>
 
@@ -29,7 +29,7 @@
             <div class="usegeo-preview-card usegeo-preview-card--score">
                 <span class="usegeo-preview-card__label">Diagnostic funnel</span>
                 <strong>72/100</strong>
-                <p>Score your site across AI visibility signals, unlock a fuller assessment, and decide whether expert help is worth it.</p>
+                <p>Score your site across AI visibility signals, then unlock a focused 30-day implementation plan.</p>
             </div>
             <div class="usegeo-preview-grid">
                 <div class="usegeo-preview-card">
