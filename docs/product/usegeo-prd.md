@@ -148,6 +148,24 @@ MVP 的核心不是“信息完整”，而是“转化闭环成立”。因此�
 
 ## 9. 功能需求
 
+> **更新 (2026-07-26)**: 
+> - 品牌 AI 曝光度诊断器已升级为 **Real Scanner v1** ✅
+> - Sponsor 广告位管理已实现 ✅
+> - 社区案例投稿与审核流程已实现 ✅
+> - Partner Lead 转介功能已实现 ✅
+
+### 功能状态总览
+
+| 功能 | PRD ID | 状态 | 实现文件 |
+|------|--------|------|----------|
+| 品牌 AI 曝光度诊断器 | 9.1 | ✅ 完成 | scanner-*.php, scanner.js |
+| AIGC ROI 试算器 | 9.2 | ✅ 完成 | roi.js |
+| 线索表单与提交 | PRD-LEAD-CAPTURE | ✅ 完成 | forms.php |
+| Partner Lead 转介 | PRD-PARTNER-LEADS | ✅ 完成 | admin.php |
+| 社区案例投稿 | PRD-COMMUNITY-CASE | ✅ 完成 | forms.php, admin.php |
+| 手动赞助位 | PRD-SPONSOR-INVENTORY | ✅ 完成 | admin.php |
+| 站点分析追踪 | PRD-ANALYTICS | ✅ 完成 | tracking.js |
+
 ## 9.1 功能一：品牌 AI 曝光度诊断器
 
 ### 9.1.1 产品目标

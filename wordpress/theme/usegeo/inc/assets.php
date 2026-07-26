@@ -94,6 +94,8 @@ function usegeo_enqueue_assets() {
         wp_localize_script('usegeo-scanner', 'usegeoScannerConfig', array(
             'realScannerEnabled' => function_exists('usegeo_is_real_scanner_enabled') ? usegeo_is_real_scanner_enabled() : false,
             'apiUrl' => esc_url_raw(rest_url('usegeo/v1/scan')),
+            'reportApiUrl' => esc_url_raw(rest_url('usegeo/v1/report')),
+            'checkoutEnabled' => function_exists('usegeo_is_checkout_enabled') ? usegeo_is_checkout_enabled() : false,
             'nonce' => wp_create_nonce('wp_rest'),
         ));
 

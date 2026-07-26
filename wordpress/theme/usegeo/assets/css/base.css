@@ -89,9 +89,13 @@ button {
 }
 
 .usegeo-site-logo {
+  display: grid;
   font-weight: 700;
   font-size: 1.1rem;
 }
+
+.usegeo-site-logo strong { line-height: 1; }
+.usegeo-site-logo span { margin-top: 4px; color: var(--usegeo-color-muted); font-size: 10px; font-weight: 700; text-transform: uppercase; }
 
 .usegeo-site-logo .custom-logo {
   max-height: 48px;
@@ -822,6 +826,49 @@ button {
   .usegeo-article-sidebar {
     position: static;
   }
+}
+
+/* Token-protected automated report */
+.usegeo-report-page { display: grid; gap: 24px; padding-top: 36px; padding-bottom: 72px; }
+.usegeo-report-page__hero, .usegeo-report-page__section, .usegeo-report-page__paywall { border: 1px solid var(--usegeo-color-border); border-radius: 20px; background: #fff; box-shadow: var(--usegeo-shadow-soft); }
+.usegeo-report-page__hero { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 32px; align-items: end; padding: 40px; }
+.usegeo-report-page__hero h1 { margin: 5px 0 12px; font-size: 42px; line-height: 1.05; }
+.usegeo-report-page__hero p, .usegeo-report-page__section p, .usegeo-report-page__paywall p { color: var(--usegeo-color-muted); }
+.usegeo-report-page__kicker { color: var(--usegeo-color-accent-dark); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+.usegeo-report-page__score { display: grid; min-height: 156px; place-content: center; border-radius: 16px; background: #101827; color: #fff; text-align: center; }
+.usegeo-report-page__score strong { font-size: 62px; line-height: 1; }
+.usegeo-report-page__dimensions { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.usegeo-report-page__dimensions article { display: grid; gap: 10px; padding: 18px; border: 1px solid var(--usegeo-color-border); border-radius: 16px; background: #fff; }
+.usegeo-report-page__dimensions article > span { min-height: 42px; color: var(--usegeo-color-muted); font-size: 13px; font-weight: 700; }
+.usegeo-report-page__dimensions article > strong { font-size: 28px; }
+.usegeo-report-page__dimensions article > div { height: 6px; overflow: hidden; border-radius: 3px; background: var(--usegeo-color-surface); }
+.usegeo-report-page__dimensions i { display: block; height: 100%; background: var(--usegeo-color-primary); }
+.usegeo-report-page__section { padding: 34px; }
+.usegeo-report-page__section h2, .usegeo-report-page__paywall h2 { margin: 8px 0 12px; font-size: 30px; line-height: 1.15; }
+.usegeo-report-page__findings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+.usegeo-report-page__findings article { padding: 20px; border: 1px solid var(--usegeo-color-border); border-radius: 16px; background: #f8fafc; }
+.usegeo-report-page__findings article > span { color: var(--usegeo-color-accent-dark); font-size: 11px; font-weight: 800; text-transform: uppercase; }
+.usegeo-report-page__findings h3 { margin: 8px 0; font-size: 18px; }
+.usegeo-report-page__findings strong { display: block; margin-top: 12px; }
+.usegeo-report-page__plan { display: grid; gap: 12px; padding: 0; list-style: none; }
+.usegeo-report-page__plan li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 18px; padding: 18px 0; border-top: 1px solid var(--usegeo-color-border); }
+.usegeo-report-page__plan li > span { color: var(--usegeo-color-primary-ink); font-size: 13px; font-weight: 800; }
+.usegeo-report-page__plan p { margin: 5px 0 0; }
+.usegeo-report-page__print { padding: 12px 16px; border: 1px solid var(--usegeo-color-border); border-radius: 12px; background: #fff; cursor: pointer; font-weight: 700; }
+.usegeo-report-page__paywall { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 32px; align-items: center; padding: 34px; border-color: rgba(255, 107, 0, .28); }
+.usegeo-report-page__paywall > div:last-child { display: grid; gap: 10px; }
+.usegeo-report-page__paywall > div:last-child > strong { font-size: 46px; line-height: 1; }
+.usegeo-report-page__disclaimer { margin: 0; color: var(--usegeo-color-muted); font-size: 13px; }
+
+@media (max-width: 800px) {
+  .usegeo-report-page__hero, .usegeo-report-page__paywall, .usegeo-report-page__findings { grid-template-columns: 1fr; }
+  .usegeo-report-page__dimensions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .usegeo-report-page__hero, .usegeo-report-page__section, .usegeo-report-page__paywall { padding: 22px; }
+}
+
+@media print {
+  .usegeo-site-header, .usegeo-site-footer, .usegeo-report-page__print { display: none !important; }
+  .usegeo-report-page > * { break-inside: avoid; box-shadow: none; }
 }
 
 .usegeo-audit-input,
