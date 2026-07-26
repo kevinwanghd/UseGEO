@@ -9,6 +9,7 @@ require_once get_template_directory() . '/inc/scanner-parse.php';
 require_once get_template_directory() . '/inc/scanner-score.php';
 require_once get_template_directory() . '/inc/scanner-llm.php';
 require_once get_template_directory() . '/inc/scanner-ratelimit.php';
+require_once get_template_directory() . '/inc/scanner-cache.php';
 
 function usegeo_is_real_scanner_enabled() {
     if (defined('USEGEO_REAL_SCANNER_ENABLED') && !USEGEO_REAL_SCANNER_ENABLED) {
@@ -85,6 +86,28 @@ function usegeo_scan_endpoint(WP_REST_Request $request) {
 
     $params = $request->get_json_params();
     $url = isset($params['url']) ? sanitize_text_field(wp_unslash($params['url'])) : '';
+
+    // Check cache first (RS-25)
+    $cached = usegeo_scan_get_cached_result($url);
+    if ($cached !== null) {
+        $ttl_remaining = max(0, usegeo_scan_get_cache_ttl() - (time() - $cached['created_at']));
+        usegeo_scan_log_cache_hit($url, $ttl_remaining);
+        return new WP_REST_Response(array(
+            'ok' => true,
+            'url' => $cached['result']['url'],
+            'final_url' => $cached['result']['final_url'],
+            'scores' => $cached['result']['scores'],
+            'grade' => $cached['result']['grade'],
+            'extracted' => $cached['result']['extracted'],
+            'findings' => $cached['result']['findings'],
+            'llm_summary' => $cached['result']['llm_summary'],
+            'cached' => true,
+            'cache_ttl_remaining' => $ttl_remaining,
+        ), 200);
+    }
+
+    usegeo_scan_log_cache_miss($url);
+
     $fetched = usegeo_scan_fetch_html($url);
     if (is_wp_error($fetched)) {
         error_log('UseGEO scanner fetch blocked/failed: ' . $fetched->get_error_code());
@@ -103,7 +126,7 @@ function usegeo_scan_endpoint(WP_REST_Request $request) {
 
     unset($extracted['_body_excerpt'], $extracted['_robots'], $extracted['_final_url']);
 
-    return new WP_REST_Response(array(
+    $result = array(
         'ok' => true,
         'url' => $fetched['url'],
         'final_url' => $fetched['final_url'],
@@ -112,7 +135,13 @@ function usegeo_scan_endpoint(WP_REST_Request $request) {
         'extracted' => $extracted,
         'findings' => $findings,
         'llm_summary' => $llm_summary,
-    ), 200);
+    );
+
+    // Cache the result (RS-25)
+    usegeo_scan_set_cached_result($url, $result);
+    usegeo_scan_log_cache_set($url, usegeo_scan_get_cache_ttl());
+
+    return new WP_REST_Response($result, 200);
 }
 
 function usegeo_register_scan_route() {

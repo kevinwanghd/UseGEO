@@ -5,8 +5,9 @@
 - 项目名称：`usegeo.blog`
 - 文档类型：`Development Plan`
 - 适用阶段：`MVP`
-- 当前版本：`v1.0`
+- 当前版本：`v1.1`
 - 文档状态：`执行版`
+- 最后更新：`2026-07-25`
 
 ## 2. 开发目标
 
@@ -84,6 +85,8 @@
 - 移动端转为文末 CTA 模块
 
 ## 6. 组件拆分
+
+> **更新 (2026-07-25)**: 品牌 AI 曝光度诊断器已升级为 **Real Scanner v1**，包含真实网页抓取、SEO/GEO 信号解析、5 维度规则评分。参见 `.free-flow/specs/usegeo-real-scanner-v1-taskboard.md`。
 
 ## 6.1 品牌 AI 曝光度诊断器
 
