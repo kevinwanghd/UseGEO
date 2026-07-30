@@ -1,12 +1,12 @@
-<!-- agentgate-pr-bind {"base_ref": "origin/master", "changed_paths": [".github/pull_request_template.md", ".github/workflows/agentgate.yml", "docs/governance/mr-spec.md", "docs/governance/risk-types.md"], "diff_fingerprint": "ac14233c4c3e176329c7d550c05c293067b6eea4100e9c51ec00211f765d3b39", "prepared_from_sha": "50ff23aec032ae58c83fbb1f2de0c521bcd39b9c", "schema_version": "agentgate.io/pr-description-binding/v1"} -->
+<!-- agentgate-pr-bind {"base_ref": "origin/master", "changed_paths": [".github/workflows/agentgate.yml"], "diff_fingerprint": "52c78eabf2738463707fe2dc19899ce351cdb8abf74f30c887db250961a7ac79", "prepared_from_sha": "13277ef1b999534cb2d10fb576f7c54972e808b5", "schema_version": "agentgate.io/pr-description-binding/v1"} -->
 
 ## 背景
 
-为 UseGEO 接入中心化 AgentGate GitHub 门禁，让 Pull Request 自动校验治理描述、风险扫描和基础质量信号；新增 thin workflow 后，AgentGate 在 main 更新时仓库会直接使用中心版本。
+UseGEO 已接入 AgentGate GitHub 门禁；为了避免业务仓库直接追 AgentGate main，将门禁 workflow 和脚本 checkout 切换到 github-stable 稳定通道。后续 AgentGate 更新时，只要推进 github-stable，所有接入仓库会自动使用稳定版门禁。
 
 ## 变更内容
 
-新增 GitHub Actions AgentGate thin workflow，调用 kevinwanghd/AgentGate 的可复用门禁；新增 GitHub PR 模板；新增 docs/governance 下的 MR 规范和风险类型参考文档。
+将 .github/workflows/agentgate.yml 中的 reusable workflow ref 从 main 改为 github-stable；将 agentgate-ref 输入从 main 改为 github-stable。
 
 ## 不包含的内容
 
@@ -18,7 +18,7 @@ pass - python E:\ClaudeCode\AgentGate-rollout-kit-clean\scripts\agentgate.py pr 
 
 ## 风险与回滚
 
-低风险。变更仅新增 GitHub 门禁入口、PR 模板和治理文档，不修改 WordPress 运行时代码；如 workflow 配置异常，可回滚本提交恢复原流程。
+低风险。只修改 GitHub Actions 中 AgentGate 的引用通道，不改变 WordPress 运行时代码；如 stable 分支异常，可回滚本提交或临时改回 main。
 
 ## 关联
 
