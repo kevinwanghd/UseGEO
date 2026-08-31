@@ -4,6 +4,34 @@
 
 ---
 
+## ⚠️ 当前 Pipeline 状态（诚实说明）
+
+> **必读**：以下表格说明哪些环节是自动的、哪些需要手动触发。
+
+| Gate / 阶段 | 默认状态 | 如何触发 | 备注 |
+|------------|---------|---------|------|
+| SpecGate | ✅ **自动**（PreDevGate 包含） | `specgate.py` | 无 acceptance-spec → PreDevGate BLOCK |
+| PreDevGate | ✅ **自动**（开发前必跑） | `pre_dev_gate.py <CR-ID>` | 缺少文档 → BLOCK |
+| ContextWindowGate | ⚙️ 实验性 | `context_window_check.py` | 默认跳过，非强制 |
+| ReviewGate | ⚠️ **需手动** | `reviewgate.py <CR-path>/` | 开发完成后手动触发 |
+| QualityGate | ⚠️ **需手动** | `qualitygate.py <CR-path>/` | 需要 verification-manifest.yml |
+| WritebackGate | ⚠️ **需手动** | `writeback_gate.py <CR-path>/` | 需要 quality-report.md |
+| DeployGate | ⚙️ 实验性 | `deploygate.py <CR-path>/` | 不做真实部署 |
+| Orchestrator | ⚙️ 实验性 | `skill_orchestrator.py` | 默认停在 dev handoff |
+| Legacy Scan（逆向） | 🚫 不可用 | — | experimental/not_integrated，见 ROADMAP |
+
+**默认 pipeline 实际路径**：
+```
+init_cr → Spec → PreDevGate → Dev Phase（输出上下文后停止）
+                                                    ↓
+                                        [需手动触发 ↓]
+                                          ReviewGate → QualityGate → WritebackGate → Archive
+```
+
+**默认跑通的只有**：Spec（文档）+ PreDevGate（门禁）+ Dev Phase（开发上下文输出）
+
+---
+
 ## ⚠️ AI 开发者必读
 
 **在执行任何任务前，请先阅读：**
@@ -139,33 +167,37 @@ PRD.md → request.md → acceptance-spec.md → implementation-plan.md → 代�
 
 每个阶段产出必须通过 Gate 检查才能进入下一阶段。
 
-### 9 个协作 Agent
+### 9 个协作 Phase（实际默认 pipeline vs 手动触发）
 
-| Agent | 输入 | 输出 | Gate |
-|---|---|---|---|
-| **Spec Agent** | request.md | acceptance-spec.md | SpecGate |
-| **Design Agent** | acceptance-spec.md | design/* | DesignGate |
-| **Context Agent** | 所有前置文档 | context-summary.md | ContextWindowGate |
-| **Dev Agent** | implementation-plan.md | 源码 | pre_dev_gate |
-| **Review Agent** | 源码 + acceptance-spec | review-report.md | ReviewGate |
-| **Test Agent** | 源码 | test-plan.md + 测试代码 | - |
-| **Quality Agent** | 源码 + 测试 | quality-report.md | QualityGate |
-| **Writeback Agent** | quality-report.md | 更新 rules/decisions | WritebackGate |
-| **Memory Agent** | 所有 CR 文档 | 归档到 delivery/ | - |
-| **Scan Agent** | 源码 | code-health-report.md | - |
+| Phase | 默认状态 | 输入 | 输出 | Gate |
+|-------|---------|------|------|------|
+| **Spec Phase** | ✅ 默认 | request.md | acceptance-spec.md | SpecGate（自动） |
+| **Design Phase** | ✅ 按需 | acceptance-spec.md | design/* | DesignGate（实验性） |
+| **Context Phase** | ⚙️ 可选 | 所有前置文档 | context-summary.md | ContextWindowGate（实验性） |
+| **Dev Phase** | ✅ 默认 | acceptance-spec.md + context | 源码 | pre_dev_gate（自动） |
+| **Review Phase** | ⚠️ 需手动 | 源码 + acceptance-spec | review-report.md | ReviewGate（手动） |
+| **Test Phase** | ⚠️ 需手动 | acceptance-spec.md | test-plan.md + 测试代码 | — |
+| **Quality Phase** | ⚠️ 需手动 | 源码 + 测试 | quality-report.md | QualityGate（手动） |
+| **Writeback Phase** | ⚠️ 需手动 | quality-report.md | 更新 rules/decisions | WritebackGate（手动） |
+| **Memory Phase** | ⚠️ 需手动 | 所有 CR 文档 | 归档到 delivery/ | — |
+| **Scan Phase** | 🚫 不可用 | 源码 | code-health-report.md | — |
 
-### 8 个核心 Gates
+> **说明**："需手动"不代表不重要，而是当前 pipeline 默认不在此停下，需要开发者主动触发。
 
-1. **SpecGate**：验收规格完备性检查
-2. **DesignGate**：设计产物完备性检查（C端强制高保真）
-3. **PreDevGate**：开发前综合检查
-4. **ContextWindowGate**：上下文滑动窗口纪律检查
-5. **ReviewGate**：代码审查门禁（对抗式验证 - 开发和审查必须分离）
-6. **QualityGate**：质量门禁（P0 通过率 100%）
-7. **DeployGate**：部署就绪检查
-8. **WritebackGate**：知识沉淀完整性检查
+### 8 个核心 Gates（含实际默认状态）
 
-**关键原则**：ReviewGate 实现对抗式验证 - Dev Agent 实现代码，Review Agent 独立挑刺，确保"干活的人和验收的人不是同一个 agent"。
+| Gate | 状态 | 说明 |
+|------|------|------|
+| **SpecGate** | ✅ 默认自动 | 验收规格完备性检查 |
+| **DesignGate** | ⚙️ 实验性 | 设计产物完备性检查（C端强制高保真） |
+| **PreDevGate** | ✅ 默认自动 | 开发前综合检查 |
+| **ContextWindowGate** | ⚙️ 实验性 | 上下文滑动窗口纪律检查（默认跳过） |
+| **ReviewGate** | ⚠️ 需手动触发 | 代码审查门禁（对抗式验证） |
+| **QualityGate** | ⚠️ 需手动触发 | 质量门禁（P0 通过率 100%） |
+| **DeployGate** | ⚙️ 实验性 | 部署就绪检查（不做真实部署） |
+| **WritebackGate** | ⚠️ 需手动触发 | 知识沉淀完整性检查 |
+
+**关键原则**：ReviewGate 实现对抗式验证 - Dev Phase 实现代码，Review Phase 独立挑刺，确保"干活的人和验收的人不是同一个 phase"。
 
 ---
 
@@ -193,7 +225,7 @@ AI 读取 `request.md` 生成 `acceptance-spec.md`。
 python scripts/specgate.py change-requests/CR-001/acceptance-spec.md
 ```
 
-### 5. 开发（Dev Agent）
+### 5. 开发（Dev Phase）
 
 先运行 PreDevGate，再运行 DevPhase 交接。DevPhase 会输出 worktree/上下文路径并停止，不自动写代码，也不跳过人工开发点。
 
@@ -202,19 +234,52 @@ python scripts/pre_dev_gate.py CR-001 --lane standard
 python scripts/dev_phase.py change-requests/CR-001
 ```
 
-### 6. 质量检查（Quality Agent）
+### 6. 审查 + 测试 + 质量（⚠️ 需手动触发）
 
-生成 `quality-report.md` 并运行 QualityGate。默认 `hybrid` 模式会先执行 `verification-manifest.yml` 中的真实 build/test/lint/typecheck 命令；缺少 manifest 不会直接 PASS。
+Dev Phase 完成后，Review、Test、Quality 三个阶段需要**手动触发**。按顺序执行：
 
 ```bash
+# 6a. Review Gate：对抗式审查代码
+python scripts/reviewgate.py change-requests/CR-001/
+
+# 6b. 编写测试（由 Test Phase 完成）
+# 编写完成后生成 test-plan.md
+
+# 6c. Quality Gate：质量检查（需要 verification-manifest.yml）
 python scripts/qualitygate.py change-requests/CR-001/
+
+# 6d. Writeback Gate：知识沉淀
+python scripts/writeback_gate.py change-requests/CR-001/
 ```
 
-### 7. 归档（Memory Agent）
+> **如果不知道下一步该做什么**：运行 `python scripts/cr_state.py CR-001`，它会显示当前 CR 状态和建议的下一个 Gate。
+
+### 7. 归档（Memory Phase）
 
 ```bash
+python scripts/cr_state.py CR-001  # 确认所有 Gate 都通过了
 mv change-requests/CR-001 delivery/2026-06/CR-001
 ```
+
+### 手动推进完整流程指南
+
+CR 卡在哪一步是常见问题。以下是每个手动 Gate 的触发时机：
+
+| 当前状态 | 下一步 Gate | 触发命令 | 通过标准 |
+|---------|------------|---------|---------|
+| Dev Phase 完成 | ReviewGate | `reviewgate.py <CR>/` | 每个验收条件对应的代码实现已审查 |
+| Review 通过 | Test Phase | 手动编写测试 | 每个验收场景有对应测试 |
+| 测试完成 | QualityGate | `qualitygate.py <CR>/` | P0 测试通过率 100%，coverage ≥ 80% |
+| Quality 通过 | WritebackGate | `writeback_gate.py <CR>/` | rules/decisions/interfaces 均有更新 |
+| Writeback 通过 | Memory Phase | 移动到 delivery/ | CR 进入归档目录 |
+
+**每次进入新 Gate 前**：运行 `python scripts/cr_state.py <CR-ID>` 查看状态。
+
+---
+
+## 老项目逆向改造（⚠️ 当前不可用）
+
+> **状态**：experimental/not_integrated。Legacy scan 相关功能（scan_legacy.py / ReverseSpecGate / reverse_to_spec.py）尚未集成到默认 pipeline。如需使用，请联系治理负责人确认当前状态。
 
 ---
 

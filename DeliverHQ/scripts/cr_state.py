@@ -488,6 +488,16 @@ def format_state_report(state: CRStateSnapshot) -> str:
                 f"  {transition.timestamp[:19]} | {transition.from_state} → {transition.to_state} | {transition.trigger}"
             )
 
+    if state.worktree_path:
+        report.append("")
+        report.append(f"Worktree: {state.worktree_path}")
+        wt_path = Path(state.worktree_path)
+        if wt_path.exists():
+            report.append("  🌲 worktree 正常")
+        else:
+            report.append("  ❌ worktree 路径不存在，请检查或重新创建:")
+            report.append(f"     python scripts/worktree_manager.py create {state.cr_id}")
+
     return "\n".join(report)
 
 

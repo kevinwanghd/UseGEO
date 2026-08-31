@@ -38,7 +38,7 @@ def _parse_args(args: List[str]):
         arg = args[index]
         if arg == "--worktree":
             use_worktree = True
-        elif arg == "--no-worktree":
+        elif arg == "--no-worktree" or arg == "--skip-worktree":
             use_worktree = False
         elif arg == "--lane" and index + 1 < len(args):
             lane = args[index + 1]
@@ -118,7 +118,13 @@ def _create_runtime_dirs(target_dir: Path):
             _print(f"  - {directory.relative_to(target_dir)}")
 
 
-def _create_worktree(cr_id: str):
+def _create_worktree(cr_id: str, fail_on_error: bool = True):
+    """创建 worktree。失败时默认 raise，使 CR 初始化失败；可关闭为静默警告。
+
+    Args:
+        cr_id: CR ID
+        fail_on_error: True=失败时 raise（默认）；False=失败时仅警告并返回 None
+    """
     _print("\n🌲 创建 worktree...")
     result = subprocess.run(
         [sys.executable, str(WORKTREE_SCRIPT), "create", cr_id],
@@ -133,8 +139,18 @@ def _create_worktree(cr_id: str):
         _print(f"📂 切换到 worktree: cd .claude/worktrees/{cr_id}")
         return DELIVERHQ_ROOT / ".claude" / "worktrees" / cr_id
 
-    _print(f"⚠️  Worktree 创建失败: {result.stderr.strip()}")
-    _print(f"   可以稍后手动创建: python scripts/worktree_manager.py create {cr_id}")
+    error_msg = result.stderr.strip() or result.stdout.strip() or "未知错误"
+    _print(f"❌ Worktree 创建失败: {error_msg}")
+
+    if fail_on_error:
+        raise RuntimeError(
+            f"Worktree 创建失败: {error_msg}\n"
+            f"CR 初始化中断。请修复后重试，或使用 --skip-worktree 跳过 worktree 创建。\n"
+            f"修复命令: python scripts/worktree_manager.py create {cr_id}"
+        )
+
+    _print(f"   CR 目录已创建，但 worktree 未建立")
+    _print(f"   稍后手动创建: python scripts/worktree_manager.py create {cr_id}")
     return None
 
 
@@ -194,12 +210,14 @@ def init_cr(cr_id, cr_name, requester="", lane="standard", use_worktree=False, h
 
 def main():
     if len(sys.argv) < 3:
-        _print("用法: python init_cr.py <CR-ID> <CR-NAME> [REQUESTER] [--home <项目根>/DeliverHQ] [--lane fast|standard|high-risk] [--worktree|--no-worktree]")
+        _print("用法: python init_cr.py <CR-ID> <CR-NAME> [REQUESTER] [--home <项目根>/DeliverHQ] [--lane fast|standard|high-risk] [--worktree|--no-worktree|--skip-worktree]")
         _print("\n示例:")
         _print("  python DeliverHQ/scripts/init_cr.py CR-001 '实现用户登录日志功能' '产品经理'")
         _print("  python init_cr.py CR-002 '修复分页查询Bug' --home /path/to/proj/DeliverHQ --lane fast")
+        _print("  python init_cr.py CR-003 '紧急修复' --skip-worktree   # 跳过 worktree 创建")
         _print("\n说明: --home 可省略。脚本会自动定位 DeliverHQ 目录(agent 无关):")
         _print("  --home > 环境变量 DELIVERHQ_HOME > 向上找已有 DeliverHQ/ > 项目根/DeliverHQ > cwd/DeliverHQ")
+        _print("\n注意: worktree 创建失败会导致 CR 初始化失败（而非静默警告）。可用 --skip-worktree 跳过 worktree。")
         sys.exit(1)
 
     try:
