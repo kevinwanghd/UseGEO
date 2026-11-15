@@ -2,12 +2,16 @@ name: AgentGate
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, edited]
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+  pull_request_review:
+    types: [submitted]
 
+# auto-merge 需要 contents: write；可复用工作流的权限不得超过此上限
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
   checks: write
+  actions: read
 
 jobs:
   agentgate:
